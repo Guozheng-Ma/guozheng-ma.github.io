@@ -8,7 +8,7 @@ main:
     code: https://github.com/wufeim/DST3D
     page: https://ccvl.jhu.edu/3D-DST/
     bibtex: https://bib.yliu.me/arXiv23_1.txt
-    image: https://img.yliu.me/teaser/dst.png
+    image: https://github.com/Guozheng-Ma/guozheng-ma.github.io/blob/main/_data/Pub_Images/ICLR2024_cover.png
     notes: Spotlight
 
   #- title: Prompt-Based Exemplar Super-Compression and Regeneration for Class-Incremental Learning
