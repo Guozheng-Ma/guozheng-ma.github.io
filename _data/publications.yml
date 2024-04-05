@@ -9,3 +9,11 @@ main:
     code: https://github.com/Guozheng-Ma/Adaptive-Replay-Ratio
     image: ./assets/Pub_Images/ICLR2024_cover.png
 
+  - title: "Learning Better with Less: Effective Augmentation for Sample-Efficient Visual Reinforcement Learning"
+    authors: <strong>Guozheng Ma</strong>, Linrui Zhang, Haoyu Wang, Lu Li, Zilin Wang, Zhen Wang, Li Shen, Xueqian Wang, Dacheng Tao
+    conference_short: NeurIPS 2023
+    conference: Neural Information Processing Systems <strong>(NeurIPS)</strong>, 2023.
+    pdf: https://proceedings.neurips.cc/paper_files/paper/2023/file/bc26087d3f82e62044fc77752e86737e-Paper-Conference.pdf
+    bibtex: ./assets/bibtex/ma2024learning.txt
+    code: https://github.com/Guozheng-Ma/CycAug
+    image: ./assets/Pub_Images/NeurIPS2023_cover.png
