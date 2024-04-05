@@ -5,6 +5,7 @@ main:
     conference_short: ICLR 2024
     conference: International Conference on Learning Representations <strong>(ICLR)</strong>, 2024.
     pdf: https://openreview.net/pdf?id=0aR1s9YxoL
+    bibtex: https://bib.yliu.me/arXiv_2023_3.txt
     code: https://github.com/Guozheng-Ma/Adaptive-Replay-Ratio
     image: ./assets/Pub_Images/ICLR2024_cover.png
 
