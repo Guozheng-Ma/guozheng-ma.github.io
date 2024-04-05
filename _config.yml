@@ -1,0 +1,50 @@
+# Basic Information 
+title: Guozheng Ma
+position: Master Student
+affiliation: Tsinghua University
+affiliation_link: https://www.tsinghua.edu.cn/en/
+affiliation_logo: ./assets/img/THU.svg
+email: mgz21 (at) mails.tsinghua.edu.cn
+# email2: yliu538 (at) jhu.edu
+
+# Search Engine Optimization (SEO)
+keywords: guozheng ma, ma guozheng, guozhengma, maguozheng, 马国政
+# canonical: https://www.cs.jhu.edu/~yyliu/
+description: Guozheng Ma is a master student at Tsinghua University. His research lies in deep reinforcement learning.
+
+# The option is used to enable the Johns Hopkins template.
+enable_hopkins_logo: false
+
+# The option is used to show the last update time.
+enable_last_update: false
+
+# Links
+link_type: icon #text/icon
+google_scholar: https://scholar.google.com/citations?user=jDvVglUAAAAJ
+# cv_link: https://pages.jh.edu/yliu538/files/Yaoyao_Liu_Curriculum_Vitae.pdf
+github_link: https://github.com/Guozheng-Ma/
+# linkedin: https://www.linkedin.com/in/liuyaoyao/
+twitter: https://twitter.com/Guozheng_Ma/
+
+# Images 
+avatar: ./assets/img/fly.jpg
+favicon: ./assets/img/favicon.png
+favicon_dark: ./assets/img/favicon-dark.png
+
+# Footnotes
+# footnote: Feel free to use my website's source code.
+# footnote_link: https://github.com/yaoyao-liu/minimal-light
+
+# Analytics
+# Please remove the following lines about analytics services if you fork my project. 
+# Otherwise, the analytics information of your website will be recorded to my ClustrMaps accounts.
+# clustrmaps_id: CJD8XwsJhSyQ6sbsU-Gw0cNcUlbah7KW3xvHN2QlwW0
+
+# The following files will be removed from the generated website.
+exclude:
+  - build.sh
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
+  - CNAME
