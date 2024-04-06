@@ -15,5 +15,7 @@ Mitigating the constraints that arise when integrating deep neural networks with
 
 In this era marked by the advent of AGI, I am also deeply concerned about the <strong>[value alignment]()</strong> of AI agents, both from a technical perspective and a social science viewpoint.
 
+{% include_relative _includes/news.md %}
+
 {% include_relative _includes/publications.md %}
 
