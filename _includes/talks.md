@@ -4,7 +4,7 @@
 
 <h4 style="margin:0 10px 0;">Revisiting Plasticity in Visual Reinforcement Learning: Data, Modules and Training Stages.</h4>
 
-<ul class="event-list">
+<ul>
   <li>
     Youth PhD Talk, 
     <img src="/assets/Logo/AITIME.png" alt="AI TIME" width="19.778" height="20" style="vertical-align: middle;"> 
