@@ -4,6 +4,9 @@ main:
     url: ./#services
     right: true
 
+  - title: "Awards"
+    url: ./#award
+
   - title: "Talks"
     url: ./#invited-talks
 
