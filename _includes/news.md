@@ -1,6 +1,6 @@
 <h1 id="news"></h1>
 
-<h2 style="margin: 60px 0px 10px;">News</h2>
+<h2 style="margin: 30px 0px 10px;">News</h2>
 
 <ul>
 <li><strong>[2024.05]</strong> Happy to receive <a href="https://iclr.cc/Conferences/2024/">ICLR Financial Assistance Award</a>. See you in Vienna!</li>  
