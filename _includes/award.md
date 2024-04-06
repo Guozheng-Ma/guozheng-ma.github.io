@@ -10,5 +10,5 @@
 <li>First Prize of Outstanding Undergraduate Graduation Thesis, Hunan University, 2021.</li>  
 <li>Weisheng Scholarship, Hunan University, 2020.</li>  
 <li>XiongXiaoge Scholarship, Hunan University, 2019</li>  
-<li>National Scholarship, Ministry of Education of the People’s Republic of China, 2019</li> 
+<li>National Scholarship, Ministry of Education of China, 2019</li> 
 </ul>
