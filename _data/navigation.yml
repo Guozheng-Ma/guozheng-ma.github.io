@@ -1,5 +1,9 @@
 main:
 
+  - title: "Contact"
+    url: ./#contact 
+    right: true   
+
   - title: "Bio"
     url: ./#about-me
 
@@ -14,7 +18,4 @@ main:
 
   - title: "Services"
     url: ./#services
-
-  - title: "Contact"
-    url: ./#contact 
-    right: true     
+  
