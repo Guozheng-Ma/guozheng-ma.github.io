@@ -1,11 +1,8 @@
 main:
 
-  - title: "Contact"
-    url: ./#contact 
-    right: true   
-
   - title: "Services"
     url: ./#services
+    right: true
 
   - title: "Talks"
     url: ./#invited-talks
