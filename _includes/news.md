@@ -10,8 +10,8 @@
 <li><strong>[2023.07]</strong> Honored to be named as an AI Safety and Alignment Fellow by <a href="https://concordia-ai.com/">Concordia AI</a>!</li>
 <li> <a href="javascript:toggle_vis('newsmore')">Show more</a> </li>
 <div id="newsmore" style="display:none">     
-  <li><strong>[2022.10]</strong> We released <a href="[https://arxiv.org/pdf/2202.09982.pdf](https://arxiv.org/pdf/2210.04561.pdf)">a comprehensive survey of DA in VRL</a>.</li>  
-  <li><strong>[2022.04]</strong> Our <a href="https://arxiv.org/pdf/2202.09982.pdf">TLDA</a> was accepted to <a href="https://ijcai-22.org/">IJCAI 2022</a>. The fascinating VRL journey began!</li>
+<li><strong>[2022.10]</strong> We released <a href="[https://arxiv.org/pdf/2202.09982.pdf](https://arxiv.org/pdf/2210.04561.pdf)">a comprehensive survey of DA in VRL</a>.</li>  
+<li><strong>[2022.04]</strong> Our <a href="https://arxiv.org/pdf/2202.09982.pdf">TLDA</a> was accepted to <a href="https://ijcai-22.org/">IJCAI 2022</a>. The fascinating VRL journey began!</li>
 </div> 
 
 </ul>
