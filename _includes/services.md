@@ -2,7 +2,7 @@
 
 <h2 style="margin: 30px 0px 10px;">Academic Services</h2>
 
-<h4>Conference Reviewers</h4>
+<h4 style="margin: 10px 0px 5px;">Conference Reviewers</h4>
 
 <ul>
 <!--   <li><a href="https://neurips.cc/Conferences/2023"><autocolor>Annual Conference on Neural Information Processing Systems (NeurIPS) 2020-2023</autocolor></a></li> -->
@@ -20,7 +20,7 @@
   -->
 </ul>
 
-<h4>Journal Reviewers</h4>
+<h4 style="margin: 15px 0px 5px;">Journal Reviewers</h4>
 
 <ul>
 <!--   <li><a href="https://www.computer.org/csdl/journal/tp"><autocolor>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</autocolor></a></li>
