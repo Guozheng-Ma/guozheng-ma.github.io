@@ -6,11 +6,9 @@
 
 <ul>
   <li>
-    <div class="event-info">
-      <span class="event-title">Youth PhD Talk,</span>
-      <span class="event-host"><a href="http://www.aitime.cn/" target="_blank" rel="noopener noreferrer" class="brand"><img src="/assets/Logo/AITIME.png" alt="AI TIME" width="19.778" height="20" style="vertical-align: middle;"> AI TIME</a>,</span>
-      <time datetime="2024-03">March 2024</time>
-      <a href="https://www.bilibili.com/video/BV1RF4m157Uh/" target="_blank" rel="noopener noreferrer" class="rec-link" title="Talk Recording (in Chinese)" aria-label="Watch talk recording">🎥</a>
-    </div>
+    <span class="event-title">Youth PhD Talk,</span>
+    <span class="event-host"><a href="http://www.aitime.cn/" target="_blank" rel="noopener noreferrer" class="brand"><img src="/assets/Logo/AITIME.png" alt="AI TIME" width="19.778" height="20" style="vertical-align: middle;"> AI TIME</a>,</span>
+    <time datetime="2024-03">March 2024 |</time>
+    <a href="https://www.bilibili.com/video/BV1RF4m157Uh/" target="_blank" rel="noopener noreferrer" class="rec-link" title="Talk Recording (in Chinese)" aria-label="Watch talk recording"> Recording (in Chinese).</a>
   </li>
 </ul>
