@@ -1,11 +1,14 @@
 <h1 id="award"></h1>
 
-<h2 style="margin: 60px 0px 10px;">Contact</h2>
+<h2 style="margin: 30px 0px 10px;">Honors and Awards</h2>
 
-<p><strong>Address:</strong> <a href="https://www.google.com/maps/place/Malone+Hall,+3400+N+Charles+St,+Baltimore,+MD+21218/@39.3262085,-76.6253679,17z/data=!3m1!4b1!4m6!3m5!1s0x89c804de59b4d18d:0x2d92398f0946a9ad!8m2!3d39.3262044!4d-76.6208832!16s%2Fg%2F11b6g45l_1?coh=164777&amp;entry=tt">3400 N. Charles St., Baltimore, MD 21218-2625</a>
-<br />
-<strong>Office Location:</strong> Malone Hall 248
-<br />
-<strong>Email:</strong> <email>yliu538 (at) jhu.edu</email>
-<br />
-<strong>Phone:</strong> (857) 209-8688</p>
+<ul>
+<li>ICLR Financial Assistance Award, 2024.</li>  
+<li>ORDOS Scholarship, Tsinghua University, 2023.</li>  
+<li>AI Safety and Alignment Fellowship, Concordia AI, 2023.</li>  
+<li>Provincial Excellent Graduates, Hunan Province, 2021.</li>  
+<li>First Prize of Outstanding Undergraduate Graduation Thesis, Hunan University, 2021.</li>  
+<li>Weisheng Scholarship, Hunan University, 2020.</li>  
+<li>XiongXiaoge Scholarship, Hunan University, 2019</li>  
+<li>National Scholarship, Ministry of Education of the People’s Republic of China, 2019</li> 
+</ul>
