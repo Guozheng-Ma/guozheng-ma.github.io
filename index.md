@@ -6,8 +6,8 @@ layout: homepage
 
 <h2 style="margin: 60px 0px 10px;">Short Bio</h2>
 
-I am a final-year master student at [<img src="/assets/Logo/THU.png" alt="THU" width="18" height="18" style="vertical-align: middle;"> Tsinghua University](https://www.tsinghua.edu.cn/en/), with my research focused on Visual Reinforcement Learning and Data Augmentation.
-Prior to that, I completed my bachelor's degree at [<img src="/assets/Logo/HNU.jpg" alt="THU" width="18" height="18" style="vertical-align: middle;"> Hunan University](http://www-en.hnu.edu.cn/), where I cherished four wonderful years at the foothills of Yuelu Mountain.
+I am a final-year master student at [<img src="/assets/Logo/THU.png" alt="THU" width="17" height="17"> Tsinghua University](https://www.tsinghua.edu.cn/en/), with my research focused on Visual Reinforcement Learning and Data Augmentation.
+Prior to that, I completed my bachelor's degree at [<img src="/assets/Logo/HNU.jpg" alt="THU" width="17" height="17"> Hunan University](http://www-en.hnu.edu.cn/), where I cherished four wonderful years at the foothills of Yuelu Mountain.
 
 
 My research interests broadly pertain to the distinctive challenges in <strong>[DEEP Reinforcement Learning]()</strong>.
@@ -18,3 +18,5 @@ In this era marked by the advent of AGI, I am also deeply concerned about the <s
 {% include_relative _includes/news.md %}
 
 {% include_relative _includes/publications.md %}
+
+{% include_relative _includes/talks.md %}
