@@ -7,10 +7,7 @@
 <li><strong>[Jan. 2024]</strong> Our paper investigating <a href="https://openreview.net/pdf?id=0aR1s9YxoL">Plasticity Loss in VRL</a> has been accepted by <a href="https://iclr.cc/Conferences/2024/">ICLR 2024</a>.</li>
 <li><strong>[Dec. 2023]</strong> Our paper about <a href="https://arxiv.org/pdf/2306.00656.pdf">VRL's Generalization</a> got an oral at <a href="https://www.aamas2024-conference.auckland.ac.nz/">AAMAS</a>. Congratulations to <a href="https://scholar.google.com/citations?user=QPsrZx8AAAAJ">Lu Li</a>!</li>
 <li><strong>[Sep. 2023]</strong> Our paper on <a href="https://proceedings.neurips.cc/paper_files/paper/2023/file/bc26087d3f82e62044fc77752e86737e-Paper-Conference.pdf">'What makes a effective DA for sample-efficient VRL?'</a> was accepted to <a href="https://neurips.cc/Conferences/2023">NeurIPS 2023</a>.</li>
-
-
-
-
+<li><strong>[Jul. 2023]</strong> Honored to be named as an AI Safety and Alignment Fellow by <a href="https://concordia-ai.com/">Concordia AI</a>!</li>
 <li> <a href="javascript:toggle_vis('newsmore')">Show more</a> </li>
 <div id="newsmore" style="display:none"> 
   <li><strong>[Dec. 2022]</strong> <a href="https://www.bmvc2023.org">BMVC 2023</a> will be held in Aberdeen, UK, and I will serve as the Website Chair.</li>
