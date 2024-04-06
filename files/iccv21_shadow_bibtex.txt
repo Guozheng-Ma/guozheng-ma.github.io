@@ -1,0 +1,7 @@
+@inproceedings{jin2021dc,
+  title={Dc-shadownet: Single-image hard and soft shadow removal using unsupervised domain-classifier guided network},
+  author={Jin, Yeying and Sharma, Aashish and Tan, Robby T},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={5027--5036},
+  year={2021}
+}

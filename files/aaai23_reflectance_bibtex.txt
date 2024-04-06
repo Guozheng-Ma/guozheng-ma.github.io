@@ -1,0 +1,9 @@
+@inproceedings{jin2023estimating,
+  title={Estimating reflectance layer from a single image: Integrating reflectance guidance and shadow/specular aware learning},
+  author={Jin, Yeying and Li, Ruoteng and Yang, Wenhan and Tan, Robby T},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={37},
+  number={1},
+  pages={1069--1077},
+  year={2023}
+}
