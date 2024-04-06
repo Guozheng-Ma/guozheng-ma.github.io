@@ -6,7 +6,7 @@ layout: homepage
 
 <h2 style="margin: 60px 0px 10px;">Short Bio</h2>
 
-I’m currently a final-year master student at [<img src="/assets/Logo/THU.png" alt="THU" width="18" height="18" style="vertical-align: middle;"> Tsinghua University](https://www.tsinghua.edu.cn/en/), with my research focused on Data Augmentation and Visual Reinforcement Learning over the past three years.
+I’m currently a final-year master student at [<img src="/assets/Logo/THU.png" alt="THU" width="18" height="18" style="vertical-align: middle;"> Tsinghua University](https://www.tsinghua.edu.cn/en/), with my research focused on Visual Reinforcement Learning and Data Augmentation over the past three years.
 Prior to that, I completed my bachelor's degree at [<img src="/assets/Logo/HNU.jpg" alt="THU" width="18" height="18" style="vertical-align: middle;"> Hunan University](http://www-en.hnu.edu.cn/), where I cherished four wonderful years at the foothills of Yuelu Mountain.
 
 
