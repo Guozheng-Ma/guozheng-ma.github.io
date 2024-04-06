@@ -19,3 +19,4 @@ In this era marked by the advent of AGI, I am also deeply concerned about the <s
 
 {% include_relative _includes/publications.md %}
 
+{% include_relative _includes/talks.md %}
