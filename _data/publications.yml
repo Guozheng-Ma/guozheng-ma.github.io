@@ -3,7 +3,7 @@ main:
   - title: "Revisiting Plasticity in Visual Reinforcement Learning: Data, Modules and Training Stages"
     authors: <strong>Guozheng Ma*</strong>, Lu Li*, Sen Zhang, Zixuan Liu, Zhen Wang, Yixin Chen, Li Shen, Xueqian Wang, Dacheng Tao
     conference_short: ICLR 2024
-    conference: International Conference on Learning Representations <strong>(ICLR)</strong>, 2024.
+    conference: International Conference on Learning Representations <strong>(ICLR)</strong>, 2024. International Conference on Learning Representations <strong>(ICLR)</strong>, 2024.
     pdf: https://openreview.net/pdf?id=0aR1s9YxoL
     bibtex: ./assets/bibtex/ma2024revisiting.txt
     code: https://github.com/Guozheng-Ma/Adaptive-Replay-Ratio
