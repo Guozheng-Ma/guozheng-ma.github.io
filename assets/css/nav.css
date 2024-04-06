@@ -16,15 +16,11 @@
     display: none;
 }
 
-/*   .topnav img {
+  .topnav img {
     margin-bottom:-16.5pt;
     margin-top:-12.5pt;
     margin-left:30%;
-  } */
-
-.topnav img {
-    display: none;
-}
+  }
   
   /* Style the links inside the navigation bar */
   .topnav a.normal {
@@ -44,7 +40,7 @@
   
   /* Add a color to the active/current link */
   .topnav a.right {
-    margin-right:25%;
+    margin-right:30%;
   }
 
   @media print, screen and (max-width: 1000px) { 
@@ -69,7 +65,7 @@
         margin-left:6%;
       }
     .topnav a.right {
-        margin-right:0%;
+        margin-right:6%;
       }
 
    }
@@ -80,7 +76,7 @@
         margin-left:12%;
       }
     .topnav a.right {
-        margin-right:0%;
+        margin-right:12%;
       }
 
       }
@@ -92,7 +88,7 @@
         margin-left:16%;
       }
     .topnav a.right {
-        margin-right:0%;
+        margin-right:16%;
       }
 
    }
@@ -103,7 +99,7 @@
         margin-left:19%;
       }
     .topnav a.right {
-        margin-right:0%;
+        margin-right:19%;
       }
 
    }
@@ -111,10 +107,10 @@
    @media print, screen and (max-width: 2000px) and (min-width: 1801px) { 
 
     .topnav img {
-        margin-left:18%;
+        margin-left:22%;
       }
     .topnav a.right {
-        margin-right:0%;
+        margin-right:22%;
       }
 
    }
@@ -163,4 +159,3 @@
       }
    }
    
-
