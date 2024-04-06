@@ -20,7 +20,7 @@
   -->
 </ul>
 
-<h4 style="margin: 15px 0px 5px;">Journal Reviewers</h4>
+<h4 style="margin: 10px 0px 5px;">Journal Reviewers</h4>
 
 <ul>
 <!--   <li><a href="https://www.computer.org/csdl/journal/tp"><autocolor>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</autocolor></a></li>
