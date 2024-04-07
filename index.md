@@ -13,7 +13,7 @@ Prior to that, I completed my bachelor's degree at [<img src="/assets/Logo/HNU.j
 My research interests broadly pertain to the distinctive challenges in <strong>[DEEP Reinforcement Learning]()</strong>.
 Mitigating the constraints that arise when integrating deep neural networks with RL paradigms is crucial for unlocking the scaling law of RL, determining whether real DEEP RL can continuously learn and adapt in dynamic tasks and environments.
 
-In this era marked by the advent of AGI, I am also deeply concerned about the <strong>[value alignment]()</strong> of AI agents, both from a technical perspective and a social science viewpoint.
+<p class="justified-text">In this era marked by the advent of AGI, I am also deeply concerned about the <strong>[value alignment]()</strong> of AI agents, both from a technical perspective and a social science viewpoint.</p>
 
 {% include_relative _includes/news.md %}
 
