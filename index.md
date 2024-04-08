@@ -11,7 +11,7 @@ I am a final-year master student at <a href="https://www.tsinghua.edu.cn/en/"><i
 </p>
 
 <p style="text-align:justify;">
-My research interests broadly pertain to the distinctive challenges in <a href="">DEEP Reinforcement Learning</a>. Mitigating the constraints that arise when integrating deep neural networks with RL paradigms is crucial for unlocking the scaling law of RL, determining whether real DEEP RL can continuously learn and adapt in dynamic tasks and environments.
+My research interests broadly pertain to the distinctive challenges in <a href="">DEEP Reinforcement Learning</a>. Mitigating the constraints that arise when integrating deep neural networks with RL paradigms is crucial for unlocking the scaling law of RL, determining whether the real <a href="">DEEP RL</a> agents can continuously learn and adapt in dynamic tasks and environments.
 </p>
 
 <p style="text-align:justify;">
