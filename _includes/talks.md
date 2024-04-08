@@ -3,7 +3,7 @@
 <h2 style="margin: 20px 0px 10px;">Invited Talks</h2>
 
 
-<h4 style="margin:0 10px 0;">Learning from Imperfect Data: Incremental Learning and Few-shot Learning.</h4>
+<h4 style="margin:0 10px 0;">Revisiting Plasticity in Visual Reinforcement Learning: Data, Modules and Training Stages.</h4>
 
 <ul>
   <li>
