@@ -17,6 +17,3 @@
     <time datetime="2024-03">April 2024</time>       
   </li>
 </ul>
-
-
-The 6th Academic Forum on Artificial Intelligence of Beijing Universities
