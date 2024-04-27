@@ -13,8 +13,8 @@
     <a href="https://www.bilibili.com/video/BV1RF4m157Uh/" target="_blank" rel="noopener noreferrer" class="rec-link" title="Talk Recording (in Chinese)" aria-label="Watch talk recording"> Recording (in Chinese)</a>
   </li>
   <li>
-    <span class="event-title">The 6th Academic Forum on Artificial Intelligence of Beijing Universities,</span>
-    <time datetime="2024-03">April 2024</time>
+    <span class="event-title">The 6th AI Academic Forum of Beijing Universities,</span>
+    <time datetime="2024-03">April 2024</time>       
   </li>
 </ul>
 
