@@ -18,6 +18,11 @@ My research interests broadly pertain to the distinctive challenges in <a href="
 In this era marked by the advent of AGI, I am also deeply concerned about the <a href="">value alignment</a> of AI agents, both from a technical perspective and a social science viewpoint.
 </p>
 
+<!-- Motto -->
+<p style="text-align:center; font-family:'Courier New', Courier, monospace; font-size:1.5em; margin-top: 40px;">
+  Greatness cannot be planned, so I play with joyful explorations!
+</p>
+
 {% include_relative _includes/news.md %}
 
 {% include_relative _includes/publications.md %}
