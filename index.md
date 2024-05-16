@@ -19,7 +19,7 @@ In this era marked by the advent of AGI, I am also deeply concerned about the <a
 </p>
 
 <!-- Motto -->
-<p style="text-align:center; font-family:'Courier New', Courier, monospace; font-size:1.2em; margin-top: 40px; font-style: italic; font-weight: bold;">
+<p style="text-align:center; font-family:'Pacifico', cursive; font-size:1.05em; margin-top: 40px; font-style: italic; font-weight: bold;">
   Greatness cannot be planned, so I play with joyful explorations!
 </p>
 
