@@ -52,7 +52,6 @@
 <div id="newsmore" style="display:none"> 
   <li> NeurIPS 2023: <a href="https://solar-neurips.github.io/">SoLaR Workshop</a>.</li>
   <li> ICML 2023: <a href="https://dmlr.ai/">DMLR Workshop</a>.</li>
-
 </div>
 
 </ul>
