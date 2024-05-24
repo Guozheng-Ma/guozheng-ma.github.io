@@ -41,3 +41,18 @@
   <li><a href="http://cjc.ict.ac.cn/"><autocolor>Chinese Journal of Computers</autocolor></a></li>
   -->
 </ul>
+
+
+<h4 style="margin: 10px 0px 5px;">Workshop PCs</h4>
+
+<ul>
+<li> ICML 2024: <a href="https://icml-tifa.github.io/">TiFA Workshop</a>.</li>
+
+<li> <a href="javascript:toggle_vis('newsmore')">Show more</a> </li>
+<div id="newsmore" style="display:none"> 
+  <li> NeurIPS 2023: <a href="https://solar-neurips.github.io/">SoLaR Workshop</a>.</li>
+  <li> ICML 2023: <a href="https://dmlr.ai/">DMLR Workshop</a>.</li>
+
+</div>
+
+</ul>
