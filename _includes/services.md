@@ -46,7 +46,7 @@
 <h4 style="margin: 10px 0px 5px;">Workshop PCs</h4>
 
 <ul>
-<li> ICML 2024: <a href="https://icml-tifa.github.io/">TiFA Workshop</a>.</li>
+<li> ICML 2024: <a href="https://icml-tifa.github.io/">TiFA Workshop</a>, <a href="https://autorlworkshop.github.io/">AutoRL Workshop</a>, <a href="https://dmlr.ai/">DMLR Workshop</a>.</li>
 
 <li> <a href="javascript:toggle_vis('Workshopsmore')">Show more</a> </li>
 <div id="Workshopsmore" style="display:none"> 
