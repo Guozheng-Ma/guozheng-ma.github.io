@@ -1,16 +1,16 @@
 # Basic Information 
 title: Guozheng Ma
-position: Master Student
-affiliation: Tsinghua University
-affiliation_link: https://www.tsinghua.edu.cn/en/
-affiliation_logo: ./assets/img/THU.svg
-email: mgz21 (at) mails.tsinghua.edu.cn
+position: PhD Student
+affiliation: Nanyang Technological University
+affiliation_link: https://www.ntu.edu.sg/
+affiliation_logo: ./assets/img/NTU.jpeg
+email: GUOZHENG001 (at) e.ntu.edu.sg
 # email2: yliu538 (at) jhu.edu
 
 # Search Engine Optimization (SEO)
 keywords: guozheng ma, ma guozheng, guozhengma, maguozheng, 马国政
 # canonical: https://www.cs.jhu.edu/~yyliu/
-description: Guozheng Ma is a master student at Tsinghua University. His research lies in deep reinforcement learning.
+description: Guozheng Ma is a PhD student at Tsinghua University. His research lies in deep reinforcement learning.
 
 # The option is used to enable the Johns Hopkins template.
 enable_hopkins_logo: false
