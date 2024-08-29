@@ -3,6 +3,7 @@
 <h2 style="margin: 30px 0px 10px;">News</h2>
 
 <ul>
+<li><strong>[2024.08]</strong> Kicking off my PhD journey at <a href="https://www.ntu.edu.sg/">NTU, Singapore</a>. Keep going on the road!</li>  
 <li><strong>[2024.05]</strong> Happy to receive <a href="https://iclr.cc/Conferences/2024/">ICLR Financial Assistance Award</a>. See you in Vienna!</li>  
 <li><strong>[2024.01]</strong> Our paper investigating <a href="https://openreview.net/pdf?id=0aR1s9YxoL">Plasticity Loss in VRL</a> has been accepted by <a href="https://iclr.cc/Conferences/2024/">ICLR 2024</a>.</li>
 <li><strong>[2023.12]</strong> Our paper about <a href="https://arxiv.org/pdf/2306.00656.pdf">VRL's Generalization</a> got an oral at <a href="https://www.aamas2024-conference.auckland.ac.nz/">AAMAS</a>. Congratulations to <a href="https://scholar.google.com/citations?user=QPsrZx8AAAAJ">Lu Li</a>!</li>
