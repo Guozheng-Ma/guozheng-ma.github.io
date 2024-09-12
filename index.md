@@ -7,7 +7,7 @@ layout: homepage
 <h2 style="margin: 60px 0px 10px;">Short Bio</h2>
 
 <p style="text-align:justify;">
-<a href="https://www.ntu.edu.sg/"><img src="/assets/Logo/NTU.svg" alt="NTU" width="15" height="18"> Nanyang Technological University</a>. I am a final-year master student at <a href="https://www.tsinghua.edu.cn/en/"><img src="/assets/Logo/THU.png" alt="THU" width="18" height="18" style="vertical-align: middle;"> Tsinghua University</a>, with my research focused on Visual Reinforcement Learning and Data Augmentation. Prior to that, I completed my bachelor's degree at <a href="http://www-en.hnu.edu.cn/"><img src="/assets/Logo/HNU.jpg" alt="HNU" width="18" height="18"> Hunan University</a>, where I cherished four wonderful years at the foothills of Yuelu Mountain.
+<a href="https://www.ntu.edu.sg/"><img src="/assets/Logo/NTU.svg" alt="NTU" width="15" height="18" style="vertical-align: middle;"> Nanyang Technological University</a>. I am a final-year master student at <a href="https://www.tsinghua.edu.cn/en/"><img src="/assets/Logo/THU.png" alt="THU" width="18" height="18" style="vertical-align: middle;"> Tsinghua University</a>, with my research focused on Visual Reinforcement Learning and Data Augmentation. Prior to that, I completed my bachelor's degree at <a href="http://www-en.hnu.edu.cn/"><img src="/assets/Logo/HNU.jpg" alt="HNU" width="18" height="18" style="vertical-align: middle;"> Hunan University</a>, where I cherished four wonderful years at the foothills of Yuelu Mountain.
 </p>
 
 <p style="text-align:justify;">
