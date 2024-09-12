@@ -7,11 +7,14 @@ layout: homepage
 <h2 style="margin: 60px 0px 10px;">Short Bio</h2>
 
 <p style="text-align:justify;">
-<a href="https://www.ntu.edu.sg/"><img src="/assets/Logo/NTU.svg" alt="NTU" width="15" height="18" style="vertical-align: middle;"> Nanyang Technological University</a>. I am a final-year master student at <a href="https://www.tsinghua.edu.cn/en/"><img src="/assets/Logo/THU.png" alt="THU" width="18" height="18" style="vertical-align: middle;"> Tsinghua University</a>, with my research focused on Visual Reinforcement Learning and Data Augmentation. Prior to that, I completed my bachelor's degree at <a href="http://www-en.hnu.edu.cn/"><img src="/assets/Logo/HNU.jpg" alt="HNU" width="18" height="18" style="vertical-align: middle;"> Hunan University</a>, where I cherished four wonderful years at the foothills of Yuelu Mountain.
+Currently, I am a first-year PhD student at <a href="https://www.ntu.edu.sg/"><img src="/assets/Logo/NTU.svg" alt="NTU" width="16" height="18" style="vertical-align: middle;">Nanyang Technological University</a>, working under the supervision of <a href="https://dr.ntu.edu.sg/cris/rp/rp02343">Dacheng Tao</a>.
+Previously, I embarked on my research path as a master student at <a href="https://www.tsinghua.edu.cn/en/"><img src="/assets/Logo/THU.png" alt="THU" width="18" height="18" style="vertical-align: middle;"> Tsinghua University</a>, studying Visual Reinforcement Learning and Data Augmentation.
+Prior to that, I completed my bachelor's degree at <a href="http://www-en.hnu.edu.cn/"><img src="/assets/Logo/HNU.jpg" alt="HNU" width="18" height="18" style="vertical-align: middle;"> Hunan University</a>, where I cherished four wonderful years at the foothills of Yuelu Mountain.
 </p>
 
 <p style="text-align:justify;">
-My research interests broadly pertain to the distinctive challenges in <a href="">DEEP Reinforcement Learning</a>. Mitigating the constraints that arise when integrating deep neural networks with RL paradigms is crucial for unlocking the scaling law of RL, determining whether the real <a href="">DEEP RL</a> agents can continuously learn from new experiences, and adapt in dynamic tasks and environments.
+My research interests broadly pertain to the distinctive challenges in <a href="">DEEP Reinforcement Learning</a>. 
+Mitigating the constraints that arise when integrating deep neural networks with RL paradigms is crucial for unlocking the potential of RL, determining whether the real <a href="">DEEP RL</a> agents can continuously learn from new experiences, and adapt in dynamic tasks and environments.
 </p>
 
 <p style="text-align:justify;">
