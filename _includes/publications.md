@@ -5,6 +5,9 @@
     display: flex;
     align-items: flex-start;
   }
+  .pub-row .col-sm-3 {
+    margin-top: 5px; 
+  }
 </style>
 <div class="publications">
   <ol class="bibliography">
