@@ -8,6 +8,7 @@ main:
     bibtex: ./assets/bibtex/ma2024revisiting.txt
     code: https://github.com/Guozheng-Ma/Adaptive-Replay-Ratio
     image: ./assets/Pub_Images/ICLR2024_cover.png
+    机器之心: https://mp.weixin.qq.com/s/OqADRb3l2gBsDuxv1H1QeA
 
   - title: "Learning Better with Less: Effective Augmentation for Sample-Efficient Visual Reinforcement Learning"
     authors: <strong>Guozheng Ma</strong>, Linrui Zhang, Haoyu Wang, Lu Li, Zilin Wang, Zhen Wang, Li Shen, Xueqian Wang, Dacheng Tao
