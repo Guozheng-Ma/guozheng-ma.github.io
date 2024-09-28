@@ -15,7 +15,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 20px;
+    height: 16px;
     padding: 0 10px;
     font-size: 12px;
     font-weight: 500;
@@ -25,12 +25,16 @@
     background-color: #f8f9fa;
     color: #333;
     transition: all 0.2s ease-in-out;
+    margin-right: 10px;
   }
   .btn:hover {
     background-color: #e9ecef;
   }
   .btn.kai-font {
     font-size: 11px;
+  }
+  .links {
+    margin-top: 5px; 
   }
 </style>
 <div class="publications">
@@ -56,7 +60,7 @@
             {% if link.page %}
             <a href="{{ link.page }}" class="btn" role="button" target="_blank">Project Page</a>
             {% endif %}
-            {% if link.机器之心 %}
+            {% if link.jiqizhixin %}
             <a href="{{ link.jiqizhixin }}" class="btn kai-font" role="button" target="_blank">机器之心</a>
             {% endif %}
             {% if link.bibtex %}
