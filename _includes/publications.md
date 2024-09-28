@@ -25,7 +25,7 @@
     background-color: #f8f9fa;
     color: #333;
     transition: all 0.2s ease-in-out;
-    margin-right: 10px;
+    margin-right: 7.5px;
   }
   .btn:hover {
     background-color: #e9ecef;
