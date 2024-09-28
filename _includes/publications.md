@@ -8,6 +8,9 @@
   .pub-row .col-sm-3 {
     margin-top: 5px; 
   }
+  .kai-font {
+    font-family: KaiTi, "楷体", STKaiti, "华文楷体", serif;
+  }
 </style>
 <div class="publications">
   <ol class="bibliography">
@@ -35,8 +38,8 @@
             {% if link.bibtex %}
             <a href="{{ link.bibtex }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">BibTex</a>
             {% endif %}
-            {% if link.机器之心 %}
-            <a href="{{ link.机器之心 }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">机器之心</a>
+            {% if link.jiqizhixin %}
+            <a href="{{ link.jiqizhixin }}" class="btn btn-sm z-depth-0 kai-font" role="button" target="_blank" style="font-size:12px;">机器之心</a>
             {% endif %}
             {% if link.notes %}
             <strong> <i style="color:#e74d3c">{{ link.notes }}</i></strong>
