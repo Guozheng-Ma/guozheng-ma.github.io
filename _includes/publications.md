@@ -36,7 +36,7 @@
             <a href="{{ link.bibtex }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">BibTex</a>
             {% endif %}
             {% if link.机器之心 %}
-            <a href="{{ link.bibtex }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">机器之心</a>
+            <a href="{{ link.机器之心 }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px; font-family: '楷体', KaiTi, serif;">机器之心</a>
             {% endif %}
             {% if link.notes %}
             <strong> <i style="color:#e74d3c">{{ link.notes }}</i></strong>
