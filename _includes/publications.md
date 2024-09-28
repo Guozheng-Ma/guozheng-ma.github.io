@@ -11,6 +11,27 @@
   .kai-font {
     font-family: KaiTi, "楷体", STKaiti, "华文楷体", serif;
   }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    padding: 0 10px;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    color: #333;
+    transition: all 0.2s ease-in-out;
+  }
+  .btn:hover {
+    background-color: #e9ecef;
+  }
+  .btn.kai-font {
+    font-size: 11px;
+  }
 </style>
 <div class="publications">
   <ol class="bibliography">
@@ -27,19 +48,19 @@
           <div class="periodical"><em>{{ link.conference }}</em></div>
           <div class="links">
             {% if link.pdf %}
-            <a href="{{ link.pdf }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">PDF</a>
+            <a href="{{ link.pdf }}" class="btn" role="button" target="_blank">PDF</a>
             {% endif %}
             {% if link.code %}
-            <a href="{{ link.code }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">Code</a>
+            <a href="{{ link.code }}" class="btn" role="button" target="_blank">Code</a>
             {% endif %}
             {% if link.page %}
-            <a href="{{ link.page }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">Project Page</a>
+            <a href="{{ link.page }}" class="btn" role="button" target="_blank">Project Page</a>
+            {% endif %}
+            {% if link.机器之心 %}
+            <a href="{{ link.jiqizhixin }}" class="btn kai-font" role="button" target="_blank">机器之心</a>
             {% endif %}
             {% if link.bibtex %}
-            <a href="{{ link.bibtex }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">BibTex</a>
-            {% endif %}
-            {% if link.jiqizhixin %}
-            <a href="{{ link.jiqizhixin }}" class="btn btn-sm z-depth-0 kai-font" role="button" target="_blank" style="font-size:12px;">机器之心</a>
+            <a href="{{ link.bibtex }}" class="btn" role="button" target="_blank">BibTex</a>
             {% endif %}
             {% if link.notes %}
             <strong> <i style="color:#e74d3c">{{ link.notes }}</i></strong>
