@@ -14,7 +14,7 @@ Prior to that, I completed my bachelor's degree at <a href="http://www-en.hnu.ed
 
 <p style="text-align:justify;">
 My research interests broadly pertain to the distinctive challenges in <a href="">DEEP Reinforcement Learning</a>. 
-Mitigating the constraints that arise when integrating deep neural networks with RL paradigms is crucial for unlocking the potential of RL, determining whether the real <a href="">DEEP RL</a> agents can continuously learn from new experiences, and adapt in dynamic tasks and environments.
+Mitigating the constraints that arise when integrating deep neural networks with RL paradigms is crucial for unlocking the potential of RL, determining whether the <a href="">DEEP RL</a> agents can tackle more complex real-world tasks, handle multiple tasks simultaneously, and never stop learning in open-ended environments.
 </p>
 
 <p style="text-align:justify;">
