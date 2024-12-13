@@ -5,7 +5,7 @@
 <h4 style="margin: 10px 0px 5px;">Conference Reviewers</h4>
 
 <ul>
-  <li><a href="https://icml.cc/"><autocolor>International Conference on Machine Learning (ICML) 2024</autocolor></a></li>
+  <li><a href="https://icml.cc/"><autocolor>International Conference on Machine Learning (ICML) 2024-2025</autocolor></a></li>
   <li><a href="https://neurips.cc"><autocolor>Annual Conference on Neural Information Processing Systems (NeurIPS) 2024</autocolor></a> </li>
   <li><a href="https://iclr.cc/Conferences/2023"><autocolor>International Conference on Learning Representations (ICLR) 2025</autocolor></a></li>
   <li><a href="https://cvpr.thecvf.com/"><autocolor>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) 2025</autocolor></a></li>
