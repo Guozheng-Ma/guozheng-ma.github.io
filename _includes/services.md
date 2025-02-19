@@ -6,11 +6,12 @@
 
 <ul>
   <li><a href="https://icml.cc/"><autocolor>International Conference on Machine Learning (ICML) 2024-2025</autocolor></a></li>
-  <li><a href="https://neurips.cc"><autocolor>Annual Conference on Neural Information Processing Systems (NeurIPS) 2024</autocolor></a> </li>
-  <li><a href="https://iclr.cc/Conferences/2023"><autocolor>International Conference on Learning Representations (ICLR) 2025</autocolor></a></li>
-  <li><a href="https://cvpr.thecvf.com/"><autocolor>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) 2025</autocolor></a></li>
-<!--   <li><a href="http://iccv2023.thecvf.com/"><autocolor>IEEE/CVF International Conference on Computer Vision (ICCV) 2021-2023</autocolor></a></li> -->
+  <li><a href="https://neurips.cc"><autocolor>Annual Conference on Neural Information Processing Systems (NeurIPS) 2024-2025</autocolor></a> </li>
+  <li><a href="https://iclr.cc"><autocolor>International Conference on Learning Representations (ICLR) 2025</autocolor></a></li>
+  <li><a href="https://cvpr.thecvf.com/"><autocolor>Conference on Computer Vision and Pattern Recognition (CVPR) 2025</autocolor></a></li>
+  <li><a href="https://iccv.thecvf.com/"><autocolor>International Conference on Computer Vision (ICCV) 2025</autocolor></a></li>
   <li><a href="https://eccv.ecva.net/"><autocolor>European Conference on Computer Vision (ECCV) 2024</autocolor></a></li>  
+  <li><a href="https://lifelong-ml.cc/"><autocolor>Conference on Lifelong Learning Agents (CoLLAs) 2025</autocolor></a></li>  
 <!--   <li><a href="https://aaai.org/Conferences/AAAI-23/"><autocolor>AAAI Conference on Artificial Intelligence (AAAI) 2021-2024</autocolor></a></li>
   <li><a href="https://ijcai-23.org/"><autocolor>International Joint Conference on Artificial Intelligence (IJCAI) 2021-2023</autocolor></a></li>
   <li><a href="https://2022.acmmm.org/"><autocolor>ACM International Conference on Multimedia (MM) 2021-2023</autocolor></a></li>   -->
@@ -46,6 +47,7 @@
 <h4 style="margin: 10px 0px 5px;">Workshop PCs</h4>
 
 <ul>
+<li> ICLR 2025: <a href="https://sites.google.com/view/mcdc2025/home">MCDC Workshop</a>.</li>
 <li> NeurIPS 2024: <a href="https://sites.google.com/view/continual-fomo-workshop">Continual FoMo Workshop</a>, <a href="https://solar-neurips.github.io/">SoLaR Workshop</a>.</li>
 <li> ICML 2024: <a href="https://icml-tifa.github.io/">TiFA Workshop</a>, <a href="https://autorlworkshop.github.io/">AutoRL Workshop</a>, <a href="https://dmlr.ai/">DMLR Workshop</a>.</li>
 
