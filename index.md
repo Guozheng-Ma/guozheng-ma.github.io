@@ -17,9 +17,6 @@ My research interests broadly pertain to the distinctive challenges in <a href="
 Mitigating the constraints that arise when integrating deep neural networks with RL paradigms is crucial for unlocking the potential of RL, determining whether <a href="">DEEP RL</a> agents can tackle complex real-world scenarios, handle multiple tasks, and never stop learning in open-ended environments.
 </p>
 
-<p style="text-align:justify;">
-In this era marked by the advent of AGI, I am also deeply concerned about the <a href="">value alignment</a> of AI agents, both from a technical perspective and a social science viewpoint.
-</p>
 
 <!-- Motto -->
 <p style="text-align:center; font-family:'Pacifico', cursive; font-size:1.05em; margin-top: 40px; font-style: italic; font-weight: bold;">
