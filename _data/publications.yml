@@ -18,3 +18,12 @@ main:
     bibtex: ./assets/bibtex/ma2024learning.txt
     code: https://github.com/Guozheng-Ma/CycAug
     image: ./assets/Pub_Images/NeurIPS2023_cover.png
+
+  - title: "A Comprehensive Survey of Data Augmentation in Visual Reinforcement Learning"
+    authors: <strong>Guozheng Ma</strong>, Zhen Wang, Zhecheng Yuan, Xueqian Wang, Bo Yuan, Dacheng Tao
+    conference_short: IJCV
+    conference: International Journal of Computer Vision <strong>(IJCV)</strong>, 2025.
+    pdf: https://arxiv.org/pdf/2210.04561
+    bibtex: ./assets/bibtex/ma2022comprehensive.txt
+    code: https://github.com/Guozheng-Ma/DA-in-visualRL
+    image: ./assets/Pub_Images/IJCV_cover.pdf
