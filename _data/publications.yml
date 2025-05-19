@@ -26,4 +26,4 @@ main:
     pdf: https://arxiv.org/pdf/2210.04561
     bibtex: ./assets/bibtex/ma2022comprehensive.txt
     code: https://github.com/Guozheng-Ma/DA-in-visualRL
-    image: ./assets/Pub_Images/IJCV_cover.pdf
+    image: ./assets/Pub_Images/IJCV_cover.png
