@@ -4,6 +4,9 @@ main:
     authors: <strong>Guozheng Ma*</strong>, Lu Li*, Zilin Wang, Li Shen, Pierre-Luc Bacon, Dacheng Tao
     conference_short: ICML 2025
     conference: International Conference on Machine Learning <strong>(ICML)</strong>, 2025.
+    pdf: https://openreview.net/pdf?id=mIomqOskaa
+    bibtex: ./assets/bibtex/ma2025network.txt
+    code: https://github.com/lilucse/SparseNetwork4DRL
     image: ./assets/Pub_Images/ICML_cover.jpg
 
   - title: "Revisiting Plasticity in Visual Reinforcement Learning: Data, Modules and Training Stages"
