@@ -1,0 +1,8 @@
+@inproceedings{
+ma2025network,
+title={Network Sparsity Unlocks the Scaling Potential of Deep Reinforcement Learning},
+author={Guozheng Ma and Lu Li and Zilin Wang and Li Shen and Pierre-Luc Bacon and Dacheng Tao},
+booktitle={Forty-second International Conference on Machine Learning},
+year={2025},
+url={https://openreview.net/forum?id=mIomqOskaa}
+}
