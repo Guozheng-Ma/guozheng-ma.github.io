@@ -8,6 +8,7 @@ main:
     bibtex: ./assets/bibtex/ma2025network.txt
     code: https://github.com/lilucse/SparseNetwork4DRL
     image: ./assets/Pub_Images/ICML_cover.jpg
+    notes: Oral (Top 1%)
 
   - title: "Revisiting Plasticity in Visual Reinforcement Learning: Data, Modules and Training Stages"
     authors: <strong>Guozheng Ma*</strong>, Lu Li*, Sen Zhang, Zixuan Liu, Zhen Wang, Yixin Chen, Li Shen, Xueqian Wang, Dacheng Tao
