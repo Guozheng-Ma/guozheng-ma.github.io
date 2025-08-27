@@ -47,14 +47,29 @@
 <h4 style="margin: 10px 0px 5px;">Workshop PCs</h4>
 
 <ul>
+<li> NeurIPS 2025: <a href="https://arlet-workshop.github.io/">ARLET Workshop</a>.</li>
 <li> ICLR 2025: <a href="https://sites.google.com/view/mcdc2025/home">MCDC Workshop</a>.</li>
-<li> NeurIPS 2024: <a href="https://sites.google.com/view/continual-fomo-workshop">Continual FoMo Workshop</a>, <a href="https://solar-neurips.github.io/">SoLaR Workshop</a>.</li>
-<li> ICML 2024: <a href="https://icml-tifa.github.io/">TiFA Workshop</a>, <a href="https://autorlworkshop.github.io/">AutoRL Workshop</a>, <a href="https://dmlr.ai/">DMLR Workshop</a>.</li>
+
 
 <li> <a href="javascript:toggle_vis('Workshopsmore')">Show more</a> </li>
 <div id="Workshopsmore" style="display:none"> 
+  <li> NeurIPS 2024: <a href="https://sites.google.com/view/continual-fomo-workshop">Continual FoMo Workshop</a>, <a href="https://solar-neurips.github.io/">SoLaR Workshop</a>.</li>
+  <li> ICML 2024: <a href="https://icml-tifa.github.io/">TiFA Workshop</a>, <a href="https://autorlworkshop.github.io/">AutoRL Workshop</a>, <a href="https://dmlr.ai/">DMLR Workshop</a>.</li>
   <li> NeurIPS 2023: <a href="https://solar-neurips.github.io/">SoLaR Workshop</a>.</li>
   <li> ICML 2023: <a href="https://dmlr.ai/">DMLR Workshop</a>.</li>
 </div>
+</ul>
+
+<h4 style="margin: 10px 0px 5px;">Workshop Organizers</h4>
+
+<ul>
+  <li> NeurIPS 2025: <a href="https://embodied-world-models.github.io/">Embodied World Models for Decision Making Workshop</a>.</li>
+</ul>
+
+
+<h4 style="margin: 10px 0px 5px;">Community Builders</h4>
+
+<ul>
+  <li> Co-founder, <a href="https://rlevolution.org/">Reinforcement Learning Evolution Foundation</a>.</li>
 </ul>
 
