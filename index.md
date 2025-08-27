@@ -7,9 +7,8 @@ layout: homepage
 <h2 style="margin: 60px 0px 10px;">Short Bio</h2>
 
 <p style="text-align:justify;">
-Currently, I am a first-year PhD student at <a href="https://www.ntu.edu.sg/"><img src="/assets/Logo/NTU.svg" alt="NTU" width="16" height="18" style="vertical-align: middle;">Nanyang Technological University</a>, working under the supervision of <a href="https://dr.ntu.edu.sg/cris/rp/rp02343">Dacheng Tao</a>.
-Previously, I embarked on my research path as a master student at <a href="https://www.tsinghua.edu.cn/en/"><img src="/assets/Logo/THU.png" alt="THU" width="18" height="18" style="vertical-align: middle;"> Tsinghua University</a>, studying Visual Reinforcement Learning and Data Augmentation.
-Prior to that, I completed my bachelor's degree at <a href="http://www-en.hnu.edu.cn/"><img src="/assets/Logo/HNU.jpg" alt="HNU" width="18" height="18" style="vertical-align: middle;"> Hunan University</a>, where I cherished four wonderful years at the foothills of Yuelu Mountain.
+Currently, I am a second-year PhD student at <a href="https://www.ntu.edu.sg/"><img src="/assets/Logo/NTU.svg" alt="NTU" width="16" height="18" style="vertical-align: middle;">Nanyang Technological University</a>, working under the supervision of <a href="https://dr.ntu.edu.sg/cris/rp/rp02343">Dacheng Tao</a>.
+Previously, I completed my master's studies and began my research journey at <a href="https://www.tsinghua.edu.cn/en/"><img src="/assets/Logo/THU.png" alt="THU" width="18" height="18" style="vertical-align: middle;"> Tsinghua University</a>. Earlier, I obtained my bachelor's degree at <a href="http://www-en.hnu.edu.cn/"><img src="/assets/Logo/HNU.jpg" alt="HNU" width="18" height="18" style="vertical-align: middle;"> Hunan University</a>, where I cherished four wonderful years at the foothills of Yuelu Mountain.
 </p>
 
 <p style="text-align:justify;">
