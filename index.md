@@ -18,7 +18,7 @@ To realize this vision, I currently focus on investigating the fundamental chall
 </p>
 
 <p style="text-align:justify;">
-Meanwhile, I view RL as a paradigm for understanding intelligence rather than just a technique. 
+Meanwhile, I view RL as a paradigm for understanding and developing intelligence rather than just a technique.
 This inspires my interest in exploring its potential across domains, from large reasoning models and embodied agents to psychology and social sciences.
 </p>
 
