@@ -19,7 +19,7 @@ To realize this vision, I currently focus on investigating the fundamental chall
 
 <p style="text-align:justify;">
 Meanwhile, I view RL as a paradigm for understanding intelligence rather than just a technique. 
-This inspires my interest in its diverse applications, from large reasoning models to embodied agents and social sciences.
+This inspires my interest in exploring its potential across domains, from large reasoning models and embodied agents to psychology and social sciences.
 </p>
 
 <!-- Motto -->
