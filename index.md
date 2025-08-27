@@ -17,6 +17,10 @@ This requires RL agents capable of offline-online cooperation, handling multiple
 To realize this vision, I currently focus on investigating the fundamental challenges inherent in DRL, particularly optimization pathologies, scalability limitations and exploration inefficiencies.
 </p>
 
+<p style="text-align:justify;">
+Meanwhile, I view RL as a paradigm for understanding intelligence rather than just a technique. 
+This inspires my interest in its diverse applications, from large reasoning models to embodied agents and social sciences.
+</p>
 
 <!-- Motto -->
 <p style="text-align:center; font-family:'Pacifico', cursive; font-size:1.05em; margin-top: 40px; font-style: italic; font-weight: bold;">
