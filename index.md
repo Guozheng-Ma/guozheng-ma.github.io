@@ -12,8 +12,9 @@ Previously, I completed my master's studies and began my research journey at <a 
 </p>
 
 <p style="text-align:justify;">
-My research interests broadly pertain to the distinctive challenges in <a href="">DEEP Reinforcement Learning</a>. 
-Mitigating the constraints that arise when integrating deep neural networks with RL paradigms is crucial for unlocking the potential of RL, determining whether <a href="">DEEP RL</a> agents can tackle complex real-world scenarios, handle multiple tasks, and never stop learning in open-ended environments.
+My research goal is to unlock the true potential of <a href="">Deep Reinforcement Learning</a> toward practical real-world deployment. 
+This requires RL agents capable of offline-online cooperation, handling multiple tasks, and never stopping learning in open-ended environments. 
+To realize this vision, I currently focus on investigating the fundamental challenges inherent in DRL, particularly optimization pathologies, scalability limitations and exploration inefficiencies.
 </p>
 
 
