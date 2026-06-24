@@ -7,7 +7,7 @@ main:
     pdf: https://openreview.net/pdf?id=tSMZHXtJwZ
     bibtex: ./assets/bibtex/ma2026makes.txt
     code: https://github.com/Guozheng-Ma/DAWN
-    image: ./assets/Pub_Images/ICML2026_cover.jpg
+    image: ./assets/Pub_Images/ICML2026_cover.png
     notes: Spotlight (Top 2.2%)
 
   - title: "Network Sparsity Unlocks the Scaling Potential of Deep Reinforcement Learning"
