@@ -1,5 +1,15 @@
 main:
 
+  - title: "What Makes Value Learning Efficient in Residual Reinforcement Learning?"
+    authors: <strong>Guozheng Ma</strong>, Lu Li, Haoyu Wang, Zixuan Liu, Pierre-Luc Bacon, Dacheng Tao
+    conference_short: ICML 2026
+    conference: International Conference on Machine Learning <strong>(ICML)</strong>, 2026.
+    pdf: https://openreview.net/pdf?id=tSMZHXtJwZ
+    bibtex: ./assets/bibtex/ma2026makes.txt
+    code: https://github.com/Guozheng-Ma/DAWN
+    image: ./assets/Pub_Images/ICML2026_cover.jpg
+    notes: Spotlight (Top 2.2%)
+
   - title: "Network Sparsity Unlocks the Scaling Potential of Deep Reinforcement Learning"
     authors: <strong>Guozheng Ma*</strong>, Lu Li*, Zilin Wang, Li Shen, Pierre-Luc Bacon, Dacheng Tao
     conference_short: ICML 2025
