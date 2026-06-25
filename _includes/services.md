@@ -64,6 +64,7 @@
 
 <ul>
   <li> NeurIPS 2025: <a href="https://embodied-world-models.github.io/">Embodied World Models for Decision Making Workshop</a>.</li>
+  <li> RLC 2026: <a href="https://sites.google.com/view/continual-learning">Continual Reinforcement Learning Workshop</a>.</li>
 </ul>
 
 
