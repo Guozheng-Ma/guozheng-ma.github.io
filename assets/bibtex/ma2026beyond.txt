@@ -1,0 +1,7 @@
+@inproceedings{ma2026beyond,
+  title={Beyond One-Size-Fits-All: Diagnosis-Driven Online Reinforcement Learning with Offline Priors},
+  author={Ma, Guozheng and Li, Lu and Wang, Zilin and Bacon, Pierre-Luc and Tao, Dacheng},
+  booktitle={NeurIPS 2026 Position Track},
+  year={2026},
+  url={https://openreview.net/forum?id=XZmIeAgd6e}
+}

@@ -1,5 +1,14 @@
 main:
 
+  - title: "Beyond One-Size-Fits-All: Diagnosis-Driven Online Reinforcement Learning with Offline Priors"
+    authors: <strong>Guozheng Ma</strong>, Lu Li, Zilin Wang, Pierre-Luc Bacon, Dacheng Tao
+    conference_short: NeurIPS 2026
+    conference: Neural Information Processing Systems <strong>(NeurIPS)</strong>, 2026.
+    pdf: https://openreview.net/pdf?id=XZmIeAgd6e
+    bibtex: ./assets/bibtex/ma2026beyond.txt
+    image: ./assets/Pub_Images/NeurIPS2026_cover.png
+    notes: Position Track
+
   - title: "What Makes Value Learning Efficient in Residual Reinforcement Learning?"
     authors: <strong>Guozheng Ma</strong>, Lu Li, Haoyu Wang, Zixuan Liu, Pierre-Luc Bacon, Dacheng Tao
     conference_short: ICML 2026
