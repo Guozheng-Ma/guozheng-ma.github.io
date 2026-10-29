@@ -1,0 +1,21 @@
+---
+title: "Why sparsify RL networks?"
+date: 2026-10-29
+tags: ["research-note", "sparsity", "scaling"]
+cover:
+  motif: matrix
+  color: purple
+tldr: "Static sparsity offers a surprisingly simple way to improve scaling in deep RL."
+relatedPub: icml-2025-sparsity
+readingTime: 2
+---
+
+Larger networks do not automatically make better RL agents. Optimization can become harder as capacity grows, so increasing parameter count alone can leave useful capacity out of reach.
+
+The ICML 2025 study tests a simple intervention: randomly remove a fixed fraction of connections once, before learning begins. The remaining network keeps that connectivity throughout training. This static sparsity improves parameter efficiency and helps with plasticity loss and interference between gradients. The experiments also examine visual and streaming RL. [Paper and proceedings](https://proceedings.mlr.press/v267/ma25l.html).
+
+<Aside color="purple">
+  The pruning happens before training. There is no learned pruning schedule or additional sparsity penalty in this recipe.
+</Aside>
+
+The useful distinction is between available capacity and capacity that can be trained effectively. Sparsity changes that relationship, making network connectivity a meaningful part of the scaling question. The [official implementation](https://github.com/lilucse/SparseNetwork4DRL) provides the experimental starting point.

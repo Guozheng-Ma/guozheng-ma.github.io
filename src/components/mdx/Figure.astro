@@ -1,0 +1,18 @@
+---
+interface Props {
+  src: string;
+  caption: string;
+  width?: string;
+}
+const { src, caption, width } = Astro.props;
+---
+<figure class="my-8 flex flex-col items-center">
+  <img
+    src={src}
+    alt={caption}
+    style={width ? `max-width: ${width};` : undefined}
+    class="block w-full max-w-full"
+    loading="lazy"
+  />
+  <figcaption class="mt-2 text-[11px] italic text-hint">{caption}</figcaption>
+</figure>

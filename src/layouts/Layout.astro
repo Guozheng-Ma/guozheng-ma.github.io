@@ -1,0 +1,51 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+}
+
+const {
+  title,
+  description = "Guozheng Ma — research notes and publications on deep reinforcement learning.",
+  image = '/art/sparsity.webp',
+  type = 'website',
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const ogImage = new URL(image, Astro.site).toString();
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalUrl} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="author" content="Guozheng Ma" />
+    <meta name="theme-color" content="#faf9f6" />
+    <link rel="preload" href="/fonts/source-serif-4-500-italic.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body class="bg-page text-fg">
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <Header currentPath={Astro.url.pathname} />
+    <slot />
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,46 @@
+---
+import type { Update } from '../lib/cv';
+
+interface Props {
+  update: Update;
+}
+const { update } = Astro.props;
+
+const monthStr = update.date.toLocaleDateString('en-US', { timeZone: 'UTC', month: 'short' });
+
+// Parse [bracket] segments. Bracketed text renders as serif italic;
+// if relatedPub is set the bracket becomes a link to that publication.
+type Part = { type: 'text'; value: string } | { type: 'link'; value: string };
+const parts: Part[] = [];
+const re = /\[([^\]]+)\]/g;
+let lastIdx = 0;
+let match: RegExpExecArray | null;
+while ((match = re.exec(update.text)) !== null) {
+  if (match.index > lastIdx) {
+    parts.push({ type: 'text', value: update.text.slice(lastIdx, match.index) });
+  }
+  parts.push({ type: 'link', value: match[1] });
+  lastIdx = match.index + match[0].length;
+}
+if (lastIdx < update.text.length) {
+  parts.push({ type: 'text', value: update.text.slice(lastIdx) });
+}
+
+const href = update.relatedPub ? `/publications/${update.relatedPub}` : null;
+---
+<div class="grid grid-cols-[100px_1fr] gap-4 py-2">
+  <p class="text-[11px] text-hint">
+    {monthStr} · <span class="italic">{update.category}</span>
+  </p>
+  <p class="text-[13px] leading-[1.55] text-muted">
+    {parts.map((p) =>
+      p.type === 'text' ? (
+        <Fragment>{p.value}</Fragment>
+      ) : href ? (
+        <a href={href} class="font-serif-italic">{p.value}</a>
+      ) : (
+        <span class="font-serif-italic">{p.value}</span>
+      )
+    )}
+  </p>
+</div>

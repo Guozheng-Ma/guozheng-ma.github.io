@@ -1,0 +1,47 @@
+# Verified source inventory: docs/content-sources.md.
+# Avoid unsupported start/end dates for the first two degrees.
+trajectory:
+  - years: "Undergraduate studies"
+    place: "Hunan University"
+    role: "Bachelor's degree"
+  - years: "Graduate studies"
+    place: "Tsinghua University"
+    role: "Master's degree · Research journey began"
+  - years: "2024–present"
+    place: "Nanyang Technological University"
+    role: "PhD student · Advised by Dacheng Tao"
+
+awards:
+  - year: 2024
+    text: "Excellent Graduates · Beijing"
+  - year: 2024
+    text: "ICLR Financial Assistance Award"
+  - year: 2023
+    text: "ORDOS Scholarship · Tsinghua University"
+  - year: 2023
+    text: "AI Safety and Alignment Fellowship · Concordia AI"
+  - year: 2021
+    text: "Provincial Excellent Graduates · Hunan Province"
+  - year: 2021
+    text: "First Prize of Outstanding Undergraduate Thesis · Hunan University"
+  - year: 2020
+    text: "Weisheng Scholarship · Hunan University"
+  - year: 2019
+    text: "XiongXiaoge Scholarship · Hunan University"
+  - year: 2019
+    text: "National Scholarship · Ministry of Education of China"
+
+talks:
+  - year: 2024
+    venue: "AI TIME · Youth PhD Talk · March"
+    title: "Revisiting Plasticity in Visual Reinforcement Learning: Data, Modules and Training Stages"
+  - year: 2024
+    venue: "The 6th AI Academic Forum of Beijing Universities · April"
+    title: "Revisiting Plasticity in Visual Reinforcement Learning: Data, Modules and Training Stages"
+
+service:
+  - "Workshop organizer · RLC 2026 Continual Reinforcement Learning; NeurIPS 2025 Embodied World Models for Decision Making"
+  - "Co-founder · Reinforcement Learning Evolution Foundation"
+  - "Conference reviewer · ICML 2024–2025; NeurIPS 2024–2025; ICLR 2025; CVPR 2025; ICCV 2025; ECCV 2024; CoLLAs 2025"
+  - "Journal reviewer · IEEE Transactions on Image Processing"
+  - "Workshop PC · NeurIPS 2025 ARLET; ICLR 2025 MCDC; NeurIPS 2024 Continual FoMo and SoLaR; ICML 2024 TiFA, AutoRL and DMLR; NeurIPS 2023 SoLaR; ICML 2023 DMLR"

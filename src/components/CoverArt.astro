@@ -1,0 +1,13 @@
+---
+interface Props { motif?: string; color?: string; aspectRatio?: string; }
+const { color = 'purple', aspectRatio = '3 / 2' } = Astro.props;
+const art: Record<string, { file: string; alt: string }> = {
+  purple: { file: 'sparsity', alt: 'Purple ink illustration of a sparse network opening into a larger space' },
+  teal: { file: 'plasticity', alt: 'Teal ink illustration of branching paths that grow and reconnect' },
+  coral: { file: 'generalization', alt: 'Coral ink illustration of geometric forms seen through different windows' },
+};
+const selected = art[color] ?? art.purple;
+---
+<div class="cover-art" style={`aspect-ratio: ${aspectRatio}`}>
+  <img src={`/art/${selected.file}.webp`} alt={selected.alt} width="1200" height="800" loading="lazy" decoding="async" />
+</div>

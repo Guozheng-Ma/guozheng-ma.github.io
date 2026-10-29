@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import NoteCard from '../../components/NoteCard.astro';
+const notes = (await getCollection('notes', ({ data }) => !data.draft)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+<Layout title="Notes — Guozheng Ma" description="Short research notes on sparsity, plasticity, and data augmentation in deep reinforcement learning.">
+  <main id="main-content" class="site-width">
+    <div class="page-intro">
+      <p class="eyebrow">The research notebook</p>
+      <h1>Notes</h1>
+      <p>A closer look at the questions behind the papers: how agents scale, keep learning, and make better use of experience.</p>
+    </div>
+    <div class="notes-grid">{notes.map((note) => <NoteCard note={note} />)}</div>
+  </main>
+</Layout>

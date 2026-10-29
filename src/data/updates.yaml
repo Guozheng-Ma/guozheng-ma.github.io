@@ -1,0 +1,60 @@
+# Historical milestones from the original site and primary publication records.
+# The UI displays month/year. day=01 means only month precision was available.
+# 2026 dates below are preprint release dates, not inferred acceptance dates.
+# The current conference status is stated separately in each entry.
+# Sources and migration decisions: docs/content-sources.md.
+
+- date: 2026-06-24
+  category: paper
+  text: "Released [Beyond One-Size-Fits-All: Diagnosis-Driven Online Reinforcement Learning with Offline Priors] · NeurIPS 2026 position track"
+  relatedPub: neurips-2026-offline-priors
+
+- date: 2026-02-11
+  category: paper
+  text: "Released [What Makes Value Learning Efficient in Residual Reinforcement Learning?] · ICML 2026 spotlight, top 2.2%"
+  relatedPub: icml-2026-residual
+
+- date: 2025-05-03
+  category: paper
+  text: "[A Comprehensive Survey of Data Augmentation in Visual Reinforcement Learning] accepted by IJCV"
+  relatedPub: ijcv-2025-augmentation-survey
+
+- date: 2025-05-01
+  category: paper
+  text: "Two papers accepted at ICML 2025, on online RL and multi-task DT · [Network Sparsity Unlocks the Scaling Potential of Deep Reinforcement Learning] selected for an oral, top 1%"
+  relatedPub: icml-2025-sparsity
+
+- date: 2024-08-01
+  category: milestone
+  text: "Started my PhD at Nanyang Technological University, Singapore"
+
+- date: 2024-05-01
+  category: award
+  text: "Received the ICLR Financial Assistance Award"
+
+- date: 2024-01-01
+  category: paper
+  text: "[Revisiting Plasticity in Visual Reinforcement Learning: Data, Modules and Training Stages] accepted at ICLR 2024"
+  relatedPub: iclr-2024-plasticity
+
+- date: 2023-12-01
+  category: paper
+  text: "Our work on generalization in visual RL selected for an oral presentation at AAMAS 2024"
+
+- date: 2023-09-01
+  category: paper
+  text: "[Learning Better with Less: Effective Augmentation for Sample-Efficient Visual Reinforcement Learning] accepted at NeurIPS 2023"
+  relatedPub: neurips-2023-augmentation
+
+- date: 2023-07-01
+  category: honor
+  text: "Named an AI Safety and Alignment Fellow by Concordia AI"
+
+- date: 2022-10-01
+  category: paper
+  text: "Released the first preprint of the survey on data augmentation in visual RL"
+  relatedPub: ijcv-2025-augmentation-survey
+
+- date: 2022-04-01
+  category: paper
+  text: "TLDA accepted at IJCAI 2022"

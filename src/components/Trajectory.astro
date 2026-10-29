@@ -1,0 +1,14 @@
+---
+import { loadCV } from '../lib/cv';
+
+const { trajectory } = loadCV();
+---
+<div class="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-3">
+  {trajectory.map((t) => (
+    <div>
+      <p class="text-[11px] text-hint">{t.years}</p>
+      <p class="mt-1 text-[15px]">{t.place}</p>
+      <p class="mt-1 text-[12px] text-muted">{t.role}</p>
+    </div>
+  ))}
+</div>

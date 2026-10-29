@@ -1,0 +1,250 @@
+/* ====================================================================
+   tokens.css — design system source of truth
+   Architecture: docs/01-architecture.md Section 4
+   ==================================================================== */
+
+/* ============== TYPOGRAPHY (mode-invariant) ============== */
+:root {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+}
+
+/* ============== RADIUS (mode-invariant) ============== */
+:root {
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+}
+
+/* ============== LAYOUT WIDTHS (mode-invariant) ============== */
+:root {
+  --width-nav:     1200px;  /* nav row only (Header) — wider so brand + 3 links breathe */
+  --width-content: 1000px;  /* everything else non-reading: Footer, Hero, list pages, etc. */
+  --width-reading: 720px;   /* long-form reading column: /about, note/pub detail pages */
+}
+
+/* ====================================================================
+   LIGHT MODE (default :root)
+   Stop scale: 50→L0.97 C0.02 ... 600→L0.50 C0.15 ... 900→L0.22 C0.08
+   ==================================================================== */
+:root {
+  /* Neutrals — backgrounds */
+  --color-bg-primary:   oklch(1 0 0);              /* card / top surface */
+  --color-bg-secondary: oklch(0.97 0.003 80);      /* hover / pressed */
+  --color-bg-tertiary:  oklch(0.985 0.003 80);     /* page bg */
+
+  /* Neutrals — text */
+  --color-text-primary:   oklch(0.22 0 0);         /* near-black */
+  --color-text-secondary: oklch(0.48 0 0);         /* muted */
+  --color-text-tertiary:  oklch(0.55 0 0);         /* readable hint */
+
+  /* Neutrals — borders (rgba grayscale) */
+  --color-border-tertiary:  rgba(0, 0, 0, 0.12);   /* default 0.5px border */
+  --color-border-secondary: rgba(0, 0, 0, 0.22);   /* hover/active */
+  --color-border-primary:   rgba(0, 0, 0, 0.36);   /* strongest */
+
+  /* Purple ramp (Sparsity / Scaling) — H=285 */
+  --color-purple-50:  oklch(0.97 0.018 285);
+  --color-purple-100: oklch(0.93 0.035 285);
+  --color-purple-200: oklch(0.86 0.07 285);
+  --color-purple-400: oklch(0.65 0.13 285);
+  --color-purple-600: oklch(0.50 0.15 285);
+  --color-purple-800: oklch(0.32 0.11 285);
+  --color-purple-900: oklch(0.22 0.08 285);
+
+  /* Teal ramp (Plasticity) — H=190 */
+  --color-teal-50:  oklch(0.97 0.018 190);
+  --color-teal-100: oklch(0.93 0.035 190);
+  --color-teal-200: oklch(0.86 0.07 190);
+  --color-teal-400: oklch(0.65 0.13 190);
+  --color-teal-600: oklch(0.50 0.15 190);
+  --color-teal-800: oklch(0.32 0.11 190);
+  --color-teal-900: oklch(0.22 0.08 190);
+
+  /* Coral ramp (Augmentation / Generalization) — H=30 */
+  --color-coral-50:  oklch(0.97 0.018 30);
+  --color-coral-100: oklch(0.93 0.035 30);
+  --color-coral-200: oklch(0.86 0.07 30);
+  --color-coral-400: oklch(0.65 0.13 30);
+  --color-coral-600: oklch(0.50 0.15 30);
+  --color-coral-800: oklch(0.32 0.11 30);
+  --color-coral-900: oklch(0.22 0.08 30);
+
+  /* Amber ramp (HONOR only — Oral, Best Paper) — H=75 */
+  --color-amber-50:  oklch(0.97 0.018 75);
+  --color-amber-100: oklch(0.93 0.035 75);
+  --color-amber-200: oklch(0.86 0.07 75);
+  --color-amber-400: oklch(0.65 0.13 75);
+  --color-amber-600: oklch(0.50 0.15 75);
+  --color-amber-800: oklch(0.32 0.11 75);
+  --color-amber-900: oklch(0.22 0.08 75);
+
+  /* Blue ramp (reserved for future theme) — H=240 */
+  --color-blue-50:  oklch(0.97 0.018 240);
+  --color-blue-100: oklch(0.93 0.035 240);
+  --color-blue-200: oklch(0.86 0.07 240);
+  --color-blue-400: oklch(0.65 0.13 240);
+  --color-blue-600: oklch(0.50 0.15 240);
+  --color-blue-800: oklch(0.32 0.11 240);
+  --color-blue-900: oklch(0.22 0.08 240);
+
+  /* Cover backgrounds — saturated tints for CoverArt motif backdrops only.
+     Distinct from stop-50 (which serves Aside, tag chips, other tints). */
+  --c-purple-cover: oklch(0.85 0.07 285);
+  --c-teal-cover:   oklch(0.85 0.07 190);
+  --c-coral-cover:  oklch(0.85 0.07 30);
+  --c-amber-cover:  oklch(0.85 0.07 75);
+  --c-blue-cover:   oklch(0.85 0.07 240);
+}
+
+/* ====================================================================
+   DARK MODE — auto (prefers-color-scheme: dark)
+   Scale inverts: 50→L0.14 C0.025 ... 900→L0.93 C0.05
+   Component code doesn't change between modes — same stop name does
+   the right thing in either.
+   ==================================================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Neutrals — backgrounds */
+    --color-bg-primary:   oklch(0.18 0 0);
+    --color-bg-secondary: oklch(0.22 0 0);
+    --color-bg-tertiary:  oklch(0.12 0 0);
+
+    /* Neutrals — text */
+    --color-text-primary:   oklch(0.92 0 0);
+    --color-text-secondary: oklch(0.70 0 0);
+    --color-text-tertiary:  oklch(0.65 0 0);
+
+    /* Neutrals — borders */
+    --color-border-tertiary:  rgba(255, 255, 255, 0.12);
+    --color-border-secondary: rgba(255, 255, 255, 0.22);
+    --color-border-primary:   rgba(255, 255, 255, 0.36);
+
+    /* Purple */
+    --color-purple-50:  oklch(0.14 0.025 285);
+    --color-purple-100: oklch(0.20 0.045 285);
+    --color-purple-200: oklch(0.30 0.07 285);
+    --color-purple-400: oklch(0.55 0.13 285);
+    --color-purple-600: oklch(0.62 0.15 285);
+    --color-purple-800: oklch(0.85 0.10 285);
+    --color-purple-900: oklch(0.93 0.05 285);
+
+    /* Teal */
+    --color-teal-50:  oklch(0.14 0.025 190);
+    --color-teal-100: oklch(0.20 0.045 190);
+    --color-teal-200: oklch(0.30 0.07 190);
+    --color-teal-400: oklch(0.55 0.13 190);
+    --color-teal-600: oklch(0.62 0.15 190);
+    --color-teal-800: oklch(0.85 0.10 190);
+    --color-teal-900: oklch(0.93 0.05 190);
+
+    /* Coral */
+    --color-coral-50:  oklch(0.14 0.025 30);
+    --color-coral-100: oklch(0.20 0.045 30);
+    --color-coral-200: oklch(0.30 0.07 30);
+    --color-coral-400: oklch(0.55 0.13 30);
+    --color-coral-600: oklch(0.62 0.15 30);
+    --color-coral-800: oklch(0.85 0.10 30);
+    --color-coral-900: oklch(0.93 0.05 30);
+
+    /* Amber */
+    --color-amber-50:  oklch(0.14 0.025 75);
+    --color-amber-100: oklch(0.20 0.045 75);
+    --color-amber-200: oklch(0.30 0.07 75);
+    --color-amber-400: oklch(0.55 0.13 75);
+    --color-amber-600: oklch(0.62 0.15 75);
+    --color-amber-800: oklch(0.85 0.10 75);
+    --color-amber-900: oklch(0.93 0.05 75);
+
+    /* Blue */
+    --color-blue-50:  oklch(0.14 0.025 240);
+    --color-blue-100: oklch(0.20 0.045 240);
+    --color-blue-200: oklch(0.30 0.07 240);
+    --color-blue-400: oklch(0.55 0.13 240);
+    --color-blue-600: oklch(0.62 0.15 240);
+    --color-blue-800: oklch(0.85 0.10 240);
+    --color-blue-900: oklch(0.93 0.05 240);
+
+    /* Cover backgrounds — dark mode variants */
+    --c-purple-cover: oklch(0.35 0.07 285);
+    --c-teal-cover:   oklch(0.35 0.07 190);
+    --c-coral-cover:  oklch(0.35 0.07 30);
+    --c-amber-cover:  oklch(0.35 0.07 75);
+    --c-blue-cover:   oklch(0.35 0.07 240);
+  }
+}
+
+/* ====================================================================
+   DARK MODE — manual override via .dark class
+   Same values as @media block; CSS can't auto-alias them, so we
+   duplicate. Acceptable cost for class-based theme toggle support.
+   ==================================================================== */
+.dark {
+  /* Neutrals — backgrounds */
+  --color-bg-primary:   oklch(0.18 0 0);
+  --color-bg-secondary: oklch(0.22 0 0);
+  --color-bg-tertiary:  oklch(0.12 0 0);
+
+  /* Neutrals — text */
+  --color-text-primary:   oklch(0.92 0 0);
+  --color-text-secondary: oklch(0.70 0 0);
+  --color-text-tertiary:  oklch(0.65 0 0);
+
+  /* Neutrals — borders */
+  --color-border-tertiary:  rgba(255, 255, 255, 0.12);
+  --color-border-secondary: rgba(255, 255, 255, 0.22);
+  --color-border-primary:   rgba(255, 255, 255, 0.36);
+
+  /* Purple */
+  --color-purple-50:  oklch(0.14 0.025 285);
+  --color-purple-100: oklch(0.20 0.045 285);
+  --color-purple-200: oklch(0.30 0.07 285);
+  --color-purple-400: oklch(0.55 0.13 285);
+  --color-purple-600: oklch(0.62 0.15 285);
+  --color-purple-800: oklch(0.85 0.10 285);
+  --color-purple-900: oklch(0.93 0.05 285);
+
+  /* Teal */
+  --color-teal-50:  oklch(0.14 0.025 190);
+  --color-teal-100: oklch(0.20 0.045 190);
+  --color-teal-200: oklch(0.30 0.07 190);
+  --color-teal-400: oklch(0.55 0.13 190);
+  --color-teal-600: oklch(0.62 0.15 190);
+  --color-teal-800: oklch(0.85 0.10 190);
+  --color-teal-900: oklch(0.93 0.05 190);
+
+  /* Coral */
+  --color-coral-50:  oklch(0.14 0.025 30);
+  --color-coral-100: oklch(0.20 0.045 30);
+  --color-coral-200: oklch(0.30 0.07 30);
+  --color-coral-400: oklch(0.55 0.13 30);
+  --color-coral-600: oklch(0.62 0.15 30);
+  --color-coral-800: oklch(0.85 0.10 30);
+  --color-coral-900: oklch(0.93 0.05 30);
+
+  /* Amber */
+  --color-amber-50:  oklch(0.14 0.025 75);
+  --color-amber-100: oklch(0.20 0.045 75);
+  --color-amber-200: oklch(0.30 0.07 75);
+  --color-amber-400: oklch(0.55 0.13 75);
+  --color-amber-600: oklch(0.62 0.15 75);
+  --color-amber-800: oklch(0.85 0.10 75);
+  --color-amber-900: oklch(0.93 0.05 75);
+
+  /* Blue */
+  --color-blue-50:  oklch(0.14 0.025 240);
+  --color-blue-100: oklch(0.20 0.045 240);
+  --color-blue-200: oklch(0.30 0.07 240);
+  --color-blue-400: oklch(0.55 0.13 240);
+  --color-blue-600: oklch(0.62 0.15 240);
+  --color-blue-800: oklch(0.85 0.10 240);
+  --color-blue-900: oklch(0.93 0.05 240);
+
+  /* Cover backgrounds — dark mode variants */
+  --c-purple-cover: oklch(0.35 0.07 285);
+  --c-teal-cover:   oklch(0.35 0.07 190);
+  --c-coral-cover:  oklch(0.35 0.07 30);
+  --c-amber-cover:  oklch(0.35 0.07 75);
+  --c-blue-cover:   oklch(0.35 0.07 240);
+}

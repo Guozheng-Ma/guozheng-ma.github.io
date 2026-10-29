@@ -1,0 +1,21 @@
+---
+title: "Keeping visual RL able to learn"
+date: 2026-10-29
+tags: ["research-note", "plasticity", "adaptation"]
+cover:
+  motif: flow
+  color: teal
+tldr: "Data, the critic and the timing of updates all shape an agent's learning capacity."
+relatedPub: iclr-2024-plasticity
+readingTime: 2
+---
+
+Plasticity is a network's ability to keep learning from new data. In visual RL, that ability matters because the data and training targets evolve as the agent interacts with its environment.
+
+The ICLR 2024 study examines three parts of this problem: the training data, the network's modules and the stage of learning. Its experiments find that augmentation helps preserve plasticity, that the critic can become the main bottleneck, and that losses early in training need timely attention. [Paper summary](https://arxiv.org/abs/2310.07418).
+
+<Aside color="teal">
+  Reusing experience more often is useful only while the learner can still absorb it.
+</Aside>
+
+That observation motivates Adaptive Replay Ratio. It adjusts the frequency of data reuse according to the critic's plasticity, protecting early learning while allowing more reuse later. The [official implementation](https://github.com/Guozheng-Ma/Adaptive-Replay-Ratio) makes this training strategy available for further study.

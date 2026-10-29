@@ -1,0 +1,21 @@
+---
+title: "Learning from a different view"
+date: 2026-10-29
+tags: ["research-note", "augmentation", "generalization"]
+cover:
+  motif: scatter
+  color: coral
+tldr: "Useful visual diversity depends on both the transformation and the way it enters training."
+relatedPub: neurips-2023-augmentation
+readingTime: 2
+---
+
+An augmented image gives a visual RL agent another view of its experience. But more variation does not always lead to more efficient learning: transformations also affect the difficulty and consistency of the training data.
+
+The NeurIPS 2023 paper studies this balance. Random PadResize creates spatial variety while limiting distortion. Cycling Augmentation changes augmentation types periodically, giving the learner varied views while keeping the data distribution more consistent within each period. [Paper and proceedings](https://proceedings.neurips.cc/paper_files/paper/2023/hash/bc26087d3f82e62044fc77752e86737e-Abstract-Conference.html).
+
+<Aside color="coral">
+  Choosing an augmentation and choosing how to use it are connected research questions.
+</Aside>
+
+The [IJCV survey](https://arxiv.org/abs/2210.04561) takes a broader view, organizing methods by how they generate and use augmented data. Together, these works connect image transformations to two goals: making better use of experience and learning policies that generalize.

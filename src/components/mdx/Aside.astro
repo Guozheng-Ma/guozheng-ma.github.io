@@ -1,0 +1,13 @@
+---
+type ThemeColor = 'purple' | 'teal' | 'coral' | 'amber' | 'blue';
+interface Props { color?: ThemeColor; }
+const { color = 'purple' } = Astro.props;
+const tint = `var(--color-${color}-50)`;
+const accent = `var(--color-${color}-600)`;
+---
+<aside
+  class="my-6 rounded-md px-4 py-3 text-[14px] leading-[1.6]"
+  style={`background: ${tint}; border: 0.5px solid ${accent};`}
+>
+  <slot />
+</aside>

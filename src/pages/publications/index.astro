@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import PublicationCard from '../../components/PublicationCard.astro';
+const pubs = (await getCollection('publications')).sort((a,b) => b.data.year - a.data.year || (a.data.featuredOrder ?? 99) - (b.data.featuredOrder ?? 99));
+const years = [...new Set(pubs.map((p) => p.data.year))].sort((a,b) => b-a);
+const filters = [{ key: 'all', label: 'All work' }, { key: 'purple', label: 'Sparsity & scaling' }, { key: 'teal', label: 'Plasticity & adaptation' }, { key: 'coral', label: 'Data & generalization' }];
+---
+<Layout title="Publications — Guozheng Ma" description="Publications by Guozheng Ma on deep reinforcement learning, scaling, plasticity, and generalization.">
+  <main id="main-content" class="site-width">
+    <div class="page-intro"><p class="eyebrow">Research, in full</p><h1>Publications</h1><p>Working toward reinforcement learning agents that scale, adapt, and keep learning.</p></div>
+    <div class="filter-bar" role="group" aria-label="Filter publications by research topic">
+      {filters.map((f) => <button type="button" data-filter={f.key} aria-pressed={f.key === 'all'}>{f.label}</button>)}
+    </div>
+    <p class="filter-status" id="filter-status" aria-live="polite">{pubs.length} publications</p>
+    {years.map((year) => <section data-year-group><h2 class="year-heading">{year}</h2><div class="publications-list">{pubs.filter(p => p.data.year === year).map(pub => <PublicationCard pub={pub} />)}</div></section>)}
+  </main>
+</Layout>
+<script>
+  const controls = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const cards = document.querySelectorAll<HTMLElement>('.publication-card');
+  controls.forEach(control => control.addEventListener('click', () => {
+    const selected = control.dataset.filter;
+    controls.forEach(button => button.setAttribute('aria-pressed', String(button === control)));
+    let count = 0;
+    cards.forEach(card => { card.hidden = selected !== 'all' && card.dataset.theme !== selected; if (!card.hidden) count++; });
+    document.querySelectorAll<HTMLElement>('[data-year-group]').forEach(group => {
+      group.hidden = !Array.from(group.querySelectorAll<HTMLElement>('.publication-card')).some(card => !card.hidden);
+    });
+    const status = document.querySelector('#filter-status');
+    if (status) status.textContent = count + (count === 1 ? ' publication' : ' publications');
+  }));
+</script>

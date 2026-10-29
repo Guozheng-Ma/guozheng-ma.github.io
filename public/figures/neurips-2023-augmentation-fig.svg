@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="240" height="180" preserveAspectRatio="xMidYMid meet">
+  <rect width="240" height="180" fill="#faeeea"/>
+  <g fill="#b04a2e">
+    <circle cx="48" cy="55" r="3" opacity="0.85"/>
+    <circle cx="72" cy="72" r="3" opacity="0.6"/>
+    <circle cx="96" cy="58" r="3" opacity="0.9"/>
+    <circle cx="120" cy="80" r="3" opacity="0.5"/>
+    <circle cx="144" cy="62" r="3" opacity="0.8"/>
+    <circle cx="168" cy="78" r="3" opacity="0.6"/>
+    <circle cx="192" cy="55" r="3" opacity="0.85"/>
+    <circle cx="60" cy="95" r="3" opacity="0.55"/>
+    <circle cx="84" cy="110" r="3" opacity="0.7"/>
+    <circle cx="108" cy="100" r="3" opacity="0.45"/>
+    <circle cx="132" cy="115" r="3" opacity="0.75"/>
+    <circle cx="156" cy="105" r="3" opacity="0.55"/>
+    <circle cx="180" cy="115" r="3" opacity="0.8"/>
+  </g>
+  <text x="120" y="150" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#7a2f1c" font-weight="500">NeurIPS 2023 · Augmentation</text>
+  <text x="120" y="165" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="9" fill="#a05f4c">teaser figure placeholder</text>
+</svg>

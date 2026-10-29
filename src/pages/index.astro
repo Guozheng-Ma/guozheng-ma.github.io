@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import LatestNotes from '../components/LatestNotes.astro';
+import SelectedPublications from '../components/SelectedPublications.astro';
+---
+<Layout
+  title="Guozheng Ma"
+  description="Research notes and publications on deep reinforcement learning."
+>
+  <main id="main-content">
+    <Hero />
+    <LatestNotes />
+    <SelectedPublications />
+  </main>
+</Layout>
+
+<script>
+  // Preserve links to the CV sections of the previous one-page homepage.
+  const movedSections = new Set(['#award', '#invited-talks', '#services', '#news']);
+  function followLegacySection() {
+    if (movedSections.has(window.location.hash)) window.location.replace('/about/' + window.location.hash);
+  }
+  followLegacySection();
+  window.addEventListener('hashchange', followLegacySection);
+</script>

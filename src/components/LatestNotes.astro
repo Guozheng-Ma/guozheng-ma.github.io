@@ -1,0 +1,11 @@
+---
+import { getCollection } from 'astro:content';
+import NoteCard from './NoteCard.astro';
+const notes = (await getCollection('notes', ({ data }) => !data.draft)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const order = ['purple', 'teal', 'coral'];
+const latest = notes.slice(0, 3).sort((a,b) => order.indexOf(a.data.cover.color) - order.indexOf(b.data.cover.color));
+---
+<section class="home-section site-width" aria-labelledby="notes-title">
+  <div class="section-top"><div><p class="eyebrow">Ideas, in a little more detail</p><h2 id="notes-title" class="section-heading">Research notes</h2></div><a href="/notes/" class="section-link">All notes <span aria-hidden="true">↗</span></a></div>
+  <div class="notes-grid">{latest.map((note) => <NoteCard note={note} />)}</div>
+</section>

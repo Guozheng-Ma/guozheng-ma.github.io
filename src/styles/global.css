@@ -1,0 +1,391 @@
+/* ====================================================================
+   global.css — assembly entry point
+   - Loads local Source Serif 4 (4 weight/style combos, latin subset)
+   - Imports tokens, Tailwind v4, KaTeX
+   - Maps tokens to Tailwind theme via @theme block
+   - Base body + heading + link styles
+   - Utility classes (.font-serif-italic, .sr-only)
+   ==================================================================== */
+
+/* ============== LOCAL FONTS (load first, before any imports) ============== */
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/source-serif-4-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/source-serif-4-400-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/source-serif-4-500-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/source-serif-4-500-italic.woff2") format("woff2");
+}
+
+/* ============== TOKENS + TAILWIND + KATEX ============== */
+@import "./tokens.css";
+@import "tailwindcss";
+@import "katex/dist/katex.min.css";
+
+/* ============== DARK MODE CLASS-TOGGLE SUPPORT ============== */
+/* Coexists with prefers-color-scheme @media in tokens.css */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============== TAILWIND @theme — map tokens to utility classes ============== */
+@theme inline {
+  /* Fonts → font-sans / font-serif / font-mono utilities */
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+
+  /* Radius → rounded-md / rounded-lg / rounded-xl utilities */
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+
+  /* Neutrals — short semantic aliases (avoids ugly bg-bg-primary) */
+  --color-page: var(--color-bg-tertiary);              /* bg-page */
+  --color-surface: var(--color-bg-secondary);          /* bg-surface */
+  --color-card: var(--color-bg-primary);               /* bg-card */
+  --color-fg: var(--color-text-primary);               /* text-fg */
+  --color-muted: var(--color-text-secondary);          /* text-muted */
+  --color-hint: var(--color-text-tertiary);            /* text-hint */
+  --color-border: var(--color-border-tertiary);        /* border-border */
+  --color-border-hover: var(--color-border-secondary); /* border-border-hover */
+  --color-border-strong: var(--color-border-primary);  /* border-border-strong */
+
+  /* Theme ramps — natural utility names (bg-purple-600, text-coral-800, etc.) */
+  --color-purple-50: var(--color-purple-50);
+  --color-purple-100: var(--color-purple-100);
+  --color-purple-200: var(--color-purple-200);
+  --color-purple-400: var(--color-purple-400);
+  --color-purple-600: var(--color-purple-600);
+  --color-purple-800: var(--color-purple-800);
+  --color-purple-900: var(--color-purple-900);
+
+  --color-teal-50: var(--color-teal-50);
+  --color-teal-100: var(--color-teal-100);
+  --color-teal-200: var(--color-teal-200);
+  --color-teal-400: var(--color-teal-400);
+  --color-teal-600: var(--color-teal-600);
+  --color-teal-800: var(--color-teal-800);
+  --color-teal-900: var(--color-teal-900);
+
+  --color-coral-50: var(--color-coral-50);
+  --color-coral-100: var(--color-coral-100);
+  --color-coral-200: var(--color-coral-200);
+  --color-coral-400: var(--color-coral-400);
+  --color-coral-600: var(--color-coral-600);
+  --color-coral-800: var(--color-coral-800);
+  --color-coral-900: var(--color-coral-900);
+
+  --color-amber-50: var(--color-amber-50);
+  --color-amber-100: var(--color-amber-100);
+  --color-amber-200: var(--color-amber-200);
+  --color-amber-400: var(--color-amber-400);
+  --color-amber-600: var(--color-amber-600);
+  --color-amber-800: var(--color-amber-800);
+  --color-amber-900: var(--color-amber-900);
+
+  --color-blue-50: var(--color-blue-50);
+  --color-blue-100: var(--color-blue-100);
+  --color-blue-200: var(--color-blue-200);
+  --color-blue-400: var(--color-blue-400);
+  --color-blue-600: var(--color-blue-600);
+  --color-blue-800: var(--color-blue-800);
+  --color-blue-900: var(--color-blue-900);
+}
+
+/* ============== BASE STYLES ============== */
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background: var(--color-bg-tertiary);
+  line-height: 1.65;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 { font-size: 24px; font-weight: 500; line-height: 1.3; }
+h2 { font-size: 18px; font-weight: 500; line-height: 1.4; }
+h3 { font-size: 16px; font-weight: 500; line-height: 1.4; }
+
+p { margin: 0; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.5px solid transparent;
+  transition: border-color 0.15s ease;
+}
+a:hover {
+  border-bottom-color: var(--color-border-primary);
+}
+
+/* ============== UTILITY CLASSES ============== */
+.font-serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Detail-page title (Phase 5/6: <h1 class="page-title">) — 28px serif italic */
+.page-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.25;
+}
+
+/* Section heading (LatestNotes, SelectedPublications, list-page h1, /about sections) */
+.section-heading {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============== LONG-FORM READING (.prose) ============== */
+.prose > * + * { margin-top: 1em; }
+.prose h2 { font-size: 18px; font-weight: 500; margin-top: 2em; }
+.prose h3 { font-size: 16px; font-weight: 500; margin-top: 1.5em; }
+.prose p { margin: 0; }
+.prose ul, .prose ol { padding-left: 1.5em; }
+.prose ul { list-style: disc; }
+.prose ol { list-style: decimal; }
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: var(--color-bg-secondary);
+  padding: 0 0.3em;
+  border-radius: 3px;
+}
+.prose pre {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: var(--color-bg-secondary);
+  padding: 1em;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+.prose pre > code { background: transparent; padding: 0; }
+.prose a {
+  text-decoration: underline;
+  text-decoration-thickness: 0.5px;
+  text-underline-offset: 3px;
+}
+.prose strong { font-weight: 500; }
+.prose em { font-style: italic; }
+
+/* ============== KaTeX DARK MODE PATCH ============== */
+/* KaTeX hardcodes black fills/borders. Force currentColor so dark mode works. */
+.katex { color: var(--color-text-primary); }
+.katex .vlist { color: inherit; }
+.katex svg { fill: currentColor; }
+.katex svg * { fill: currentColor; stroke: currentColor; }
+.katex .frac-line,
+.katex .overline-line,
+.katex .underline-line,
+.katex .hline,
+.katex .hdashline,
+.katex .rule {
+  border-color: currentColor !important;
+  background: currentColor !important;
+}
+
+/* ============== CARD-LINK UTILITY ============== */
+/* Card wrappers opt out of global a:hover border (cards have their own affordance). */
+a.card-link,
+a.card-link:hover {
+  border-bottom: none;
+}
+/* Hover feedback via bg-secondary color step (no shadow, no transform). */
+a.card-link {
+  transition: background 0.2s ease;
+}
+a.card-link:hover {
+  background: var(--color-bg-secondary);
+}
+
+/* ============== LINK-BTN (detail-page action buttons) ============== */
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em 1em;
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--color-text-primary);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.link-btn:hover {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-border-secondary);
+  border-bottom-color: var(--color-border-secondary);
+}
+
+/* Editorial layout: quiet paper, consistent rules, and topic-led illustrations. */
+html { scroll-padding-top: 92px; }
+body { min-width: 280px; }
+img { max-width: 100%; }
+a, button { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--color-teal-600); outline-offset: 5px; }
+button { font: inherit; cursor: pointer; }
+[hidden] { display: none !important; }
+.site-width { width: min(100% - 80px, 1000px); margin-inline: auto; }
+.skip-link { position: fixed; left: 20px; top: -100px; z-index: 100; padding: 10px 18px; background: var(--color-bg-primary); border: 0.5px solid var(--color-border-primary); }
+.skip-link:focus { top: 12px; }
+#site-header { position: sticky; top: 0; z-index: 50; background: var(--color-bg-tertiary); border-bottom: 0.5px solid var(--color-border-tertiary); }
+.header-row { display: flex; align-items: center; justify-content: space-between; min-height: 82px; gap: 24px; }
+.wordmark { font-size: 16px; font-weight: 500; letter-spacing: -.025em; }
+.wordmark-dot { color: var(--color-teal-600); }
+.header-row nav { display: flex; gap: 30px; }
+.header-row nav a { font-size: 13px; color: var(--color-text-secondary); padding-block: 6px; }
+.header-row nav a[aria-current="page"] { color: var(--color-text-primary); border-bottom-color: var(--color-text-primary); }
+.eyebrow { font-size: 11px; color: var(--color-text-secondary); letter-spacing: .035em; }
+.hero { display: grid; grid-template-columns: 200px minmax(0,1fr); gap: 48px; align-items: center; padding-block: 64px 58px; }
+.hero-portrait img { display: block; width: 200px; aspect-ratio: 1; border-radius: 16px; border: 0.5px solid var(--color-border-tertiary); object-fit: cover; }
+.portrait-caption { display: block; text-align: center; font-size: 10px; color: var(--color-text-secondary); margin-top: 12px; }
+.hero h1 { margin-top: 9px; letter-spacing: -.025em; }
+.hero h1 span { margin-left: 12px; font-size: 17px; font-weight: 400; letter-spacing: .08em; color: var(--color-text-secondary); }
+.hero-role { margin-top: 12px; font-size: 13px; color: var(--color-text-secondary); line-height: 1.7; }
+.hero-role a { color: var(--color-text-primary); border-bottom-color: var(--color-border-tertiary); }
+.hero-bio { margin-top: 17px; font-size: 14px; line-height: 1.8; max-width: 650px; }
+.hero-tagline { margin-top: 20px; font-size: 15px; color: var(--color-text-secondary); }
+.social-links { display: flex; flex-wrap: wrap; gap: 10px 21px; font-size: 12px; color: var(--color-text-secondary); }
+.hero .social-links { margin-top: 22px; }
+.home-section { border-top: 0.5px solid var(--color-border-tertiary); padding-top: 30px; margin-bottom: 48px; }
+.section-top { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 24px; }
+.section-top h2 { margin-top: 5px; }
+.section-link { flex-shrink: 0; font-size: 12px; color: var(--color-text-secondary); }
+.section-link span { margin-left: 8px; }
+.notes-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 22px; }
+.note-card { display: flex; flex-direction: column; border: 0.5px solid var(--color-border-tertiary); border-radius: 12px; overflow: hidden; background: var(--color-bg-primary); }
+a.note-card, a.note-card:hover { border-bottom: 0.5px solid var(--color-border-tertiary); }
+.cover-art { overflow: hidden; background: #f2f0e9; }
+.cover-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.note-copy { padding: 18px 19px 17px; flex: 1; display: flex; flex-direction: column; }
+.topic-label { color: var(--topic); font-size: 10px; display: flex; align-items: center; gap: 7px; }
+.topic-label span { width: 5px; height: 5px; background: currentColor; border-radius: 50%; }
+.note-copy h3 { margin-top: 9px; font-size: 18px; line-height: 1.35; }
+.note-summary { font-size: 12px; color: var(--color-text-secondary); margin-top: 9px; line-height: 1.7; }
+.note-meta { padding-top: 20px; margin-top: auto; font-size: 10px; color: var(--color-text-secondary); display: flex; justify-content: space-between; }
+.note-meta span { font-size: 15px; line-height: 1; }
+.publications-list { border-top: 0.5px solid var(--color-border-tertiary); }
+.publication-card { display: grid; grid-template-columns: 192px minmax(0,1fr); align-items: start; gap: 28px; padding-block: 26px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.publication-art { overflow: hidden; border-radius: 8px; }
+.publication-art img { display: block; width: 100%; height: auto; aspect-ratio: 3/2; object-fit: cover; }
+.publication-meta { display: flex; gap: 8px 14px; flex-wrap: wrap; align-items: center; font-size: 11px; }
+.venue { color: var(--topic); }
+.honor { color: var(--color-amber-800); font-size: 10px; background: var(--color-amber-50); border-radius: 4px; padding: 2px 7px; }
+.publication-copy h3 { margin-top: 7px; font-size: 18px; line-height: 1.45; }
+.publication-authors { margin-top: 9px; font-size: 11px; line-height: 1.7; color: var(--color-text-secondary); }
+.self-author { font-weight: 500; color: var(--color-text-primary); }
+.publication-summary { margin-top: 8px; font-size: 12px; color: var(--color-text-secondary); line-height: 1.7; }
+.publication-links { margin-top: 13px; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 11px; color: var(--color-text-secondary); }
+.site-footer { border-top: 0.5px solid var(--color-border-tertiary); display: flex; justify-content: space-between; gap: 24px; padding-block: 28px 40px; margin-top: 56px; font-size: 11px; color: var(--color-text-secondary); }
+.footer-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
+.site-footer p { margin-top: 4px; }
+.footer-contact { text-align: right; }
+.footer-contact .social-links { justify-content: end; margin-top: 8px; font-size: 11px; }
+.page-intro { padding-block: 46px 30px; }
+.page-intro h1 { margin-top: 6px; }
+.page-intro > p:last-child { margin-top: 12px; font-size: 14px; max-width: 640px; color: var(--color-text-secondary); }
+.filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 4px 24px; }
+.filter-bar button { font-size: 11px; padding: 7px 13px; border: 0.5px solid var(--color-border-tertiary); border-radius: 20px; color: var(--color-text-secondary); background: transparent; }
+.filter-bar button[aria-pressed="true"] { color: var(--color-bg-primary); background: var(--color-text-primary); border-color: var(--color-text-primary); }
+.year-heading { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 4px; margin-top: 32px; }
+.filter-status { font-size: 11px; color: var(--color-text-secondary); }
+.article-figure { overflow: hidden; border-radius: 12px; border: 0.5px solid var(--color-border-tertiary); }
+.article-figure img { width: 100%; aspect-ratio: 3/2; object-fit: cover; }
+.figure-caption { margin-top: 8px; font-size: 11px; color: var(--color-text-secondary); }
+.about-links { margin-top: 22px; }
+.prose { overflow-wrap: break-word; }
+.prose p + p { margin-top: 1em; }
+.border, .border-t, .border-r, .border-b { border-width: 0.5px; }
+.border-t { border-width: 0.5px 0 0; }
+.border-r { border-width: 0 0.5px 0 0; }
+.border-b { border-width: 0 0 0.5px; }
+@media (max-width: 800px) {
+  .site-width { width: calc(100% - 48px); }
+  .hero { grid-template-columns: 150px minmax(0,1fr); gap: 28px; padding-block: 42px; }
+  .hero-portrait img { width: 150px; }
+  .hero-tagline { font-size: 14px; }
+  .notes-grid { gap: 14px; }
+  .note-copy { padding: 15px; }
+  .note-copy h3 { font-size: 16px; }
+  .publication-card { grid-template-columns: 150px minmax(0,1fr); gap: 22px; }
+}
+@media (max-width: 580px) {
+  .site-width { width: calc(100% - 36px); }
+  .header-row { min-height: 68px; gap: 14px; }
+  .wordmark { font-size: 14px; }
+  .header-row nav { gap: 17px; }
+  .header-row nav a { font-size: 12px; }
+  .hero { grid-template-columns: 1fr; gap: 24px; padding-block: 34px 38px; }
+  .hero-portrait { display: flex; align-items: end; gap: 17px; }
+  .hero-portrait img { width: 112px; border-radius: 12px; }
+  .portrait-caption { margin: 0 0 5px; text-align: left; }
+  .hero h1 { font-size: 24px; }
+  .hero .eyebrow { font-size: 10px; }
+  .hero-bio { font-size: 14px; }
+  .hero .social-links { gap: 12px 20px; }
+  .desktop-break { display: none; }
+  .notes-grid { grid-template-columns: 1fr; gap: 22px; }
+  .note-card .cover-art { aspect-ratio: 2 / 1 !important; }
+  .note-copy { padding: 20px; }
+  .note-copy h3 { font-size: 19px; }
+  .note-summary { font-size: 13px; }
+  .note-meta { padding-top: 17px; }
+  .section-top { align-items: center; gap: 12px; }
+  .section-top .eyebrow { font-size: 10px; }
+  .section-link { font-size: 11px; }
+  .section-link span { margin-left: 3px; }
+  .publication-card { grid-template-columns: 1fr; gap: 17px; padding-block: 24px; }
+  .publication-art img { aspect-ratio: 2.4/1; }
+  .publication-copy h3 { font-size: 18px; }
+  .publication-authors, .publication-summary { font-size: 12px; }
+  .publication-links { font-size: 12px; }
+  .site-footer { flex-direction: column; margin-top: 38px; }
+  .footer-contact { text-align: left; }
+  .footer-contact .social-links { justify-content: start; }
+  .home-section { margin-bottom: 36px; }
+  .page-title { font-size: 26px; }
+}
+@media (max-width: 350px) {
+  .header-row { flex-wrap: wrap; gap: 0; padding-block: 12px; }
+  .header-row nav { width: 100%; justify-content: space-between; margin-top: 5px; }
+}
+
+.publication-copy h3 a { display: block; border-bottom: none; }
+.publication-copy h3 a:hover { text-decoration: underline; text-decoration-thickness: 0.5px; text-underline-offset: 4px; }
