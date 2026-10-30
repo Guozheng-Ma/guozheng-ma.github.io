@@ -1,26 +1,21 @@
 ---
 import { type CollectionEntry } from 'astro:content';
-import ThemeImage from './ThemeImage.astro';
-interface Props { pub: CollectionEntry<'publications'>; }
-const { pub } = Astro.props;
+interface Props { pub: CollectionEntry<'publications'>; compact?: boolean; headingLevel?: 'h2' | 'h3'; }
+const { pub, compact = false, headingLevel: Heading = 'h3' } = Astro.props;
 const d = pub.data;
 ---
-<article class="publication-card" data-theme={d.themeColor} style={`--topic: var(--color-${d.themeColor}-800)`}>
-  <a href={`/publications/${pub.id}/`} class="publication-art card-link" tabindex="-1" aria-hidden="true">
-    <ThemeImage src={d.figure} alt="" width="1200" height="800" />
-  </a>
+<article class:list={['publication-card', { 'publication-compact': compact }]}>
+  <div class="publication-meta"><p>{d.venue} {d.year}</p>{d.venueFull.includes('Position') && <p>Position paper</p>}{d.award && <p class="honor">{d.award}</p>}</div>
   <div class="publication-copy">
-    <p class="publication-meta"><span class="venue">{d.venue} · {d.year}</span>{d.award && <span class="honor">{d.award}</span>}</p>
-    <h3 class="font-serif-italic"><a href={`/publications/${pub.id}/`}>{d.title}</a></h3>
-    <p class="publication-authors">{d.authors.map((a, i) => <span class={d.authorBoldIndices.includes(i) ? 'self-author' : ''}>{a}{i < d.authors.length - 1 ? ', ' : ''}</span>)}</p>
+    <Heading><a href={`/publications/${pub.id}/`}>{d.title}</a></Heading>
+    {!compact && <p class="publication-authors">{d.authors.map((a, i) => <span class={d.authorBoldIndices.includes(i) ? 'self-author' : ''}>{a}{i < d.authors.length - 1 ? ', ' : ''}</span>)}</p>}
     <p class="publication-summary">{d.tldr}</p>
     <div class="publication-links">
-      {d.links.pdf && <a href={d.links.pdf}>Paper ↗</a>}
-      {d.links.code && <a href={d.links.code}>Code ↗</a>}
-      {d.links.bibtex && <a download href={d.links.bibtex}>BibTeX ↓</a>}
-      {d.links.project && <a href={d.links.project}>Project ↗</a>}
-      {d.links.video && <a href={d.links.video}>Video ↗</a>}
-      <a href={`/publications/${pub.id}/`}>Read more →</a>
+      {d.links.pdf && <a href={d.links.pdf}>Paper <span aria-hidden="true">↗</span></a>}
+      {d.links.code && <a href={d.links.code}>Code</a>}
+      {!compact && d.links.bibtex && <a download href={d.links.bibtex}>BibTeX</a>}
+      {d.links.project && <a href={d.links.project}>Project</a>}
+      {d.links.video && <a href={d.links.video}>Video</a>}
     </div>
   </div>
 </article>

@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection, getEntry, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import CoverArt from '../../components/CoverArt.astro';
 import Aside from '../../components/mdx/Aside.astro';
@@ -9,64 +9,58 @@ import Figure from '../../components/mdx/Figure.astro';
 
 export async function getStaticPaths() {
   const allNotes = (await getCollection('notes', ({ data }) => !data.draft))
-    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-  return allNotes.map((note, idx) => ({
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime() || a.data.title.localeCompare(b.data.title));
+  return allNotes.map((note) => ({
     params: { id: note.id },
     props: {
       note,
-      prev: idx > 0 ? allNotes[idx - 1] : null,
-      next: idx < allNotes.length - 1 ? allNotes[idx + 1] : null,
+      moreNotes: allNotes.filter((other) => other.id !== note.id),
     },
   }));
 }
 
-const { note, prev, next } = Astro.props;
+const { note, moreNotes } = Astro.props;
 const { Content } = await render(note);
-
-const category = note.data.tags[0] === "research-note" ? "Research note" : note.data.tags[0].replaceAll("-", " ");
-const readingTime = note.data.readingTime;
+const relatedPub = note.data.relatedPub ? await getEntry('publications', note.data.relatedPub) : null;
 const dateStr = note.data.date.toLocaleDateString('en-US', {
-  timeZone: 'UTC', month: 'short',
+  timeZone: 'UTC',
+  month: 'long',
   day: 'numeric',
   year: 'numeric',
 });
 ---
 <Layout title={note.data.title} description={note.data.tldr} type="article">
-  <main id="main-content" class="mx-auto max-w-[720px] px-5 py-10">
-    <a href="/notes" class="text-[12px] text-hint">← Notes</a>
+  <main id="main-content" class="reading-page">
+    <header class="article-header">
+      <a href="/notes/" class="back-link">← Notes</a>
+      <h1 class="page-title">{note.data.title}</h1>
+      <p class="article-meta"><time datetime={note.data.date.toISOString().slice(0, 10)}>{dateStr}</time></p>
+    </header>
 
-    <p class="mt-8 text-[12px] italic text-hint">{category}</p>
-    <h1 class="page-title mt-1">{note.data.title}</h1>
-    <p class="mt-3 text-[11px] text-hint">{dateStr} · {readingTime} min read</p>
-
-    <div class="mt-8">
-      <CoverArt motif={note.data.cover.motif} color={note.data.cover.color} aspectRatio="3 / 2" />
-    </div>
-
-    <article class="prose mt-10 text-[15px] leading-[1.75]">
+    <article class="prose article-body">
       <Content components={{ Aside, MathBlock, PaperCard, Figure }} />
     </article>
 
-    {note.data.relatedPub && (
-      <section class="mt-12 border-t border-border pt-6">
-        <p class="text-[11px] tracking-wide text-hint mb-2">Related research</p>
-        <PaperCard slug={note.data.relatedPub} />
+    <div class="note-illustration">
+      <CoverArt motif={note.data.cover.motif} color={note.data.cover.color} aspectRatio="3 / 2" />
+    </div>
+
+    {relatedPub && (
+      <section class="related-section" aria-labelledby="related-paper-title">
+        <h2 id="related-paper-title" class="related-title">Related paper</h2>
+        <a href={`/publications/${relatedPub.id}/`} class="related-link">{relatedPub.data.title}</a>
       </section>
     )}
 
-    <nav class="mt-16 flex justify-between gap-4 border-t border-border pt-6 text-[12px]">
-      {prev ? (
-        <a href={`/notes/${prev.id}`} class="card-link text-muted max-w-[45%]">
-          <span class="block text-hint">← Newer</span>
-          <span class="block font-serif-italic">{prev.data.title}</span>
-        </a>
-      ) : <span></span>}
-      {next ? (
-        <a href={`/notes/${next.id}`} class="card-link text-muted max-w-[45%] text-right">
-          <span class="block text-hint">Older →</span>
-          <span class="block font-serif-italic">{next.data.title}</span>
-        </a>
-      ) : <span></span>}
-    </nav>
+    {moreNotes.length > 0 && (
+      <nav class="related-section" aria-labelledby="more-notes-title">
+        <h2 id="more-notes-title" class="related-title">More notes</h2>
+        <ul class="more-notes-list">
+          {moreNotes.map((other) => (
+            <li><a href={`/notes/${other.id}/`} class="related-link">{other.data.title}</a></li>
+          ))}
+        </ul>
+      </nav>
+    )}
   </main>
 </Layout>

@@ -1,16 +1,13 @@
 ---
 import { type CollectionEntry } from 'astro:content';
 import CoverArt from './CoverArt.astro';
-interface Props { note: CollectionEntry<'notes'>; }
-const { note } = Astro.props;
-const topics: Record<string, string> = { purple: 'Sparsity & scaling', teal: 'Plasticity & adaptation', coral: 'Data & generalization' };
+interface Props { note: CollectionEntry<'notes'>; compact?: boolean; headingLevel?: 'h2' | 'h3'; }
+const { note, compact = false, headingLevel: Heading = 'h3' } = Astro.props;
 ---
-<a href={`/notes/${note.id}/`} class="note-card card-link" style={`--topic: var(--color-${note.data.cover.color}-800)`}>
-  <CoverArt color={note.data.cover.color} />
+<article class:list={['note-card', { 'note-compact': compact }]}>
+  {!compact && <a href={`/notes/${note.id}/`} class="note-art" tabindex="-1" aria-hidden="true"><CoverArt color={note.data.cover.color} /></a>}
   <div class="note-copy">
-    <p class="topic-label"><span aria-hidden="true"></span>{topics[note.data.cover.color]}</p>
-    <h3 class="font-serif-italic">{note.data.title}</h3>
+    <Heading><a href={`/notes/${note.id}/`}>{note.data.title}</a></Heading>
     <p class="note-summary">{note.data.tldr}</p>
-    <p class="note-meta">Research note · {note.data.readingTime} min read <span aria-hidden="true">↗</span></p>
   </div>
-</a>
+</article>

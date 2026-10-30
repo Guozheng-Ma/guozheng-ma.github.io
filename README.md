@@ -1,48 +1,54 @@
-# Guozheng Ma · Research journal
+# Guozheng Ma · Personal research journal
 
-Guozheng Ma 的个人研究主页，使用 Astro、MDX 与 Tailwind CSS 构建。主页呈现研究笔记与精选论文，完整经历和学术服务见 About。
+Guozheng Ma 的个人思想与研究杂志。首页以真实座右铭和个人介绍开场，呈现一篇主打笔记、两篇文字笔记与三篇精选论文；Notes、Publications 和 About 提供完整内容。排版采用正体 serif 标题、sans 正文，并支持浅色、暗色及跟随系统。简洁的原生 SVG 马头用于页头与 favicon，浅色为 `#2b718f`、暗色为 `#a8ccdf`，随自动／手动主题同步切换。
 
 正式网址：[guozheng-ma.github.io](https://guozheng-ma.github.io)
 
 发布仓库：[Guozheng-Ma/guozheng-ma.github.io](https://github.com/Guozheng-Ma/guozheng-ma.github.io)
 
-## 上传与日常更新
+## 维护与上传
 
-完整中文操作步骤见 [上传说明](docs/UPLOAD.md)。提交并推送到 `main` 后，GitHub Actions 会自动构建、发布到现有网址。
+主要工作目录：`/Users/mgz/Workspace/Homepage-old/homepage-repo`。日常修改使用这份 Git 仓库；`/Users/mgz/Workspace/Homepage/guozheng-site` 是参考源码副本。
 
-本次替换后的发布工作目录是 `/Users/mgz/Workspace/Homepage-old/homepage-repo`。日常更新请使用这份目录；旧站完整备份放在仓库外的 `/Users/mgz/Workspace/Homepage-old/backups/`。
+当前规范见 [AGENTS.md](AGENTS.md)，本轮结果与验证状态见 [交付记录](docs/DELIVERY.md)。本轮杂志重设计先在本地完成与预览，不自动提交或推送。需要发布时按 [上传说明](docs/UPLOAD.md)操作，现有 GitHub Actions 会构建并发布 `main` 分支。
 
 ## 内容位置
 
 | 内容 | 文件 |
 | --- | --- |
-| 个人信息、教育经历、服务 | `src/data/cv.yaml` |
-| 近期动态 | `src/data/updates.yaml` |
-| 论文 | `src/content/publications/` |
+| 姓名、邮箱与社交链接 | `src/data/profile.ts` |
+| 教育经历、奖励、报告与服务 | `src/data/cv.yaml` |
+| 历史动态 | `src/data/updates.yaml` |
+| 个人介绍与首页文字 | `src/components/Hero.astro`、`src/pages/about.astro` |
+| 论文与引用下载 | `src/content/publications/`、`public/bibtex/` |
 | 研究笔记 | `src/content/notes/` |
-| 图片与可下载资料 | `public/` |
-| 页面与组件 | `src/pages/`、`src/components/` |
-| 字体、颜色和排版 | `src/styles/` |
+| 浅色／暗色插画 | `public/art/` |
+| 马头标志与浏览器图标 | `src/components/HorseMark.astro`、`public/favicon*.svg`、`public/favicon.ico`、`public/apple-touch-icon.png` |
+| 页面、组件、字体与样式 | `src/pages/`、`src/components/`、`src/styles/`、`public/fonts/` |
 | 自动发布 | `.github/workflows/deploy.yml` |
+
+个人资料、论文与图片的依据分别见 [内容来源](docs/content-sources.md)和[插画记录](docs/art-prompts.md)。旧站资源与历史锚点继续保留。
 
 ## 本地预览
 
-使用 Node.js 22.12 或更新版本；自动发布使用 Node.js 22。在项目根目录执行：
+使用 Node.js 22.12 或更新的兼容版本；自动发布使用 Node.js 22。在项目根目录执行：
 
 ```sh
 npm ci
 npm run dev
 ```
 
-浏览器打开终端显示的本地地址（默认 `http://localhost:4321`）。检查正式构建：
+浏览器打开终端显示的本地地址，默认是 `http://localhost:4321`。检查正式构建：
 
 ```sh
 npm run build
 npm run preview
 ```
 
-构建后的静态网站在 `dist/`。`node_modules/`、`dist/` 和 `.astro/` 不提交到 Git；GitHub Actions 会根据 `package-lock.json` 安装依赖并重新生成网站。
+静态网站生成在 `dist/`。`node_modules/`、`dist/` 和 `.astro/` 不提交到 Git；GitHub Actions 根据 `package-lock.json` 安装依赖并生成网站。
 
-## 设计资料
+## 历史资料
 
-[设计规范](docs/01-architecture.md)与[早期实施指南](docs/02-implementation-guide.md)记录设计来源。当前发布方式以[上传说明](docs/UPLOAD.md)为准，继续使用原 GitHub Pages 仓库与网址。
+[早期架构](docs/01-architecture.md)与[早期实施指南](docs/02-implementation-guide.md)保留设计演进背景；其中旧字号、斜体标题和分阶段审批规则不再适用，以 [AGENTS.md](AGENTS.md)为准。
+
+改版前的完整备份：`/Users/mgz/Workspace/Homepage-old/backups/2026-10-29-before-redesign.tar.gz`。

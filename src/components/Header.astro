@@ -1,5 +1,6 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
+import HorseMark from './HorseMark.astro';
 interface Props { currentPath: string; }
 const { currentPath } = Astro.props;
 const navItems = [{ href: '/notes/', label: 'Notes' }, { href: '/publications/', label: 'Publications' }, { href: '/about/', label: 'About' }];
@@ -7,7 +8,7 @@ const isActive = (href: string) => currentPath.replace(/\/$/, '') === href.repla
 ---
 <header id="site-header">
   <div class="header-row site-width">
-    <a href="/" class="wordmark" aria-label="Guozheng Ma — home">Guozheng Ma<span class="wordmark-dot" aria-hidden="true">.</span></a>
+    <a href="/" class="wordmark" aria-label="Guozheng Ma — home"><HorseMark /><span>Guozheng Ma</span></a>
     <div class="header-actions">
     <nav aria-label="Primary">
       {navItems.map((item) => <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>)}

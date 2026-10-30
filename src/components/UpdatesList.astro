@@ -2,21 +2,8 @@
 import { loadUpdates } from '../lib/cv';
 import UpdateRow from './UpdateRow.astro';
 
-const updates = loadUpdates().sort(
-  (a, b) => b.date.getTime() - a.date.getTime()
-);
-const updatesByYear = Object.groupBy(updates, (u) => u.date.getUTCFullYear());
-const years = [...new Set(updates.map((u) => u.date.getUTCFullYear()))].sort(
-  (a, b) => b - a
-);
+const updates = loadUpdates().sort((a, b) => b.date.getTime() - a.date.getTime());
 ---
-<div class="mt-6">
-  {years.map((year) => (
-    <section class="mt-6">
-      <h3 class="text-[15px] text-hint mb-2">{year}</h3>
-      <div>
-        {updatesByYear[year]?.map((update) => <UpdateRow update={update} />)}
-      </div>
-    </section>
-  ))}
-</div>
+<ul class="cv-list">
+  {updates.map((update) => <UpdateRow update={update} />)}
+</ul>

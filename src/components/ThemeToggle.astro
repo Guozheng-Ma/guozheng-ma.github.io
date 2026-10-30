@@ -18,7 +18,8 @@
     const dark = preference === 'dark' || (preference === 'system' && system.matches);
     root.dataset.theme = preference;
     root.classList.toggle('dark', dark);
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#060606' : '#faf9f6');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#191919' : '#f5f2ec');
+    document.querySelector('#site-favicon')?.setAttribute('href', dark ? '/favicon-dark.svg' : '/favicon-light.svg');
     const next = choices[(choices.indexOf(preference) + 1) % choices.length];
     const label = `Color theme: ${preference}. ${next === 'system' ? 'Follow system appearance' : `Switch to ${next} mode`}.`;
     if (button) {

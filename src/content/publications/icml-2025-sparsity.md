@@ -14,7 +14,7 @@ links:
   pdf: "https://openreview.net/pdf?id=mIomqOskaa"
   code: "https://github.com/lilucse/SparseNetwork4DRL"
 featured: true
-featuredOrder: 2
+featuredOrder: 3
 ---
 
 This work studies static sparsity as a way to scale deep reinforcement learning. A single random pruning step before training improves parameter efficiency and helps networks resist plasticity loss and gradient interference. The evaluation includes visual and streaming RL settings. [Read the conference record](https://proceedings.mlr.press/v267/ma25l.html).

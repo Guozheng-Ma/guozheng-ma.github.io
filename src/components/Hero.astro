@@ -2,23 +2,19 @@
 import { profile } from '../data/profile';
 import ThemeImage from './ThemeImage.astro';
 ---
-<section id="about-me" class="hero site-width" aria-labelledby="hero-name">
+<section id="about-me" class="hero site-width" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <h1 id="hero-title">Greatness cannot<br />be planned.</h1>
+    <p class="hero-tagline">So I play with joyful explorations.</p>
+    <p class="hero-bio">I’m Guozheng, a PhD student at <a href="https://www.ntu.edu.sg/">NTU</a>, advised by <a href="https://dr.ntu.edu.sg/cris/rp/rp02343">Dacheng Tao</a>. I study how reinforcement learning agents can scale, adapt, and keep learning.</p>
+    <div class="social-links" aria-label="Contact and profiles">
+      <a href={`mailto:${profile.email}`}>Email</a>
+      <a href={profile.scholar}>Scholar</a>
+      <a href={profile.github}>GitHub</a>
+      <a href="/about/">About me <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
   <div class="hero-portrait">
     <ThemeImage src="/art/portrait.webp" alt="An illustrated portrait of Guozheng Ma" width="600" height="600" loading="eager" fetchpriority="high" />
-    <span class="portrait-caption">Guozheng Ma</span>
-  </div>
-  <div class="hero-copy">
-    <p class="eyebrow">Reinforcement learning · NTU, Singapore</p>
-    <h1 id="hero-name">Guozheng Ma</h1>
-    <p class="hero-role">PhD student at <a href="https://www.ntu.edu.sg/">Nanyang Technological University</a>,<br class="desktop-break" /> advised by <a href="https://dr.ntu.edu.sg/cris/rp/rp02343">Dacheng Tao</a>.</p>
-    <p class="hero-bio">I study how reinforcement learning agents can scale, adapt, and keep learning in open-ended environments — from optimization and plasticity to exploration and generalization.</p>
-    <p class="hero-tagline font-serif-italic">Greatness cannot be planned, so I play with joyful explorations.</p>
-    <div class="social-links" aria-label="Contact and profiles">
-      <a href={`mailto:${profile.email}`}>Email ↗</a>
-      <a href={profile.scholar}>Scholar ↗</a>
-      <a href={profile.github}>GitHub ↗</a>
-      <a href={profile.x}>X ↗</a>
-      <a href="/about/">More about me →</a>
-    </div>
   </div>
 </section>

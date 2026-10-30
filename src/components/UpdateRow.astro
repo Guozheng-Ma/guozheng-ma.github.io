@@ -1,46 +1,34 @@
 ---
 import type { Update } from '../lib/cv';
 
-interface Props {
-  update: Update;
-}
+interface Props { update: Update; }
 const { update } = Astro.props;
+const dateLabel = update.date.toLocaleDateString('en-US', {
+  timeZone: 'UTC',
+  month: 'short',
+  year: 'numeric',
+});
 
-const monthStr = update.date.toLocaleDateString('en-US', { timeZone: 'UTC', month: 'short' });
-
-// Parse [bracket] segments. Bracketed text renders as serif italic;
-// if relatedPub is set the bracket becomes a link to that publication.
 type Part = { type: 'text'; value: string } | { type: 'link'; value: string };
 const parts: Part[] = [];
-const re = /\[([^\]]+)\]/g;
-let lastIdx = 0;
+const brackets = /\[([^\]]+)\]/g;
+let lastIndex = 0;
 let match: RegExpExecArray | null;
-while ((match = re.exec(update.text)) !== null) {
-  if (match.index > lastIdx) {
-    parts.push({ type: 'text', value: update.text.slice(lastIdx, match.index) });
-  }
+while ((match = brackets.exec(update.text)) !== null) {
+  if (match.index > lastIndex) parts.push({ type: 'text', value: update.text.slice(lastIndex, match.index) });
   parts.push({ type: 'link', value: match[1] });
-  lastIdx = match.index + match[0].length;
+  lastIndex = match.index + match[0].length;
 }
-if (lastIdx < update.text.length) {
-  parts.push({ type: 'text', value: update.text.slice(lastIdx) });
-}
+if (lastIndex < update.text.length) parts.push({ type: 'text', value: update.text.slice(lastIndex) });
 
-const href = update.relatedPub ? `/publications/${update.relatedPub}` : null;
+const href = update.relatedPub ? `/publications/${update.relatedPub}/` : null;
 ---
-<div class="grid grid-cols-[100px_1fr] gap-4 py-2">
-  <p class="text-[11px] text-hint">
-    {monthStr} · <span class="italic">{update.category}</span>
-  </p>
-  <p class="text-[13px] leading-[1.55] text-muted">
-    {parts.map((p) =>
-      p.type === 'text' ? (
-        <Fragment>{p.value}</Fragment>
-      ) : href ? (
-        <a href={href} class="font-serif-italic">{p.value}</a>
-      ) : (
-        <span class="font-serif-italic">{p.value}</span>
-      )
+<li class="cv-entry">
+  <time class="cv-date" datetime={update.date.toISOString().slice(0, 7)}>{dateLabel}</time>
+  <p class="cv-text">
+    {parts.map((part) => part.type === 'link' && href
+      ? <a href={href}>{part.value}</a>
+      : <Fragment>{part.value}</Fragment>
     )}
   </p>
-</div>
+</li>

@@ -3,18 +3,12 @@ import { getEntry } from 'astro:content';
 
 interface Props { slug: string; }
 const { slug } = Astro.props;
-
 const pub = await getEntry('publications', slug);
 if (!pub) throw new Error(`PaperCard: publication "${slug}" not found.`);
 const d = pub.data;
 ---
-<a
-  href={`/publications/${pub.id}`}
-  class="card-link my-6 block rounded-md border border-border bg-card p-4"
->
-  <p class="text-[11px] text-muted">
-    {d.venue} · {d.year}{d.award && <span class="ml-1 text-amber-800">· {d.award}</span>}
-  </p>
-  <p class="font-serif-italic mt-1 text-[15px]">{d.title}</p>
-  <p class="mt-1 text-[12px] text-muted">{d.tldr}</p>
-</a>
+<div class="paper-reference">
+  <p class="article-meta">{d.venue} · {d.year}{d.award && <span> · {d.award}</span>}</p>
+  <a href={`/publications/${pub.id}/`} class="related-link">{d.title}</a>
+  <p class="related-summary">{d.tldr}</p>
+</div>

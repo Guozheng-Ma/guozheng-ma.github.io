@@ -1,15 +1,12 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import ThemeImage from '../../components/ThemeImage.astro';
 
 export async function getStaticPaths() {
   const pubs = await getCollection('publications');
   const notes = await getCollection('notes', ({ data }) => !data.draft);
   const noteByRelatedPub = new Map(
-    notes
-      .filter((n) => n.data.relatedPub)
-      .map((n) => [n.data.relatedPub, n])
+    notes.filter((note) => note.data.relatedPub).map((note) => [note.data.relatedPub, note])
   );
   return pubs.map((pub) => ({
     params: { id: pub.id },
@@ -22,53 +19,36 @@ const { Content } = await render(pub);
 const d = pub.data;
 ---
 <Layout title={d.title} description={d.tldr} image={d.figure} type="article">
-  <main id="main-content" class="mx-auto max-w-[720px] px-5 py-10">
-    <a href="/publications" class="text-[12px] text-hint">← Publications</a>
+  <main id="main-content" class="reading-page">
+    <header class="article-header">
+      <a href="/publications/" class="back-link">← Publications</a>
+      <p class="article-meta">
+        {d.venueFull} · {d.year}{d.award && <span> · {d.award}</span>}
+      </p>
+      <h1 class="page-title">{d.title}</h1>
+      <p class="article-authors">
+        {d.authors.map((author, index) => (
+          <span class={d.authorBoldIndices.includes(index) ? 'self-author' : undefined}>{author}{index < d.authors.length - 1 ? ', ' : ''}</span>
+        ))}
+      </p>
+      <div class="article-actions" aria-label="Publication resources">
+        {d.links.pdf && <a href={d.links.pdf}>PDF ↗</a>}
+        {d.links.code && <a href={d.links.code}>Code ↗</a>}
+        {d.links.bibtex && <a download href={d.links.bibtex}>BibTeX ↓</a>}
+        {d.links.project && <a href={d.links.project}>Project ↗</a>}
+        {d.links.video && <a href={d.links.video}>Video ↗</a>}
+      </div>
+    </header>
 
-    <p class="mt-8 text-[12px] text-muted">
-      <span>{d.venue} · {d.venueFull} · {d.year}</span>
-      {d.award && <span class="ml-1 text-amber-800">· {d.award}</span>}
-    </p>
-    <h1 class="page-title mt-1">{d.title}</h1>
-    <p class="mt-3 text-[13px] text-muted">
-      {d.authors.map((a, i) => (
-        <span class={d.authorBoldIndices.includes(i) ? 'font-medium text-fg' : ''}>
-          {a}{i < d.authors.length - 1 ? ', ' : ''}
-        </span>
-      ))}
-    </p>
-
-    <figure class="mt-8">
-      <div class="article-figure"><ThemeImage
-        src={d.figure}
-        alt="Editorial illustration of this publication’s research theme"
-        width="1200" height="800"
-        loading="lazy"
-      /></div>
-      <figcaption class="figure-caption">An illustration of the research theme. See the paper for methods and experimental results.</figcaption>
-    </figure>
-
-    <div class="mt-6 flex flex-wrap gap-3">
-      {d.links.pdf && <a href={d.links.pdf} class="link-btn">PDF ↗</a>}
-      {d.links.code && <a href={d.links.code} class="link-btn">Code ↗</a>}
-      {d.links.bibtex && <a download href={d.links.bibtex} class="link-btn">BibTeX ↓</a>}
-      {d.links.project && <a href={d.links.project} class="link-btn">Project ↗</a>}
-      {d.links.video && <a href={d.links.video} class="link-btn">Video ↗</a>}
-    </div>
-
-    <article class="prose mt-10 text-[15px] leading-[1.75]">
+    <article class="prose article-body">
       <Content />
     </article>
 
     {relatedNote && (
-      <section class="mt-12 border-t border-border pt-6">
-        <p class="text-[11px] tracking-wide text-hint mb-2">Related research</p>
-        {/* Inline link rather than reusable component — keep flexibility,
-            avoid accidental <a> nesting if this ever moves into a card body */}
-        <a href={`/notes/${relatedNote.id}`} class="card-link block">
-          <p class="font-serif-italic text-[15px]">{relatedNote.data.title}</p>
-          <p class="mt-1 text-[12px] text-muted">{relatedNote.data.tldr}</p>
-        </a>
+      <section class="related-section" aria-labelledby="related-note-title">
+        <h2 id="related-note-title" class="related-title">Related note</h2>
+        <a href={`/notes/${relatedNote.id}/`} class="related-link">{relatedNote.data.title}</a>
+        <p class="related-summary">{relatedNote.data.tldr}</p>
       </section>
     )}
   </main>

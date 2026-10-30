@@ -1,54 +1,85 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ThemeImage from '../components/ThemeImage.astro';
 import Trajectory from '../components/Trajectory.astro';
 import UpdatesList from '../components/UpdatesList.astro';
 import { loadCV } from '../lib/cv';
+import { profile } from '../data/profile';
 
 const cv = loadCV();
 ---
 <Layout title="About — Guozheng Ma" description="About Guozheng Ma, PhD student in deep reinforcement learning.">
-  <main id="main-content" class="mx-auto max-w-[720px] px-5 py-12">
-    <p class="eyebrow">The person behind the papers</p>
-    <h1 class="font-serif-italic mt-1" style="font-size: 24px;">Hello, I'm Guozheng.</h1>
+  <main id="main-content" class="about-page site-width">
+    <header class="article-header">
+      <h1 class="page-title">About</h1>
+    </header>
 
-    <article class="prose mt-8 text-[15px] leading-[1.75]">
-      <p>I am a PhD student at <a href="https://www.ntu.edu.sg/">Nanyang Technological University</a>, working under the supervision of <a href="https://dr.ntu.edu.sg/cris/rp/rp02343">Dacheng Tao</a>. Previously I completed my master's studies and began my research journey at <a href="https://www.tsinghua.edu.cn/en/">Tsinghua University</a>. Earlier, I obtained my bachelor's degree at <a href="https://www-en.hnu.edu.cn/">Hunan University</a>, where I cherished four wonderful years at the foothills of Yuelu Mountain.</p>
-      <p>My research goal is to unlock the true potential of Deep Reinforcement Learning toward practical real-world deployment. This requires RL agents capable of offline-online cooperation, handling multiple tasks, and never stopping learning in open-ended environments. To realize this vision, I currently focus on investigating the fundamental challenges inherent in DRL — particularly optimization pathologies, scalability limitations, and exploration inefficiencies.</p>
-      <p>Meanwhile, I view RL as a paradigm for understanding and developing intelligence rather than just a technique. This inspires my interest in exploring its potential across domains — from large reasoning models and embodied agents to psychology and social sciences.</p>
-    </article>
-    <div class="social-links about-links"><a href="mailto:guozheng001@e.ntu.edu.sg">guozheng001@e.ntu.edu.sg ↗</a><a href="https://scholar.google.com/citations?user=jDvVglUAAAAJ">Google Scholar ↗</a></div>
+    <div class="about-intro">
+      <div class="about-copy">
+        <article class="prose">
+          <p>I am a PhD student at <a href="https://www.ntu.edu.sg/">Nanyang Technological University</a>, working under the supervision of <a href="https://dr.ntu.edu.sg/cris/rp/rp02343">Dacheng Tao</a>. Previously I completed my master's studies and began my research journey at <a href="https://www.tsinghua.edu.cn/en/">Tsinghua University</a>. Earlier, I obtained my bachelor's degree at <a href="https://www-en.hnu.edu.cn/">Hunan University</a>, where I cherished four wonderful years at the foothills of Yuelu Mountain.</p>
+          <p>My research goal is to unlock the true potential of Deep Reinforcement Learning toward practical real-world deployment. This requires RL agents capable of offline-online cooperation, handling multiple tasks, and never stopping learning in open-ended environments. To realize this vision, I currently focus on investigating the fundamental challenges inherent in DRL — particularly optimization pathologies, scalability limitations, and exploration inefficiencies.</p>
+          <p>Meanwhile, I view RL as a paradigm for understanding and developing intelligence rather than just a technique. This inspires my interest in exploring its potential across domains — from large reasoning models and embodied agents to psychology and social sciences.</p>
+        </article>
+        <div class="article-actions">
+          <a href={`mailto:${profile.email}`}>{profile.email}</a>
+          <a href={profile.scholar}>Google Scholar ↗</a>
+        </div>
+      </div>
+      <div class="about-portrait">
+        <ThemeImage src="/art/portrait.webp" alt="An illustrated portrait of Guozheng Ma" width="600" height="600" loading="eager" />
+      </div>
+    </div>
 
-    <section class="mt-12 border-t border-border pt-8">
-      <h2 id="trajectory" class="section-heading">Trajectory</h2>
-      <Trajectory />
+    <section class="cv-section" aria-labelledby="trajectory">
+      <h2 id="trajectory">Education</h2>
+      <div class="cv-section-body"><Trajectory /></div>
     </section>
 
-    <section class="mt-12 border-t border-border pt-8">
-      <h2 id="news" class="section-heading">Updates</h2>
-      <UpdatesList />
+    <section class="cv-section" aria-labelledby="services">
+      <h2 id="services">Service</h2>
+      <div class="cv-section-body">
+        <ul class="cv-list">
+          {cv.service.map((service) => <li class="cv-entry cv-entry-undated"><p class="cv-text">{service}</p></li>)}
+        </ul>
+      </div>
     </section>
 
-    <section class="mt-12 border-t border-border pt-8">
-      <h2 id="award" class="section-heading">Awards</h2>
-      <ul class="mt-4 space-y-1 text-[13px] text-muted">
-        {cv.awards.map((a) => <li>{a.year} · {a.text}</li>)}
-      </ul>
+    <section class="cv-section" aria-labelledby="award">
+      <h2 id="award">Awards</h2>
+      <div class="cv-section-body">
+        <ul class="cv-list">
+          {cv.awards.map((award) => (
+            <li class="cv-entry">
+              <time class="cv-date" datetime={String(award.year)}>{award.year}</time>
+              <p class="cv-text">{award.text}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
 
-    <section class="mt-12 border-t border-border pt-8">
-      <h2 id="invited-talks" class="section-heading">Talks</h2>
-      <ul class="mt-4 space-y-1 text-[13px] text-muted">
-        {cv.talks.map((t) => (
-          <li>{t.year} · {t.venue} — <span class="italic">{t.title}</span>{t.venue.includes("AI TIME") && <a href="https://www.bilibili.com/video/BV1RF4m157Uh/"> · Watch ↗</a>}</li>
-        ))}
-      </ul>
+    <section class="cv-section" aria-labelledby="invited-talks">
+      <h2 id="invited-talks">Talks</h2>
+      <div class="cv-section-body">
+        <ul class="cv-list">
+          {cv.talks.map((talk) => (
+            <li class="cv-entry">
+              <time class="cv-date" datetime={String(talk.year)}>{talk.year}</time>
+              <div class="cv-text">
+                <p>{talk.venue}</p>
+                <p>{talk.title}</p>
+                {talk.venue.includes('AI TIME') && <a href="https://www.bilibili.com/video/BV1RF4m157Uh/">Watch the talk ↗</a>}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
 
-    <section class="mt-12 border-t border-border pt-8">
-      <h2 id="services" class="section-heading">Service</h2>
-      <ul class="mt-4 space-y-1 text-[13px] text-muted">
-        {cv.service.map((s) => <li>{s}</li>)}
-      </ul>
+    <section class="cv-section" aria-labelledby="news">
+      <h2 id="news">Updates</h2>
+      <div class="cv-section-body"><UpdatesList /></div>
     </section>
   </main>
 </Layout>

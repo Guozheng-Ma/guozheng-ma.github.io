@@ -168,3 +168,13 @@ Replace fine graphite details with delicate pale gray lines. Preserve original p
 Mood: quiet, elegant, readable dark research-magazine print art. Matte and restrained. Keep all colors subdued but with enough separation from charcoal. No white panels or white background anywhere.
 Constraints: NO text, letters, numbers, labels, legends, axes, logos or watermarks. NO glow, gradients, shadows, glossy 3D or neon colors. No changes to subject. Conceptual editorial art, not scientific results.
 ```
+
+## 马头标志 · 2026-10-30
+
+依据用户提供的蓝色马头参考图，以单个 SVG 实心路径绘制；保留尖耳、前伸吻部、厚颈和单层底座，去掉眼睛、鬃毛刻线等小尺寸细节。此标志为原生矢量绘制，不使用生成式位图。
+
+- 页头组件：`src/components/HorseMark.astro`。
+- 浅色：`#2b718f`；暗色：`#a8ccdf`，由页面主题变量控制。
+- 浏览器图标：`public/favicon.svg` 提供系统主题回退；`favicon-light.svg` 与 `favicon-dark.svg` 随网站主题切换。
+- 兼容资源：`public/favicon.ico` 和 `public/apple-touch-icon.png` 从同一 SVG 导出。
+- 原始参考位于用户本轮附图；没有复制参考截图的白色背景。

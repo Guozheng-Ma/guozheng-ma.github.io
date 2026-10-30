@@ -13,7 +13,8 @@ links:
   bibtex: "/bibtex/icml-2026-residual.bib"
   pdf: "https://openreview.net/pdf?id=tSMZHXtJwZ"
   code: "https://github.com/Guozheng-Ma/DAWN"
-featured: false
+featured: true
+featuredOrder: 2
 ---
 
 Residual RL adapts a frozen base policy through bounded action corrections. This work identifies two obstacles for its critic: an uninformed starting point and difficulty distinguishing small residual actions. DAWN addresses them with base-policy data for warmup and critic normalization. [Read the conference record](https://proceedings.mlr.press/v306/ma26s.html).

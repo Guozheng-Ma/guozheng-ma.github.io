@@ -2,12 +2,8 @@
 import { profile } from '../data/profile';
 ---
 <footer class="site-footer site-width">
-  <div>
-    <a href="/" class="footer-name">Guozheng Ma</a>
-    <p>Learning about learning.</p>
-  </div>
+  <a href={`mailto:${profile.email}`} class="footer-email">{profile.email}</a>
   <div class="footer-contact">
-    <a href={`mailto:${profile.email}`} class="font-mono">{profile.email}</a>
-    <div class="social-links"><a href={profile.scholar}>Scholar ↗</a><a href={profile.github}>GitHub ↗</a><a href={profile.x}>X ↗</a></div>
+    <div class="social-links"><a href={profile.scholar}>Scholar</a><a href={profile.github}>GitHub</a><a href={profile.x}>X</a></div>
   </div>
 </footer>

@@ -19,9 +19,9 @@
 
 /* ============== LAYOUT WIDTHS (mode-invariant) ============== */
 :root {
-  --width-nav:     1200px;  /* nav row only (Header) — wider so brand + 3 links breathe */
-  --width-content: 1000px;  /* everything else non-reading: Footer, Hero, list pages, etc. */
-  --width-reading: 720px;   /* long-form reading column: /about, note/pub detail pages */
+  --width-nav:     1100px;  /* nav row only (Header) — wider so brand + 3 links breathe */
+  --width-content: 1100px;  /* everything else non-reading: Footer, Hero, list pages, etc. */
+  --width-reading: 760px;   /* long-form reading column: /about, note/pub detail pages */
 }
 
 /* ====================================================================
@@ -31,16 +31,17 @@
 :root {
   /* Neutrals — backgrounds */
   color-scheme: light;
+  --color-brand: #2b718f;
   --theme-image-light: block;
   --theme-image-dark: none;
-  --color-bg-primary:   oklch(1 0 0);              /* card / top surface */
-  --color-bg-secondary: oklch(0.97 0.003 80);      /* hover / pressed */
-  --color-bg-tertiary:  oklch(0.985 0.003 80);     /* page bg */
+  --color-bg-primary:   #f5f2ec;              /* card / top surface */
+  --color-bg-secondary: #ede9e1;      /* hover / pressed */
+  --color-bg-tertiary:  #f5f2ec;     /* page bg */
 
   /* Neutrals — text */
-  --color-text-primary:   oklch(0.22 0 0);         /* near-black */
-  --color-text-secondary: oklch(0.48 0 0);         /* muted */
-  --color-text-tertiary:  oklch(0.55 0 0);         /* readable hint */
+  --color-text-primary:   #232320;         /* near-black */
+  --color-text-secondary: #595953;         /* muted */
+  --color-text-tertiary:  #65655e;         /* readable hint */
 
   /* Neutrals — borders (rgba grayscale) */
   --color-border-tertiary:  rgba(0, 0, 0, 0.12);   /* default 0.5px border */
@@ -110,17 +111,18 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
+    --color-brand: #a8ccdf;
     --theme-image-light: none;
     --theme-image-dark: block;
     /* Neutrals — backgrounds */
-    --color-bg-primary:   oklch(0.18 0 0);
-    --color-bg-secondary: oklch(0.22 0 0);
-    --color-bg-tertiary:  oklch(0.12 0 0);
+    --color-bg-primary:   #191919;
+    --color-bg-secondary: #242422;
+    --color-bg-tertiary:  #191919;
 
     /* Neutrals — text */
-    --color-text-primary:   oklch(0.92 0 0);
-    --color-text-secondary: oklch(0.70 0 0);
-    --color-text-tertiary:  oklch(0.65 0 0);
+    --color-text-primary:   #eeeae2;
+    --color-text-secondary: #bbb7ae;
+    --color-text-tertiary:  #aaa69e;
 
     /* Neutrals — borders */
     --color-border-tertiary:  rgba(255, 255, 255, 0.12);
@@ -188,17 +190,18 @@
    ==================================================================== */
 .dark {
   color-scheme: dark;
+  --color-brand: #a8ccdf;
   --theme-image-light: none;
   --theme-image-dark: block;
   /* Neutrals — backgrounds */
-  --color-bg-primary:   oklch(0.18 0 0);
-  --color-bg-secondary: oklch(0.22 0 0);
-  --color-bg-tertiary:  oklch(0.12 0 0);
+  --color-bg-primary:   #191919;
+  --color-bg-secondary: #242422;
+  --color-bg-tertiary:  #191919;
 
   /* Neutrals — text */
-  --color-text-primary:   oklch(0.92 0 0);
-  --color-text-secondary: oklch(0.70 0 0);
-  --color-text-tertiary:  oklch(0.65 0 0);
+  --color-text-primary:   #eeeae2;
+  --color-text-secondary: #bbb7ae;
+  --color-text-tertiary:  #aaa69e;
 
   /* Neutrals — borders */
   --color-border-tertiary:  rgba(255, 255, 255, 0.12);

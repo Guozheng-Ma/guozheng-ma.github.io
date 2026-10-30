@@ -2,7 +2,7 @@
 interface Props { caption?: string; }
 const { caption } = Astro.props;
 ---
-<div class="my-8 flex flex-col items-center">
-  <div class="w-full overflow-x-auto text-center"><slot /></div>
-  {caption && <p class="mt-2 text-[11px] italic text-hint">{caption}</p>}
-</div>
+<figure class="math-block">
+  <div class="math-content"><slot /></div>
+  {caption && <figcaption class="figure-caption">{caption}</figcaption>}
+</figure>

@@ -12,7 +12,7 @@ links:
   bibtex: "/bibtex/iclr-2024-plasticity.bib"
   pdf: "https://openreview.net/pdf?id=0aR1s9YxoL"
   code: "https://github.com/Guozheng-Ma/Adaptive-Replay-Ratio"
-featured: true
+featured: false
 featuredOrder: 3
 ---
 

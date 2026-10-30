@@ -1,11 +1,21 @@
 ---
 import { getCollection } from 'astro:content';
 import NoteCard from './NoteCard.astro';
+import CoverArt from './CoverArt.astro';
 const notes = (await getCollection('notes', ({ data }) => !data.draft)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-const order = ['purple', 'teal', 'coral'];
-const latest = notes.slice(0, 3).sort((a,b) => order.indexOf(a.data.cover.color) - order.indexOf(b.data.cover.color));
+const lead = notes.find(note => note.id === 'why-sparsify-rl-networks') ?? notes[0];
+const supporting = notes.filter(note => note.id !== lead?.id).sort((a,b) => a.data.cover.color === 'teal' ? -1 : b.data.cover.color === 'teal' ? 1 : 0).slice(0,2);
 ---
-<section class="home-section site-width" aria-labelledby="notes-title">
-  <div class="section-top"><div><p class="eyebrow">Ideas, in a little more detail</p><h2 id="notes-title" class="section-heading">Research notes</h2></div><a href="/notes/" class="section-link">All notes <span aria-hidden="true">↗</span></a></div>
-  <div class="notes-grid">{latest.map((note) => <NoteCard note={note} />)}</div>
-</section>
+{lead && <section class="home-section site-width" aria-labelledby="notes-title">
+  <div class="section-top"><h2 id="notes-title" class="section-heading">Notes</h2><a href="/notes/" class="section-link">All notes <span aria-hidden="true">↗</span></a></div>
+  <div class="notes-spread">
+    <article class="lead-note">
+      <a href={`/notes/${lead.id}/`} class="lead-art" tabindex="-1" aria-hidden="true"><CoverArt color={lead.data.cover.color} /></a>
+      <div class="lead-copy">
+        <h3><a href={`/notes/${lead.id}/`}>{lead.data.title}</a></h3>
+        <p>{lead.data.tldr}</p>
+      </div>
+    </article>
+    <div class="supporting-notes">{supporting.map(note => <NoteCard note={note} compact />)}</div>
+  </div>
+</section>}
