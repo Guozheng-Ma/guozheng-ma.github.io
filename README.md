@@ -1,6 +1,8 @@
 # Guozheng Ma · Personal research journal
 
-Guozheng Ma 的个人思想与研究杂志。首页以真实座右铭和个人介绍开场，呈现一篇主打笔记、两篇文字笔记与三篇精选论文；Notes、Publications 和 About 提供完整内容。排版采用正体 serif 标题、sans 正文，并支持浅色、暗色及跟随系统。简洁的原生 SVG 马头用于页头与 favicon，浅色为 `#2b718f`、暗色为 `#a8ccdf`，随自动／手动主题同步切换。
+Guozheng Ma 的个人思想与研究杂志。首页以真实座右铭和个人介绍开场，呈现三篇研究笔记与三篇精选论文；Notes、Publications 和 About 提供完整内容。暖白页面配合适量浅底圆角面板，减少分隔线；正体 serif 标题与 sans 正文支持清楚阅读。
+
+电脑端 Notes 左侧显示插画、右侧选择三篇笔记，使用独立的 `Read note` 链接打开文章；手机与 iPad 直接显示三条静态图文链接。网站支持浅色、暗色及跟随系统，已有两套配图与马头品牌同步切换。页头与 favicon 的原生 SVG 马头浅色为 `#2b718f`、暗色为 `#a8ccdf`。
 
 正式网址：[guozheng-ma.github.io](https://guozheng-ma.github.io)
 
@@ -10,7 +12,7 @@ Guozheng Ma 的个人思想与研究杂志。首页以真实座右铭和个人�
 
 主要工作目录：`/Users/mgz/Workspace/Homepage-old/homepage-repo`。日常修改使用这份 Git 仓库；`/Users/mgz/Workspace/Homepage/guozheng-site` 是参考源码副本。
 
-当前规范见 [AGENTS.md](AGENTS.md)，本轮结果与验证状态见 [交付记录](docs/DELIVERY.md)。本轮杂志重设计先在本地完成与预览，不自动提交或推送。需要发布时按 [上传说明](docs/UPLOAD.md)操作，现有 GitHub Actions 会构建并发布 `main` 分支。
+当前规范见 [AGENTS.md](AGENTS.md)，本轮布局与笔记预览调整的验证状态见 [交付记录](docs/DELIVERY.md)。本轮先在本地完成与预览，不自动提交或推送。需要发布时按 [上传说明](docs/UPLOAD.md)操作，现有 GitHub Actions 会构建并发布 `main` 分支。
 
 ## 内容位置
 
@@ -22,6 +24,7 @@ Guozheng Ma 的个人思想与研究杂志。首页以真实座右铭和个人�
 | 个人介绍与首页文字 | `src/components/Hero.astro`、`src/pages/about.astro` |
 | 论文与引用下载 | `src/content/publications/`、`public/bibtex/` |
 | 研究笔记 | `src/content/notes/` |
+| 首页笔记选择与静态阅读布局 | `src/components/LatestNotes.astro` |
 | 浅色／暗色插画 | `public/art/` |
 | 马头标志与浏览器图标 | `src/components/HorseMark.astro`、`public/favicon*.svg`、`public/favicon.ico`、`public/apple-touch-icon.png` |
 | 页面、组件、字体与样式 | `src/pages/`、`src/components/`、`src/styles/`、`public/fonts/` |

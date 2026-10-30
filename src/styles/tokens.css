@@ -12,9 +12,9 @@
 
 /* ============== RADIUS (mode-invariant) ============== */
 :root {
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
 }
 
 /* ============== LAYOUT WIDTHS (mode-invariant) ============== */
@@ -34,9 +34,11 @@
   --color-brand: #2b718f;
   --theme-image-light: block;
   --theme-image-dark: none;
-  --color-bg-primary:   #f5f2ec;              /* card / top surface */
-  --color-bg-secondary: #ede9e1;      /* hover / pressed */
-  --color-bg-tertiary:  #f5f2ec;     /* page bg */
+  --color-bg-primary:   #f1f0eb;     /* grouped content */
+  --color-bg-secondary: #e8e7e1;     /* hover */
+  --color-bg-tertiary:  #fafaf8;     /* warm white page */
+  --color-surface-active: #fafaf8;   /* selected item within a panel */
+  --color-art-bg: #f5f2ec;           /* paper inside the illustrations */
 
   /* Neutrals — text */
   --color-text-primary:   #232320;         /* near-black */
@@ -115,9 +117,11 @@
     --theme-image-light: none;
     --theme-image-dark: block;
     /* Neutrals — backgrounds */
-    --color-bg-primary:   #191919;
-    --color-bg-secondary: #242422;
+    --color-bg-primary:   #242522;
+    --color-bg-secondary: #2d2e2a;
     --color-bg-tertiary:  #191919;
+    --color-surface-active: #34352f;
+    --color-art-bg: #191919;
 
     /* Neutrals — text */
     --color-text-primary:   #eeeae2;
@@ -194,9 +198,11 @@
   --theme-image-light: none;
   --theme-image-dark: block;
   /* Neutrals — backgrounds */
-  --color-bg-primary:   #191919;
-  --color-bg-secondary: #242422;
+  --color-bg-primary:   #242522;
+  --color-bg-secondary: #2d2e2a;
   --color-bg-tertiary:  #191919;
+  --color-surface-active: #34352f;
+  --color-art-bg: #191919;
 
   /* Neutrals — text */
   --color-text-primary:   #eeeae2;
