@@ -1,6 +1,6 @@
 # 上传新版个人主页
 
-新版继续使用 [guozheng-ma.github.io](https://guozheng-ma.github.io)，对应仓库是 [Guozheng-Ma/guozheng-ma.github.io](https://github.com/Guozheng-Ma/guozheng-ma.github.io)。本次只准备本地文件，尚未向 GitHub 推送或修改线上站点。
+新版继续使用 [guozheng-ma.github.io](https://guozheng-ma.github.io)，对应仓库是 [Guozheng-Ma/guozheng-ma.github.io](https://github.com/Guozheng-Ma/guozheng-ma.github.io)。本次暗色模式更新已准备为本地文件，尚未由本次操作提交或推送；线上发布状态未检查。
 
 替换后的发布工作目录：`/Users/mgz/Workspace/Homepage-old/homepage-repo`。它保留原仓库的 Git 历史和远端地址，里面的网页源文件已替换为新版。旧站的完整备份保存在仓库外的 `/Users/mgz/Workspace/Homepage-old/backups/2026-10-29-before-redesign.tar.gz`，不要把备份一起上传。
 
@@ -11,12 +11,26 @@
 | `/Users/mgz/Workspace/Homepage-old/guozheng-homepage-upload.zip` | 已构建的静态网页，可直接上传到静态托管服务 |
 | `/Users/mgz/Workspace/Homepage-old/guozheng-ma.github.io/` | 已替换为新版的静态网页副本，与构建输出一致 |
 
-## 首次发布：使用 GitHub Desktop
+## 上传本次更新
+
+可以直接在原发布仓库提交并上传，不需要再次替换文件夹或解压 ZIP：
+
+```sh
+cd /Users/mgz/Workspace/Homepage-old/homepage-repo
+git status
+git add .
+git commit -m "Add adaptive dark mode and English-only name"
+git push origin main
+```
+
+这次改动包含英文姓名显示、浅色／暗色／跟随系统切换，以及头像和三组插画的暗色版本。默认跟随系统；点击右上角按钮可循环选择，手动选择会保存。发布后同时检查两种配色、图片切换和手机导航。
+
+## 使用 GitHub Desktop 上传
 
 1. 安装并打开 [GitHub Desktop](https://desktop.github.com/)，登录拥有该仓库权限的 GitHub 账号。
 2. 选择 **File → Add Local Repository…**，添加 `/Users/mgz/Workspace/Homepage-old/homepage-repo`。这是已有仓库，无需新建仓库或重新克隆。此步骤可参考 [GitHub 官方说明](https://docs.github.com/en/desktop/adding-and-cloning-repositories/adding-a-repository-from-your-local-computer-to-github-desktop)。
-3. 确认顶部 **Current Branch** 为 `main`。在 **Changes** 中查看这次替换：旧 Jekyll 页面删除、新 Astro 页面和图片加入属于预期改动；勾选全部新版改动，包含 `.github/workflows/deploy.yml` 和 `package-lock.json`。`node_modules`、`dist`、`.astro` 已忽略，无需上传。
-4. 在左下方 **Summary** 填写 `Replace homepage with research journal`，点击 **Commit to main**。
+3. 确认顶部 **Current Branch** 为 `main`。在 **Changes** 中查看本次主题组件、样式、图片和说明文档的更新，勾选本次改动。`node_modules`、`dist`、`.astro` 已忽略，无需上传。
+4. 在左下方 **Summary** 填写 `Add adaptive dark mode and English-only name`，点击 **Commit to main**。
 5. 浏览器打开仓库的 [Settings → Pages](https://github.com/Guozheng-Ma/guozheng-ma.github.io/settings/pages)，在 **Build and deployment → Source** 选择 **GitHub Actions**。若已是该选项，保留即可。网站配置沿用原网址，**Custom domain** 留空。Astro 的静态页面通过 Actions 构建发布，见 [Astro 官方部署说明](https://docs.astro.build/en/guides/deploy/github/)。
 6. 回到 GitHub Desktop，点击 **Push origin**。这一步才会把提交上传至 GitHub，并触发新版发布。
 7. 打开仓库的 [Actions](https://github.com/Guozheng-Ma/guozheng-ma.github.io/actions)，查看 **Deploy personal homepage**。等待 **Build website** 和 **Publish website** 都显示绿色勾选。

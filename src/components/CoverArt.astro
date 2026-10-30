@@ -1,4 +1,5 @@
 ---
+import ThemeImage from './ThemeImage.astro';
 interface Props { motif?: string; color?: string; aspectRatio?: string; }
 const { color = 'purple', aspectRatio = '3 / 2' } = Astro.props;
 const art: Record<string, { file: string; alt: string }> = {
@@ -9,5 +10,5 @@ const art: Record<string, { file: string; alt: string }> = {
 const selected = art[color] ?? art.purple;
 ---
 <div class="cover-art" style={`aspect-ratio: ${aspectRatio}`}>
-  <img src={`/art/${selected.file}.webp`} alt={selected.alt} width="1200" height="800" loading="lazy" decoding="async" />
+  <ThemeImage src={`/art/${selected.file}.webp`} alt={selected.alt} width="1200" height="800" />
 </div>

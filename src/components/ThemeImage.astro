@@ -1,0 +1,21 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  width: number | string;
+  height: number | string;
+  loading?: 'eager' | 'lazy';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  class?: string;
+}
+const { src, alt, width, height, loading = 'lazy', fetchpriority, class: className } = Astro.props;
+const darkSources: Record<string, string> = {
+  '/art/portrait.webp': '/art/portrait-dark.webp',
+  '/art/sparsity.webp': '/art/sparsity-dark.webp',
+  '/art/plasticity.webp': '/art/plasticity-dark.webp',
+  '/art/generalization.webp': '/art/generalization-dark.webp',
+};
+const darkSrc = darkSources[src];
+---
+<img src={src} {alt} {width} {height} {loading} {fetchpriority} class={className} decoding="async" data-theme-image={darkSrc ? 'light' : undefined} style={darkSrc ? 'display: var(--theme-image-light)' : undefined} />
+{darkSrc && <img src={darkSrc} {alt} {width} {height} {loading} {fetchpriority} class={className} decoding="async" data-theme-image="dark" style="display: var(--theme-image-dark)" />}

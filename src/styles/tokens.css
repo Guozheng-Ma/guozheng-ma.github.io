@@ -30,6 +30,9 @@
    ==================================================================== */
 :root {
   /* Neutrals — backgrounds */
+  color-scheme: light;
+  --theme-image-light: block;
+  --theme-image-dark: none;
   --color-bg-primary:   oklch(1 0 0);              /* card / top surface */
   --color-bg-secondary: oklch(0.97 0.003 80);      /* hover / pressed */
   --color-bg-tertiary:  oklch(0.985 0.003 80);     /* page bg */
@@ -105,7 +108,10 @@
    the right thing in either.
    ==================================================================== */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --theme-image-light: none;
+    --theme-image-dark: block;
     /* Neutrals — backgrounds */
     --color-bg-primary:   oklch(0.18 0 0);
     --color-bg-secondary: oklch(0.22 0 0);
@@ -181,6 +187,9 @@
    duplicate. Acceptable cost for class-based theme toggle support.
    ==================================================================== */
 .dark {
+  color-scheme: dark;
+  --theme-image-light: none;
+  --theme-image-dark: block;
   /* Neutrals — backgrounds */
   --color-bg-primary:   oklch(0.18 0 0);
   --color-bg-secondary: oklch(0.22 0 0);

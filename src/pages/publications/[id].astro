@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import ThemeImage from '../../components/ThemeImage.astro';
 
 export async function getStaticPaths() {
   const pubs = await getCollection('publications');
@@ -38,7 +39,7 @@ const d = pub.data;
     </p>
 
     <figure class="mt-8">
-      <div class="article-figure"><img
+      <div class="article-figure"><ThemeImage
         src={d.figure}
         alt="Editorial illustration of this publication’s research theme"
         width="1200" height="800"

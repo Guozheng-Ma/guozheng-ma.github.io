@@ -1,0 +1,50 @@
+<button id="theme-toggle" class="theme-toggle" type="button" hidden aria-label="Color theme: system. Switch to dark mode." title="Color theme: system. Switch to dark mode.">
+  <svg data-theme-icon="system" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+  <svg data-theme-icon="dark" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.2A8.6 8.6 0 0 1 10.8 3.4a8.7 8.7 0 1 0 9.8 9.8Z"/></svg>
+  <svg data-theme-icon="light" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg>
+</button>
+<span id="theme-status" class="sr-only" role="status"></span>
+<script>
+  const root = document.documentElement;
+  const button = document.querySelector<HTMLButtonElement>('#theme-toggle');
+  const status = document.querySelector('#theme-status');
+  const system = window.matchMedia('(prefers-color-scheme: dark)');
+  const choices = ['system', 'dark', 'light'] as const;
+  type Theme = typeof choices[number];
+  const isTheme = (value: unknown): value is Theme => choices.includes(value as Theme);
+  let preference: Theme = isTheme(root.dataset.theme) ? root.dataset.theme : 'system';
+
+  function applyTheme(announce = false) {
+    const dark = preference === 'dark' || (preference === 'system' && system.matches);
+    root.dataset.theme = preference;
+    root.classList.toggle('dark', dark);
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#060606' : '#faf9f6');
+    const next = choices[(choices.indexOf(preference) + 1) % choices.length];
+    const label = `Color theme: ${preference}. ${next === 'system' ? 'Follow system appearance' : `Switch to ${next} mode`}.`;
+    if (button) {
+      button.dataset.preference = preference;
+      button.setAttribute('aria-label', label);
+      button.title = label;
+    }
+    if (announce && status) status.textContent = `Color theme: ${preference === 'system' ? `system (${dark ? 'dark' : 'light'})` : preference}.`;
+  }
+
+  if (button) {
+    button.addEventListener('click', () => {
+      preference = choices[(choices.indexOf(preference) + 1) % choices.length];
+      try {
+        if (preference === 'system') localStorage.removeItem('guozheng-theme');
+        else localStorage.setItem('guozheng-theme', preference);
+      } catch { /* The current page still works if storage is unavailable. */ }
+      applyTheme(true);
+    });
+    system.addEventListener('change', () => { if (preference === 'system') applyTheme(); });
+    window.addEventListener('storage', (event) => {
+      if (event.key !== null && event.key !== 'guozheng-theme') return;
+      preference = isTheme(event.newValue) ? event.newValue : 'system';
+      applyTheme();
+    });
+    applyTheme();
+    button.hidden = false;
+  }
+</script>

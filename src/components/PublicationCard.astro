@@ -1,12 +1,13 @@
 ---
 import { type CollectionEntry } from 'astro:content';
+import ThemeImage from './ThemeImage.astro';
 interface Props { pub: CollectionEntry<'publications'>; }
 const { pub } = Astro.props;
 const d = pub.data;
 ---
 <article class="publication-card" data-theme={d.themeColor} style={`--topic: var(--color-${d.themeColor}-800)`}>
   <a href={`/publications/${pub.id}/`} class="publication-art card-link" tabindex="-1" aria-hidden="true">
-    <img src={d.figure} alt="" width="1200" height="800" loading="lazy" decoding="async" />
+    <ThemeImage src={d.figure} alt="" width="1200" height="800" />
   </a>
   <div class="publication-copy">
     <p class="publication-meta"><span class="venue">{d.venue} · {d.year}</span>{d.award && <span class="honor">{d.award}</span>}</p>

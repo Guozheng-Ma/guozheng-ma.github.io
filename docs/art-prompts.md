@@ -78,3 +78,93 @@ Primary request: create an original hand-drawn editorial portrait based on the r
 Composition: square 1:1, head and shoulders, plain off-white background, no border.
 Constraints: preserve identity, no invented accessories, no glasses, no lettering, no typography, no logos, no watermark, no photorealism, no 3D, no glow, no gradients, no drop shadows.
 ```
+
+# Dark-mode research illustration counterparts
+
+Created on 2026-10-29 using the built-in image_gen editing tool (default built-in mode). Each matching original PNG was inspected and supplied as the edit target. The same composition and geometric research metaphor are preserved, with a matte charcoal background and recolored ink for dark mode. These remain conceptual editorial illustrations, not empirical figures.
+
+The generated PNG originals are retained alongside their 1200×800 WebP delivery variants, quality 86, produced with Sharp.
+
+## sparsity-dark
+
+- Edit target: public/art/sparsity.png
+- PNG: public/art/sparsity-dark.png
+- WebP: public/art/sparsity-dark.webp
+- Tool original: /Users/mgz/.codex/generated_images/01a1869e-f56e-7df3-848b-7df91b495a71/exec-6d9f8c4b-ef12-46d9-ab0c-bfa11a98350d.png
+- Original dimensions: 1536×1024
+- Original SHA-256: 6193138dcc22af26f501c17a4ecc5aaa28abf41306e2ddd1e964bd7deb58455f
+- WebP size: 45770 bytes
+
+### Final prompt
+
+```text
+Use case: style-transfer. Asset type: dark-mode counterpart of an existing editorial illustration for a personal researcher website.
+Input image: edit target; preserve its exact original composition and abstract geometry.
+Primary request: create a faithful dark-mode recoloring of this same illustration. Change ONLY palette and paper tone. Replace the entire warm off-white paper background with uniform matte charcoal #171717, including all interior negative spaces and window backgrounds. The purple sparse neural lattice, all node circles, framework lines, arcs, modules, left-dense to right-sparse structure and active paths must stay in the exact same positions and sizes. Recolor purple ink to lighter restrained lilac and muted lavender so it reads clearly on charcoal.
+Replace fine graphite details with delicate pale gray lines. Preserve original paths, nodes, windows, shapes, relative contrast hierarchy, flat ink rendering and subtle paper grain; do not rearrange, add, delete, crop, or invent anything. Keep original landscape 3:2 framing and 1536x1024 dimensions.
+Mood: quiet, elegant, readable dark research-magazine print art. Matte and restrained. Keep all colors subdued but with enough separation from charcoal. No white panels or white background anywhere.
+Constraints: NO text, letters, numbers, labels, legends, axes, logos or watermarks. NO glow, gradients, shadows, glossy 3D or neon colors. No changes to subject. Conceptual editorial art, not scientific results.
+```
+
+## portrait-dark
+
+- Edit target: public/art/portrait.png
+- PNG: public/art/portrait-dark.png
+- WebP: public/art/portrait-dark.webp (600×600, 64,680 bytes)
+- Tool original: /Users/mgz/.codex/generated_images/01a1869e-0fe5-7c60-afa3-ed3650badfa3/exec-212a34b7-d14b-4c5a-8d4b-bb0a21f391c8.png
+- Generated with the built-in image_gen editing tool after inspecting the original portrait. WebP resized and compressed with Sharp.
+
+### Final prompt
+
+```text
+Use case: identity-preserve.
+Asset type: dark-mode editorial portrait for a personal research website.
+Input image: the attached existing portrait is the EDIT TARGET; preserve the person and drawing exactly.
+Primary request: change only the warm off-white paper background to uniform matte charcoal #171717. Clean and refine the existing edges and graphite hatching so the illustration sits naturally on dark paper.
+Invariants: preserve this man's facial likeness exactly, including facial proportions, eyes, nose, lips, expression, warm natural skin colors, hairstyle, hair silhouette, head angle, neck, black/gray argyle sweater vest, white T-shirt, body pose, shoulder placement and the existing square crop. Keep the same composition and scale, with no redrawing or beautification of the face.
+Style: retain the existing restrained graphite and colored-pencil editorial illustration; only existing fine grayscale/light-ink edge details may adapt subtly for contrast against charcoal paper.
+Background: solid even #171717 to all four edges, with only imperceptible paper grain. The entire area outside the person must be dark charcoal, including around the head and shoulders.
+Avoid: any light rectangle, pale vignette, halo, glow, gradient, cast shadow, rim light, new object, text, border, watermark, change of identity or change of clothing. Keep natural skin and white T-shirt recognizable; do not invert image colors.
+```
+
+## plasticity-dark
+
+- Edit target: public/art/plasticity.png
+- PNG: public/art/plasticity-dark.png
+- WebP: public/art/plasticity-dark.webp
+- Tool original: /Users/mgz/.codex/generated_images/01a1869e-f56e-7df3-848b-7df91b495a71/exec-eb6e2871-bb97-4a60-a0bc-c16a5f7df69a.png
+- Original dimensions: 1536×1024
+- Original SHA-256: 35815ac8fc51986e36de5672c56f1b4b8687c6a88b5d5d4f9ddf31d551c77656
+- WebP size: 22754 bytes
+
+### Final prompt
+
+```text
+Use case: style-transfer. Asset type: dark-mode counterpart of an existing editorial illustration for a personal researcher website.
+Input image: edit target; preserve its exact original composition and abstract geometry.
+Primary request: create a faithful dark-mode recoloring of this same illustration. Change ONLY palette and paper tone. Replace the entire warm off-white paper background with uniform matte charcoal #171717, including all interior negative spaces and window backgrounds. The teal system of branching paths, nodes, dotted loops, curved connectors and gaps must stay in the exact same positions and sizes. Recolor teal ink to lighter restrained sage and muted teal so it reads clearly on charcoal.
+Replace fine graphite details with delicate pale gray lines. Preserve original paths, nodes, windows, shapes, relative contrast hierarchy, flat ink rendering and subtle paper grain; do not rearrange, add, delete, crop, or invent anything. Keep original landscape 3:2 framing and 1536x1024 dimensions.
+Mood: quiet, elegant, readable dark research-magazine print art. Matte and restrained. Keep all colors subdued but with enough separation from charcoal. No white panels or white background anywhere.
+Constraints: NO text, letters, numbers, labels, legends, axes, logos or watermarks. NO glow, gradients, shadows, glossy 3D or neon colors. No changes to subject. Conceptual editorial art, not scientific results.
+```
+
+## generalization-dark
+
+- Edit target: public/art/generalization.png
+- PNG: public/art/generalization-dark.png
+- WebP: public/art/generalization-dark.webp
+- Tool original: /Users/mgz/.codex/generated_images/01a1869e-f56e-7df3-848b-7df91b495a71/exec-6a7ebe7a-67e8-4bae-a510-cd724b8d6a0f.png
+- Original dimensions: 1536×1024
+- Original SHA-256: e66bb990d2e2a7281907ee8634f91fe4c61740a4244d9c228befb6b57976adbd
+- WebP size: 23838 bytes
+
+### Final prompt
+
+```text
+Use case: style-transfer. Asset type: dark-mode counterpart of an existing editorial illustration for a personal researcher website.
+Input image: edit target; preserve its exact original composition and abstract geometry.
+Primary request: create a faithful dark-mode recoloring of this same illustration. Change ONLY palette and paper tone. Replace the entire warm off-white paper background with uniform matte charcoal #171717, including all interior negative spaces and window backgrounds. The coral overlapping geometric windows, frames, circles, semicircles and curved connectors must stay in the exact same positions and sizes. Recolor coral ink to lighter restrained muted coral and terracotta so it reads clearly on charcoal.
+Replace fine graphite details with delicate pale gray lines. Preserve original paths, nodes, windows, shapes, relative contrast hierarchy, flat ink rendering and subtle paper grain; do not rearrange, add, delete, crop, or invent anything. Keep original landscape 3:2 framing and 1536x1024 dimensions.
+Mood: quiet, elegant, readable dark research-magazine print art. Matte and restrained. Keep all colors subdued but with enough separation from charcoal. No white panels or white background anywhere.
+Constraints: NO text, letters, numbers, labels, legends, axes, logos or watermarks. NO glow, gradients, shadows, glossy 3D or neon colors. No changes to subject. Conceptual editorial art, not scientific results.
+```

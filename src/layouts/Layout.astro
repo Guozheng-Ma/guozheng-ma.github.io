@@ -8,6 +8,7 @@ interface Props {
   description?: string;
   image?: string;
   type?: 'website' | 'article';
+  noindex?: boolean;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   description = "Guozheng Ma — research notes and publications on deep reinforcement learning.",
   image = '/art/sparsity.webp',
   type = 'website',
+  noindex = false,
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
@@ -26,7 +28,8 @@ const ogImage = new URL(image, Astro.site).toString();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href={canonicalUrl} />
+    {!noindex && <link rel="canonical" href={canonicalUrl} />}
+    {noindex && <meta name="robots" content="noindex" />}
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -40,6 +43,20 @@ const ogImage = new URL(image, Astro.site).toString();
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="author" content="Guozheng Ma" />
     <meta name="theme-color" content="#faf9f6" />
+    <meta name="color-scheme" content="light dark" />
+    <script is:inline>
+      (() => {
+        let preference = 'system';
+        try {
+          const saved = localStorage.getItem('guozheng-theme');
+          if (saved === 'light' || saved === 'dark') preference = saved;
+        } catch { /* Fall back to the system when storage is unavailable. */ }
+        const dark = preference === 'dark' || (preference === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.dataset.theme = preference;
+        document.documentElement.classList.toggle('dark', dark);
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', dark ? '#060606' : '#faf9f6');
+      })();
+    </script>
     <link rel="preload" href="/fonts/source-serif-4-500-italic.woff2" as="font" type="font/woff2" crossorigin />
   </head>
   <body class="bg-page text-fg">

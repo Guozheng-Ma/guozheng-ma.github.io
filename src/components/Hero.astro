@@ -1,14 +1,15 @@
 ---
 import { profile } from '../data/profile';
+import ThemeImage from './ThemeImage.astro';
 ---
 <section id="about-me" class="hero site-width" aria-labelledby="hero-name">
   <div class="hero-portrait">
-    <img src="/art/portrait.webp" alt="An illustrated portrait of Guozheng Ma" width="600" height="600" fetchpriority="high" />
-    <span class="portrait-caption">Guozheng Ma · 马国政</span>
+    <ThemeImage src="/art/portrait.webp" alt="An illustrated portrait of Guozheng Ma" width="600" height="600" loading="eager" fetchpriority="high" />
+    <span class="portrait-caption">Guozheng Ma</span>
   </div>
   <div class="hero-copy">
     <p class="eyebrow">Reinforcement learning · NTU, Singapore</p>
-    <h1 id="hero-name">Guozheng Ma <span lang="zh">马国政</span></h1>
+    <h1 id="hero-name">Guozheng Ma</h1>
     <p class="hero-role">PhD student at <a href="https://www.ntu.edu.sg/">Nanyang Technological University</a>,<br class="desktop-break" /> advised by <a href="https://dr.ntu.edu.sg/cris/rp/rp02343">Dacheng Tao</a>.</p>
     <p class="hero-bio">I study how reinforcement learning agents can scale, adapt, and keep learning in open-ended environments — from optimization and plasticity to exploration and generalization.</p>
     <p class="hero-tagline font-serif-italic">Greatness cannot be planned, so I play with joyful explorations.</p>
