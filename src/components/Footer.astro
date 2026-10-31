@@ -1,9 +1,11 @@
 ---
 import { profile } from '../data/profile';
+import SocialLinks from './SocialLinks.astro';
+import SocialIcon from './SocialIcon.astro';
 ---
 <footer class="site-footer site-width">
-  <a href={`mailto:${profile.email}`} class="footer-email">{profile.email}</a>
+  <a href={`mailto:${profile.email}`} class="footer-email"><SocialIcon name="email" />{profile.email}</a>
   <div class="footer-contact">
-    <div class="social-links"><a href={profile.scholar}>Scholar</a><a href={profile.github}>GitHub</a><a href={profile.x}>X</a></div>
+    <SocialLinks includeEmail={false} />
   </div>
 </footer>

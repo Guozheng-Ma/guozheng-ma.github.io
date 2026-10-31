@@ -5,6 +5,8 @@ import Trajectory from '../components/Trajectory.astro';
 import UpdatesList from '../components/UpdatesList.astro';
 import { loadCV } from '../lib/cv';
 import { profile } from '../data/profile';
+import SocialIcon from '../components/SocialIcon.astro';
+import SchoolLink from '../components/SchoolLink.astro';
 
 const cv = loadCV();
 ---
@@ -17,13 +19,13 @@ const cv = loadCV();
     <div class="about-intro">
       <div class="about-copy">
         <article class="prose">
-          <p>I am a PhD student at <a href="https://www.ntu.edu.sg/">Nanyang Technological University</a>, working under the supervision of <a href="https://dr.ntu.edu.sg/cris/rp/rp02343">Dacheng Tao</a>. Previously I completed my master's studies and began my research journey at <a href="https://www.tsinghua.edu.cn/en/">Tsinghua University</a>. Earlier, I obtained my bachelor's degree at <a href="https://www-en.hnu.edu.cn/">Hunan University</a>, where I cherished four wonderful years at the foothills of Yuelu Mountain.</p>
+          <p>I am a PhD student at <SchoolLink school="ntu" />, working under the supervision of <a href="https://dr.ntu.edu.sg/cris/rp/rp02343">Dacheng Tao</a>. Previously I completed my master's studies and began my research journey at <SchoolLink school="thu" />. Earlier, I obtained my bachelor's degree at <SchoolLink school="hnu" />, where I cherished four wonderful years at the foothills of Yuelu Mountain.</p>
           <p>My research goal is to unlock the true potential of Deep Reinforcement Learning toward practical real-world deployment. This requires RL agents capable of offline-online cooperation, handling multiple tasks, and never stopping learning in open-ended environments. To realize this vision, I currently focus on investigating the fundamental challenges inherent in DRL — particularly optimization pathologies, scalability limitations, and exploration inefficiencies.</p>
           <p>Meanwhile, I view RL as a paradigm for understanding and developing intelligence rather than just a technique. This inspires my interest in exploring its potential across domains — from large reasoning models and embodied agents to psychology and social sciences.</p>
         </article>
         <div class="article-actions">
-          <a href={`mailto:${profile.email}`}>{profile.email}</a>
-          <a href={profile.scholar}>Google Scholar ↗</a>
+          <a href={`mailto:${profile.email}`}><SocialIcon name="email" />{profile.email}</a>
+          <a href={profile.scholar}><SocialIcon name="scholar" />Google Scholar</a>
         </div>
       </div>
       <div class="about-portrait">
@@ -69,7 +71,7 @@ const cv = loadCV();
               <div class="cv-text">
                 <p>{talk.venue}</p>
                 <p>{talk.title}</p>
-                {talk.venue.includes('AI TIME') && <a href="https://www.bilibili.com/video/BV1RF4m157Uh/">Watch the talk ↗</a>}
+                {talk.venue.includes('AI TIME') && <a href="https://www.bilibili.com/video/BV1RF4m157Uh/">Watch the Talk</a>}
               </div>
             </li>
           ))}

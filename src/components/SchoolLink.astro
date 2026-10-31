@@ -1,0 +1,12 @@
+---
+interface Props { school: 'ntu' | 'thu' | 'hnu'; }
+const schools = {
+  ntu: { name: 'Nanyang Technological University', href: 'https://www.ntu.edu.sg/' },
+  thu: { name: 'Tsinghua University', href: 'https://www.tsinghua.edu.cn/en/' },
+  hnu: { name: 'Hunan University', href: 'https://www-en.hnu.edu.cn/' },
+};
+const { school } = Astro.props;
+const { name, href } = schools[school];
+const [firstWord, ...words] = name.split(' ');
+---
+<a class="school-link" href={href}><span class="school-start"><span class="school-mark" style={`--school-mark: url('/marks/${school}.svg')`} aria-hidden="true"></span>{firstWord}</span>{` ${words.join(' ')}`}</a>

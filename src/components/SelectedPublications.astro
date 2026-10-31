@@ -5,6 +5,6 @@ const allPubs = await getCollection('publications');
 const featured = allPubs.filter((p) => p.data.featured).sort((a, b) => (a.data.featuredOrder ?? 0) - (b.data.featuredOrder ?? 0));
 ---
 <section id="publications" class="home-section publications-section site-width" aria-labelledby="publications-title">
-  <div class="section-top"><h2 id="publications-title" class="section-heading">Selected research</h2><a href="/publications/" class="section-link">All publications <span aria-hidden="true">↗</span></a></div>
+  <div class="section-top"><h2 id="publications-title" class="section-heading">Selected research</h2><a href="/publications/" class="section-link quiet-link">All Publications</a></div>
   <div class="publications-list">{featured.map((pub) => <PublicationCard pub={pub} compact />)}</div>
 </section>

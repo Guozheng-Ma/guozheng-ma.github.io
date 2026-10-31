@@ -1,6 +1,6 @@
 # 上传个人研究杂志新版
 
-本轮更新为 2026-10-30 的布局与笔记预览调整：页面改为暖白 `#fafaf8`，减少分隔线，使用适量圆角面板。电脑端 Notes 左侧插画与右侧三篇笔记联动，按钮选择预览、独立的 `Read note` 链接打开文章；手机与 iPad 保持静态直接阅读。原有内容、明暗配图、马头与 favicon 联动继续保留。本轮不自动提交或推送，最终验证与归档状态见 [交付记录](DELIVERY.md)。
+本轮更新为 2026-10-31 的座右铭位置与学校标志调整：首页先读简介，完整座右铭以居中的 18px 斜体文字放在联系入口后、Notes 前；三所学校名称旁加入来自旧站的单色校徽。桌面简介两端对齐，较窄屏幕左对齐；手机隐藏首页头像，平板研究段占满整行。原有信息、链接及上一轮未提交改动均保留。本轮不自动提交或推送，最终验证与归档状态见 [交付记录](DELIVERY.md)。
 
 网站继续使用 [guozheng-ma.github.io](https://guozheng-ma.github.io)，仓库为 [Guozheng-Ma/guozheng-ma.github.io](https://github.com/Guozheng-Ma/guozheng-ma.github.io)。发布目录是 `/Users/mgz/Workspace/Homepage-old/homepage-repo`，既有 Git 历史和 Actions 工作流继续使用。
 
@@ -10,11 +10,11 @@
 
 1. 打开 [GitHub Desktop](https://desktop.github.com/)，登录有该仓库权限的账号。若尚未添加本地仓库，选择 **File → Add Local Repository…**，添加 `/Users/mgz/Workspace/Homepage-old/homepage-repo`。已有仓库无需重新克隆，参见 [GitHub 官方说明](https://docs.github.com/en/desktop/adding-and-cloning-repositories/adding-a-repository-from-your-local-computer-to-github-desktop)。
 2. 确认 **Current Branch** 为 `main`。在 **Changes** 中查看并勾选本次页面、组件、样式和文档改动。`node_modules`、`dist`、`.astro`、备份与交付 ZIP 无需上传。
-3. 在 **Summary** 填写 `Refine homepage layout and note previews`，点击 **Commit to main**。
+3. 在 **Summary** 填写 `Refine motto placement and school marks`，点击 **Commit to main**。若上一轮改动尚未提交，可与本次改动一并检查后提交。
 4. 在仓库 [Settings → Pages](https://github.com/Guozheng-Ma/guozheng-ma.github.io/settings/pages)确认 **Build and deployment → Source** 为 **GitHub Actions**。已有工作流无需再选模板或添加新的发布流程。此项目使用 Astro 构建，参见 [Astro 官方部署说明](https://docs.astro.build/en/guides/deploy/github/)。
 5. 回到 GitHub Desktop 点击 **Push origin**，上传提交并触发发布。
 6. 打开仓库 [Actions](https://github.com/Guozheng-Ma/guozheng-ma.github.io/actions)，查看 **Deploy personal homepage**，等待 **Build website** 和 **Publish website** 都显示绿色勾选。
-7. 打开 [正式首页](https://guozheng-ma.github.io)，检查首页、Notes、Publications、About、论文与下载链接。电脑端悬停或点击不同笔记，确认插画和 `Read note` 目标一致；Tab 只移动焦点，Enter／Space 选择笔记。手机和 iPad 应直接点开静态条目。切换浅色／暗色，确认页头马头、浏览器 favicon 与配图同步。若仍显示旧版，使用 `⌘⇧R` 强制刷新或打开无痕窗口。
+7. 打开 [正式首页](https://guozheng-ma.github.io)，确认先显示简介，座右铭位于联系入口后、Notes 前；检查首页和 About 的三所学校链接与单色校徽。切换浅色／暗色，确认校徽、社交图标、马头、favicon 与配图同步。继续检查 Notes 阅读入口、论文与下载链接；手机应优先显示简介。若仍显示旧版，使用 `⌘⇧R` 强制刷新或打开无痕窗口。
 
 以后继续在发布目录修改，重复“检查 Changes → Commit to main → Push origin → 等待 Actions”即可。GitHub 自动构建 `dist/`，不需要手动向仓库上传生成后的网页。
 
@@ -26,7 +26,7 @@
 cd /Users/mgz/Workspace/Homepage-old/homepage-repo
 git status
 git add .
-git commit -m "Refine homepage layout and note previews"
+git commit -m "Refine motto placement and school marks"
 git push origin main
 ```
 

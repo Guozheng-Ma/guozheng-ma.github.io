@@ -15,7 +15,7 @@ const firstNote = notes[0];
 {firstNote && <section class="home-section site-width notes-feature" aria-labelledby="notes-title" data-notes-feature>
   <div class="section-top">
     <h2 id="notes-title" class="section-heading">Notes</h2>
-    <a href="/notes/" class="section-link">All notes <span aria-hidden="true">↗</span></a>
+    <a href="/notes/" class="section-link quiet-link">All Notes</a>
   </div>
 
   <div class="notes-static" data-notes-static>
@@ -53,8 +53,8 @@ const firstNote = notes[0];
           <span class="notes-choice-summary" id={`note-choice-summary-${index}`}>{note.data.tldr}</span>
         </button>)}
       </div>
-      <a class="notes-read-link" href={`/notes/${firstNote.id}/`} aria-label={`Read note: ${firstNote.data.title}`} data-note-read>
-        Read note <span aria-hidden="true">↗</span>
+      <a class="notes-read-link quiet-link" href={`/notes/${firstNote.id}/`} aria-label={`Read Note: ${firstNote.data.title}`} data-note-read>
+        Read Note
       </a>
     </div>
   </div>
@@ -133,17 +133,10 @@ const firstNote = notes[0];
   .notes-choice-title, .notes-choice-summary { display: block; }
   .notes-choice:focus-visible { outline-offset: 3px; }
   .notes-read-link {
-    display: inline-flex;
-    gap: 10px;
-    align-items: center;
-    min-height: 44px;
-    margin: 10px 20px 0;
-    font-size: 16px;
-    color: var(--color-text-primary);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 5px;
+    margin: 10px 0 0 20px;
+    background: var(--notes-selected);
   }
+  .notes-read-link:hover { background: var(--notes-hover); }
   @media (max-width: 600px) {
     .notes-static-entry { grid-template-columns: clamp(72px, 17vw, 88px) minmax(0, 1fr); gap: 14px 16px; padding: 18px; }
     .notes-static-art { grid-column: 1; grid-row: 1; }
@@ -188,7 +181,7 @@ const firstNote = notes[0];
         layer.setAttribute('aria-hidden', String(position !== index));
       });
       readLink.href = choices[index].dataset.noteHref!;
-      readLink.setAttribute('aria-label', `Read note: ${choices[index].dataset.noteTitle}`);
+      readLink.setAttribute('aria-label', `Read Note: ${choices[index].dataset.noteTitle}`);
     };
     const updateMode = () => {
       cancelHover();

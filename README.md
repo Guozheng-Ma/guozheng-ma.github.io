@@ -1,8 +1,8 @@
 # Guozheng Ma · Personal research journal
 
-Guozheng Ma 的个人思想与研究杂志。首页以真实座右铭和个人介绍开场，呈现三篇研究笔记与三篇精选论文；Notes、Publications 和 About 提供完整内容。暖白页面配合适量浅底圆角面板，减少分隔线；正体 serif 标题与 sans 正文支持清楚阅读。
+Guozheng Ma 的个人思想与研究杂志。首页先呈现两段个人介绍和联系入口，完整座右铭以居中的 18px 斜体文字放在简介之后、Notes 之前；随后是三篇研究笔记与三篇精选论文。学校名称旁使用来自旧站的单色校徽；手机优先显示简介。桌面首页和 About 简介两端对齐、末行左对齐，较窄屏幕保持左对齐。暖白页面配合适量浅底圆角面板，正体 serif 标题与 sans 正文支持清楚阅读。
 
-电脑端 Notes 左侧显示插画、右侧选择三篇笔记，使用独立的 `Read note` 链接打开文章；手机与 iPad 直接显示三条静态图文链接。网站支持浅色、暗色及跟随系统，已有两套配图与马头品牌同步切换。页头与 favicon 的原生 SVG 马头浅色为 `#2b718f`、暗色为 `#a8ccdf`。
+电脑端 Notes 左侧显示插画、右侧选择三篇笔记，使用独立的 `Read Note` 链接打开文章；手机与 iPad 直接显示三条静态图文链接。网站支持浅色、暗色及跟随系统，已有两套配图与马头品牌同步切换。页头与 favicon 的原生 SVG 马头浅色为 `#2b718f`、暗色为 `#a8ccdf`。
 
 正式网址：[guozheng-ma.github.io](https://guozheng-ma.github.io)
 
@@ -12,13 +12,15 @@ Guozheng Ma 的个人思想与研究杂志。首页以真实座右铭和个人�
 
 主要工作目录：`/Users/mgz/Workspace/Homepage-old/homepage-repo`。日常修改使用这份 Git 仓库；`/Users/mgz/Workspace/Homepage/guozheng-site` 是参考源码副本。
 
-当前规范见 [AGENTS.md](AGENTS.md)，本轮布局与笔记预览调整的验证状态见 [交付记录](docs/DELIVERY.md)。本轮先在本地完成与预览，不自动提交或推送。需要发布时按 [上传说明](docs/UPLOAD.md)操作，现有 GitHub Actions 会构建并发布 `main` 分支。
+当前规范见 [AGENTS.md](AGENTS.md)，本轮座右铭位置与学校标志调整的验证状态、素材来源见 [交付记录](docs/DELIVERY.md)。本轮先在本地完成与预览，不自动提交或推送。需要发布时按 [上传说明](docs/UPLOAD.md)操作，现有 GitHub Actions 会构建并发布 `main` 分支。
 
 ## 内容位置
 
 | 内容 | 文件 |
 | --- | --- |
 | 姓名、邮箱与社交链接 | `src/data/profile.ts` |
+| 社交图标与统一链接 | `src/components/SocialIcon.astro`、`src/components/SocialLinks.astro` |
+| 学校链接与单色校徽 | `src/components/SchoolLink.astro`、`public/marks/` |
 | 教育经历、奖励、报告与服务 | `src/data/cv.yaml` |
 | 历史动态 | `src/data/updates.yaml` |
 | 个人介绍与首页文字 | `src/components/Hero.astro`、`src/pages/about.astro` |

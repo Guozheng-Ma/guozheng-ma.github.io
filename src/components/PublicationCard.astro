@@ -11,7 +11,7 @@ const d = pub.data;
     {!compact && <p class="publication-authors">{d.authors.map((a, i) => <span class={d.authorBoldIndices.includes(i) ? 'self-author' : ''}>{a}{i < d.authors.length - 1 ? ', ' : ''}</span>)}</p>}
     <p class="publication-summary">{d.tldr}</p>
     <div class="publication-links">
-      {d.links.pdf && <a href={d.links.pdf}>Paper <span aria-hidden="true">↗</span></a>}
+      {d.links.pdf && <a href={d.links.pdf}>Paper</a>}
       {d.links.code && <a href={d.links.code}>Code</a>}
       {!compact && d.links.bibtex && <a download href={d.links.bibtex}>BibTeX</a>}
       {d.links.project && <a href={d.links.project}>Project</a>}

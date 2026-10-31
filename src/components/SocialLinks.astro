@@ -1,0 +1,15 @@
+---
+import { profile } from '../data/profile';
+import SocialIcon from './SocialIcon.astro';
+interface Props { includeEmail?: boolean; }
+const { includeEmail = true } = Astro.props;
+const links = [
+  ...(includeEmail ? [{ name: 'email' as const, label: 'Email', href: `mailto:${profile.email}` }] : []),
+  { name: 'scholar' as const, label: 'Google Scholar', href: profile.scholar },
+  { name: 'github' as const, label: 'GitHub', href: profile.github },
+  { name: 'twitter' as const, label: 'Twitter', href: profile.x },
+];
+---
+<div class="social-links" role="group" aria-label="Contact and profiles">
+  {links.map(({ name, label, href }) => <a href={href}><SocialIcon name={name} /><span>{label}</span></a>)}
+</div>
