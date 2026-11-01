@@ -174,6 +174,17 @@ button { font: inherit; cursor: pointer; }
 .quiet-link { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 16px; border-radius: var(--radius-md); background: var(--color-bg-primary); color: var(--color-text-primary); font: 500 17px/1.5 var(--font-sans); text-align: center; text-decoration: none; }
 .quiet-link:hover { background: var(--color-bg-secondary); text-decoration: none; }
 .quiet-link:focus-visible { outline-offset: 3px; }
+.continuation-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 0; color: var(--color-text-primary); font: 500 17px/1.5 var(--font-sans); text-decoration: none; }
+.continuation-link:hover { text-decoration: none; }
+.continuation-link:hover > span, .continuation-link:focus-visible > span { text-decoration: underline; text-underline-offset: .22em; text-decoration-thickness: 1px; }
+.continuation-arrow { flex: 0 0 16px; width: 16px; height: 16px; }
+@media (min-width: 961px) {
+  .hero { grid-template-columns: minmax(0, 740px) minmax(292px, 1fr); column-gap: 0; }
+  .hero-copy { display: contents; }
+  .hero-bio { grid-column: 1; grid-row: 1; }
+  .hero-portrait { grid-column: 2; grid-row: 1; width: 220px; place-self: center; }
+  .hero-actions { grid-column: 1; grid-row: 2; align-self: start; }
+}
 @media (min-width: 1100px) {
   .hero-bio p, .about-copy .prose p { text-align: justify; text-align-last: left; hyphens: auto; }
 }
@@ -329,7 +340,7 @@ button { font: inherit; cursor: pointer; }
   .home-section { margin-bottom: 48px; }
   .section-top { gap: 14px; margin-bottom: 24px; }
   .section-heading { font-size: 28px; }
-  .section-link { font-size: 16px; padding-inline: 14px; }
+  .section-link { font-size: 16px; }
   .note-copy :is(h2,h3) { font-size: 26px; }
   .note-summary { margin-top: 10px; }
   .notes-index { gap: 20px; }

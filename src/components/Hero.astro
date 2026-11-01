@@ -2,6 +2,7 @@
 import ThemeImage from './ThemeImage.astro';
 import SocialLinks from './SocialLinks.astro';
 import SchoolLink from './SchoolLink.astro';
+import ContinuationArrow from './ContinuationArrow.astro';
 ---
 <section id="about-me" class="hero site-width" aria-labelledby="hero-title">
   <div class="hero-copy">
@@ -12,7 +13,7 @@ import SchoolLink from './SchoolLink.astro';
     </div>
     <div class="hero-actions">
       <SocialLinks />
-      <a href="/about/" class="quiet-link">More About Me</a>
+      <a href="/about/" class="continuation-link"><span>More About Me</span><ContinuationArrow /></a>
     </div>
   </div>
   <div class="hero-portrait">

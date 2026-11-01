@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import CoverArt from './CoverArt.astro';
+import ContinuationArrow from './ContinuationArrow.astro';
 
 const allNotes = (await getCollection('notes', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
@@ -15,7 +16,7 @@ const firstNote = notes[0];
 {firstNote && <section class="home-section site-width notes-feature" aria-labelledby="notes-title" data-notes-feature>
   <div class="section-top">
     <h2 id="notes-title" class="section-heading">Notes</h2>
-    <a href="/notes/" class="section-link quiet-link">All Notes</a>
+    <a href="/notes/" class="section-link continuation-link"><span>All Notes</span><ContinuationArrow /></a>
   </div>
 
   <div class="notes-static" data-notes-static>
@@ -53,8 +54,8 @@ const firstNote = notes[0];
           <span class="notes-choice-summary" id={`note-choice-summary-${index}`}>{note.data.tldr}</span>
         </button>)}
       </div>
-      <a class="notes-read-link quiet-link" href={`/notes/${firstNote.id}/`} aria-label={`Read Note: ${firstNote.data.title}`} data-note-read>
-        Read Note
+      <a class="notes-read-link continuation-link" href={`/notes/${firstNote.id}/`} aria-label={`Read Note: ${firstNote.data.title}`} data-note-read>
+        <span>Read Note</span><ContinuationArrow />
       </a>
     </div>
   </div>
@@ -134,9 +135,7 @@ const firstNote = notes[0];
   .notes-choice:focus-visible { outline-offset: 3px; }
   .notes-read-link {
     margin: 10px 0 0 20px;
-    background: var(--notes-selected);
   }
-  .notes-read-link:hover { background: var(--notes-hover); }
   @media (max-width: 600px) {
     .notes-static-entry { grid-template-columns: clamp(72px, 17vw, 88px) minmax(0, 1fr); gap: 14px 16px; padding: 18px; }
     .notes-static-art { grid-column: 1; grid-row: 1; }

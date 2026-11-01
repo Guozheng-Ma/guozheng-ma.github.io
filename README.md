@@ -2,6 +2,8 @@
 
 Guozheng Ma 的个人思想与研究杂志。首页先呈现两段个人介绍和联系入口，完整座右铭以居中的 18px 斜体文字放在简介之后、Notes 之前；随后是三篇研究笔记与三篇精选论文。学校名称旁使用来自旧站的单色校徽；手机优先显示简介。桌面首页和 About 简介两端对齐、末行左对齐，较窄屏幕保持左对齐。暖白页面配合适量浅底圆角面板，正体 serif 标题与 sans 正文支持清楚阅读。
 
+桌面宽度大于 960px 时，头像相对两段简介垂直居中，并在右侧余区水平居中，联系入口独立放在下一行。四个主要入口使用透明无框文字与 16px 同色右箭头，hover 时文字加下划线，点击高度至少 44px；手机和平板继续使用简化布局。
+
 电脑端 Notes 左侧显示插画、右侧选择三篇笔记，使用独立的 `Read Note` 链接打开文章；手机与 iPad 直接显示三条静态图文链接。网站支持浅色、暗色及跟随系统，已有两套配图与马头品牌同步切换。页头与 favicon 的原生 SVG 马头浅色为 `#2b718f`、暗色为 `#a8ccdf`。
 
 首页 `Selected Research` 使用三张 24px 圆角横向卡片，配合随主题切换的内联 SVG 机制图；桌面缩略图为 240×160px，平板为 200×133px，手机隐藏科研缩略图。Notes 列表标题为 28／26／23px，论文条目为 24／23px；列表页主标题为 36–48px，论文详情为 30–40px、行高 1.22，Notes 详情保留桌面 48px 与手机 32–34px。
@@ -20,7 +22,7 @@ Guozheng Ma 的个人思想与研究杂志。首页先呈现两段个人介绍�
 
 主要工作目录：`/Users/mgz/Workspace/Homepage-old/homepage-repo`。日常修改使用这份 Git 仓库；`/Users/mgz/Workspace/Homepage/guozheng-site` 是参考源码副本。
 
-当前规范见 [AGENTS.md](AGENTS.md)，本轮界面字体、图标、Research 机制图和马头调整的验证状态、素材来源见 [交付记录](docs/DELIVERY.md)。本轮先在本地完成与预览，不自动提交或推送。需要发布时按 [上传说明](docs/UPLOAD.md)操作，现有 GitHub Actions 会构建并发布 `main` 分支。
+当前规范见 [AGENTS.md](AGENTS.md)，本轮桌面头像布局与四处文字入口调整的验证状态见 [交付记录](docs/DELIVERY.md)。本轮先在本地完成与预览，不自动提交或推送。需要发布时按 [上传说明](docs/UPLOAD.md)操作，现有 GitHub Actions 会构建并发布 `main` 分支。
 
 ## 内容位置
 
@@ -32,6 +34,7 @@ Guozheng Ma 的个人思想与研究杂志。首页先呈现两段个人介绍�
 | 教育经历、奖励、报告与服务 | `src/data/cv.yaml` |
 | 历史动态 | `src/data/updates.yaml` |
 | 个人介绍与首页文字 | `src/components/Hero.astro`、`src/pages/about.astro` |
+| 四处主要入口的同色右箭头 | `src/components/ContinuationArrow.astro` |
 | 论文与引用下载 | `src/content/publications/`、`public/bibtex/` |
 | 首页精选论文与机制示意图 | `src/components/SelectedPublications.astro`、`src/components/PublicationCard.astro`、`src/components/ResearchThumbnail.astro` |
 | 统一会议、荣誉与资源图标 | `src/components/PublicationMeta.astro`、`src/components/PublicationResourceIcon.astro` |

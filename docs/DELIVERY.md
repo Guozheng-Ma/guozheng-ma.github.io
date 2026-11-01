@@ -1,11 +1,11 @@
 # 改版交付记录
 
-本轮更新：2026-11-01。采用用户批准的 Source Sans 3 界面字体与统一图标，重新整理 Research 机制图并精修马头轮廓。保留此前首页缩写标题、完整作者、会议荣誉与真实论文数据。本轮只完成本地实现与预览，不自动提交或推送。
+本轮更新：2026-11-01。按用户批准的预览调整桌面头像布局与四处文字入口。个人资料、论文内容、已有字体与视觉资源保持不变。本轮只完成本地实现与预览，不自动提交或推送。
 
 ## 目录与当前状态
 
-- 发布与维护目录：`/Users/mgz/Workspace/Homepage-old/homepage-repo`；本轮起点为用户已提交的 `dada34f`（`Refine motto placement and school marks`）。
-- 开始前，184 个源码文件与参考副本、源码 ZIP 一致，196 个静态文件与静态镜像、静态 ZIP 一致，没有新增用户差异。上一轮 11 个未提交／新增文件完整保留，12 份论文、笔记与个人数据文件及全部 public 文件已记录校验值。基线记录为仓库外的 `preview/identity-presync-baseline.json`。
+- 发布与维护目录：`/Users/mgz/Workspace/Homepage-old/homepage-repo`；用户已提交上一轮，本轮起点为 `b6cfb13`，工作区干净。
+- 开始前，186 个源码文件与参考副本、源码 ZIP 一致，198 个静态文件与静态镜像、静态 ZIP 一致，没有新增用户差异。12 份内容／数据和 122 个 public 文件已记录校验值。基线记录为仓库外的 `preview/hero-links-presync-baseline.json`。
 - 参考源码：`/Users/mgz/Workspace/Homepage/guozheng-site`；静态镜像：`/Users/mgz/Workspace/Homepage-old/guozheng-ma.github.io`。同步时保留参考目录的 `.git`、`.vscode`、依赖与环境。
 - 源码 ZIP：`/Users/mgz/Workspace/Homepage-old/guozheng-homepage-source.zip`；静态 ZIP：`/Users/mgz/Workspace/Homepage-old/guozheng-homepage-upload.zip`。本轮已同步两份副本并重新归档，逐文件校验一致。
 - 原站完整备份：`/Users/mgz/Workspace/Homepage-old/backups/2026-10-29-before-redesign.tar.gz`，包含旧站、参考源码与 Git 历史，不含依赖和生成目录。
@@ -13,10 +13,10 @@
 
 ## 本轮调整
 
-- 正文与界面采用本地 Source Sans 3，原有 serif 标题保留。导航与主要入口桌面为 17px／500、手机为 16px／500；资源、社交与页脚邮箱为 17px／500，作者为 16px／400、本人姓名 600。
-- 线性图标使用 24px 网格、2px 笔画、18px 显示尺寸；实心社交图标为 16px、两侧各留 1px。保留 `currentColor`、可见文字及装饰图标可访问性处理。
-- 重新整理三种 Research 机制图，标签桌面为 14px／500；平板 SVG 内设为 17px，缩放后约为 14.2px。精修原生 SVG 马头，页头、三份 SVG favicon、多尺寸 ICO 与 Apple 图标保持同一轮廓。
-- 保留首页 RL 展示标题、完整作者与无摘要布局；论文列表、详情、真实资料及链接不改，手机继续隐藏科研缩略图。
+- 仅桌面宽度大于 960px 时调整头像：相对两段正文垂直居中，在正文右侧剩余区域水平居中；联系入口独立下一行。手机与平板继续使用简化布局。
+- `More About Me`、`All Notes`、`All Publications`、`Read Note` 改为独立的 `continuation-link`，透明无框，使用 `ContinuationArrow` 的 16px 同色右箭头；hover 时文字下划线，点击高度至少 44px，保留键盘焦点。Notes 原局部背景及 hover 背景已移除。
+- 用户已批准这四处恢复箭头，覆盖旧去箭头约定；404 等其他按钮与功能性返回入口保持原样。
+- 保留 Source Sans 3、Research 机制图、马头与明暗主题，个人资料、论文内容和链接不改。
 
 既有导航参考 [Anthropic Research](https://www.anthropic.com/research) 的胶囊导航与 [Stripe Newsroom](https://stripe.com/newsroom) 的明确文字入口；不照搬页面或品牌资产。
 
@@ -32,15 +32,14 @@ Source Sans 3 来源于 [Adobe 官方仓库](https://github.com/adobe-fonts/sour
 
 ## 最终验证与归档
 
-2026-11-01 12:18:30（北京时间）正式构建成功，14 页静态检查和 14 组浏览器检查通过。
+2026-11-01 12:54:59（北京时间）正式构建成功，14 页静态检查与 12 组浏览器检查通过。
 
-- 247 次本地引用、14 次锚点引用有效，28 张图片均有替代文本；没有重复 ID、嵌套链接或构建资源错误。249 个页面链接目的地与基线一致。
-- 12 份内容／数据文件不变；115 个原 public 文件不变，包括 `assets/` 与 `files/` 下全部 80 个旧文件。公共资源仅修改 5 个品牌图标，并新增字体与许可证 2 个文件；没有删除旧资源。
-- 字体和许可证在源码与构建中逐字节相同，14 页均预加载本地字体，浏览器字体请求返回 HTTP 200。控制台没有警告或错误。
-- 1440／1200px 首页三篇标题仍为单行；768px 机制图标签可读，390／320px 自然换行且科研图按规则隐藏。首页、320px 论文列表与详情、1440px Notes 和 About 均无横向溢出。资源入口保留至少 44px 点击高度。
-- 手动浅暗主题、刷新后偏好与马头／favicon 联动通过，测试后恢复跟随系统。ICO 包含 16／24／32／48／64px，Apple 图标为 180px；马头小尺寸审查通过。
-- Notes 键盘 Enter 切换检查通过：选中第二篇后插画与 `Read Note` 目标正确更新，并恢复第一篇；该检查不代表全部键盘路径覆盖。
-- 同步前确认副本和旧归档没有新增用户改动。186 个源码文件、198 个静态文件已同步，两个 ZIP 完整性与逐文件校验通过；保留原有未提交改动、Git、编辑器配置、依赖环境和原站备份。依赖目录及临时链接均不进入归档；未提交或推送。
-- 使用浏览器视口模拟，未使用实体手机／平板；本轮未改变操作系统外观来测试自动系统暗色。外部链接没有进行网络连通性测试。
+- 247 次内部引用、14 次锚点引用有效，28 张图片均有替代文本；134 个内容／数据／public 文件、249 个页面链接目的地及全部页面可见正文与基线一致。
+- 新箭头仅用于首页四处指定入口，16px、继承文字颜色并对辅助技术隐藏；404 的两个原有按钮保持不变。
+- 1280px 浅暗主题下正文宽 740px、头像宽 220px，两侧余距各 70px，垂直中心误差小于 0.004px。1024／961px 两侧余距各 36px、垂直中心一致；960／768px 保留 140px 头像的原平板布局，390／320px 隐藏头像。所测尺寸均无横向溢出。
+- 桌面四处入口均为透明背景、44px 高、16px 箭头；平板与手机继续使用静态 Notes。键盘 Enter 选择第三篇后，Tab 到 `Read Note` 可见下划线与实线轮廓，Enter 正确打开第三篇；`More About Me` 点击正确打开 About。
+- 手动暗色及刷新保持检查通过，测试后恢复跟随系统，控制台无警告或错误。hover 下划线通过样式检查，键盘焦点样式通过实际浏览器检查。
+- 同步前确认副本与旧归档无新增用户改动。187 个源码文件、198 个静态文件已同步，两个 ZIP 完整性与逐文件校验通过；Git、编辑器配置、依赖环境与原站备份保留。未提交或推送。
+- 使用浏览器视口模拟，未使用实体设备；没有改变系统外观来测试自动系统暗色，外部链接未进行网络连通性测试。
 
-报告在 `/Users/mgz/Workspace/Homepage-old/preview/`：`identity-presync-baseline.json`、`identity-integrity.json`、`identity-browser-checks.json`、`identity-archive-checks.json`；马头专项记录为 `identity/horse-integrity.json`。最终 6 张截图保存在 `preview/identity/`：`home-light.png`、`home-dark.png`、`research-light.png`、`research-dark.png`、`research-tablet.png`、`research-mobile.png`。上一轮记录继续保留。
+报告在 `/Users/mgz/Workspace/Homepage-old/preview/`：`hero-links-presync-baseline.json`、`hero-links-integrity.json`、`hero-links-browser-checks.json`、`hero-links-archive-checks.json`。最终截图位于 `preview/hero-links/`：`final-light.png`、`final-dark.png`、`final-768.png`、`final-390.png`。上一轮记录继续保留。
