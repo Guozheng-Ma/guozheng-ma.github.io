@@ -4,6 +4,14 @@ Guozheng Ma 的个人思想与研究杂志。首页先呈现两段个人介绍�
 
 电脑端 Notes 左侧显示插画、右侧选择三篇笔记，使用独立的 `Read Note` 链接打开文章；手机与 iPad 直接显示三条静态图文链接。网站支持浅色、暗色及跟随系统，已有两套配图与马头品牌同步切换。页头与 favicon 的原生 SVG 马头浅色为 `#2b718f`、暗色为 `#a8ccdf`。
 
+首页 `Selected Research` 使用三张 24px 圆角横向卡片，配合随主题切换的内联 SVG 机制图；桌面缩略图为 240×160px，平板为 200×133px，手机隐藏科研缩略图。Notes 列表标题为 28／26／23px，论文条目为 24／23px；列表页主标题为 36–48px，论文详情为 30–40px、行高 1.22，Notes 详情保留桌面 48px 与手机 32–34px。
+
+首页论文卡片展示完整作者，保留原排序和贡献标记。会议与已核实的荣誉加强视觉层级，`Paper` 和 `Code` 采用统一图标加文字入口；论文数据和链接保持不变。
+
+首页论文展示标题将 `Reinforcement Learning` 缩写为 `RL`，第一篇桌面标题为 23px、其余为 24px，并省略卡片摘要。论文列表和详情保留完整正式标题与原描述；缩略图与网站宽度不变。
+
+正文与界面采用本地 Source Sans 3，serif 标题保留。界面基准为 17px、500 字重，手机导航与主要入口为 16px；作者为 16px 常规字重。统一图标样式，重新整理 Research 机制图并精修马头轮廓。原有内容、URL 与浅色／暗色／跟随系统功能保留。
+
 正式网址：[guozheng-ma.github.io](https://guozheng-ma.github.io)
 
 发布仓库：[Guozheng-Ma/guozheng-ma.github.io](https://github.com/Guozheng-Ma/guozheng-ma.github.io)
@@ -12,7 +20,7 @@ Guozheng Ma 的个人思想与研究杂志。首页先呈现两段个人介绍�
 
 主要工作目录：`/Users/mgz/Workspace/Homepage-old/homepage-repo`。日常修改使用这份 Git 仓库；`/Users/mgz/Workspace/Homepage/guozheng-site` 是参考源码副本。
 
-当前规范见 [AGENTS.md](AGENTS.md)，本轮座右铭位置与学校标志调整的验证状态、素材来源见 [交付记录](docs/DELIVERY.md)。本轮先在本地完成与预览，不自动提交或推送。需要发布时按 [上传说明](docs/UPLOAD.md)操作，现有 GitHub Actions 会构建并发布 `main` 分支。
+当前规范见 [AGENTS.md](AGENTS.md)，本轮界面字体、图标、Research 机制图和马头调整的验证状态、素材来源见 [交付记录](docs/DELIVERY.md)。本轮先在本地完成与预览，不自动提交或推送。需要发布时按 [上传说明](docs/UPLOAD.md)操作，现有 GitHub Actions 会构建并发布 `main` 分支。
 
 ## 内容位置
 
@@ -25,6 +33,9 @@ Guozheng Ma 的个人思想与研究杂志。首页先呈现两段个人介绍�
 | 历史动态 | `src/data/updates.yaml` |
 | 个人介绍与首页文字 | `src/components/Hero.astro`、`src/pages/about.astro` |
 | 论文与引用下载 | `src/content/publications/`、`public/bibtex/` |
+| 首页精选论文与机制示意图 | `src/components/SelectedPublications.astro`、`src/components/PublicationCard.astro`、`src/components/ResearchThumbnail.astro` |
+| 统一会议、荣誉与资源图标 | `src/components/PublicationMeta.astro`、`src/components/PublicationResourceIcon.astro` |
+| Source Sans 3 字体与许可证 | `public/fonts/source-sans-3-variable.woff2`、`public/fonts/SOURCE-SANS-LICENSE.md` |
 | 研究笔记 | `src/content/notes/` |
 | 首页笔记选择与静态阅读布局 | `src/components/LatestNotes.astro` |
 | 浅色／暗色插画 | `public/art/` |
@@ -33,6 +44,8 @@ Guozheng Ma 的个人思想与研究杂志。首页先呈现两段个人介绍�
 | 自动发布 | `.github/workflows/deploy.yml` |
 
 个人资料、论文与图片的依据分别见 [内容来源](docs/content-sources.md)和[插画记录](docs/art-prompts.md)。旧站资源与历史锚点继续保留。
+
+Source Sans 3 来自 [Adobe 官方字体仓库](https://github.com/adobe-fonts/source-sans)，使用 [SIL OFL 1.1](https://github.com/adobe-fonts/source-sans/blob/release/LICENSE.md)；本地字体与[随附许可证](public/fonts/SOURCE-SANS-LICENSE.md)已一同保留，应一并提交及归档。
 
 ## 本地预览
 

@@ -1,0 +1,147 @@
+---
+interface Props { id: string; }
+const { id } = Astro.props;
+const kinds: Record<string, 'priors' | 'residual' | 'sparsity'> = {
+  'neurips-2026-offline-priors': 'priors',
+  'icml-2026-residual': 'residual',
+  'icml-2025-sparsity': 'sparsity',
+};
+const kind = kinds[id];
+---
+
+{kind && (
+  <svg
+    class="research-thumbnail"
+    data-kind={kind}
+    width="240"
+    height="160"
+    viewBox="0 0 240 160"
+    fill="none"
+    aria-hidden="true"
+    focusable="false"
+  >
+    {kind === 'priors' && (
+      <g>
+        <text class="label" x="51" y="29">Offline prior</text>
+        <text class="label" x="180" y="29">Task diagnosis</text>
+
+        <path class="accent-line" d="M36 48h32a6 6 0 0 1 6 6v40" />
+        <rect class="prior-sheet" x="27" y="54" width="40" height="49" rx="6" />
+        <path class="accent-line" d="M37 68h20M37 78h20M37 88h13" />
+
+        <path class="ink-line" d="M81 78h66m-6-6 6 6-6 6" />
+        <path class="control-rail" d="M112 63v29" />
+        <circle class="control" cx="112" cy="77" r="6" />
+
+        <circle class="task-target" cx="181" cy="78" r="25" />
+        <circle class="accent-line" cx="181" cy="78" r="12" />
+        <circle class="accent-fill" cx="181" cy="78" r="3" />
+
+        <!-- Deployment evidence adjusts reliance on the prior, not the stored prior itself. -->
+        <path class="accent-line" d="M181 111v3a12 12 0 0 1-12 12h-45a12 12 0 0 1-12-12v-14m-5 5 5-5 5 5" />
+      </g>
+    )}
+
+    {kind === 'residual' && (
+      <g>
+        <text class="label" x="66" y="139">Small residuals</text>
+
+        <circle class="ink-fill" cx="26" cy="80" r="4" />
+        <path class="base-vector" d="M31 80h36" />
+        <path class="ink-line" d="m67 80 22-7h29m-5-5 5 5-5 5" />
+        <path class="accent-line" d="m67 80 22 7h29m-5-5 5 5-5 5" />
+
+        <rect class="critic" x="126" y="48" width="54" height="64" rx="10" />
+        <text class="label" x="153" y="85">Critic</text>
+
+        <!-- A qualitative distinction between nearby actions, without plotted values or measured gains. -->
+        <path class="ink-line" d="m180 73 25-17" />
+        <path class="accent-line" d="m180 87 25 17" />
+        <circle class="reference-node" cx="210" cy="53" r="5" />
+        <circle class="accent-fill" cx="210" cy="107" r="5" />
+      </g>
+    )}
+
+    {kind === 'sparsity' && (
+      <g>
+        <text class="label" x="66" y="137">Dense</text>
+        <text class="label" x="174" y="137">Static sparse</text>
+
+        <path class="network-links" d="M33 48h33l33 44M33 48l33 44h33M33 92l33-44h33M33 92h33l33-44" />
+        <path class="network-links" d="m141 48 33 44h33M141 92l33-44h33" />
+        {[33, 66, 99].map((x) => (
+          <g>
+            <circle class="network-node" cx={x} cy="48" r="6" />
+            <circle class="network-node" cx={x} cy="92" r="6" />
+          </g>
+        ))}
+        {[141, 174, 207].map((x) => (
+          <g>
+            <circle class="network-node" cx={x} cy="48" r="6" />
+            <circle class="network-node" cx={x} cy="92" r="6" />
+          </g>
+        ))}
+      </g>
+    )}
+  </svg>
+)}
+
+<style>
+  .research-thumbnail {
+    --thumbnail-accent-light: var(--color-teal-600);
+    --thumbnail-accent-dark: var(--color-teal-800);
+    --thumbnail-accent: var(--thumbnail-accent-light);
+    --thumbnail-paper: var(--color-bg-primary);
+    --thumbnail-ink: var(--color-text-secondary);
+    --thumbnail-wash: color-mix(in srgb, var(--thumbnail-accent) 13%, var(--thumbnail-paper));
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+  }
+
+  .research-thumbnail[data-kind="priors"] {
+    --thumbnail-accent-light: var(--color-coral-600);
+    --thumbnail-accent-dark: var(--color-coral-800);
+  }
+
+  .research-thumbnail[data-kind="sparsity"] {
+    --thumbnail-accent-light: var(--color-purple-600);
+    --thumbnail-accent-dark: var(--color-purple-800);
+  }
+
+  :global(:root.dark) .research-thumbnail,
+  :global(:root[data-theme="dark"]) .research-thumbnail {
+    --thumbnail-accent: var(--thumbnail-accent-dark);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme="light"])) .research-thumbnail {
+      --thumbnail-accent: var(--thumbnail-accent-dark);
+    }
+  }
+
+  .label { fill: var(--thumbnail-ink); font: 500 14px var(--font-sans); text-anchor: middle; }
+  .ink-fill { fill: var(--thumbnail-ink); }
+  .accent-fill { fill: var(--thumbnail-accent); }
+
+  .ink-line, .accent-line, .control-rail, .base-vector, .network-links {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+  }
+
+  .ink-line, .control-rail { stroke: var(--thumbnail-ink); }
+  .accent-line, .network-links { stroke: var(--thumbnail-accent); }
+  .prior-sheet, .task-target, .critic { fill: var(--thumbnail-wash); stroke: var(--thumbnail-accent); stroke-width: 2; }
+  .control { fill: var(--thumbnail-accent); stroke: var(--thumbnail-paper); stroke-width: 2; }
+  .base-vector { stroke: var(--thumbnail-ink); stroke-width: 3; }
+  .reference-node { fill: var(--thumbnail-ink); }
+  .network-node { fill: var(--thumbnail-paper); stroke: var(--thumbnail-accent); stroke-width: 2; }
+
+  @media (max-width: 960px) {
+    .label { font-size: 17px; }
+  }
+</style>

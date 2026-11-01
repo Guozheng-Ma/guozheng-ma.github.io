@@ -1,6 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import PublicationMeta from '../../components/PublicationMeta.astro';
+import PublicationResourceIcon from '../../components/PublicationResourceIcon.astro';
 
 export async function getStaticPaths() {
   const pubs = await getCollection('publications');
@@ -19,12 +21,10 @@ const { Content } = await render(pub);
 const d = pub.data;
 ---
 <Layout title={d.title} description={d.tldr} image={d.figure} type="article">
-  <main id="main-content" class="reading-page">
+  <main id="main-content" class="reading-page publication-detail">
     <header class="article-header">
       <a href="/publications/" class="back-link">← Publications</a>
-      <p class="article-meta">
-        {d.venueFull} · {d.year}{d.award && <span> · {d.award}</span>}
-      </p>
+      <PublicationMeta publication={d} fullVenue />
       <h1 class="page-title">{d.title}</h1>
       <p class="article-authors">
         {d.authors.map((author, index) => (
@@ -32,11 +32,11 @@ const d = pub.data;
         ))}
       </p>
       <div class="article-actions" aria-label="Publication resources">
-        {d.links.pdf && <a href={d.links.pdf}>PDF</a>}
-        {d.links.code && <a href={d.links.code}>Code</a>}
-        {d.links.bibtex && <a download href={d.links.bibtex}>BibTeX</a>}
-        {d.links.project && <a href={d.links.project}>Project</a>}
-        {d.links.video && <a href={d.links.video}>Video</a>}
+        {d.links.pdf && <a href={d.links.pdf}><PublicationResourceIcon name="paper" />Paper</a>}
+        {d.links.code && <a href={d.links.code}><PublicationResourceIcon name="code" />Code</a>}
+        {d.links.bibtex && <a download href={d.links.bibtex}><PublicationResourceIcon name="bibtex" />BibTeX</a>}
+        {d.links.project && <a href={d.links.project}><PublicationResourceIcon name="project" />Project</a>}
+        {d.links.video && <a href={d.links.video}><PublicationResourceIcon name="video" />Video</a>}
       </div>
     </header>
 

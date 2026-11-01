@@ -1,6 +1,6 @@
 # Guozheng Ma · Personal research journal
 
-本文件是当前设计与实施规范，更新于 2026-10-31。用户已授权本轮完整重设计；旧文档中的 24px 标题上限、serif 必须斜体、分阶段等待审批及自动提交约定已被本轮要求覆盖。[早期架构](docs/01-architecture.md)与[早期实施指南](docs/02-implementation-guide.md)仅作历史参考。最新用户指令优先。
+本文件是当前设计与实施规范，更新于 2026-11-01。用户已授权本轮完整重设计；旧文档中的 24px 标题上限、serif 必须斜体、分阶段等待审批及自动提交约定已被本轮要求覆盖。[早期架构](docs/01-architecture.md)与[早期实施指南](docs/02-implementation-guide.md)仅作历史参考。最新用户指令优先。
 
 ## 定位与内容层级
 
@@ -10,7 +10,10 @@
 - 手机宽度不超过 680px 时隐藏首页头像，先读简介；平板第一段与 140px 头像并排，研究段占满整行。手机社交入口保持两列。
 - 首页 Notes 在宽度至少 1100px、支持精细指针与 hover 且无触屏的电脑上采用左图右侧三条选择。原生按钮用于选择预览，独立的 `Read Note` 链接打开选中文章；不能把选择和导航混为一次操作。
 - 鼠标停留 120ms 后选择，点击或 Enter／Space 立即选择；Tab 只移动焦点、不改变选择。图片容器保持尺寸，淡入淡出为 160ms，尊重减少动态效果设置。手机与 iPad 使用三个静态直接链接；手机缩略图与标题并排、摘要跨整行，平板静态图文左右排列。无脚本时保留静态阅读入口。
-- 首页精选论文为 `neurips-2026-offline-priors`、`icml-2026-residual`、`icml-2025-sparsity`，分别保留 position track、spotlight、oral 的真实信息。
+- 首页 `Selected Research` 展示三个独立横向卡片，依次为 `neurips-2026-offline-priors`、`icml-2026-residual`、`icml-2025-sparsity`，分别保留 position track、spotlight、oral 的真实信息。卡片使用 24px 圆角；桌面机制缩略图为 240×160px，平板为 200×133px。宽度不超过 680px 时隐藏科研缩略图，优先完整标题与快速阅读。
+- 首页论文卡片显示完整作者列表，保留原排序、贡献标记及本人姓名强调，不缩写成不完整名单。会议与真实荣誉形成清楚的视觉层级；position track 与获奖／入选荣誉准确区分，不添加未经核实的标签。
+- 仅首页论文卡片将展示标题中的 `Reinforcement Learning` 缩写为 `RL`；第一篇桌面标题为 23px，其余为 24px。首页不显示论文摘要；完整作者和资源入口保留。论文列表、详情及内容数据继续使用完整正式标题与原描述，不改变 240px 桌面缩略图或网站宽度。
+- 论文元信息统一由 `PublicationMeta` 渲染：会议桌面 17px、手机 16px；真实荣誉为 15px 半粗体、低饱和琥珀色、4×9px 内边距与 6px 圆角。Position track 使用中性 15px 类型文字；详情完整会议名与年份以中点分隔。论文列表桌面与平板元信息列宽 176px。
 - Notes 列表：图文关系清楚，标题和摘要能独立说明主题；详情页专注阅读。
 - Publications 列表：按年份组织完整论文信息，不显示通用主题配图，不增加筛选控件。
 - About：保留个人介绍、教育经历、历史动态、奖励、报告和学术服务。首页不堆放这些履历信息。
@@ -18,17 +21,22 @@
 
 ## 排版与外观
 
-- 标题使用本地 Source Serif 4 正体；正文、导航、按钮、作者和会议信息使用系统 sans。斜体只用于确有语义的强调，不再作为所有标题的默认样式。
+- 标题使用本地 Source Serif 4 正体；正文与界面使用用户已授权的本地 Source Sans 3。导航和主要文字入口桌面为 17px／500、手机为 16px／500；资源、社交和页脚邮箱为 17px／500。论文作者为 16px／400，本人姓名为 600。正文与辅助文字保留既有阅读层级；斜体只用于确有语义的强调。
 - 阅读正文 17–18px，首页紧凑笔记摘要 16–16.5px；辅助信息 14–15px。用清楚的层级和合理行宽支持扫读与长文阅读，不把辅助文字缩成难读的小字。
+- Notes 列表条目标题在桌面／平板／手机分别为 28／26／23px，论文条目标题桌面为 24px、手机为 23px。列表页主标题在 36–48px 间响应；论文详情标题为 30–40px、行高 1.22；Notes 详情保留桌面 48px，手机在 32–34px 间连续变化。
 - 宽度至少 1100px 时，首页和 About 的简介段落两端对齐，末行左对齐并允许英文自动断词；学校名称禁止断词。较窄屏幕保持左对齐。
 - 浅色页面底色 `#fafaf8`、面板 `#f1f0eb`；暗色页面底色 `#191919`、面板 `#242522`。暗色保持温暖、可读，避免纯黑与大面积高亮插图的强烈反差。
 - 移除页头、章节和列表之间的装饰分隔线，用间距与面板建立层级。Notes、内容目录和履历面板采用 24px 圆角，内部选中条目采用 16px 圆角。
 - `More About Me`、`All Notes`、`All Publications` 和 `Read Note` 使用原生链接、12px 圆角浅底、最小 44px 高和明确文字。去掉装饰性箭头，保留返回用途的左箭头。
 - Email、Google Scholar、GitHub、Twitter 使用统一 SVG 加可见文字。图标继承 `currentColor`，不单独进入焦点或辅助技术阅读顺序；保持既有地址，Twitter 使用 X 轮廓但不改链接。
+- 论文资源入口使用 `PublicationResourceIcon` 的统一 18px SVG 图标与 17px、500 字重的 Source Sans 3 文字；详情页同样使用 `Paper` 标签。图标继承 `currentColor`、作为装饰隐藏，不增加重复焦点；保留原有地址、链接语义和可访问名称。
+- 线性图标统一采用 24px 网格与 2px 笔画、显示为 18px；实心社交图标显示为 16px、两侧各留 1px，主题图标采用 18px／2px。图标配合清楚的文字标签，不增加单独焦点。
 - 首页和 About 的三所学校名称旁使用 22px 单色校徽，通过 `SchoolLink` 与 `currentColor` 统一显示。标志来自旧站原图：NTU 保留原 SVG 路径，清华和湖南大学为嵌入旧位图的 SVG alpha 蒙版，不称为纯矢量；旧 `public/assets/` 文件保持不变。
 - 保留浅色、暗色、跟随系统三态及已保存偏好。系统暗色下仍应能手动选择浅色；存储不可用时页面继续可用。
 - 使用已有浅色／暗色头像与主题插画；图像服务于当前内容，不用重复图片填充列表。主题颜色继续对应紫色稀疏与扩展、青色可塑性与适应、珊瑚色数据与泛化；琥珀色仅作荣誉提示。
-- 品牌使用简洁的原生 SVG 马头，统一页头标志与 favicon 轮廓；浅色主题为 `#2b718f`，暗色主题为 `#a8ccdf`。页头与 SVG favicon 随自动／手动主题切换，并在刷新后保持偏好；保留多尺寸 ICO 与 Apple touch icon 兼容资源。
+- 首页 Research 使用重新整理的原生内联 SVG 机制示意图，明确三种研究机制，沿用现有主题变量，与浅色／暗色／跟随系统保持一致。示意图帮助解释主题，不呈现实验结果；不改动真实论文和个人资料。
+- 机制图标签桌面为 14px／500；宽度不超过 960px 时 SVG 内字号设为 17px，在 200px 缩略图中实际约为 14.2px，保持平板可读性。
+- 品牌使用精修的原生 SVG 马头，统一页头标志与 favicon 轮廓；浅色主题为 `#2b718f`，暗色主题为 `#a8ccdf`。页头与 SVG favicon 随自动／手动主题切换，并在刷新后保持偏好；保留多尺寸 ICO 与 Apple touch icon 兼容资源。
 - 仅保留 Notes 切图所需的轻量淡入淡出，不增加其他装饰动画、渐变、光晕或阴影；不用模板，不引入新依赖。功能反馈与键盘焦点必须清楚。
 - 手机布局与桌面同样可读，导航、主题切换和长标题不能造成横向溢出。
 
@@ -46,7 +54,7 @@
 - Astro 6.x + TypeScript strict；Notes 为 MDX，Publications 为 Markdown，个人资料与动态使用现有数据文件。
 - Content layer 配置在 `src/content.config.ts`，使用 `glob` loader 和 `entry.id`。
 - Tailwind v4 + `@tailwindcss/vite`；颜色与排版统一维护在 `src/styles/`，沿用现有语义变量。
-- 保留 sitemap、`remark-math`、`rehype-katex` 与本地字体；不新增框架、字体或构建依赖。
+- 保留 sitemap、`remark-math`、`rehype-katex` 与本地字体；用户本轮已授权新增 Source Sans 3，覆盖此前不新增字体的约定。字体位于 `public/fonts/source-sans-3-variable.woff2`，Adobe 官方 SIL OFL 1.1 许可证位于 `public/fonts/SOURCE-SANS-LICENSE.md`，两者一同提交与归档。不新增框架或构建依赖。
 - 发布和后续维护目录：`/Users/mgz/Workspace/Homepage-old/homepage-repo`。参考副本是 `/Users/mgz/Workspace/Homepage/guozheng-site`；先完成并验证发布目录，再按实际改动同步。
 - 使用现有 GitHub Pages 仓库与 `.github/workflows/deploy.yml`：Node.js 22、`npm ci`、`npm run build`、发布 `dist/`。网址为 `https://guozheng-ma.github.io`，不新建其他托管。
 

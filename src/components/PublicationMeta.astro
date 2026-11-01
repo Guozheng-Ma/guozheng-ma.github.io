@@ -1,0 +1,13 @@
+---
+import { type CollectionEntry } from 'astro:content';
+interface Props { publication: CollectionEntry<'publications'>['data']; fullVenue?: boolean; }
+const { publication: d, fullVenue = false } = Astro.props;
+const awardParts = d.award?.split(' · ');
+const isPositionPaper = d.venueFull.endsWith(' · Position track');
+const venueName = fullVenue ? d.venueFull.replace(/ · Position track$/, '') : d.venue;
+---
+<div class="publication-meta">
+  <p class="publication-venue">{venueName}{fullVenue ? ' · ' : ' '}{d.year}</p>
+  {isPositionPaper && <p class="publication-type">{fullVenue ? 'Position track' : 'Position paper'}</p>}
+  {awardParts && <p class="publication-honor">{awardParts.map((part, index) => <Fragment>{index > 0 && ' · '}<span>{part}</span></Fragment>)}</p>}
+</div>

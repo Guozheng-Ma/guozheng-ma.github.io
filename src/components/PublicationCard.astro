@@ -1,21 +1,28 @@
 ---
 import { type CollectionEntry } from 'astro:content';
+import ResearchThumbnail from './ResearchThumbnail.astro';
+import PublicationMeta from './PublicationMeta.astro';
+import PublicationResourceIcon from './PublicationResourceIcon.astro';
 interface Props { pub: CollectionEntry<'publications'>; compact?: boolean; headingLevel?: 'h2' | 'h3'; }
 const { pub, compact = false, headingLevel: Heading = 'h3' } = Astro.props;
 const d = pub.data;
+const displayTitle = compact ? d.title.replaceAll('Reinforcement Learning', 'RL') : d.title;
+const hasThumbnail = compact && ['neurips-2026-offline-priors', 'icml-2026-residual', 'icml-2025-sparsity'].includes(pub.id);
 ---
-<article class:list={['publication-card', { 'publication-compact': compact }]}>
-  <div class="publication-meta"><p>{d.venue} {d.year}</p>{d.venueFull.includes('Position') && <p>Position paper</p>}{d.award && <p class="honor">{d.award}</p>}</div>
+<article class:list={['publication-card', { 'publication-compact': compact, 'publication-illustrated': hasThumbnail }]}>
+  {hasThumbnail && <a href={`/publications/${pub.id}/`} class="publication-preview" tabindex="-1" aria-hidden="true"><ResearchThumbnail id={pub.id} /></a>}
+  {!compact && <PublicationMeta publication={d} />}
   <div class="publication-copy">
-    <Heading><a href={`/publications/${pub.id}/`}>{d.title}</a></Heading>
-    {!compact && <p class="publication-authors">{d.authors.map((a, i) => <span class={d.authorBoldIndices.includes(i) ? 'self-author' : ''}>{a}{i < d.authors.length - 1 ? ', ' : ''}</span>)}</p>}
-    <p class="publication-summary">{d.tldr}</p>
+    {compact && <PublicationMeta publication={d} />}
+    <Heading class:list={{ 'publication-title-small': compact && pub.id === 'neurips-2026-offline-priors' }}><a href={`/publications/${pub.id}/`}>{displayTitle}</a></Heading>
+    <p class="publication-authors">{d.authors.map((a, i) => <span class={d.authorBoldIndices.includes(i) ? 'self-author' : ''}>{a}{i < d.authors.length - 1 ? ', ' : ''}</span>)}</p>
+    {!compact && <p class="publication-summary">{d.tldr}</p>}
     <div class="publication-links">
-      {d.links.pdf && <a href={d.links.pdf}>Paper</a>}
-      {d.links.code && <a href={d.links.code}>Code</a>}
-      {!compact && d.links.bibtex && <a download href={d.links.bibtex}>BibTeX</a>}
-      {d.links.project && <a href={d.links.project}>Project</a>}
-      {d.links.video && <a href={d.links.video}>Video</a>}
+      {d.links.pdf && <a href={d.links.pdf}><PublicationResourceIcon name="paper" />Paper</a>}
+      {d.links.code && <a href={d.links.code}><PublicationResourceIcon name="code" />Code</a>}
+      {!compact && d.links.bibtex && <a download href={d.links.bibtex}><PublicationResourceIcon name="bibtex" />BibTeX</a>}
+      {d.links.project && <a href={d.links.project}><PublicationResourceIcon name="project" />Project</a>}
+      {d.links.video && <a href={d.links.video}><PublicationResourceIcon name="video" />Video</a>}
     </div>
   </div>
 </article>
