@@ -22,6 +22,12 @@ export async function getStaticPaths() {
 const { note, moreNotes } = Astro.props;
 const { Content } = await render(note);
 const relatedPub = note.data.relatedPub ? await getEntry('publications', note.data.relatedPub) : null;
+const coverImages: Record<string, string> = {
+  purple: '/art/sparsity.webp',
+  teal: '/art/plasticity.webp',
+  coral: '/art/generalization.webp',
+};
+const shareImage = coverImages[note.data.cover.color] ?? coverImages.purple;
 const dateStr = note.data.date.toLocaleDateString('en-US', {
   timeZone: 'UTC',
   month: 'long',
@@ -29,10 +35,10 @@ const dateStr = note.data.date.toLocaleDateString('en-US', {
   year: 'numeric',
 });
 ---
-<Layout title={note.data.title} description={note.data.tldr} type="article">
+<Layout title={note.data.title} description={note.data.tldr} image={shareImage} type="article">
   <main id="main-content" class="reading-page">
     <header class="article-header">
-      <a href="/notes/" class="back-link">← Notes</a>
+      <a href="/notes/" class="back-link">← Blog</a>
       <h1 class="page-title">{note.data.title}</h1>
       <p class="article-meta"><time datetime={note.data.date.toISOString().slice(0, 10)}>{dateStr}</time></p>
     </header>
@@ -54,7 +60,7 @@ const dateStr = note.data.date.toLocaleDateString('en-US', {
 
     {moreNotes.length > 0 && (
       <nav class="related-section" aria-labelledby="more-notes-title">
-        <h2 id="more-notes-title" class="related-title">More notes</h2>
+        <h2 id="more-notes-title" class="related-title">More posts</h2>
         <ul class="more-notes-list">
           {moreNotes.map((other) => (
             <li><a href={`/notes/${other.id}/`} class="related-link">{other.data.title}</a></li>

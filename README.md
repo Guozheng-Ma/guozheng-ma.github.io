@@ -4,9 +4,9 @@ Guozheng Ma 的个人思想与研究杂志。首页先呈现两段个人介绍�
 
 桌面宽度大于 960px 时，头像相对两段简介垂直居中，并在右侧余区水平居中，联系入口独立放在下一行。四个主要入口使用透明无框文字与 16px 同色右箭头，hover 时文字加下划线，点击高度至少 44px；手机和平板继续使用简化布局。
 
-电脑端 Notes 左侧显示插画、右侧选择三篇笔记，使用独立的 `Read Note` 链接打开文章；手机与 iPad 直接显示三条静态图文链接。网站支持浅色、暗色及跟随系统，已有两套配图与马头品牌同步切换。页头与 favicon 的原生 SVG 马头浅色为 `#2b718f`、暗色为 `#a8ccdf`。
+电脑端 Blog 左侧显示插画、右侧选择三篇笔记，使用独立的 `Read Post` 链接打开文章；手机与 iPad 直接显示三条静态图文链接。网站支持浅色、暗色及跟随系统，已有两套配图与马头品牌同步切换。页头与 favicon 的原生 SVG 马头浅色为 `#2b718f`、暗色为 `#a8ccdf`。
 
-首页 `Selected Research` 使用三张 24px 圆角横向卡片，配合随主题切换的内联 SVG 机制图；桌面缩略图为 240×160px，平板为 200×133px，手机隐藏科研缩略图。Notes 列表标题为 28／26／23px，论文条目为 24／23px；列表页主标题为 36–48px，论文详情为 30–40px、行高 1.22，Notes 详情保留桌面 48px 与手机 32–34px。
+首页 `Selected Research` 使用三张 24px 圆角横向卡片，配合随主题切换的内联 SVG 机制图；桌面缩略图为 240×160px，平板为 200×133px，手机隐藏科研缩略图。Blog 列表标题为 28／26／23px，论文条目为 24／23px；列表页主标题为 36–48px，论文详情为 30–40px、行高 1.22，Blog 详情保留桌面 48px 与手机 32–34px。
 
 首页论文卡片展示完整作者，保留原排序和贡献标记。会议与已核实的荣誉加强视觉层级，`Paper` 和 `Code` 采用统一图标加文字入口；论文数据和链接保持不变。
 
@@ -18,11 +18,22 @@ Guozheng Ma 的个人思想与研究杂志。首页先呈现两段个人介绍�
 
 发布仓库：[Guozheng-Ma/guozheng-ma.github.io](https://github.com/Guozheng-Ma/guozheng-ma.github.io)
 
+
+## 2026-11-05 · Blog 与论文浏览
+
+导航、首页栏目和文章列表统一使用 **Blog**，入口为 **All Posts**、**Read Post**，详情使用 **Related post**、**More posts**。既有 `/notes/` 路径继续有效；内部内容集合与文件名不重命名。每篇文章的分享图对应自己的主题。
+
+Publications 页面增加一排可换行的研究主题标签：**All、Offline–online RL、Scaling & sparsity、Plasticity、Visual RL**。每篇论文可以属于多个主题，筛选为单选，显示匹配数量，支持地址栏参数与前进后退。无脚本时保留完整列表。
+
+六篇论文各有真实论文结果图或方法图，完整显示、不裁掉图例和坐标；桌面图文并排，手机在标题与作者后展示图片。点击 **View figure** 在新标签页查看大图，暗色主题仍保留科学图的原始颜色。图源与裁切说明见 [论文配图记录](docs/publication-figures.md)。首页 Selected Research 沿用原有机制图。
+
+主题名称和顺序位于 `src/data/publication-topics.ts`；论文的 `topics` 与 `thumbnail` 字段在各自 Markdown frontmatter 中维护。新增主题时同时更新主题清单，新增论文时提供真实缩略图来源及替代文本。
+
 ## 维护与上传
 
 主要工作目录：`/Users/mgz/Workspace/Homepage-old/homepage-repo`。日常修改使用这份 Git 仓库；`/Users/mgz/Workspace/Homepage/guozheng-site` 是参考源码副本。
 
-当前规范见 [AGENTS.md](AGENTS.md)，本轮桌面头像布局与四处文字入口调整的验证状态见 [交付记录](docs/DELIVERY.md)。本轮先在本地完成与预览，不自动提交或推送。需要发布时按 [上传说明](docs/UPLOAD.md)操作，现有 GitHub Actions 会构建并发布 `main` 分支。
+当前规范见 [AGENTS.md](AGENTS.md)，本轮 Blog、筛选与真实论文图的验证状态见 [交付记录](docs/DELIVERY.md)。本轮先在本地完成与预览，不自动提交或推送。需要发布时按 [上传说明](docs/UPLOAD.md)操作，现有 GitHub Actions 会构建并发布 `main` 分支。
 
 ## 内容位置
 
@@ -36,6 +47,7 @@ Guozheng Ma 的个人思想与研究杂志。首页先呈现两段个人介绍�
 | 个人介绍与首页文字 | `src/components/Hero.astro`、`src/pages/about.astro` |
 | 四处主要入口的同色右箭头 | `src/components/ContinuationArrow.astro` |
 | 论文与引用下载 | `src/content/publications/`、`public/bibtex/` |
+| 论文标签、筛选与真实配图 | `src/data/publication-topics.ts`、`src/pages/publications/index.astro`、`src/components/PublicationFigure.astro`、`public/research/` |
 | 首页精选论文与机制示意图 | `src/components/SelectedPublications.astro`、`src/components/PublicationCard.astro`、`src/components/ResearchThumbnail.astro` |
 | 统一会议、荣誉与资源图标 | `src/components/PublicationMeta.astro`、`src/components/PublicationResourceIcon.astro` |
 | Source Sans 3 字体与许可证 | `public/fonts/source-sans-3-variable.woff2`、`public/fonts/SOURCE-SANS-LICENSE.md` |

@@ -15,8 +15,8 @@ const firstNote = notes[0];
 
 {firstNote && <section class="home-section site-width notes-feature" aria-labelledby="notes-title" data-notes-feature>
   <div class="section-top">
-    <h2 id="notes-title" class="section-heading">Notes</h2>
-    <a href="/notes/" class="section-link continuation-link"><span>All Notes</span><ContinuationArrow /></a>
+    <h2 id="notes-title" class="section-heading">Blog</h2>
+    <a href="/notes/" class="section-link continuation-link"><span>All Posts</span><ContinuationArrow /></a>
   </div>
 
   <div class="notes-static" data-notes-static>
@@ -38,7 +38,7 @@ const firstNote = notes[0];
       </div>)}
     </div>
     <div class="notes-feature-copy">
-      <div class="notes-choices" role="group" aria-label="Choose a note to preview">
+      <div class="notes-choices" role="group" aria-label="Choose a post to preview">
         {notes.map((note, index) => <button
           type="button"
           class="notes-choice"
@@ -54,8 +54,8 @@ const firstNote = notes[0];
           <span class="notes-choice-summary" id={`note-choice-summary-${index}`}>{note.data.tldr}</span>
         </button>)}
       </div>
-      <a class="notes-read-link continuation-link" href={`/notes/${firstNote.id}/`} aria-label={`Read Note: ${firstNote.data.title}`} data-note-read>
-        <span>Read Note</span><ContinuationArrow />
+      <a class="notes-read-link continuation-link" href={`/notes/${firstNote.id}/`} aria-label={`Read Post: ${firstNote.data.title}`} data-note-read>
+        <span>Read Post</span><ContinuationArrow />
       </a>
     </div>
   </div>
@@ -180,7 +180,7 @@ const firstNote = notes[0];
         layer.setAttribute('aria-hidden', String(position !== index));
       });
       readLink.href = choices[index].dataset.noteHref!;
-      readLink.setAttribute('aria-label', `Read Note: ${choices[index].dataset.noteTitle}`);
+      readLink.setAttribute('aria-label', `Read Post: ${choices[index].dataset.noteTitle}`);
     };
     const updateMode = () => {
       cancelHover();

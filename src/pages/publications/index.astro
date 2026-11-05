@@ -2,11 +2,97 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import PublicationCard from '../../components/PublicationCard.astro';
+import { publicationTopics } from '../../data/publication-topics';
 const pubs = (await getCollection('publications')).sort((a,b) => b.data.year - a.data.year || (a.data.featuredOrder ?? 99) - (b.data.featuredOrder ?? 99));
+const filters = [
+  { id: 'all', label: 'All', count: pubs.length },
+  ...publicationTopics.map((topic) => ({ ...topic, count: pubs.filter((pub) => pub.data.topics.includes(topic.id)).length })),
+].filter((filter) => filter.count > 0);
 ---
 <Layout title="Publications — Guozheng Ma" description="Publications by Guozheng Ma on deep reinforcement learning, scaling, plasticity, and generalization.">
   <main id="main-content" class="site-width publications-page">
     <div class="page-intro"><h1>Publications</h1></div>
-    <div class="publications-list">{pubs.map(pub => <PublicationCard pub={pub} headingLevel="h2" />)}</div>
+    <div class="publication-filter-panel" data-publication-filters hidden>
+      <div class="publication-filters" role="group" aria-label="Filter publications by research topic">
+        {filters.map((filter) => (
+          <button type="button" class="topic-filter" data-topic-filter={filter.id} data-topic-label={filter.label} aria-pressed={filter.id === 'all' ? 'true' : 'false'} aria-controls="publication-results">
+            <span>{filter.label}</span><span class="topic-count" aria-hidden="true">{filter.count}</span>
+          </button>
+        ))}
+      </div>
+      <p class="publication-result-count" role="status" aria-live="polite" aria-atomic="true" data-publication-count>{pubs.length} publications</p>
+    </div>
+    <div id="publication-results" class="publications-list">{pubs.map(pub => <PublicationCard pub={pub} headingLevel="h2" />)}</div>
   </main>
 </Layout>
+
+<style>
+  .publication-filter-panel { margin: -8px 0 28px; }
+  .publication-filter-panel[hidden] { display: none !important; }
+  .publication-filters { display: flex; flex-wrap: wrap; gap: 10px; }
+  .topic-filter { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; padding: 9px 17px; border: 1px solid transparent; border-radius: 999px; background: var(--color-bg-primary); color: var(--color-text-secondary); font: 500 16px / 1.4 var(--font-sans); cursor: pointer; }
+  .topic-filter:hover { color: var(--color-text-primary); background: var(--color-bg-secondary); }
+  .topic-filter[aria-pressed='true'] { color: var(--color-bg-tertiary); background: var(--color-text-primary); }
+  .topic-filter:focus-visible { outline-offset: 4px; }
+  .topic-count { opacity: .75; font-size: 14px; font-variant-numeric: tabular-nums; }
+  .publication-result-count { margin-top: 18px; color: var(--color-text-secondary); font-size: 15px; line-height: 1.5; }
+  @media (max-width: 680px) {
+    .publication-filter-panel { margin-top: -4px; margin-bottom: 24px; }
+    .publication-filters { gap: 8px; }
+    .topic-filter { gap: 8px; padding-inline: 14px; font-size: 15px; }
+    .publication-result-count { margin-top: 16px; }
+  }
+</style>
+
+<script>
+  const filterPanel = document.querySelector<HTMLElement>('[data-publication-filters]');
+  const controls = [...document.querySelectorAll<HTMLButtonElement>('[data-topic-filter]')];
+  const cards = [...document.querySelectorAll<HTMLElement>('[data-publication-card]')];
+  const resultCount = document.querySelector<HTMLElement>('[data-publication-count]');
+
+  if (filterPanel && controls.length && cards.length && resultCount) {
+    const knownTopics = new Set(controls.map((control) => control.dataset.topicFilter));
+    let currentTopic = 'all';
+
+    const topicFromUrl = () => {
+      const value = new URL(window.location.href).searchParams.get('topic') ?? 'all';
+      return knownTopics.has(value) ? value : 'all';
+    };
+
+    const applyTopic = (topic: string, updateUrl = false) => {
+      if (!knownTopics.has(topic)) topic = 'all';
+      currentTopic = topic;
+      let count = 0;
+
+      cards.forEach((card) => {
+        const visible = topic === 'all' || card.dataset.topics?.split(' ').includes(topic);
+        card.hidden = !visible;
+        if (visible) count += 1;
+      });
+      controls.forEach((control) => control.setAttribute('aria-pressed', String(control.dataset.topicFilter === topic)));
+
+      const label = controls.find((control) => control.dataset.topicFilter === topic)?.dataset.topicLabel;
+      resultCount.textContent = `${count} ${count === 1 ? 'publication' : 'publications'}${topic === 'all' ? '' : ` · ${label}`}`;
+
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        if (topic === 'all') url.searchParams.delete('topic');
+        else url.searchParams.set('topic', topic);
+        try {
+          window.history.pushState(null, '', url);
+        } catch { /* Filtering remains usable if history changes are unavailable. */ }
+      }
+    };
+
+    controls.forEach((control) => {
+      control.addEventListener('click', () => {
+        const topic = control.dataset.topicFilter ?? 'all';
+        if (topic !== currentTopic) applyTopic(topic, true);
+      });
+    });
+
+    window.addEventListener('popstate', () => applyTopic(topicFromUrl()));
+    applyTopic(topicFromUrl());
+    filterPanel.hidden = false;
+  }
+</script>

@@ -3,20 +3,27 @@ import { type CollectionEntry } from 'astro:content';
 import ResearchThumbnail from './ResearchThumbnail.astro';
 import PublicationMeta from './PublicationMeta.astro';
 import PublicationResourceIcon from './PublicationResourceIcon.astro';
+import PublicationFigure from './PublicationFigure.astro';
+import { publicationTopicLabels } from '../data/publication-topics';
 interface Props { pub: CollectionEntry<'publications'>; compact?: boolean; headingLevel?: 'h2' | 'h3'; }
 const { pub, compact = false, headingLevel: Heading = 'h3' } = Astro.props;
 const d = pub.data;
 const displayTitle = compact ? d.title.replaceAll('Reinforcement Learning', 'RL') : d.title;
 const hasThumbnail = compact && ['neurips-2026-offline-priors', 'icml-2026-residual', 'icml-2025-sparsity'].includes(pub.id);
 ---
-<article class:list={['publication-card', { 'publication-compact': compact, 'publication-illustrated': hasThumbnail }]}>
+<article
+  class:list={['publication-card', { 'publication-compact': compact, 'publication-illustrated': hasThumbnail, 'publication-index-card': !compact }]}
+  data-publication-card={!compact ? '' : undefined}
+  data-topics={!compact ? d.topics.join(' ') : undefined}
+>
   {hasThumbnail && <a href={`/publications/${pub.id}/`} class="publication-preview" tabindex="-1" aria-hidden="true"><ResearchThumbnail id={pub.id} /></a>}
-  {!compact && <PublicationMeta publication={d} />}
   <div class="publication-copy">
-    {compact && <PublicationMeta publication={d} />}
+    <PublicationMeta publication={d} />
     <Heading class:list={{ 'publication-title-small': compact && pub.id === 'neurips-2026-offline-priors' }}><a href={`/publications/${pub.id}/`}>{displayTitle}</a></Heading>
     <p class="publication-authors">{d.authors.map((a, i) => <span class={d.authorBoldIndices.includes(i) ? 'self-author' : ''}>{a}{i < d.authors.length - 1 ? ', ' : ''}</span>)}</p>
+    {!compact && <div class="publication-figure-column"><PublicationFigure thumbnail={d.thumbnail} title={d.title} /></div>}
     {!compact && <p class="publication-summary">{d.tldr}</p>}
+    {!compact && <ul class="publication-topics" aria-label="Research topics">{d.topics.map((topic) => <li>{publicationTopicLabels[topic]}</li>)}</ul>}
     <div class="publication-links">
       {d.links.pdf && <a href={d.links.pdf}><PublicationResourceIcon name="paper" />Paper</a>}
       {d.links.code && <a href={d.links.code}><PublicationResourceIcon name="code" />Code</a>}
@@ -26,3 +33,37 @@ const hasThumbnail = compact && ['neurips-2026-offline-priors', 'icml-2026-resid
     </div>
   </div>
 </article>
+
+<style>
+  .publication-index-card { grid-template-columns: 260px minmax(0, 1fr); align-items: start; column-gap: 32px; row-gap: 0; padding: 28px; }
+  .publication-index-card[hidden] { display: none !important; }
+  .publication-index-card .publication-copy { display: contents; }
+  .publication-index-card .publication-copy > :global(*) { grid-column: 2; min-width: 0; }
+  .publication-index-card :global(.publication-meta) { grid-row: 1; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 12px; padding-top: 0; }
+  .publication-index-card .publication-copy :is(h2, h3) { grid-row: 2; }
+  .publication-index-card .publication-authors { grid-row: 3; }
+  .publication-index-card .publication-figure-column { grid-column: 1; grid-row: 1 / span 6; align-self: center; }
+  .publication-index-card .publication-summary { grid-row: 4; }
+  .publication-index-card .publication-topics { grid-row: 5; }
+  .publication-index-card .publication-links { grid-row: 6; }
+  .publication-figure-column { min-width: 0; }
+  .publication-topics { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 14px; padding: 0; list-style: none; color: var(--color-text-tertiary); font-size: 14px; line-height: 1.5; }
+  .publication-topics li + li::before { content: '·'; margin-right: 14px; }
+  @media (max-width: 960px) {
+    .publication-index-card { grid-template-columns: 220px minmax(0, 1fr); column-gap: 24px; padding: 24px; }
+  }
+  @media (max-width: 680px) {
+    .publication-index-card { grid-template-columns: minmax(0, 1fr); align-items: start; gap: 0; }
+    .publication-index-card .publication-copy > :global(*) { grid-column: 1; }
+    .publication-index-card :global(.publication-meta) { grid-row: 1; margin-bottom: 12px; }
+    .publication-index-card .publication-copy :is(h2, h3) { grid-row: 2; }
+    .publication-index-card .publication-authors { grid-row: 3; margin-top: 12px; }
+    .publication-index-card .publication-figure-column { grid-row: 4; margin-top: 20px; }
+    .publication-index-card .publication-summary { grid-row: 5; margin-top: 12px; }
+    .publication-index-card .publication-topics { grid-row: 6; margin-top: 12px; }
+    .publication-index-card .publication-links { grid-row: 7; margin-top: 8px; }
+  }
+  @media (max-width: 380px) {
+    .publication-index-card { padding: 20px; }
+  }
+</style>

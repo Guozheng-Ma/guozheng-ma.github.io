@@ -8,6 +8,12 @@ year: 2026
 award: "Spotlight · Top 2.2%"
 tldr: "Helping residual RL critics learn from a pretrained policy and recognize small action corrections."
 figure: "/art/plasticity.webp"
+topics: ["offline-online"]
+thumbnail:
+  src: "/research/icml-2026-residual.webp"
+  width: 1200
+  height: 580
+  alt: "Success-rate curves for DAWN, Policy Decorator, and vanilla residual RL on ManiSkill and Adroit."
 themeColor: teal
 links:
   bibtex: "/bibtex/icml-2026-residual.bib"

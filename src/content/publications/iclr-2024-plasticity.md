@@ -7,6 +7,12 @@ venueFull: "International Conference on Learning Representations"
 year: 2024
 tldr: "Understanding when and where visual RL loses its ability to keep learning."
 figure: "/art/plasticity.webp"
+topics: ["plasticity", "visual-rl"]
+thumbnail:
+  src: "/research/iclr-2024-plasticity.webp"
+  width: 1200
+  height: 967
+  alt: "Walker Run learning curves comparing plasticity injection into the actor or critic, with and without prior data augmentation."
 themeColor: teal
 links:
   bibtex: "/bibtex/iclr-2024-plasticity.bib"

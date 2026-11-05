@@ -1,0 +1,51 @@
+---
+import { type CollectionEntry } from 'astro:content';
+
+interface Props {
+  thumbnail: CollectionEntry<'publications'>['data']['thumbnail'];
+  title: string;
+}
+
+const { thumbnail, title } = Astro.props;
+---
+
+<a
+  class="paper-figure"
+  href={thumbnail.src}
+  target="_blank"
+  rel="noopener"
+  aria-label={`View figure for ${title} (opens in a new tab)`}
+>
+  <span class="paper-figure-canvas">
+    <img
+      src={thumbnail.src}
+      alt={thumbnail.alt}
+      width={thumbnail.width}
+      height={thumbnail.height}
+      loading="lazy"
+      decoding="async"
+    />
+  </span>
+  <span class="paper-figure-caption" aria-hidden="true">
+    View figure
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 4h6v6M20 4l-8 8M10 20H4v-6M4 20l8-8" />
+    </svg>
+  </span>
+</a>
+
+<style>
+  .paper-figure { display: block; min-width: 0; color: var(--color-text-secondary); }
+  .paper-figure-canvas { display: flex; align-items: center; justify-content: center; width: 100%; height: 180px; padding: 12px; overflow: hidden; border-radius: var(--radius-md); background: #fff; }
+  .paper-figure-canvas img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .paper-figure-caption { display: flex; align-items: center; justify-content: flex-end; gap: 6px; min-height: 36px; padding-top: 6px; font-size: 14px; line-height: 1.5; font-weight: 500; }
+  .paper-figure:hover { color: var(--color-text-primary); text-decoration: none; }
+  .paper-figure:hover .paper-figure-caption { text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 960px) {
+    .paper-figure-canvas { height: 160px; padding: 10px; }
+  }
+  @media (max-width: 680px) {
+    .paper-figure-canvas { height: 170px; padding: 12px; }
+    .paper-figure-caption { min-height: 32px; }
+  }
+</style>

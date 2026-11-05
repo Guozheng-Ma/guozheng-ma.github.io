@@ -1,5 +1,50 @@
 # 改版交付记录
 
+## 2026-11-05 · Blog、主题筛选与论文原图
+
+已完成本地实现、正式构建、浏览器验证与内容完整性检查。由用户自行上传，本轮未 commit、push 或发布。发布仓库仍是 `/Users/mgz/Workspace/Homepage-old/homepage-repo`，起点为 `e1f9e41`。
+
+### 交付内容
+
+- 导航、首页栏目、文章列表统一为 **Blog**；入口为 **All Posts / Read Post**，详情使用 **Related post / More posts**。保留 `/notes/` URL 与原文章正文。三篇文章分享图分别对应各自主题。
+- Publications 使用可换行的单选主题标签与数量：All **6**、Offline–online RL **2**、Scaling & sparsity **1**、Plasticity **2**、Visual RL **4**。一篇论文可属于多个主题，标签使用原生按钮、明确选中状态和结果播报。
+- 筛选写入 `?topic=`，支持分享、刷新、前进后退；未知主题回退全部结果。无脚本时隐藏筛选并展示完整论文列表。
+- 六篇论文全部配有真实原文结果图／方法图，均为 1200px 宽，合计约 469KiB。ICML 2025 与 ICLR 2024 从原论文 PDF 重新提取，保留完整坐标、图例与曲线。图源与取舍见 [论文配图记录](publication-figures.md)。
+- 桌面为左图右文；手机按照会议、标题、作者、图片、摘要和资源顺序阅读。缩略图完整 contain，点击 View figure 打开大图；明暗主题都保留科学图的原始颜色。手机 DOM 与视觉阅读顺序一致，Tab 从标题到图再到 Paper。
+- 首页 Selected Research 继续使用既有机制图。六篇论文的完整作者、标题、荣誉、正文和原有资源地址均保留。无新增框架或构建依赖。
+
+### 设计参考
+
+调研了 [Apple Machine Learning Research](https://machinelearning.apple.com/research/) 的研究方向筛选、[Anthropic Research](https://www.anthropic.com/research) 的主题与数量，以及 [Google DeepMind Publications](https://deepmind.google/research/publications/) 的日期排序清单。本页采用与现有圆角风格一致的单层主题胶囊，适配当前六篇论文的规模，不引入多层表单；未复制其品牌或图片资产。
+
+### 已执行验证
+
+- 使用本地 Node.js 24.19.0 与已有 Astro 6.3.8 依赖完成正式构建，生成 **14** 页；GitHub Actions 保持既有 Node.js 22、npm ci、npm run build 配置。
+- 14 个 HTML、**325** 次本地引用（含 CSS 字体／资产）、102 个独立目标全部有效。14 个锚点、34 个 ARIA 引用、34 张图片 alt 通过检查，无重复 ID。
+- 六篇论文除新增 topics / thumbnail 外，原元信息与正文相对 Git 基线一致；三篇 Blog 源正文不变，生成页面标题、作者和资源匹配。122 个旧 public 文件与基线逐字节一致；首页三个机制 SVG 与旧版一致。
+- 浏览器实测全部主题的数量与结果；刷新、前进后退、未知主题回退、Enter / Space 筛选通过。
+- Publications 在 **1280、768、390、320px** 视口下检查布局，无横向溢出；浅暗主题均已查看，手机图表及键盘顺序通过检查。大图资源已打开确认坐标／图例清晰完整。
+- 首页 Blog 选择预览、Read Post 跳转、返回 Blog 列表通过检查；控制台未见 error / warn。
+- 响应式检查使用浏览器视口模拟，不是实体设备；无脚本回退为静态检查；未执行 Lighthouse，未承诺流量或性能提升。
+
+验证与截图位于仓库外 `preview/blog-publications-2026-11-05/`：`baseline.json`、`integrity.json`、`browser-checks.json`、桌面浅暗色与平板／手机截图。
+
+### 同步与归档
+
+同步前重新核对参考源码与静态镜像，保留 Git、编辑器设置、依赖和旧备份；旧 ZIP 另存到 backups。本轮同步和 ZIP 校验结果记录在 `preview/blog-publications-2026-11-05/archive-checks.json`。
+
+- 发布源码：`/Users/mgz/Workspace/Homepage-old/homepage-repo`
+- 参考源码：`/Users/mgz/Workspace/Homepage/guozheng-site`
+- 静态镜像：`/Users/mgz/Workspace/Homepage-old/guozheng-ma.github.io`
+- 源码归档：`/Users/mgz/Workspace/Homepage-old/guozheng-homepage-source.zip`
+- 静态归档：`/Users/mgz/Workspace/Homepage-old/guozheng-homepage-upload.zip`
+
+向现有 GitHub Pages 仓库发布时提交源码工作目录，由 Actions 构建；不将 dist 或静态 ZIP 加入源码仓库。操作见 [上传说明](UPLOAD.md)。
+
+---
+
+## 2026-11-01 交付记录（历史）
+
 本轮更新：2026-11-01。按用户批准的预览调整桌面头像布局与四处文字入口。个人资料、论文内容、已有字体与视觉资源保持不变。本轮只完成本地实现与预览，不自动提交或推送。
 
 ## 目录与当前状态

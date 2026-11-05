@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { publicationTopicIds } from './data/publication-topics';
 
 const themeColor = z.enum(['purple', 'teal', 'coral', 'amber', 'blue']);
 
@@ -32,6 +33,13 @@ const publications = defineCollection({
     award: z.string().optional(),
     tldr: z.string(),
     figure: z.string(),
+    topics: z.array(z.enum(publicationTopicIds)).min(1),
+    thumbnail: z.object({
+      src: z.string(),
+      width: z.number().int().positive(),
+      height: z.number().int().positive(),
+      alt: z.string(),
+    }),
     themeColor: themeColor,
     links: z.object({
       pdf: z.string().optional(),
