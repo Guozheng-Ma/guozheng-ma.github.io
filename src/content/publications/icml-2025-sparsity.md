@@ -1,7 +1,10 @@
 ---
 title: "Network Sparsity Unlocks the Scaling Potential of Deep Reinforcement Learning"
-authors: ["Guozheng Ma*", "Lu Li*", "Zilin Wang", "Li Shen", "Pierre-Luc Bacon", "Dacheng Tao"]
+authors: ["Guozheng Ma","Lu Li","Zilin Wang","Li Shen","Pierre-Luc Bacon","Dacheng Tao"]
 authorBoldIndices: [0]
+equalContributionIndices: [0,1]
+status: "published"
+authorship: "co-first"
 venue: "ICML"
 venueFull: "International Conference on Machine Learning"
 year: 2025

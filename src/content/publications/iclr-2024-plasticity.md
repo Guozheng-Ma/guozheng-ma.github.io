@@ -1,7 +1,10 @@
 ---
 title: "Revisiting Plasticity in Visual Reinforcement Learning: Data, Modules and Training Stages"
-authors: ["Guozheng Ma*", "Lu Li*", "Sen Zhang", "Zixuan Liu", "Zhen Wang", "Yixin Chen", "Li Shen", "Xueqian Wang", "Dacheng Tao"]
+authors: ["Guozheng Ma","Lu Li","Sen Zhang","Zixuan Liu","Zhen Wang","Yixin Chen","Li Shen","Xueqian Wang","Dacheng Tao"]
 authorBoldIndices: [0]
+equalContributionIndices: [0,1]
+status: "published"
+authorship: "co-first"
 venue: "ICLR"
 venueFull: "International Conference on Learning Representations"
 year: 2024

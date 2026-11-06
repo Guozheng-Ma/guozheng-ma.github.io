@@ -5,23 +5,31 @@ import PublicationMeta from './PublicationMeta.astro';
 import PublicationResourceIcon from './PublicationResourceIcon.astro';
 import PublicationFigure from './PublicationFigure.astro';
 import { publicationTopicLabels } from '../data/publication-topics';
+import { publicationAuthors } from '../lib/publication-presentation';
 interface Props { pub: CollectionEntry<'publications'>; compact?: boolean; headingLevel?: 'h2' | 'h3'; }
 const { pub, compact = false, headingLevel: Heading = 'h3' } = Astro.props;
 const d = pub.data;
+const authors = publicationAuthors(d);
+const hasEqualContributors = authors.some((author) => author.equalContribution);
 const displayTitle = compact ? d.title.replaceAll('Reinforcement Learning', 'RL') : d.title;
 const hasThumbnail = compact && ['neurips-2026-offline-priors', 'icml-2026-residual', 'icml-2025-sparsity'].includes(pub.id);
 ---
 <article
-  class:list={['publication-card', { 'publication-compact': compact, 'publication-illustrated': hasThumbnail, 'publication-index-card': !compact }]}
+  class:list={['publication-card', { 'publication-compact': compact, 'publication-illustrated': hasThumbnail, 'publication-index-card': !compact, 'publication-without-figure': !compact && !d.thumbnail, 'publication-lead': !compact && d.authorship !== 'coauthor' }]}
   data-publication-card={!compact ? '' : undefined}
   data-topics={!compact ? d.topics.join(' ') : undefined}
+  data-status={!compact ? d.status : undefined}
+  data-authorship={!compact ? d.authorship : undefined}
 >
   {hasThumbnail && <a href={`/publications/${pub.id}/`} class="publication-preview" tabindex="-1" aria-hidden="true"><ResearchThumbnail id={pub.id} /></a>}
   <div class="publication-copy">
     <PublicationMeta publication={d} />
     <Heading class:list={{ 'publication-title-small': compact && pub.id === 'neurips-2026-offline-priors' }}><a href={`/publications/${pub.id}/`}>{displayTitle}</a></Heading>
-    <p class="publication-authors">{d.authors.map((a, i) => <span class={d.authorBoldIndices.includes(i) ? 'self-author' : ''}>{a}{i < d.authors.length - 1 ? ', ' : ''}</span>)}</p>
-    {!compact && <div class="publication-figure-column"><PublicationFigure thumbnail={d.thumbnail} title={d.title} /></div>}
+    <p class="publication-authors">
+      {authors.map((author, index) => <span class={author.emphasized ? 'self-author' : ''}>{author.displayName}{index < authors.length - 1 ? ', ' : ''}</span>)}
+      {!compact && hasEqualContributors && <span class="publication-equal-contribution">* Equal contribution</span>}
+    </p>
+    {!compact && d.thumbnail && <div class="publication-figure-column"><PublicationFigure thumbnail={d.thumbnail} title={d.title} /></div>}
     {!compact && <p class="publication-summary">{d.tldr}</p>}
     {!compact && <ul class="publication-topics" aria-label="Research topics">{d.topics.map((topic) => <li>{publicationTopicLabels[topic]}</li>)}</ul>}
     <div class="publication-links">
@@ -35,7 +43,9 @@ const hasThumbnail = compact && ['neurips-2026-offline-priors', 'icml-2026-resid
 </article>
 
 <style>
-  .publication-index-card { grid-template-columns: 260px minmax(0, 1fr); align-items: start; column-gap: 32px; row-gap: 0; padding: 28px; }
+  .publication-index-card { position: relative; grid-template-columns: 260px minmax(0, 1fr); align-items: start; column-gap: 32px; row-gap: 0; padding: 28px; }
+  .publication-index-card.publication-lead { background: color-mix(in srgb, var(--color-brand) 6%, var(--color-bg-primary)); }
+  .publication-index-card.publication-lead::before { content: ''; position: absolute; inset-block: 28px; inset-inline-start: 0; width: 3px; border-radius: 3px; background: var(--color-brand); }
   .publication-index-card[hidden] { display: none !important; }
   .publication-index-card .publication-copy { display: contents; }
   .publication-index-card .publication-copy > :global(*) { grid-column: 2; min-width: 0; }
@@ -46,7 +56,10 @@ const hasThumbnail = compact && ['neurips-2026-offline-priors', 'icml-2026-resid
   .publication-index-card .publication-summary { grid-row: 4; }
   .publication-index-card .publication-topics { grid-row: 5; }
   .publication-index-card .publication-links { grid-row: 6; }
+  .publication-index-card.publication-without-figure { grid-template-columns: minmax(0, 1fr); }
+  .publication-index-card.publication-without-figure .publication-copy > :global(*) { grid-column: 1; }
   .publication-figure-column { min-width: 0; }
+  .publication-equal-contribution { display: block; margin-top: 3px; font-size: 14px; line-height: 1.5; color: var(--color-text-tertiary); }
   .publication-topics { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 14px; padding: 0; list-style: none; color: var(--color-text-tertiary); font-size: 14px; line-height: 1.5; }
   .publication-topics li + li::before { content: '·'; margin-right: 14px; }
   @media (max-width: 960px) {

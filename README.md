@@ -1,6 +1,6 @@
 # Guozheng Ma · Personal research journal
 
-Guozheng Ma 的个人思想与研究杂志。首页先呈现两段个人介绍和联系入口，完整座右铭以居中的 18px 斜体文字放在简介之后、Notes 之前；随后是三篇研究笔记与三篇精选论文。学校名称旁使用来自旧站的单色校徽；手机优先显示简介。桌面首页和 About 简介两端对齐、末行左对齐，较窄屏幕保持左对齐。暖白页面配合适量浅底圆角面板，正体 serif 标题与 sans 正文支持清楚阅读。
+Guozheng Ma 的个人思想与研究杂志。首页先呈现两段个人介绍和联系入口，完整座右铭以居中的 18px 斜体文字放在简介之后、Blog 之前；随后是三篇研究笔记与三篇精选论文。学校名称旁使用来自旧站的单色校徽；手机优先显示简介。桌面首页和 About 简介两端对齐、末行左对齐，较窄屏幕保持左对齐。暖白页面配合适量浅底圆角面板，正体 serif 标题与 sans 正文支持清楚阅读。
 
 桌面宽度大于 960px 时，头像相对两段简介垂直居中，并在右侧余区水平居中，联系入口独立放在下一行。四个主要入口使用透明无框文字与 16px 同色右箭头，hover 时文字加下划线，点击高度至少 44px；手机和平板继续使用简化布局。
 
@@ -8,7 +8,7 @@ Guozheng Ma 的个人思想与研究杂志。首页先呈现两段个人介绍�
 
 首页 `Selected Research` 使用三张 24px 圆角横向卡片，配合随主题切换的内联 SVG 机制图；桌面缩略图为 240×160px，平板为 200×133px，手机隐藏科研缩略图。Blog 列表标题为 28／26／23px，论文条目为 24／23px；列表页主标题为 36–48px，论文详情为 30–40px、行高 1.22，Blog 详情保留桌面 48px 与手机 32–34px。
 
-首页论文卡片展示完整作者，保留原排序和贡献标记。会议与已核实的荣誉加强视觉层级，`Paper` 和 `Code` 采用统一图标加文字入口；论文数据和链接保持不变。
+首页论文卡片展示完整作者，保留原排序和贡献标记。会议与已核实的荣誉加强视觉层级，`Paper` 和 `Code` 采用统一图标加文字入口；保留完整作者和原有资源链接，新增论文按核对后的资料录入。
 
 首页论文展示标题将 `Reinforcement Learning` 缩写为 `RL`，第一篇桌面标题为 23px、其余为 24px，并省略卡片摘要。论文列表和详情保留完整正式标题与原描述；缩略图与网站宽度不变。
 
@@ -19,21 +19,25 @@ Guozheng Ma 的个人思想与研究杂志。首页先呈现两段个人介绍�
 发布仓库：[Guozheng-Ma/guozheng-ma.github.io](https://github.com/Guozheng-Ma/guozheng-ma.github.io)
 
 
-## 2026-11-05 · Blog 与论文浏览
+## 2026-11-06 · 完整论文集与作者贡献
 
-导航、首页栏目和文章列表统一使用 **Blog**，入口为 **All Posts**、**Read Post**，详情使用 **Related post**、**More posts**。既有 `/notes/` 路径继续有效；内部内容集合与文件名不重命名。每篇文章的分享图对应自己的主题。
+Publications 已覆盖 Google Scholar 核对当日的 **22 篇独立研究**：15 篇已发表、3 篇已录用、4 篇预印本。预印本与正式版、改题版本合并收录，workshop 单独注明；核对说明及待确认贡献记录见 [论文集来源](docs/publication-catalogue.md)。
 
-Publications 页面增加一排可换行的研究主题标签：**All、Offline–online RL、Scaling & sparsity、Plasticity、Visual RL**。每篇论文可以属于多个主题，筛选为单选，显示匹配数量，支持地址栏参数与前进后退。无脚本时保留完整列表。
+七个主题为 **Offline–online RL、Scaling & optimization、Plasticity、Visual RL、Language & reasoning、Agents & robotics、3D vision**。主题标签、发表状态、First & co-first 贡献条件可组合筛选，显示匹配数量，支持分享链接、刷新、前进后退、清空及无结果提示；无脚本时显示全部论文。
 
-六篇论文各有真实论文结果图或方法图，完整显示、不裁掉图例和坐标；桌面图文并排，手机在标题与作者后展示图片。点击 **View figure** 在新标签页查看大图，暗色主题仍保留科学图的原始颜色。图源与裁切说明见 [论文配图记录](docs/publication-figures.md)。首页 Selected Research 沿用原有机制图。
+已核实的 **5 篇第一作者与 4 篇共同第一作者**使用低饱和蓝色背景、侧边细线及明确文字标签；本人姓名始终加粗。完整作者顺序和等贡献标记保留，真实荣誉仍单独使用琥珀色。首页保持原三篇精选与机制示意图。
 
-主题名称和顺序位于 `src/data/publication-topics.ts`；论文的 `topics` 与 `thumbnail` 字段在各自 Markdown frontmatter 中维护。新增主题时同时更新主题清单，新增论文时提供真实缩略图来源及替代文本。
+22 篇论文全部配有真实原文结果图或方法图；桌面图文并排，手机在标题与作者后展示图片。点击 **View figure** 查看大图，暗色主题保留科学图原色。图号、页码和来源见 [论文配图记录](docs/publication-figures.md)。
+
+Blog / Post 命名沿用上一轮：导航、首页栏目和文章列表使用 **Blog**，入口为 **All Posts / Read Post**；既有 `/notes/` 路径与正文保持有效。每篇文章的分享图对应自己的主题。
+
+主题定义在 `src/data/publication-topics.ts`；论文在 Markdown frontmatter 中维护 `status`、`authorship`、`equalContributionIndices`、`topics` 和 `thumbnail`。这是一份经核对的静态论文集，不实时抓取 Scholar；新增或发表时更新原条目及来源记录，避免重复收录。
 
 ## 维护与上传
 
 主要工作目录：`/Users/mgz/Workspace/Homepage-old/homepage-repo`。日常修改使用这份 Git 仓库；`/Users/mgz/Workspace/Homepage/guozheng-site` 是参考源码副本。
 
-当前规范见 [AGENTS.md](AGENTS.md)，本轮 Blog、筛选与真实论文图的验证状态见 [交付记录](docs/DELIVERY.md)。本轮先在本地完成与预览，不自动提交或推送。需要发布时按 [上传说明](docs/UPLOAD.md)操作，现有 GitHub Actions 会构建并发布 `main` 分支。
+当前规范见 [AGENTS.md](AGENTS.md)，本轮完整论文集、贡献标记与真实论文图的验证状态见 [交付记录](docs/DELIVERY.md)。本轮先在本地完成与预览，不自动提交或推送。需要发布时按 [上传说明](docs/UPLOAD.md)操作，现有 GitHub Actions 会构建并发布 `main` 分支。
 
 ## 内容位置
 
@@ -47,11 +51,11 @@ Publications 页面增加一排可换行的研究主题标签：**All、Offline�
 | 个人介绍与首页文字 | `src/components/Hero.astro`、`src/pages/about.astro` |
 | 四处主要入口的同色右箭头 | `src/components/ContinuationArrow.astro` |
 | 论文与引用下载 | `src/content/publications/`、`public/bibtex/` |
-| 论文标签、筛选与真实配图 | `src/data/publication-topics.ts`、`src/pages/publications/index.astro`、`src/components/PublicationFigure.astro`、`public/research/` |
+| 论文主题、状态、贡献筛选与真实配图 | `src/data/publication-topics.ts`、`src/pages/publications/index.astro`、`src/components/PublicationFigure.astro`、`public/research/` |
 | 首页精选论文与机制示意图 | `src/components/SelectedPublications.astro`、`src/components/PublicationCard.astro`、`src/components/ResearchThumbnail.astro` |
 | 统一会议、荣誉与资源图标 | `src/components/PublicationMeta.astro`、`src/components/PublicationResourceIcon.astro` |
 | Source Sans 3 字体与许可证 | `public/fonts/source-sans-3-variable.woff2`、`public/fonts/SOURCE-SANS-LICENSE.md` |
-| 研究笔记 | `src/content/notes/` |
+| Blog 文章 | `src/content/notes/` |
 | 首页笔记选择与静态阅读布局 | `src/components/LatestNotes.astro` |
 | 浅色／暗色插画 | `public/art/` |
 | 马头标志与浏览器图标 | `src/components/HorseMark.astro`、`public/favicon*.svg`、`public/favicon.ico`、`public/apple-touch-icon.png` |

@@ -1,7 +1,10 @@
 ---
 title: "Learning Better with Less: Effective Augmentation for Sample-Efficient Visual Reinforcement Learning"
-authors: ["Guozheng Ma", "Linrui Zhang", "Haoyu Wang", "Lu Li", "Zilin Wang", "Zhen Wang", "Li Shen", "Xueqian Wang", "Dacheng Tao"]
+authors: ["Guozheng Ma","Linrui Zhang","Haoyu Wang","Lu Li","Zilin Wang","Zhen Wang","Li Shen","Xueqian Wang","Dacheng Tao"]
 authorBoldIndices: [0]
+equalContributionIndices: []
+status: "published"
+authorship: "first"
 venue: "NeurIPS"
 venueFull: "Neural Information Processing Systems"
 year: 2023

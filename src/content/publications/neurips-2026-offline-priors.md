@@ -1,7 +1,10 @@
 ---
 title: "Beyond One-Size-Fits-All: Diagnosis-Driven Online Reinforcement Learning with Offline Priors"
-authors: ["Guozheng Ma", "Lu Li", "Zilin Wang", "Pierre-Luc Bacon", "Dacheng Tao"]
+authors: ["Guozheng Ma","Lu Li","Zilin Wang","Pierre-Luc Bacon","Dacheng Tao"]
 authorBoldIndices: [0]
+equalContributionIndices: []
+status: "accepted"
+authorship: "first"
 venue: "NeurIPS"
 venueFull: "Neural Information Processing Systems · Position track"
 year: 2026

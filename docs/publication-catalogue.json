@@ -1,0 +1,915 @@
+{
+  "verifiedOn": "2026-11-06",
+  "profile": "https://scholar.google.com/citations?user=jDvVglUAAAAJ&hl=en",
+  "total": 22,
+  "records": [
+    {
+      "id": "ijcv-2025-augmentation-survey",
+      "title": "A Comprehensive Survey of Data Augmentation in Visual Reinforcement Learning",
+      "scholarTitle": "A Comprehensive Survey of Data Augmentation in Visual Reinforcement Learning",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:d1gkVwhDpl0C",
+      "year": 2025,
+      "venue": "International Journal of Computer Vision",
+      "status": "published",
+      "authorship": "first",
+      "equalContributionIndices": [],
+      "authors": [
+        "Guozheng Ma",
+        "Zhen Wang",
+        "Zhecheng Yuan",
+        "Xueqian Wang",
+        "Bo Yuan",
+        "Dacheng Tao"
+      ],
+      "topics": [
+        "visual-rl"
+      ],
+      "sourceRecord": "https://arxiv.org/pdf/2210.04561",
+      "authorshipSource": "https://arxiv.org/pdf/2210.04561",
+      "authorshipEvidence": "PDF v4 page 1: Guozheng Ma is listed first, without an equal-contribution mark; corresponding-author marks apply to Bo Yuan and Dacheng Tao.",
+      "aliases": [],
+      "notes": [],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:d1gkVwhDpl0C",
+        "https://arxiv.org/pdf/2210.04561"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "ijcai-2022-tlda",
+      "title": "Don't Touch What Matters: Task-Aware Lipschitz Data Augmentation for Visual Reinforcement Learning",
+      "scholarTitle": "Don't Touch What Matters: Task-Aware Lipschitz Data Augmentation for Visual Reinforcement Learning",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:9yKSN-GCB0IC",
+      "year": 2022,
+      "venue": "International Joint Conference on Artificial Intelligence",
+      "status": "published",
+      "authorship": "coauthor",
+      "equalContributionIndices": [],
+      "authors": [
+        "Zhecheng Yuan",
+        "Guozheng Ma",
+        "Yao Mu",
+        "Bo Xia",
+        "Bo Yuan",
+        "Xueqian Wang",
+        "Ping Luo",
+        "Huazhe Xu"
+      ],
+      "topics": [
+        "visual-rl"
+      ],
+      "sourceRecord": "https://www.ijcai.org/proceedings/2022/514",
+      "authorshipSource": "https://www.ijcai.org/proceedings/2022/0514.pdf",
+      "authorshipEvidence": "Official IJCAI page 1 lists Zhecheng Yuan first and Guozheng Ma second, no equal-contribution mark. The sole asterisk after Huazhe Xu means Corresponding Author.",
+      "aliases": [],
+      "notes": [
+        "Official IJCAI proceedings confirm Main Track, pages 3702–3708, DOI 10.24963/ijcai.2022/514."
+      ],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:9yKSN-GCB0IC",
+        "https://www.ijcai.org/proceedings/2022/514",
+        "https://arxiv.org/abs/2202.09982",
+        "https://www.ijcai.org/proceedings/2022/0514.pdf"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "tmlr-2025-word-perturbations",
+      "title": "Are Large Language Models Really Robust to Word-Level Perturbations?",
+      "scholarTitle": "Are Large Language Models Really Robust to Word-Level Perturbations?",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:2osOgNQ5qMEC",
+      "year": 2025,
+      "venue": "Transactions on Machine Learning Research",
+      "status": "published",
+      "authorship": "co-first",
+      "equalContributionIndices": [
+        0,
+        1
+      ],
+      "authors": [
+        "Haoyu Wang",
+        "Guozheng Ma",
+        "Cong Yu",
+        "Ning Gui",
+        "Linrui Zhang",
+        "Zhiqi Huang",
+        "Suwei Ma",
+        "Yongzhe Chang",
+        "Sen Zhang",
+        "Li Shen",
+        "Xueqian Wang",
+        "Peilin Zhao",
+        "Dacheng Tao"
+      ],
+      "topics": [
+        "language-reasoning"
+      ],
+      "sourceRecord": "https://openreview.net/forum?id=rWSiBknwQa",
+      "authorshipSource": "https://arxiv.org/pdf/2309.11166",
+      "authorshipEvidence": "arXiv page 1 explicitly marks Haoyu Wang and Guozheng Ma with asterisks and defines the mark as Equal contribution.",
+      "aliases": [],
+      "notes": [
+        "Use 2025 formal TMLR publication year; Scholar retains preprint date 2023/9/20.",
+        "Original code https://github.com/Harry-mic/TREvaL returned 404 in verification; not included as an active link.",
+        "Merge the 2023 preprint/SoLaR workshop version into this single work.",
+        "TMLR final PDF at https://openreview.net/pdf?id=rWSiBknwQa returned HTTP 403; role is verified from author-uploaded arXiv, not the inaccessible final PDF."
+      ],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:2osOgNQ5qMEC",
+        "https://openreview.net/forum?id=rWSiBknwQa",
+        "https://arxiv.org/abs/2309.11166",
+        "https://groups.google.com/g/tmlr-announce-daily/c/aFxAOkfVe4I",
+        "https://bsky.app/profile/tmlr-pub.bsky.social/post/3lkms7xbf3n2a",
+        "https://arxiv.org/pdf/2309.11166"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "iclr-2024-plasticity",
+      "title": "Revisiting Plasticity in Visual Reinforcement Learning: Data, Modules and Training Stages",
+      "scholarTitle": "Revisiting Plasticity in Visual Reinforcement Learning: Data, Modules and Training Stages",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:qjMakFHDy7sC",
+      "year": 2024,
+      "venue": "International Conference on Learning Representations",
+      "status": "published",
+      "authorship": "co-first",
+      "equalContributionIndices": [
+        0,
+        1
+      ],
+      "authors": [
+        "Guozheng Ma",
+        "Lu Li",
+        "Sen Zhang",
+        "Zixuan Liu",
+        "Zhen Wang",
+        "Yixin Chen",
+        "Li Shen",
+        "Xueqian Wang",
+        "Dacheng Tao"
+      ],
+      "topics": [
+        "plasticity",
+        "visual-rl"
+      ],
+      "sourceRecord": "https://openreview.net/pdf?id=0aR1s9YxoL",
+      "authorshipSource": "https://arxiv.org/pdf/2310.07418",
+      "authorshipEvidence": "Conference-version PDF page 1 marks Guozheng Ma and Lu Li with asterisks; footnote explicitly states Equal Contribution.",
+      "aliases": [],
+      "notes": [],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:qjMakFHDy7sC",
+        "https://arxiv.org/pdf/2310.07418"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "neurips-2023-augmentation",
+      "title": "Learning Better with Less: Effective Augmentation for Sample-Efficient Visual Reinforcement Learning",
+      "scholarTitle": "Learning Better with Less: Effective Augmentation for Sample-Efficient Visual Reinforcement Learning",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:u-x6o8ySG0sC",
+      "year": 2023,
+      "venue": "Neural Information Processing Systems",
+      "status": "published",
+      "authorship": "first",
+      "equalContributionIndices": [],
+      "authors": [
+        "Guozheng Ma",
+        "Linrui Zhang",
+        "Haoyu Wang",
+        "Lu Li",
+        "Zilin Wang",
+        "Zhen Wang",
+        "Li Shen",
+        "Xueqian Wang",
+        "Dacheng Tao"
+      ],
+      "topics": [
+        "visual-rl"
+      ],
+      "sourceRecord": "https://proceedings.neurips.cc/paper_files/paper/2023/file/bc26087d3f82e62044fc77752e86737e-Paper-Conference.pdf",
+      "authorshipSource": "https://proceedings.neurips.cc/paper_files/paper/2023/file/bc26087d3f82e62044fc77752e86737e-Paper-Conference.pdf",
+      "authorshipEvidence": "Official proceedings PDF page 1 lists Guozheng Ma first. Asterisks apply to Li Shen and Xueqian Wang as corresponding authors, not shared first authors.",
+      "aliases": [],
+      "notes": [],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:u-x6o8ySG0sC",
+        "https://proceedings.neurips.cc/paper_files/paper/2023/file/bc26087d3f82e62044fc77752e86737e-Paper-Conference.pdf"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "aamas-2024-normalization",
+      "title": "Normalization Enhances Generalization in Visual Reinforcement Learning",
+      "scholarTitle": "Normalization Enhances Generalization in Visual Reinforcement Learning",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:UeHWp8X0CEIC",
+      "year": 2024,
+      "venue": "International Conference on Autonomous Agents and Multiagent Systems",
+      "status": "published",
+      "authorship": "coauthor",
+      "equalContributionIndices": [
+        0,
+        1
+      ],
+      "authors": [
+        "Lu Li",
+        "Jiafei Lyu",
+        "Guozheng Ma",
+        "Zilin Wang",
+        "Zhenjie Yang",
+        "Xiu Li",
+        "Zhiheng Li"
+      ],
+      "topics": [
+        "visual-rl"
+      ],
+      "sourceRecord": "https://ifaamas.csc.liv.ac.uk/Proceedings/aamas2024/",
+      "authorshipSource": "https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p1137.pdf",
+      "authorshipEvidence": "Official PDF page 1: Lu Li and Jiafei Lyu carry equal-contribution asterisks; Guozheng Ma is third and unmarked.",
+      "aliases": [],
+      "notes": [
+        "Use official AAMAS 2024 year; Scholar retains 2023 preprint date.",
+        "Oral designation is from owner Scholar and prior original-site news; not independently verified in proceedings.",
+        "Merge 2023 arXiv/GenPlan workshop and 2024 AAMAS as one work."
+      ],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:UeHWp8X0CEIC",
+        "https://ifaamas.csc.liv.ac.uk/Proceedings/aamas2024/",
+        "https://arxiv.org/abs/2306.00656",
+        "https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p1137.pdf"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "icml-2026-ultrahorizon",
+      "title": "UltraHorizon: Benchmarking Agent Capabilities in Ultra Long-Horizon Scenarios",
+      "scholarTitle": "Ultrahorizon: Benchmarking Agent Capabilities in Ultra Long-Horizon Scenarios",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:8k81kl-MbHgC",
+      "year": 2026,
+      "venue": "International Conference on Machine Learning",
+      "status": "published",
+      "authorship": "coauthor",
+      "equalContributionIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "authors": [
+        "Haotian Luo",
+        "Huaisong Zhang",
+        "Xuelin Zhang",
+        "Haoyu Wang",
+        "Zeyu Qin",
+        "Wenjie Lu",
+        "Guozheng Ma",
+        "Haiying He",
+        "Yingsha Xie",
+        "Qiyang Zhou",
+        "Zixuan Hu",
+        "Hongze Mi",
+        "Yibo Wang",
+        "Naiqiang Tan",
+        "Hong Chen",
+        "Yi R. Fung",
+        "Chun Yuan",
+        "Li Shen"
+      ],
+      "topics": [
+        "agents-robotics",
+        "language-reasoning"
+      ],
+      "sourceRecord": "https://proceedings.mlr.press/v306/luo26ai.html",
+      "authorshipSource": "https://arxiv.org/pdf/2509.21766",
+      "authorshipEvidence": "Page 1 marks the first six authors with asterisks and explicitly defines equal contribution; Guozheng Ma is seventh and unmarked.",
+      "aliases": [
+        "Ultrahorizon: Benchmarking Agent Capabilities in Ultra Long-Horizon Scenarios"
+      ],
+      "notes": [
+        "Official PMLR 306:83084–83136 confirms ICML 2026.",
+        "Preserve official capitalization UltraHorizon and author Yi R. Fung.",
+        "Role taken from accessible arXiv PDF, which still says Arxiv Preprint; use official ICML proceedings for publication status."
+      ],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:8k81kl-MbHgC",
+        "https://proceedings.mlr.press/v306/luo26ai.html",
+        "https://arxiv.org/abs/2509.21766",
+        "https://arxiv.org/pdf/2509.21766"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "icml-2025-m3dt",
+      "title": "Mastering Massive Multi-Task Reinforcement Learning via Mixture-of-Expert Decision Transformer",
+      "scholarTitle": "Mastering Massive Multi-Task Reinforcement Learning via Mixture-of-Expert Decision Transformer",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:UebtZRa9Y70C",
+      "year": 2025,
+      "venue": "International Conference on Machine Learning",
+      "status": "published",
+      "authorship": "coauthor",
+      "equalContributionIndices": [],
+      "authors": [
+        "Yilun Kong",
+        "Guozheng Ma",
+        "Qi Zhao",
+        "Haoyu Wang",
+        "Li Shen",
+        "Xueqian Wang",
+        "Dacheng Tao"
+      ],
+      "topics": [
+        "scaling-sparsity",
+        "offline-online"
+      ],
+      "sourceRecord": "https://proceedings.mlr.press/v267/kong25a.html",
+      "authorshipSource": "https://arxiv.org/pdf/2505.24378",
+      "authorshipEvidence": "ICML-version PDF page 1 lists Yilun Kong first, Guozheng Ma second; no equal-contribution author marks or statement.",
+      "aliases": [],
+      "notes": [
+        "Official PMLR 267:31379–31396 confirms ICML 2025.",
+        "Scholar also reports MCDC Workshop Oral at ICLR 2025; this is a workshop distinction, not an ICML oral."
+      ],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:UebtZRa9Y70C",
+        "https://proceedings.mlr.press/v267/kong25a.html",
+        "https://arxiv.org/abs/2505.24378",
+        "https://arxiv.org/pdf/2505.24378"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "2024-step-on-feet-tuning",
+      "title": "Step-On-Feet Tuning: Scaling Self-Alignment of LLMs via Bootstrapping",
+      "scholarTitle": "Step-on-Feet Tuning: Scaling Self-Alignment of LLMs via Bootstrapping",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:eQOLeE2rZwMC",
+      "year": 2024,
+      "venue": "Models of Human Feedback for AI Alignment Workshop at ICML",
+      "status": "published",
+      "authorship": "coauthor",
+      "equalContributionIndices": [],
+      "authors": [
+        "Haoyu Wang",
+        "Guozheng Ma",
+        "Ziqiao Meng",
+        "Zeyu Qin",
+        "Li Shen",
+        "Zhong Zhang",
+        "Bingzhe Wu",
+        "Liu Liu",
+        "Yatao Bian",
+        "Tingyang Xu",
+        "Xueqian Wang",
+        "Peilin Zhao"
+      ],
+      "topics": [
+        "language-reasoning"
+      ],
+      "sourceRecord": "https://sites.google.com/view/mhf-icml2024/accepted-papers",
+      "authorshipSource": "https://arxiv.org/pdf/2402.07610",
+      "authorshipEvidence": "PDF v3 page 1 visually inspected: Haoyu Wang first and Guozheng Ma second; neither author has an equal-contribution asterisk.",
+      "roleNeedsConfirmation": true,
+      "aliases": [
+        "Step-on-Feet Tuning: Scaling Self-Alignment of LLMs via Bootstrapping"
+      ],
+      "notes": [
+        "Official workshop accepted-papers list confirms presentation; PDF explicitly states ICML 2024 Workshop on Models of Human Feedback for AI Alignment.",
+        "Workshop publication, not ICML main-conference paper.",
+        "Ambiguous orphan footnote: page footer includes *Equal contribution but no author carries *. Do not infer co-first from this orphan/template-like footer. Official workshop PDF https://openreview.net/pdf?id=lAXNiTcMar returned HTTP 403. Conservative role coauthor until explicitly linked author contribution evidence is available."
+      ],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:eQOLeE2rZwMC",
+        "https://sites.google.com/view/mhf-icml2024/accepted-papers",
+        "https://arxiv.org/abs/2402.07610",
+        "https://arxiv.org/pdf/2402.07610"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "icml-2025-sparsity",
+      "title": "Network Sparsity Unlocks the Scaling Potential of Deep Reinforcement Learning",
+      "scholarTitle": "Network Sparsity Unlocks the Scaling Potential of Deep Reinforcement Learning",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:0EnyYjriUFMC",
+      "year": 2025,
+      "venue": "International Conference on Machine Learning",
+      "status": "published",
+      "authorship": "co-first",
+      "equalContributionIndices": [
+        0,
+        1
+      ],
+      "authors": [
+        "Guozheng Ma",
+        "Lu Li",
+        "Zilin Wang",
+        "Li Shen",
+        "Pierre-Luc Bacon",
+        "Dacheng Tao"
+      ],
+      "topics": [
+        "scaling-sparsity",
+        "plasticity",
+        "visual-rl"
+      ],
+      "sourceRecord": "https://openreview.net/pdf?id=mIomqOskaa",
+      "authorshipSource": "https://raw.githubusercontent.com/mlresearch/v267/main/assets/ma25l/ma25l.pdf",
+      "authorshipEvidence": "Official PMLR PDF page 1 lists Guozheng Ma* and Lu Li* and explicitly defines *Equal contribution.",
+      "aliases": [],
+      "notes": [],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:0EnyYjriUFMC",
+        "https://raw.githubusercontent.com/mlresearch/v267/main/assets/ma25l/ma25l.pdf"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "iccv-2025-group-splatting",
+      "title": "Faster and Better 3D Splatting via Group Training",
+      "scholarTitle": "Faster and Better 3D Splatting via Group Training",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:Se3iqnhoufwC",
+      "year": 2025,
+      "venue": "IEEE/CVF International Conference on Computer Vision",
+      "status": "published",
+      "authorship": "coauthor",
+      "equalContributionIndices": [],
+      "authors": [
+        "Chengbo Wang",
+        "Guozheng Ma",
+        "Yifei Xue",
+        "Yizhen Lao"
+      ],
+      "topics": [
+        "3d-vision",
+        "scaling-sparsity"
+      ],
+      "sourceRecord": "https://openaccess.thecvf.com/content/ICCV2025/html/Wang_Faster_and_Better_3D_Splatting_via_Group_Training_ICCV_2025_paper.html",
+      "authorshipSource": "https://arxiv.org/pdf/2412.07608",
+      "authorshipEvidence": "Latest PDF v3 page 1 visually inspected: Chengbo Wang first, Guozheng Ma second; no equal-contribution designation. Dagger on Yizhen Lao means Corresponding author.",
+      "aliases": [],
+      "notes": [
+        "Official CVF proceedings pages 27968–27977. Merge 2024 arXiv preprint and ICCV 2025 publication."
+      ],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:Se3iqnhoufwC",
+        "https://openaccess.thecvf.com/content/ICCV2025/html/Wang_Faster_and_Better_3D_Splatting_via_Group_Training_ICCV_2025_paper.html",
+        "https://arxiv.org/abs/2412.07608",
+        "https://arxiv.org/pdf/2412.07608"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "iclr-2026-motivation",
+      "title": "A Simple \"Motivation\" Can Enhance Reinforcement Finetuning of Large Reasoning Models",
+      "scholarTitle": "A Simple \"Motivation\" Can Enhance Reinforcement Finetuning of Large Reasoning Models",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:5nxA0vEk-isC",
+      "year": 2026,
+      "venue": "International Conference on Learning Representations",
+      "status": "published",
+      "authorship": "coauthor",
+      "equalContributionIndices": [],
+      "authors": [
+        "Junjie Zhang",
+        "Guozheng Ma",
+        "Shunyu Liu",
+        "Haoyu Wang",
+        "Jiaxing Huang",
+        "Ting-En Lin",
+        "Fei Huang",
+        "Yongbin Li",
+        "Dacheng Tao"
+      ],
+      "topics": [
+        "language-reasoning"
+      ],
+      "sourceRecord": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/4947292b9f5e7d4ab792fa35537f8b96-Abstract-Conference.html",
+      "authorshipSource": "https://arxiv.org/pdf/2506.18485",
+      "authorshipEvidence": "ICLR 2026 version page 1 lists Guozheng Ma second and unmarked. Junjie Zhang asterisk references an email address; it is not equal contribution.",
+      "aliases": [
+        "MeRF: Motivation-enhanced Reinforcement Finetuning for Large Reasoning Models"
+      ],
+      "notes": [
+        "Official ICLR proceedings confirm title, full author order, venue and year.",
+        "Old MeRF title and published A Simple Motivation title are one work on arXiv 2506.18485."
+      ],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:5nxA0vEk-isC",
+        "https://proceedings.iclr.cc/paper_files/paper/2026/hash/4947292b9f5e7d4ab792fa35537f8b96-Abstract-Conference.html",
+        "https://arxiv.org/abs/2506.18485",
+        "https://arxiv.org/pdf/2506.18485"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "preprint-2025-plasticine",
+      "title": "Plasticine: Accelerating Research in Plasticity-Motivated Deep Reinforcement Learning",
+      "scholarTitle": "Plasticine: Accelerating Research in Plasticity-Motivated Deep Reinforcement Learning",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:hqOjcs7Dif8C",
+      "year": 2025,
+      "venue": "arXiv preprint",
+      "status": "preprint",
+      "authorship": "co-first",
+      "equalContributionIndices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "authors": [
+        "Mingqi Yuan",
+        "Qi Wang",
+        "Guozheng Ma",
+        "Caihao Sun",
+        "Bo Li",
+        "Xin Jin",
+        "Yunbo Wang",
+        "Xiaokang Yang",
+        "Wenjun Zeng",
+        "Dacheng Tao",
+        "Jiayu Chen"
+      ],
+      "topics": [
+        "plasticity"
+      ],
+      "sourceRecord": "https://arxiv.org/abs/2504.17490",
+      "authorshipSource": "https://arxiv.org/pdf/2504.17490",
+      "authorshipEvidence": "Latest PDF page 1: Mingqi Yuan, Qi Wang, Guozheng Ma and Caihao Sun have asterisks; footnote explicitly says these authors contributed equally.",
+      "aliases": [],
+      "notes": [
+        "First preprint release 2025-04-24; latest v2 revised 2026-02-10.",
+        "Use latest arXiv v2 full 11-author list, adding Caihao Sun and Jiayu Chen to Scholar’s stale 9-author list.",
+        "Current author repository BibTeX uses year 2026; chronological site display may use first-release 2025 consistently if revision note retained.",
+        "No formal venue claimed by latest arXiv or owner Scholar; keep preprint.",
+        "Latest PDF has 11 authors, superseding Scholar old 9-author list. Copyright 2026 in PDF does not by itself establish a conference/journal publication."
+      ],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:hqOjcs7Dif8C",
+        "https://arxiv.org/abs/2504.17490",
+        "https://arxiv.org/pdf/2504.17490"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "icml-2026-residual",
+      "title": "What Makes Value Learning Efficient in Residual Reinforcement Learning?",
+      "scholarTitle": "What Makes Value Learning Efficient in Residual Reinforcement Learning?",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:_kc_bZDykSQC",
+      "year": 2026,
+      "venue": "International Conference on Machine Learning",
+      "status": "published",
+      "authorship": "first",
+      "equalContributionIndices": [],
+      "authors": [
+        "Guozheng Ma",
+        "Lu Li",
+        "Haoyu Wang",
+        "Zixuan Liu",
+        "Pierre-Luc Bacon",
+        "Dacheng Tao"
+      ],
+      "topics": [
+        "offline-online"
+      ],
+      "sourceRecord": "https://proceedings.mlr.press/v306/ma26s.html",
+      "authorshipSource": "https://raw.githubusercontent.com/mlresearch/v306/main/assets/ma26s/ma26s.pdf",
+      "authorshipEvidence": "Official PMLR PDF page 1 lists Guozheng Ma first with no equal-contribution marks. Correspondence in published PDF is Dacheng Tao.",
+      "aliases": [],
+      "notes": [],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:_kc_bZDykSQC",
+        "https://raw.githubusercontent.com/mlresearch/v306/main/assets/ma26s/ma26s.pdf",
+        "https://proceedings.mlr.press/v306/ma26s.html"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "2026-extoken",
+      "title": "ExToken: Structured Exploration for Efficient Vision-Language-Action Reinforcement Fine-tuning",
+      "scholarTitle": "ExToken: Structured Exploration for Efficient Vision-Language-Action Reinforcement Fine-tuning",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:mVmsd5A6BfQC",
+      "year": 2026,
+      "venue": "RoboPAD Workshop at NeurIPS",
+      "status": "accepted",
+      "authorship": "coauthor",
+      "equalContributionIndices": [],
+      "authors": [
+        "Yilun Kong",
+        "Yunpeng Qing",
+        "Guozheng Ma",
+        "Haoyu Wang",
+        "Li Shen",
+        "Zhi Hou",
+        "Dacheng Tao"
+      ],
+      "topics": [
+        "agents-robotics",
+        "offline-online"
+      ],
+      "sourceRecord": "https://arxiv.org/abs/2607.12931",
+      "authorshipSource": "https://arxiv.org/pdf/2607.12931",
+      "authorshipEvidence": "PDF page 1 lists Yilun Kong, Yunpeng Qing, Guozheng Ma in that order. No shared contribution marks. Asterisk is solely on Dacheng Tao and explicitly means Corresponding author.",
+      "aliases": [],
+      "notes": [
+        "RoboPAD Workshop at NeurIPS 2026 acceptance is owner-Scholar supplied; independent official workshop record not located.",
+        "Mark as accepted workshop, never NeurIPS main-track publication."
+      ],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:mVmsd5A6BfQC",
+        "https://arxiv.org/abs/2607.12931",
+        "https://arxiv.org/pdf/2607.12931"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "preprint-2025-module-scaling",
+      "title": "Module-Specific Training Strategies for Effective Network Scaling in Deep Reinforcement Learning",
+      "scholarTitle": "Module-Specific Training Strategies for Effective Network Scaling in Deep Reinforcement Learning",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:MXK_kJrjxJIC",
+      "year": 2025,
+      "venue": "arXiv preprint",
+      "status": "preprint",
+      "authorship": "first",
+      "equalContributionIndices": [],
+      "authors": [
+        "Guozheng Ma",
+        "Lu Li",
+        "Zilin Wang",
+        "Haoyu Wang",
+        "Shengchao Hu",
+        "Leszek Rutkowski",
+        "Dacheng Tao"
+      ],
+      "topics": [
+        "scaling-sparsity",
+        "plasticity"
+      ],
+      "sourceRecord": "https://arxiv.org/abs/2510.12096",
+      "authorshipSource": "https://arxiv.org/pdf/2510.12096",
+      "authorshipEvidence": "PDF page 1 lists Guozheng Ma first, followed by Lu Li, Zilin Wang, Haoyu Wang, Shengchao Hu, Leszek Rutkowski, Dacheng Tao, with no equal-contribution marks.",
+      "aliases": [
+        "Rethinking the Role of Dynamic Sparse Training for Scalable Deep Reinforcement Learning"
+      ],
+      "notes": [
+        "Use owner’s current Scholar title Module-Specific Training Strategies for Effective Network Scaling in Deep Reinforcement Learning.",
+        "Scholar detail explicitly links the prior title Rethinking the Role of Dynamic Sparse Training for Scalable Deep Reinforcement Learning and arXiv 2510.12096.",
+        "arXiv currently displays original title; record is the same work, not a second paper.",
+        "Accessible arXiv PDF still uses title Rethinking the Role of Dynamic Sparse Training for Scalable Deep Reinforcement Learning. Scholar renamed it Module-Specific Training Strategies for Effective Network Scaling in Deep Reinforcement Learning. Same author list/topic; keep one record, not two."
+      ],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:MXK_kJrjxJIC",
+        "https://arxiv.org/abs/2510.12096",
+        "https://arxiv.org/pdf/2510.12096"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "neurips-2026-stride",
+      "title": "STRIDE: Learnable Stepwise Language Feedback for LLM Reasoning",
+      "scholarTitle": "STRIDE: Learnable Stepwise Language Feedback for LLM Reasoning",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:4DMP91E08xMC",
+      "year": 2026,
+      "venue": "Neural Information Processing Systems",
+      "status": "accepted",
+      "authorship": "coauthor",
+      "equalContributionIndices": [],
+      "authors": [
+        "Junjie Zhang",
+        "Guozheng Ma",
+        "Shunyu Liu",
+        "Zetian Hu",
+        "Yongcheng Jing",
+        "Ting-En Lin",
+        "Yongbin Li",
+        "Dacheng Tao"
+      ],
+      "topics": [
+        "language-reasoning"
+      ],
+      "sourceRecord": "https://neurips.cc/virtual/2026/poster/148237",
+      "authorshipSource": "https://arxiv.org/pdf/2605.18851",
+      "authorshipEvidence": "Page 1 lists Junjie Zhang first and Guozheng Ma second. Asterisk on Junjie Zhang is an email footnote, not equal contribution.",
+      "aliases": [],
+      "notes": [
+        "NeurIPS 2026 acceptance is confirmed in owner Scholar and coauthor Yongcheng Jing’s university homepage.",
+        "As of 2026-11-06, use accepted; Scholar publication month is December 2026.",
+        "Official NeurIPS 2026 poster page confirms acceptance and a December 9 session; no proceedings record verified as of 2026-11-06."
+      ],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:4DMP91E08xMC",
+        "https://arxiv.org/abs/2605.18851",
+        "https://jszy.whu.edu.cn/jingyongcheng/",
+        "https://arxiv.org/pdf/2605.18851",
+        "https://neurips.cc/virtual/2026/poster/148237"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "neurips-2026-offline-priors",
+      "title": "Beyond One-Size-Fits-All: Diagnosis-Driven Online Reinforcement Learning with Offline Priors",
+      "scholarTitle": "Beyond One-Size-Fits-All: Diagnosis-Driven Online Reinforcement Learning with Offline Priors",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:Wp0gIr-vW9MC",
+      "year": 2026,
+      "venue": "Neural Information Processing Systems · Position track",
+      "status": "accepted",
+      "authorship": "first",
+      "equalContributionIndices": [],
+      "authors": [
+        "Guozheng Ma",
+        "Lu Li",
+        "Zilin Wang",
+        "Pierre-Luc Bacon",
+        "Dacheng Tao"
+      ],
+      "topics": [
+        "offline-online"
+      ],
+      "sourceRecord": "https://neurips.cc/virtual/2026/poster/140053",
+      "authorshipSource": "https://arxiv.org/pdf/2606.25527",
+      "authorshipEvidence": "Page 1 lists Guozheng Ma first, no equal-contribution mark; official NeurIPS event page confirms same author order.",
+      "aliases": [],
+      "notes": [],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:Wp0gIr-vW9MC",
+        "https://arxiv.org/pdf/2606.25527",
+        "https://neurips.cc/virtual/2026/poster/140053"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "preprint-2026-component-synergy",
+      "title": "Beyond Isolation: Unlocking Reinforcement Learning Component Synergy for Sample-Efficient Continuous Control",
+      "scholarTitle": "Beyond Isolation: Unlocking Reinforcement Learning Component Synergy for Sample-Efficient Continuous Control",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:7PzlFSSx8tAC",
+      "year": 2026,
+      "venue": "arXiv preprint",
+      "status": "preprint",
+      "authorship": "coauthor",
+      "equalContributionIndices": [],
+      "authors": [
+        "Qi Zhao",
+        "Guozheng Ma",
+        "Yilun Kong",
+        "Lu Li",
+        "Haoyu Wang",
+        "Zilin Wang",
+        "Tiantian Zhang",
+        "Yuxing Wang",
+        "Jian Sha",
+        "Yongzhe Chang",
+        "Xueqian Wang",
+        "Dacheng Tao"
+      ],
+      "topics": [
+        "scaling-sparsity"
+      ],
+      "sourceRecord": "https://arxiv.org/abs/2608.07086",
+      "authorshipSource": "https://arxiv.org/pdf/2608.07086",
+      "authorshipEvidence": "Page 1 lists Qi Zhao first, Guozheng Ma second. No equal-contribution marks or statement.",
+      "aliases": [],
+      "notes": [
+        "Use author Jian Sha as given by arXiv and owner Scholar; DBLP incorrectly lists Jian Shao.",
+        "No formal publication venue in owner Scholar or arXiv."
+      ],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:7PzlFSSx8tAC",
+        "https://arxiv.org/abs/2608.07086",
+        "https://arxiv.org/pdf/2608.07086"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "preprint-2026-exploration-splatting",
+      "title": "Exploration Matters for Escaping the Blur Trap in 3D Gaussian Splatting",
+      "scholarTitle": "Exploration Matters for Escaping the Blur Trap in 3D Gaussian Splatting",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:9ZlFYXVOiuMC",
+      "year": 2026,
+      "venue": "arXiv preprint",
+      "status": "preprint",
+      "authorship": "coauthor",
+      "equalContributionIndices": [],
+      "authors": [
+        "Chengbo Wang",
+        "Guozheng Ma",
+        "Jinhong Wu",
+        "Tie Ji",
+        "Yizhen Lao"
+      ],
+      "topics": [
+        "3d-vision"
+      ],
+      "sourceRecord": "https://arxiv.org/abs/2607.17965",
+      "authorshipSource": "https://arxiv.org/pdf/2607.17965",
+      "authorshipEvidence": "Page 1 lists Chengbo Wang first and Guozheng Ma second. No equal-contribution marks or statement.",
+      "aliases": [],
+      "notes": [
+        "No formal publication venue in owner Scholar, arXiv or author project page."
+      ],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:9ZlFYXVOiuMC",
+        "https://arxiv.org/abs/2607.17965",
+        "https://arxiv.org/pdf/2607.17965"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "icml-2026-trial-and-error",
+      "title": "Language-based Trial and Error Falls Behind in the Era of Experience",
+      "scholarTitle": "Language-based Trial and Error Falls Behind in the Era of Experience",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:ULOm3_A8WrAC",
+      "year": 2026,
+      "venue": "International Conference on Machine Learning",
+      "status": "published",
+      "authorship": "coauthor",
+      "equalContributionIndices": [],
+      "authors": [
+        "Haoyu Wang",
+        "Guozheng Ma",
+        "Shugang Cui",
+        "Yilun Kong",
+        "Haotian Luo",
+        "Li Shen",
+        "Mengya Gao",
+        "Yichao Wu",
+        "Xiaogang Wang",
+        "Dacheng Tao"
+      ],
+      "topics": [
+        "agents-robotics",
+        "language-reasoning"
+      ],
+      "sourceRecord": "https://proceedings.mlr.press/v306/wang26fn.html",
+      "authorshipSource": "https://arxiv.org/pdf/2601.21754",
+      "authorshipEvidence": "ICML 2026 version page 1 lists Haoyu Wang first and Guozheng Ma second, without equal-contribution marks. Corresponding-author symbol applies only to Dacheng Tao.",
+      "aliases": [],
+      "notes": [
+        "Official PMLR 306:128895–128918 confirms ICML 2026.",
+        "PMLR Software hyperlink contains malformed relative URL; correct author repo https://github.com/Harry-mic/SCOUT was opened successfully."
+      ],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:ULOm3_A8WrAC",
+        "https://proceedings.mlr.press/v306/wang26fn.html",
+        "https://arxiv.org/abs/2601.21754",
+        "https://arxiv.org/pdf/2601.21754"
+      ],
+      "verifiedOn": "2026-11-06"
+    },
+    {
+      "id": "iclr-2026-reinforcement-finetuning",
+      "title": "The State of Reinforcement Finetuning for Transformer-based Agents",
+      "scholarTitle": "The State of Reinforcement Finetuning for Transformer-based Generative Agents",
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:4TOpqqG69KYC",
+      "year": 2026,
+      "venue": "International Conference on Learning Representations",
+      "status": "published",
+      "authorship": "coauthor",
+      "equalContributionIndices": [
+        0,
+        1
+      ],
+      "authors": [
+        "Shengchao Hu",
+        "Peng Wang",
+        "Guozheng Ma",
+        "Shi Fu",
+        "Li Shen",
+        "Ya Zhang",
+        "Dacheng Tao"
+      ],
+      "topics": [
+        "agents-robotics",
+        "offline-online"
+      ],
+      "sourceRecord": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/e0d802b82a7804f60c738f5c3731b3dd-Abstract-Conference.html",
+      "authorshipSource": "https://proceedings.iclr.cc/paper_files/paper/2026/file/e0d802b82a7804f60c738f5c3731b3dd-Paper-Conference.pdf",
+      "authorshipEvidence": "Official ICLR PDF page 1: Shengchao Hu and Peng Wang carry daggers defined as equal contribution; Guozheng Ma is third without dagger.",
+      "aliases": [
+        "The State of Reinforcement Finetuning for Transformer-based Generative Agents"
+      ],
+      "notes": [
+        "Use official ICLR 2026 proceedings title without Generative.",
+        "Owner Scholar title with Generative is an alias for this same work, and Scholar articles section links the formal title.",
+        "Official PDF title is The State of Reinforcement Finetuning for Transformer-based Agents, without Generative. Prefer published title over Scholar edited title."
+      ],
+      "sources": [
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jDvVglUAAAAJ&pagesize=100&citation_for_view=jDvVglUAAAAJ:4TOpqqG69KYC",
+        "https://proceedings.iclr.cc/paper_files/paper/2026/hash/e0d802b82a7804f60c738f5c3731b3dd-Abstract-Conference.html",
+        "https://proceedings.iclr.cc/paper_files/paper/2026/file/e0d802b82a7804f60c738f5c3731b3dd-Paper-Conference.pdf"
+      ],
+      "verifiedOn": "2026-11-06"
+    }
+  ],
+  "excludedCandidates": [
+    {
+      "title": "Towards Reliable Medical LLMs: Benchmarking and Enhancing Confidence Estimation of Large Language Models in Medical Consultation",
+      "reason": "Appears on merged DBLP name page but absent from owner Scholar 22-work inventory; not imported."
+    },
+    {
+      "title": "Consistency-Regularized Multi-Stage Joint-Perception Graph Fuzzy Clustering Algorithm",
+      "reason": "Same-name DBLP candidate absent from owner Scholar; not imported."
+    },
+    {
+      "title": "2013 DBLP article",
+      "reason": "Same-name candidate predates confirmed research trajectory and absent from owner Scholar; not imported."
+    }
+  ]
+}

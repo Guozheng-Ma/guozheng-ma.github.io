@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import PublicationMeta from '../../components/PublicationMeta.astro';
 import PublicationResourceIcon from '../../components/PublicationResourceIcon.astro';
+import { publicationAuthors } from '../../lib/publication-presentation';
 
 export async function getStaticPaths() {
   const pubs = await getCollection('publications');
@@ -19,6 +20,8 @@ export async function getStaticPaths() {
 const { pub, relatedNote } = Astro.props;
 const { Content } = await render(pub);
 const d = pub.data;
+const authors = publicationAuthors(d);
+const hasEqualContributors = authors.some((author) => author.equalContribution);
 ---
 <Layout title={d.title} description={d.tldr} image={d.figure} type="article">
   <main id="main-content" class="reading-page publication-detail">
@@ -27,9 +30,10 @@ const d = pub.data;
       <PublicationMeta publication={d} fullVenue />
       <h1 class="page-title">{d.title}</h1>
       <p class="article-authors">
-        {d.authors.map((author, index) => (
-          <span class={d.authorBoldIndices.includes(index) ? 'self-author' : undefined}>{author}{index < d.authors.length - 1 ? ', ' : ''}</span>
+        {authors.map((author, index) => (
+          <span class={author.emphasized ? 'self-author' : undefined}>{author.displayName}{index < authors.length - 1 ? ', ' : ''}</span>
         ))}
+        {hasEqualContributors && <span class="detail-equal-contribution">* Equal contribution</span>}
       </p>
       <div class="article-actions" aria-label="Publication resources">
         {d.links.pdf && <a href={d.links.pdf}><PublicationResourceIcon name="paper" />Paper</a>}
@@ -53,3 +57,7 @@ const d = pub.data;
     )}
   </main>
 </Layout>
+
+<style>
+  .detail-equal-contribution { display: block; margin-top: 6px; font-size: 14px; line-height: 1.5; color: var(--color-text-secondary); }
+</style>

@@ -2,7 +2,7 @@
 import { type CollectionEntry } from 'astro:content';
 
 interface Props {
-  thumbnail: CollectionEntry<'publications'>['data']['thumbnail'];
+  thumbnail: NonNullable<CollectionEntry<'publications'>['data']['thumbnail']>;
   title: string;
 }
 

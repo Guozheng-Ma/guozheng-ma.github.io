@@ -1,7 +1,10 @@
 ---
 title: "What Makes Value Learning Efficient in Residual Reinforcement Learning?"
-authors: ["Guozheng Ma", "Lu Li", "Haoyu Wang", "Zixuan Liu", "Pierre-Luc Bacon", "Dacheng Tao"]
+authors: ["Guozheng Ma","Lu Li","Haoyu Wang","Zixuan Liu","Pierre-Luc Bacon","Dacheng Tao"]
 authorBoldIndices: [0]
+equalContributionIndices: []
+status: "published"
+authorship: "first"
 venue: "ICML"
 venueFull: "International Conference on Machine Learning"
 year: 2026

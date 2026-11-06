@@ -1,5 +1,6 @@
 ---
 import { type CollectionEntry } from 'astro:content';
+import { publicationStatusLabels, publicationAuthorshipLabels } from '../lib/publication-presentation';
 interface Props { publication: CollectionEntry<'publications'>['data']; fullVenue?: boolean; }
 const { publication: d, fullVenue = false } = Astro.props;
 const awardParts = d.award?.split(' · ');
@@ -8,6 +9,14 @@ const venueName = fullVenue ? d.venueFull.replace(/ · Position track$/, '') : d
 ---
 <div class="publication-meta">
   <p class="publication-venue">{venueName}{fullVenue ? ' · ' : ' '}{d.year}</p>
+  <p class="publication-status" data-publication-status={d.status}>{publicationStatusLabels[d.status]}</p>
+  <p class:list={['publication-authorship', { 'publication-authorship-lead': d.authorship !== 'coauthor' }]}>{publicationAuthorshipLabels[d.authorship]}</p>
   {isPositionPaper && <p class="publication-type">{fullVenue ? 'Position track' : 'Position paper'}</p>}
   {awardParts && <p class="publication-honor">{awardParts.map((part, index) => <Fragment>{index > 0 && ' · '}<span>{part}</span></Fragment>)}</p>}
 </div>
+
+<style>
+  .publication-status, .publication-authorship { font-size: 14px; line-height: 1.5; color: var(--color-text-secondary); }
+  .publication-status { padding: 2px 8px; border: 1px solid var(--color-border-tertiary); border-radius: 6px; }
+  .publication-authorship-lead { color: var(--color-brand); font-weight: 600; }
+</style>

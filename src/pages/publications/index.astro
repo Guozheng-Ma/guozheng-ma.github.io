@@ -2,97 +2,208 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import PublicationCard from '../../components/PublicationCard.astro';
+import ContinuationArrow from '../../components/ContinuationArrow.astro';
+import { profile } from '../../data/profile';
 import { publicationTopics } from '../../data/publication-topics';
+import { publicationStatuses, publicationStatusLabels } from '../../lib/publication-presentation';
 const pubs = (await getCollection('publications')).sort((a,b) => b.data.year - a.data.year || (a.data.featuredOrder ?? 99) - (b.data.featuredOrder ?? 99));
 const filters = [
   { id: 'all', label: 'All', count: pubs.length },
   ...publicationTopics.map((topic) => ({ ...topic, count: pubs.filter((pub) => pub.data.topics.includes(topic.id)).length })),
-].filter((filter) => filter.count > 0);
+].filter((filter) => filter.id === 'all' || filter.count > 0);
+const statusFilters = [
+  { id: 'all', label: 'All', count: pubs.length },
+  ...publicationStatuses.map((status) => ({ id: status, label: publicationStatusLabels[status], count: pubs.filter((pub) => pub.data.status === status).length })),
+];
+const leadCount = pubs.filter((pub) => pub.data.authorship !== 'coauthor').length;
 ---
-<Layout title="Publications — Guozheng Ma" description="Publications by Guozheng Ma on deep reinforcement learning, scaling, plasticity, and generalization.">
+<Layout title="Publications — Guozheng Ma" description="Publications and preprints by Guozheng Ma. Browse by research topic, publication status, and author contribution.">
   <main id="main-content" class="site-width publications-page">
-    <div class="page-intro"><h1>Publications</h1></div>
+    <div class="page-intro publication-page-intro">
+      <h1>Publications</h1>
+      <a href={profile.scholar} class="continuation-link scholar-record"><span>Full record on Google Scholar</span><ContinuationArrow /></a>
+    </div>
     <div class="publication-filter-panel" data-publication-filters hidden>
       <div class="publication-filters" role="group" aria-label="Filter publications by research topic">
         {filters.map((filter) => (
           <button type="button" class="topic-filter" data-topic-filter={filter.id} data-topic-label={filter.label} aria-pressed={filter.id === 'all' ? 'true' : 'false'} aria-controls="publication-results">
-            <span>{filter.label}</span><span class="topic-count" aria-hidden="true">{filter.count}</span>
+            <span>{filter.label}</span><span class="topic-count" data-filter-count aria-hidden="true">{filter.count}</span>
           </button>
         ))}
       </div>
-      <p class="publication-result-count" role="status" aria-live="polite" aria-atomic="true" data-publication-count>{pubs.length} publications</p>
+      <div class="publication-secondary-filters">
+        <label class="publication-filter-field" for="publication-status">
+          <span>Status</span>
+          <select id="publication-status" name="status" data-status-filter aria-controls="publication-results">
+            {statusFilters.map((filter) => <option value={filter.id} data-option-label={filter.label}>{filter.label} · {filter.count}</option>)}
+          </select>
+        </label>
+        <label class="publication-filter-field" for="publication-contribution">
+          <span>Contribution</span>
+          <select id="publication-contribution" name="role" data-role-filter aria-controls="publication-results">
+            <option value="all" data-option-label="All">All · {pubs.length}</option>
+            <option value="lead" data-option-label="First & co-first">First &amp; co-first · {leadCount}</option>
+          </select>
+        </label>
+      </div>
+      <div class="publication-filter-summary">
+        <p class="publication-result-count" role="status" aria-live="polite" aria-atomic="true" data-publication-count>{pubs.length} publications</p>
+        <button type="button" class="publication-clear" data-clear-filters disabled>Clear filters</button>
+      </div>
     </div>
     <div id="publication-results" class="publications-list">{pubs.map(pub => <PublicationCard pub={pub} headingLevel="h2" />)}</div>
+    <section class="publication-empty" data-publication-empty hidden aria-labelledby="publication-empty-title">
+      <h2 id="publication-empty-title">No matching publications</h2>
+      <p>Try a different topic, status, or contribution.</p>
+      <button type="button" class="publication-clear" data-clear-filters>Clear filters</button>
+    </section>
   </main>
 </Layout>
 
 <style>
+  .publication-page-intro { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 24px; }
+  .scholar-record { font-size: 16px; }
   .publication-filter-panel { margin: -8px 0 28px; }
-  .publication-filter-panel[hidden] { display: none !important; }
+  .publication-filter-panel[hidden], .publication-empty[hidden] { display: none !important; }
   .publication-filters { display: flex; flex-wrap: wrap; gap: 10px; }
   .topic-filter { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; padding: 9px 17px; border: 1px solid transparent; border-radius: 999px; background: var(--color-bg-primary); color: var(--color-text-secondary); font: 500 16px / 1.4 var(--font-sans); cursor: pointer; }
   .topic-filter:hover { color: var(--color-text-primary); background: var(--color-bg-secondary); }
   .topic-filter[aria-pressed='true'] { color: var(--color-bg-tertiary); background: var(--color-text-primary); }
   .topic-filter:focus-visible { outline-offset: 4px; }
   .topic-count { opacity: .75; font-size: 14px; font-variant-numeric: tabular-nums; }
-  .publication-result-count { margin-top: 18px; color: var(--color-text-secondary); font-size: 15px; line-height: 1.5; }
+  .publication-secondary-filters { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 20px; }
+  .publication-filter-field { display: flex; align-items: center; gap: 10px; color: var(--color-text-secondary); font-size: 14px; }
+  .publication-filter-field select { min-width: 164px; min-height: 44px; padding: 8px 12px; border: 1px solid var(--color-border-tertiary); border-radius: 10px; background: var(--color-bg-tertiary); color: var(--color-text-primary); font: 400 16px / 1.4 var(--font-sans); cursor: pointer; }
+  .publication-filter-field:last-child select { min-width: 190px; }
+  .publication-filter-field select:hover { border-color: var(--color-border-secondary); }
+  .publication-filter-summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 10px; }
+  .publication-result-count { color: var(--color-text-secondary); font-size: 15px; line-height: 1.5; }
+  .publication-clear { min-height: 44px; padding: 8px 0; border: 0; background: transparent; color: var(--color-text-primary); font: 500 15px / 1.5 var(--font-sans); white-space: nowrap; cursor: pointer; }
+  .publication-clear:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .publication-clear:disabled { color: var(--color-text-tertiary); opacity: .6; text-decoration: none; cursor: default; }
+  .publication-empty { padding: 40px 28px; margin-bottom: 48px; border-radius: var(--radius-xl); background: var(--color-bg-primary); text-align: center; }
+  .publication-empty h2 { font: 400 28px / 1.3 var(--font-serif); }
+  .publication-empty p { margin-top: 12px; color: var(--color-text-secondary); }
+  .publication-empty .publication-clear { margin-top: 14px; }
   @media (max-width: 680px) {
+    .publication-page-intro { gap: 4px; }
+    .scholar-record { font-size: 15px; }
     .publication-filter-panel { margin-top: -4px; margin-bottom: 24px; }
     .publication-filters { gap: 8px; }
     .topic-filter { gap: 8px; padding-inline: 14px; font-size: 15px; }
-    .publication-result-count { margin-top: 16px; }
+    .publication-secondary-filters { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 12px; margin-top: 18px; }
+    .publication-filter-field { display: grid; gap: 6px; min-width: 0; }
+    .publication-filter-field select, .publication-filter-field:last-child select { min-width: 0; width: 100%; padding-inline: 8px; }
+    .publication-filter-summary { margin-top: 6px; }
+    .publication-result-count { font-size: 14px; }
+    .publication-empty { padding: 32px 20px; }
+    .publication-empty h2 { font-size: 25px; }
+  }
+  @media (max-width: 380px) {
+    .publication-secondary-filters { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+    .publication-filter-field { grid-template-columns: 84px minmax(0, 1fr); align-items: center; gap: 10px; }
   }
 </style>
 
 <script>
+  import { matchesPublication, type FilterablePublication, type PublicationFilters } from '../../lib/publication-filtering';
+  import { publicationStatuses, type PublicationStatus, type PublicationAuthorship } from '../../lib/publication-presentation';
+
   const filterPanel = document.querySelector<HTMLElement>('[data-publication-filters]');
   const controls = [...document.querySelectorAll<HTMLButtonElement>('[data-topic-filter]')];
   const cards = [...document.querySelectorAll<HTMLElement>('[data-publication-card]')];
+  const statusSelect = document.querySelector<HTMLSelectElement>('[data-status-filter]');
+  const roleSelect = document.querySelector<HTMLSelectElement>('[data-role-filter]');
   const resultCount = document.querySelector<HTMLElement>('[data-publication-count]');
+  const emptyState = document.querySelector<HTMLElement>('[data-publication-empty]');
+  const clearButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-clear-filters]')];
 
-  if (filterPanel && controls.length && cards.length && resultCount) {
+  if (filterPanel && controls.length && statusSelect && roleSelect && resultCount && emptyState) {
     const knownTopics = new Set(controls.map((control) => control.dataset.topicFilter));
-    let currentTopic = 'all';
+    const knownStatuses = new Set<string>(['all', ...publicationStatuses]);
+    const records: Array<FilterablePublication & { element: HTMLElement }> = cards.map((element) => ({
+      element,
+      topics: element.dataset.topics?.split(' ') ?? [],
+      status: element.dataset.status as PublicationStatus,
+      authorship: element.dataset.authorship as PublicationAuthorship,
+    }));
+    let current: PublicationFilters = { topic: 'all', status: 'all', role: 'all' };
 
-    const topicFromUrl = () => {
-      const value = new URL(window.location.href).searchParams.get('topic') ?? 'all';
-      return knownTopics.has(value) ? value : 'all';
+    const filtersFromUrl = (): PublicationFilters => {
+      const params = new URL(window.location.href).searchParams;
+      const topic = params.get('topic') ?? 'all';
+      const status = params.get('status') ?? 'all';
+      return {
+        topic: knownTopics.has(topic) ? topic : 'all',
+        status: knownStatuses.has(status) ? status as PublicationFilters['status'] : 'all',
+        role: params.get('role') === 'lead' ? 'lead' : 'all',
+      };
     };
 
-    const applyTopic = (topic: string, updateUrl = false) => {
-      if (!knownTopics.has(topic)) topic = 'all';
-      currentTopic = topic;
-      let count = 0;
+    const countMatching = (filters: PublicationFilters) => records.filter((record) => matchesPublication(record, filters)).length;
 
-      cards.forEach((card) => {
-        const visible = topic === 'all' || card.dataset.topics?.split(' ').includes(topic);
-        card.hidden = !visible;
-        if (visible) count += 1;
+    const applyFilters = (next: PublicationFilters, updateUrl = false) => {
+      current = { ...next };
+      let visibleCount = 0;
+      records.forEach((record) => {
+        const visible = matchesPublication(record, current);
+        record.element.hidden = !visible;
+        if (visible) visibleCount += 1;
       });
-      controls.forEach((control) => control.setAttribute('aria-pressed', String(control.dataset.topicFilter === topic)));
 
-      const label = controls.find((control) => control.dataset.topicFilter === topic)?.dataset.topicLabel;
-      resultCount.textContent = `${count} ${count === 1 ? 'publication' : 'publications'}${topic === 'all' ? '' : ` · ${label}`}`;
+      // Each facet counts matches for the other two selections, so its options remain meaningful.
+      controls.forEach((control) => {
+        const topic = control.dataset.topicFilter ?? 'all';
+        const count = countMatching({ ...current, topic });
+        control.setAttribute('aria-pressed', String(topic === current.topic));
+        control.setAttribute('aria-label', `${control.dataset.topicLabel}, ${count} ${count === 1 ? 'publication' : 'publications'}`);
+        const counter = control.querySelector<HTMLElement>('[data-filter-count]');
+        if (counter) counter.textContent = String(count);
+      });
+      Array.from(statusSelect.options).forEach((option) => {
+        const count = countMatching({ ...current, status: option.value as PublicationFilters['status'] });
+        option.textContent = `${option.dataset.optionLabel} · ${count}`;
+      });
+      Array.from(roleSelect.options).forEach((option) => {
+        const count = countMatching({ ...current, role: option.value as PublicationFilters['role'] });
+        option.textContent = `${option.dataset.optionLabel} · ${count}`;
+      });
+      statusSelect.value = current.status;
+      roleSelect.value = current.role;
+
+      const hasSelection = current.topic !== 'all' || current.status !== 'all' || current.role !== 'all';
+      resultCount.textContent = hasSelection
+        ? `${visibleCount} of ${records.length} publications`
+        : `${visibleCount} ${visibleCount === 1 ? 'publication' : 'publications'}`;
+      emptyState.hidden = visibleCount > 0;
+      clearButtons.forEach((button) => { button.disabled = !hasSelection; });
 
       if (updateUrl) {
         const url = new URL(window.location.href);
-        if (topic === 'all') url.searchParams.delete('topic');
-        else url.searchParams.set('topic', topic);
-        try {
-          window.history.pushState(null, '', url);
-        } catch { /* Filtering remains usable if history changes are unavailable. */ }
+        (['topic', 'status', 'role'] as const).forEach((key) => {
+          if (current[key] === 'all') url.searchParams.delete(key);
+          else url.searchParams.set(key, current[key]);
+        });
+        if (url.href !== window.location.href) {
+          try {
+            window.history.pushState(null, '', url);
+          } catch { /* Filtering remains usable if history changes are unavailable. */ }
+        }
       }
     };
 
-    controls.forEach((control) => {
-      control.addEventListener('click', () => {
-        const topic = control.dataset.topicFilter ?? 'all';
-        if (topic !== currentTopic) applyTopic(topic, true);
-      });
-    });
-
-    window.addEventListener('popstate', () => applyTopic(topicFromUrl()));
-    applyTopic(topicFromUrl());
+    controls.forEach((control) => control.addEventListener('click', () => {
+      const topic = control.dataset.topicFilter ?? 'all';
+      if (topic !== current.topic) applyFilters({ ...current, topic }, true);
+    }));
+    statusSelect.addEventListener('change', () => applyFilters({ ...current, status: statusSelect.value as PublicationFilters['status'] }, true));
+    roleSelect.addEventListener('change', () => applyFilters({ ...current, role: roleSelect.value as PublicationFilters['role'] }, true));
+    clearButtons.forEach((button) => button.addEventListener('click', () => {
+      applyFilters({ topic: 'all', status: 'all', role: 'all' }, true);
+      controls[0]?.focus();
+    }));
+    window.addEventListener('popstate', () => applyFilters(filtersFromUrl()));
+    applyFilters(filtersFromUrl());
     filterPanel.hidden = false;
   }
 </script>

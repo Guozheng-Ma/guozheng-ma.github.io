@@ -1,5 +1,45 @@
 # 改版交付记录
 
+## 2026-11-06 · 完整论文集与作者贡献
+
+从 [本人 Google Scholar](https://scholar.google.com/citations?user=jDvVglUAAAAJ&hl=en&cstart=0&pagesize=100) 读取全部 22 条记录并逐篇核对。已完成本地实现与正式构建，由用户自行上传；未 commit、push 或部署。Git 起点为 `ff1eeca`。
+
+### 交付内容
+
+- 原有 6 篇扩展为 **22 篇独立研究**，新增 16 篇详情、完整作者、摘要、资源入口与 BibTeX。正式版、预印本及改题版本合并；原有 URL、六篇正文与荣誉、Blog 文章和个人资料保留。
+- 状态为 **Published 15 / Accepted 3 / Preprint 4**；会议主会、workshop、期刊及预印本准确区分。正式发表年份优先于 Scholar 旧预印日期。
+- 从原文明示贡献核实 **First author 5 / Co-first author 4**，共 9 篇。列表采用低饱和品牌蓝色背景、侧边细线与文字标签，本人姓名始终加粗；合作论文保持中性，荣誉使用独立琥珀色。
+- 七个研究主题支持多归属：Offline–online RL **5**、Scaling & optimization **5**、Plasticity **4**、Visual RL **6**、Language & reasoning **6**、Agents & robotics **4**、3D vision **2**。
+- 主题 × 状态 × 贡献采用交集筛选，带分面数量、清空及无结果提示；`topic/status/role` 地址参数可分享、刷新和前进后退。`role=lead` 包含本人一作及共同一作。旧 `scaling-sparsity` 参数保持有效，无脚本时仍可阅读全部论文。
+- **22 篇均有真实原文图片**。新增 16 张约 1.50 MB，22 张合计约 1.98 MB，新增图宽 1200–1600px，最大单图约 183 KB；逐张目视复核坐标、图例和原色。新增详情分享图也分别使用对应论文图。原 6 张配图和首页 3 个机制 SVG 保留。
+- 首页仍展示原来的三篇 Selected Research，仅补充准确状态与贡献文字。Blog / Post 命名及 `/notes/` 路径继续沿用。不引入新依赖。
+
+### 核对依据与待确认项
+
+见 [论文集来源说明](publication-catalogue.md)、[逐篇结构化记录](publication-catalogue.json)和[论文配图记录](publication-figures.md)。这是 **2026-11-06 的经核对静态快照**，不是自动实时同步。
+
+Plasticine 的最新 11 人作者表明确本人为第三位共同一作；UltraHorizon 本人虽排第七，但不在前六位等贡献名单中。SOFT 的可访问原文存在未关联作者的等贡献页脚，暂按合作论文展示，未据此推断本人共一。ExToken workshop 录用及 AAMAS Oral 来自本人 Scholar／旧站资料，记录中已注明独立验证的范围。NeurIPS 2026 的两篇主会论文根据官方 poster 页面标为 Accepted。
+
+### 已执行验证
+
+- 使用本地 Node.js 24 与已有 Astro 6.3.8 依赖完成正式构建，生成 **30 页**；Actions 仍使用 Node.js 22 与既有锁文件。`git diff --check` 通过。
+- 独立审查 22 篇数据与 Scholar、作者贡献及新增研究清单逐条一致，URL 集合恰好覆盖 22 篇，无重复；22 个 BibTeX 的完整作者、标题、年份、引用键和括号格式通过。
+- 静态完整性审查覆盖 **30 个 HTML、534 处本地链接／资源、30 处页面锚点引用、64 处 CSS 资源**，全部有效，无重复 ID 或悬空 ARIA 引用；22 图的尺寸、alt 和构建副本一致，80 个旧 assets/files 资源及原 6 张论文图与基线逐字节一致。报告为 `preview/all-publications-2026-11-06/qa/integrity.json`，问题列表为空。
+- 实际筛选函数的 **64 种组合、1,408 次逐论文判断**全部通过。浏览器实测七主题、三个状态、一作／共一筛选及三维交集；零结果、清空、刷新、前进后退和无效参数回退正常。
+- 浏览器实测 Enter / Space 操作主题按钮，以及原生下拉菜单键盘选择；清空后焦点回到 All。检查 **1280、768、390、320px** 布局，无横向溢出。18 位作者的详情在手机完整换行。
+- 浅色和暗色主题均检查，一作与合作背景、文字标签可辨；真实图保持原色。滚动全部列表确认 **22 / 22 图片成功加载**。首页三篇精选及 Plasticine 共一详情通过检查；浏览器控制台未出现 error / warn。
+- 响应式检查使用浏览器视口模拟；无脚本回退按静态 HTML 检查。未执行 Lighthouse，未声称已在实体手机上测试。
+
+完整检查与截图在仓库外 `preview/all-publications-2026-11-06/`，包括原始 Scholar 核对记录、浏览器结果及静态审查。归档与同步的逐文件结果见同目录 `archive-checks.json`。
+
+### 同步与归档
+
+发布源码仍是 `/Users/mgz/Workspace/Homepage-old/homepage-repo`。参考源码、静态镜像与两份 ZIP 在确认没有新增用户差异后同步；原 ZIP 备份保存在 `backups/2026-11-06-before-full-publications/`。源码包取当前工作区，不用旧 HEAD；依赖、构建缓存、Git 历史和临时预览不打包。
+
+上传仍按 [上传说明](UPLOAD.md)，向现有 GitHub 仓库提交源码，由既有 Actions 构建发布。源码 ZIP 与静态 ZIP 分别为仓库外的 `guozheng-homepage-source.zip`、`guozheng-homepage-upload.zip`。
+
+---
+
 ## 2026-11-05 · Blog、主题筛选与论文原图
 
 已完成本地实现、正式构建、浏览器验证与内容完整性检查。由用户自行上传，本轮未 commit、push 或发布。发布仓库仍是 `/Users/mgz/Workspace/Homepage-old/homepage-repo`，起点为 `e1f9e41`。

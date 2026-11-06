@@ -1,7 +1,10 @@
 ---
 title: "A Comprehensive Survey of Data Augmentation in Visual Reinforcement Learning"
-authors: ["Guozheng Ma", "Zhen Wang", "Zhecheng Yuan", "Xueqian Wang", "Bo Yuan", "Dacheng Tao"]
+authors: ["Guozheng Ma","Zhen Wang","Zhecheng Yuan","Xueqian Wang","Bo Yuan","Dacheng Tao"]
 authorBoldIndices: [0]
+equalContributionIndices: []
+status: "published"
+authorship: "first"
 venue: "IJCV"
 venueFull: "International Journal of Computer Vision"
 year: 2025
