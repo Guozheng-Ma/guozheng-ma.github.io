@@ -18,9 +18,8 @@ venueFull: "RoboPAD Workshop at NeurIPS"
 year: 2026
 tldr: "Behavior tokens derived from offline demonstrations guide more diverse exploration during reinforcement finetuning of vision-language-action models."
 figure: "/research/2026-extoken.webp"
-topics:
-  - "agents-robotics"
-  - "offline-online"
+areas: ["embodied-ai"]
+themes: ["rl-post-training","exploration","efficiency"]
 themeColor: "blue"
 links:
   pdf: "https://arxiv.org/pdf/2607.12931"

@@ -23,8 +23,8 @@ venueFull: "arXiv preprint"
 year: 2026
 tldr: "Coordinating representation learning, optimization stability and experience replay improves how continuous-control agents benefit from interacting algorithm components."
 figure: "/research/preprint-2026-component-synergy.webp"
-topics:
-  - "scaling-sparsity"
+areas: ["core-ml"]
+themes: ["efficiency"]
 themeColor: "purple"
 links:
   pdf: "https://arxiv.org/pdf/2608.07086"

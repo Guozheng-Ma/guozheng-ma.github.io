@@ -20,9 +20,8 @@ venueFull: "International Conference on Learning Representations"
 year: 2026
 tldr: "A systematic comparison examines how reinforcement finetuning and parameter-update choices affect the adaptation of pretrained Transformer-based agents."
 figure: "/research/iclr-2026-reinforcement-finetuning.webp"
-topics:
-  - "agents-robotics"
-  - "offline-online"
+areas: ["core-ml"]
+themes: ["rl-post-training"]
 themeColor: "blue"
 links:
   pdf: "https://proceedings.iclr.cc/paper_files/paper/2026/file/e0d802b82a7804f60c738f5c3731b3dd-Paper-Conference.pdf"

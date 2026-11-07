@@ -16,8 +16,8 @@ venueFull: "arXiv preprint"
 year: 2026
 tldr: "Explicit exploration through random seeding and splitting helps Gaussian Splatting escape optimization biases that leave reconstructions blurry."
 figure: "/research/preprint-2026-exploration-splatting.webp"
-topics:
-  - "3d-vision"
+areas: ["computer-vision"]
+themes: ["exploration"]
 themeColor: "blue"
 links:
   pdf: "https://arxiv.org/pdf/2607.17965"

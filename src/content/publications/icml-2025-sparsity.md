@@ -11,7 +11,8 @@ year: 2025
 award: "Oral · Top 1%"
 tldr: "Randomly pruning a network before training improves how deep RL scales."
 figure: "/art/sparsity.webp"
-topics: ["scaling-sparsity", "plasticity", "visual-rl"]
+areas: ["core-ml"]
+themes: ["scalable-rl","plasticity-loss"]
 thumbnail:
   src: "/research/icml-2025-sparsity.webp"
   width: 1200

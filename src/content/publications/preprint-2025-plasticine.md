@@ -26,8 +26,8 @@ venueFull: "arXiv preprint"
 year: 2025
 tldr: "A shared implementation and evaluation framework makes it easier to compare plasticity loss and mitigation methods in deep RL."
 figure: "/research/preprint-2025-plasticine.webp"
-topics:
-  - "plasticity"
+areas: ["core-ml"]
+themes: ["plasticity-loss"]
 themeColor: "teal"
 links:
   pdf: "https://arxiv.org/pdf/2504.17490"

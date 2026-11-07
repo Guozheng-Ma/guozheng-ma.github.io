@@ -10,7 +10,8 @@ venueFull: "Neural Information Processing Systems"
 year: 2023
 tldr: "Balancing visual diversity and training stability with Rand PR and CycAug."
 figure: "/art/generalization.webp"
-topics: ["visual-rl"]
+areas: ["core-ml","embodied-ai"]
+themes: ["efficiency"]
 thumbnail:
   src: "/research/neurips-2023-augmentation.webp"
   width: 1200

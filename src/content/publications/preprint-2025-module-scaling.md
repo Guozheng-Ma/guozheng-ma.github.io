@@ -18,9 +18,8 @@ venueFull: "arXiv preprint"
 year: 2025
 tldr: "Module-specific sparse training complements architectural improvements by adapting training strategies to the different roles inside deep RL networks."
 figure: "/research/preprint-2025-module-scaling.webp"
-topics:
-  - "scaling-sparsity"
-  - "plasticity"
+areas: ["core-ml"]
+themes: ["scalable-rl","plasticity-loss"]
 themeColor: "teal"
 links:
   pdf: "https://arxiv.org/pdf/2510.12096"

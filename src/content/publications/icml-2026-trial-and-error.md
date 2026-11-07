@@ -21,9 +21,8 @@ venueFull: "International Conference on Machine Learning"
 year: 2026
 tldr: "Lightweight scouts collect exploratory experience that helps language agents learn unfamiliar tasks more efficiently than language-only trial and error."
 figure: "/research/icml-2026-trial-and-error.webp"
-topics:
-  - "agents-robotics"
-  - "language-reasoning"
+areas: ["llms"]
+themes: ["rl-post-training","exploration","efficiency"]
 themeColor: "blue"
 links:
   pdf: "https://raw.githubusercontent.com/mlresearch/v306/main/assets/wang26fn/wang26fn.pdf"

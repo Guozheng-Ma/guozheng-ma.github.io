@@ -23,8 +23,8 @@ venueFull: "Models of Human Feedback for AI Alignment Workshop at ICML"
 year: 2024
 tldr: "Iterative bootstrapping uses a language model’s improving few-shot capabilities and diverse generated examples to strengthen its self-alignment."
 figure: "/research/2024-step-on-feet-tuning.webp"
-topics:
-  - "language-reasoning"
+areas: ["llms"]
+themes: []
 themeColor: "blue"
 links:
   pdf: "https://openreview.net/pdf?id=lAXNiTcMar"

@@ -19,8 +19,8 @@ venueFull: "Neural Information Processing Systems"
 year: 2026
 tldr: "A jointly trained verifier supplies stepwise language critiques that redirect reasoning trajectories and support better LLM learning."
 figure: "/research/neurips-2026-stride.webp"
-topics:
-  - "language-reasoning"
+areas: ["llms"]
+themes: ["rl-post-training"]
 themeColor: "blue"
 links:
   pdf: "https://arxiv.org/pdf/2605.18851"

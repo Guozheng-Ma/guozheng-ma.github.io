@@ -1,5 +1,13 @@
 # Guozheng Ma · Personal research journal
 
+## 2026-11-07 · Role、Area 与选择性的研究主线
+
+- 主分类拆为作者 Role、Area、Research Themes，保留发表 Status 辅助筛选。Area 为 Core ML、LLMs、Embodied AI、Computer Vision；每篇至少一个领域，必要时允许有依据的交叉领域。
+- Research Themes 仅体现用户最关心的六条主线，按用户指定名称与顺序：**RL Post-Training、Scalable RL、Plasticity Loss、Exploration、Efficiency、Generalization**。不得为覆盖全部论文额外增设主题或强行归类。`themes` 可以为空；无 Theme 的论文仍在 All 和对应 Area/Role/Status 下完整显示，不加 Uncategorized 标签。
+- 主题归属以核心贡献为依据。Scalable RL 限于 RL 的扩展，不含一般 CV 优化；RL Post-Training 需要已有模型/策略的强化适配依据；Efficiency 需明确的计算或样本效率贡献，不泛化到全部工作。
+- 筛选采用 Area × Theme × Role × Status 交集，保留每维数量、清空、空结果、键盘操作与 URL 历史；旧 `topic` 参数映射至最相关的新筛选，详情 URL 不变。
+- 全部 22 篇论文、配图、完整作者、贡献和发表状态、首页三篇精选保持。仅更新分类和浏览界面，继续本地交付，由用户上传。
+
 ## 2026-11-06 · 完整论文集与作者贡献
 
 - 用户已授权将 Google Scholar 当前全部 22 篇独立研究收录，不能只保留第一作者论文；同一研究的预印本、正式版与改题版本合并为一个条目。正式会议／期刊记录优先于 Scholar 沿用的预印日期和旧作者名单，保留核对依据。
@@ -11,7 +19,7 @@
 - 新研究尽可能提供真实论文图，无法可靠取得时使用完整文本布局，不以生成插画冒充论文图。现有 6 篇 URL 和首页 3 篇精选保持稳定。
 - 本轮继续只完成本地工作、验证、同步和归档，由用户上传，不自动 commit、push 或发布。
 
-本文件是当前设计与实施规范，更新于 2026-11-06。用户已授权本轮完整重设计；旧文档中的 24px 标题上限、serif 必须斜体、分阶段等待审批及自动提交约定已被本轮要求覆盖。[早期架构](docs/01-architecture.md)与[早期实施指南](docs/02-implementation-guide.md)仅作历史参考。最新用户指令优先。
+本文件是当前设计与实施规范，更新于 2026-11-07。用户已授权本轮完整重设计；旧文档中的 24px 标题上限、serif 必须斜体、分阶段等待审批及自动提交约定已被本轮要求覆盖。[早期架构](docs/01-architecture.md)与[早期实施指南](docs/02-implementation-guide.md)仅作历史参考。最新用户指令优先。
 
 ## 2026-11-05 本轮更新
 

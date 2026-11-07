@@ -20,8 +20,8 @@ venueFull: "International Conference on Learning Representations"
 year: 2026
 tldr: "Providing reward rules directly in the prompt helps large reasoning models use reinforcement finetuning more efficiently."
 figure: "/research/iclr-2026-motivation.webp"
-topics:
-  - "language-reasoning"
+areas: ["llms"]
+themes: ["rl-post-training","efficiency"]
 themeColor: "blue"
 links:
   pdf: "https://proceedings.iclr.cc/paper_files/paper/2026/file/4947292b9f5e7d4ab792fa35537f8b96-Paper-Conference.pdf"

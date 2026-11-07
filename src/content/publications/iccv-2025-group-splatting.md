@@ -15,9 +15,8 @@ venueFull: "IEEE/CVF International Conference on Computer Vision"
 year: 2025
 tldr: "Periodically training selected groups of Gaussian primitives improves the efficiency and rendering quality of 3D scene reconstruction."
 figure: "/research/iccv-2025-group-splatting.webp"
-topics:
-  - "3d-vision"
-  - "scaling-sparsity"
+areas: ["computer-vision"]
+themes: ["efficiency"]
 themeColor: "purple"
 links:
   pdf: "https://openaccess.thecvf.com/content/ICCV2025/papers/Wang_Faster_and_Better_3D_Splatting_via_Group_Training_ICCV_2025_paper.pdf"

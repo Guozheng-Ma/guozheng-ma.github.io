@@ -21,8 +21,8 @@ year: 2024
 award: "Oral"
 tldr: "Combining CrossNorm and SelfNorm improves the ability of visual RL policies to generalize under changed visual observations."
 figure: "/research/aamas-2024-normalization.webp"
-topics:
-  - "visual-rl"
+areas: ["core-ml","embodied-ai"]
+themes: ["generalization"]
 themeColor: "blue"
 links:
   pdf: "https://ifaamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p1137.pdf"

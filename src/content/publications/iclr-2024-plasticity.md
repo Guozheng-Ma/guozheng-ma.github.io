@@ -10,7 +10,8 @@ venueFull: "International Conference on Learning Representations"
 year: 2024
 tldr: "Understanding when and where visual RL loses its ability to keep learning."
 figure: "/art/plasticity.webp"
-topics: ["plasticity", "visual-rl"]
+areas: ["core-ml","embodied-ai"]
+themes: ["plasticity-loss"]
 thumbnail:
   src: "/research/iclr-2024-plasticity.webp"
   width: 1200

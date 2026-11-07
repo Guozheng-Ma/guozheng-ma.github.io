@@ -35,9 +35,8 @@ venueFull: "International Conference on Machine Learning"
 year: 2026
 tldr: "A benchmark for sustained exploration, reasoning, memory and tool use over long trajectories in partially observable environments."
 figure: "/research/icml-2026-ultrahorizon.webp"
-topics:
-  - "agents-robotics"
-  - "language-reasoning"
+areas: ["llms"]
+themes: ["exploration"]
 themeColor: "blue"
 links:
   pdf: "https://raw.githubusercontent.com/mlresearch/v306/main/assets/luo26ai/luo26ai.pdf"

@@ -26,8 +26,8 @@ venueFull: "Transactions on Machine Learning Research"
 year: 2025
 tldr: "Using reward models to measure how everyday word-level changes affect the quality of generated language-model responses."
 figure: "/research/tmlr-2025-word-perturbations.webp"
-topics:
-  - "language-reasoning"
+areas: ["llms"]
+themes: []
 themeColor: "blue"
 links:
   pdf: "https://openreview.net/pdf?id=rWSiBknwQa"

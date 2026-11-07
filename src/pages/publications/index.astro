@@ -4,45 +4,77 @@ import Layout from '../../layouts/Layout.astro';
 import PublicationCard from '../../components/PublicationCard.astro';
 import ContinuationArrow from '../../components/ContinuationArrow.astro';
 import { profile } from '../../data/profile';
-import { publicationTopics } from '../../data/publication-topics';
+import { publicationAreas, publicationThemes } from '../../data/publication-topics';
 import { publicationStatuses, publicationStatusLabels } from '../../lib/publication-presentation';
 const pubs = (await getCollection('publications')).sort((a,b) => b.data.year - a.data.year || (a.data.featuredOrder ?? 99) - (b.data.featuredOrder ?? 99));
-const filters = [
+const areaFilters = [
   { id: 'all', label: 'All', count: pubs.length },
-  ...publicationTopics.map((topic) => ({ ...topic, count: pubs.filter((pub) => pub.data.topics.includes(topic.id)).length })),
-].filter((filter) => filter.id === 'all' || filter.count > 0);
+  ...publicationAreas.map((area) => ({ ...area, count: pubs.filter((pub) => pub.data.areas.includes(area.id)).length })),
+];
+const themeFilters = [
+  { id: 'all', label: 'All', count: pubs.length },
+  ...publicationThemes.map((theme) => ({ ...theme, count: pubs.filter((pub) => pub.data.themes.includes(theme.id)).length })),
+];
 const statusFilters = [
   { id: 'all', label: 'All', count: pubs.length },
   ...publicationStatuses.map((status) => ({ id: status, label: publicationStatusLabels[status], count: pubs.filter((pub) => pub.data.status === status).length })),
 ];
 const leadCount = pubs.filter((pub) => pub.data.authorship !== 'coauthor').length;
 ---
-<Layout title="Publications — Guozheng Ma" description="Publications and preprints by Guozheng Ma. Browse by research topic, publication status, and author contribution.">
+<Layout title="Publications — Guozheng Ma" description="Publications and preprints by Guozheng Ma. Browse by author role, research area, research theme, and publication status.">
   <main id="main-content" class="site-width publications-page">
     <div class="page-intro publication-page-intro">
       <h1>Publications</h1>
       <a href={profile.scholar} class="continuation-link scholar-record"><span>Full record on Google Scholar</span><ContinuationArrow /></a>
     </div>
     <div class="publication-filter-panel" data-publication-filters hidden>
-      <div class="publication-filters" role="group" aria-label="Filter publications by research topic">
-        {filters.map((filter) => (
-          <button type="button" class="topic-filter" data-topic-filter={filter.id} data-topic-label={filter.label} aria-pressed={filter.id === 'all' ? 'true' : 'false'} aria-controls="publication-results">
-            <span>{filter.label}</span><span class="topic-count" data-filter-count aria-hidden="true">{filter.count}</span>
-          </button>
-        ))}
+      <fieldset class="publication-filter-dimension">
+        <legend>Area</legend>
+        <div class="publication-filters">
+          {areaFilters.map((filter) => (
+            <button type="button" class="publication-filter" data-area-filter={filter.id} data-filter-label={filter.label} aria-pressed={filter.id === 'all' ? 'true' : 'false'} aria-controls="publication-results">
+              <span>{filter.label}</span><span class="filter-count" data-filter-count aria-hidden="true">{filter.count}</span>
+            </button>
+          ))}
+        </div>
+      </fieldset>
+      <fieldset class="publication-filter-dimension">
+        <legend>Research Themes</legend>
+        <div class="publication-filters">
+          {themeFilters.map((filter) => (
+            <button type="button" class="publication-filter" data-theme-filter={filter.id} data-filter-label={filter.label} aria-pressed={filter.id === 'all' ? 'true' : 'false'} aria-controls="publication-results">
+              <span>{filter.label}</span><span class="filter-count" data-filter-count aria-hidden="true">{filter.count}</span>
+            </button>
+          ))}
+        </div>
+      </fieldset>
+      <div class="publication-mobile-filters">
+        <label class="publication-filter-field" for="publication-area-mobile">
+          <span>Area</span>
+          <select id="publication-area-mobile" name="area" data-area-select aria-controls="publication-results">
+            {areaFilters.map((filter) => <option value={filter.id} data-option-label={filter.label}>{filter.label} · {filter.count}</option>)}
+          </select>
+        </label>
+        <label class="publication-filter-field" for="publication-theme-mobile">
+          <span>Theme</span>
+          <select id="publication-theme-mobile" name="theme" data-theme-select aria-label="Research Theme" aria-controls="publication-results">
+            {themeFilters.map((filter) => <option value={filter.id} data-option-label={filter.label}>{filter.label} · {filter.count}</option>)}
+          </select>
+        </label>
       </div>
       <div class="publication-secondary-filters">
+        <label class="publication-filter-field" for="publication-role">
+          <span>Role</span>
+          <select id="publication-role" name="role" data-role-filter aria-controls="publication-results">
+            <option value="all" data-option-label="All">All · {pubs.length}</option>
+            <option value="lead" data-option-label="First & co-first">First &amp; co-first · {leadCount}</option>
+            <option value="coauthor" data-option-label="Co-author">Co-author · {pubs.length - leadCount}</option>
+          </select>
+        </label>
         <label class="publication-filter-field" for="publication-status">
           <span>Status</span>
           <select id="publication-status" name="status" data-status-filter aria-controls="publication-results">
             {statusFilters.map((filter) => <option value={filter.id} data-option-label={filter.label}>{filter.label} · {filter.count}</option>)}
-          </select>
-        </label>
-        <label class="publication-filter-field" for="publication-contribution">
-          <span>Contribution</span>
-          <select id="publication-contribution" name="role" data-role-filter aria-controls="publication-results">
-            <option value="all" data-option-label="All">All · {pubs.length}</option>
-            <option value="lead" data-option-label="First & co-first">First &amp; co-first · {leadCount}</option>
           </select>
         </label>
       </div>
@@ -54,7 +86,7 @@ const leadCount = pubs.filter((pub) => pub.data.authorship !== 'coauthor').lengt
     <div id="publication-results" class="publications-list">{pubs.map(pub => <PublicationCard pub={pub} headingLevel="h2" />)}</div>
     <section class="publication-empty" data-publication-empty hidden aria-labelledby="publication-empty-title">
       <h2 id="publication-empty-title">No matching publications</h2>
-      <p>Try a different topic, status, or contribution.</p>
+      <p>Try a different area, theme, role, or status.</p>
       <button type="button" class="publication-clear" data-clear-filters>Clear filters</button>
     </section>
   </main>
@@ -65,16 +97,20 @@ const leadCount = pubs.filter((pub) => pub.data.authorship !== 'coauthor').lengt
   .scholar-record { font-size: 16px; }
   .publication-filter-panel { margin: -8px 0 28px; }
   .publication-filter-panel[hidden], .publication-empty[hidden] { display: none !important; }
-  .publication-filters { display: flex; flex-wrap: wrap; gap: 10px; }
-  .topic-filter { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; padding: 9px 17px; border: 1px solid transparent; border-radius: 999px; background: var(--color-bg-primary); color: var(--color-text-secondary); font: 500 16px / 1.4 var(--font-sans); cursor: pointer; }
-  .topic-filter:hover { color: var(--color-text-primary); background: var(--color-bg-secondary); }
-  .topic-filter[aria-pressed='true'] { color: var(--color-bg-tertiary); background: var(--color-text-primary); }
-  .topic-filter:focus-visible { outline-offset: 4px; }
-  .topic-count { opacity: .75; font-size: 14px; font-variant-numeric: tabular-nums; }
+  .publication-filter-dimension { min-width: 0; margin: 0; padding: 0; border: 0; }
+  .publication-filter-dimension + .publication-filter-dimension { margin-top: 18px; }
+  .publication-filter-dimension legend { padding: 0; margin-bottom: 8px; color: var(--color-text-secondary); font: 500 14px / 1.5 var(--font-sans); }
+  .publication-filters { display: flex; flex-wrap: wrap; gap: 8px 10px; }
+  .publication-filter { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; padding: 9px 17px; border: 1px solid transparent; border-radius: 999px; background: var(--color-bg-primary); color: var(--color-text-secondary); font: 500 16px / 1.4 var(--font-sans); cursor: pointer; }
+  .publication-filter:hover { color: var(--color-text-primary); background: var(--color-bg-secondary); }
+  .publication-filter[aria-pressed='true'] { color: var(--color-bg-tertiary); background: var(--color-text-primary); }
+  .publication-filter:focus-visible { outline-offset: 4px; }
+  .filter-count { opacity: .75; font-size: 14px; font-variant-numeric: tabular-nums; }
+  .publication-mobile-filters { display: none; }
   .publication-secondary-filters { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 20px; }
   .publication-filter-field { display: flex; align-items: center; gap: 10px; color: var(--color-text-secondary); font-size: 14px; }
   .publication-filter-field select { min-width: 164px; min-height: 44px; padding: 8px 12px; border: 1px solid var(--color-border-tertiary); border-radius: 10px; background: var(--color-bg-tertiary); color: var(--color-text-primary); font: 400 16px / 1.4 var(--font-sans); cursor: pointer; }
-  .publication-filter-field:last-child select { min-width: 190px; }
+  .publication-filter-field:first-child select { min-width: 190px; }
   .publication-filter-field select:hover { border-color: var(--color-border-secondary); }
   .publication-filter-summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 10px; }
   .publication-result-count { color: var(--color-text-secondary); font-size: 15px; line-height: 1.5; }
@@ -89,28 +125,27 @@ const leadCount = pubs.filter((pub) => pub.data.authorship !== 'coauthor').lengt
     .publication-page-intro { gap: 4px; }
     .scholar-record { font-size: 15px; }
     .publication-filter-panel { margin-top: -4px; margin-bottom: 24px; }
-    .publication-filters { gap: 8px; }
-    .topic-filter { gap: 8px; padding-inline: 14px; font-size: 15px; }
-    .publication-secondary-filters { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 12px; margin-top: 18px; }
-    .publication-filter-field { display: grid; gap: 6px; min-width: 0; }
-    .publication-filter-field select, .publication-filter-field:last-child select { min-width: 0; width: 100%; padding-inline: 8px; }
+    .publication-filter-dimension { display: none; }
+    .publication-mobile-filters, .publication-secondary-filters { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+    .publication-secondary-filters { margin-top: 8px; }
+    .publication-filter-field { display: grid; grid-template-columns: 54px minmax(0, 1fr); align-items: center; gap: 10px; min-width: 0; }
+    .publication-filter-field select, .publication-filter-field:first-child select { min-width: 0; width: 100%; padding-inline: 8px; }
     .publication-filter-summary { margin-top: 6px; }
     .publication-result-count { font-size: 14px; }
     .publication-empty { padding: 32px 20px; }
     .publication-empty h2 { font-size: 25px; }
   }
-  @media (max-width: 380px) {
-    .publication-secondary-filters { grid-template-columns: minmax(0, 1fr); gap: 8px; }
-    .publication-filter-field { grid-template-columns: 84px minmax(0, 1fr); align-items: center; gap: 10px; }
-  }
 </style>
 
 <script>
-  import { matchesPublication, type FilterablePublication, type PublicationFilters } from '../../lib/publication-filtering';
-  import { publicationStatuses, type PublicationStatus, type PublicationAuthorship } from '../../lib/publication-presentation';
+  import { defaultPublicationFilters, matchesPublication, publicationFiltersFromParams, type FilterablePublication, type PublicationFilters } from '../../lib/publication-filtering';
+  import type { PublicationStatus, PublicationAuthorship } from '../../lib/publication-presentation';
 
   const filterPanel = document.querySelector<HTMLElement>('[data-publication-filters]');
-  const controls = [...document.querySelectorAll<HTMLButtonElement>('[data-topic-filter]')];
+  const areaControls = [...document.querySelectorAll<HTMLButtonElement>('[data-area-filter]')];
+  const themeControls = [...document.querySelectorAll<HTMLButtonElement>('[data-theme-filter]')];
+  const areaSelect = document.querySelector<HTMLSelectElement>('[data-area-select]');
+  const themeSelect = document.querySelector<HTMLSelectElement>('[data-theme-select]');
   const cards = [...document.querySelectorAll<HTMLElement>('[data-publication-card]')];
   const statusSelect = document.querySelector<HTMLSelectElement>('[data-status-filter]');
   const roleSelect = document.querySelector<HTMLSelectElement>('[data-role-filter]');
@@ -118,29 +153,28 @@ const leadCount = pubs.filter((pub) => pub.data.authorship !== 'coauthor').lengt
   const emptyState = document.querySelector<HTMLElement>('[data-publication-empty]');
   const clearButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-clear-filters]')];
 
-  if (filterPanel && controls.length && statusSelect && roleSelect && resultCount && emptyState) {
-    const knownTopics = new Set(controls.map((control) => control.dataset.topicFilter));
-    const knownStatuses = new Set<string>(['all', ...publicationStatuses]);
+  if (filterPanel && areaControls.length && themeControls.length && areaSelect && themeSelect && statusSelect && roleSelect && resultCount && emptyState) {
     const records: Array<FilterablePublication & { element: HTMLElement }> = cards.map((element) => ({
       element,
-      topics: element.dataset.topics?.split(' ') ?? [],
+      areas: element.dataset.areas?.split(' ').filter(Boolean) ?? [],
+      themes: element.dataset.themes?.split(' ').filter(Boolean) ?? [],
       status: element.dataset.status as PublicationStatus,
       authorship: element.dataset.authorship as PublicationAuthorship,
     }));
-    let current: PublicationFilters = { topic: 'all', status: 'all', role: 'all' };
-
-    const filtersFromUrl = (): PublicationFilters => {
-      const params = new URL(window.location.href).searchParams;
-      const topic = params.get('topic') ?? 'all';
-      const status = params.get('status') ?? 'all';
-      return {
-        topic: knownTopics.has(topic) ? topic : 'all',
-        status: knownStatuses.has(status) ? status as PublicationFilters['status'] : 'all',
-        role: params.get('role') === 'lead' ? 'lead' : 'all',
-      };
-    };
-
+    let current: PublicationFilters = { ...defaultPublicationFilters };
+    const filtersFromUrl = () => publicationFiltersFromParams(new URL(window.location.href).searchParams);
     const countMatching = (filters: PublicationFilters) => records.filter((record) => matchesPublication(record, filters)).length;
+
+    const updateButtons = (controls: HTMLButtonElement[], dimension: 'area' | 'theme') => {
+      controls.forEach((control) => {
+        const value = (dimension === 'area' ? control.dataset.areaFilter : control.dataset.themeFilter) ?? 'all';
+        const count = countMatching({ ...current, [dimension]: value });
+        control.setAttribute('aria-pressed', String(value === current[dimension]));
+        control.setAttribute('aria-label', `${control.dataset.filterLabel}, ${count} ${count === 1 ? 'publication' : 'publications'}`);
+        const counter = control.querySelector<HTMLElement>('[data-filter-count]');
+        if (counter) counter.textContent = String(count);
+      });
+    };
 
     const applyFilters = (next: PublicationFilters, updateUrl = false) => {
       current = { ...next };
@@ -151,15 +185,19 @@ const leadCount = pubs.filter((pub) => pub.data.authorship !== 'coauthor').lengt
         if (visible) visibleCount += 1;
       });
 
-      // Each facet counts matches for the other two selections, so its options remain meaningful.
-      controls.forEach((control) => {
-        const topic = control.dataset.topicFilter ?? 'all';
-        const count = countMatching({ ...current, topic });
-        control.setAttribute('aria-pressed', String(topic === current.topic));
-        control.setAttribute('aria-label', `${control.dataset.topicLabel}, ${count} ${count === 1 ? 'publication' : 'publications'}`);
-        const counter = control.querySelector<HTMLElement>('[data-filter-count]');
-        if (counter) counter.textContent = String(count);
+      // Facet counts apply the other three selections; All also includes papers with no theme.
+      updateButtons(areaControls, 'area');
+      updateButtons(themeControls, 'theme');
+      Array.from(areaSelect.options).forEach((option) => {
+        const count = countMatching({ ...current, area: option.value });
+        option.textContent = `${option.dataset.optionLabel} · ${count}`;
       });
+      Array.from(themeSelect.options).forEach((option) => {
+        const count = countMatching({ ...current, theme: option.value });
+        option.textContent = `${option.dataset.optionLabel} · ${count}`;
+      });
+      areaSelect.value = current.area;
+      themeSelect.value = current.theme;
       Array.from(statusSelect.options).forEach((option) => {
         const count = countMatching({ ...current, status: option.value as PublicationFilters['status'] });
         option.textContent = `${option.dataset.optionLabel} · ${count}`;
@@ -171,7 +209,7 @@ const leadCount = pubs.filter((pub) => pub.data.authorship !== 'coauthor').lengt
       statusSelect.value = current.status;
       roleSelect.value = current.role;
 
-      const hasSelection = current.topic !== 'all' || current.status !== 'all' || current.role !== 'all';
+      const hasSelection = Object.values(current).some((value) => value !== 'all');
       resultCount.textContent = hasSelection
         ? `${visibleCount} of ${records.length} publications`
         : `${visibleCount} ${visibleCount === 1 ? 'publication' : 'publications'}`;
@@ -180,7 +218,8 @@ const leadCount = pubs.filter((pub) => pub.data.authorship !== 'coauthor').lengt
 
       if (updateUrl) {
         const url = new URL(window.location.href);
-        (['topic', 'status', 'role'] as const).forEach((key) => {
+        url.searchParams.delete('topic');
+        (['area', 'theme', 'status', 'role'] as const).forEach((key) => {
           if (current[key] === 'all') url.searchParams.delete(key);
           else url.searchParams.set(key, current[key]);
         });
@@ -192,15 +231,20 @@ const leadCount = pubs.filter((pub) => pub.data.authorship !== 'coauthor').lengt
       }
     };
 
-    controls.forEach((control) => control.addEventListener('click', () => {
-      const topic = control.dataset.topicFilter ?? 'all';
-      if (topic !== current.topic) applyFilters({ ...current, topic }, true);
+    areaControls.forEach((control) => control.addEventListener('click', () => {
+      applyFilters({ ...current, area: control.dataset.areaFilter ?? 'all' }, true);
     }));
+    themeControls.forEach((control) => control.addEventListener('click', () => {
+      applyFilters({ ...current, theme: control.dataset.themeFilter ?? 'all' }, true);
+    }));
+    areaSelect.addEventListener('change', () => applyFilters({ ...current, area: areaSelect.value }, true));
+    themeSelect.addEventListener('change', () => applyFilters({ ...current, theme: themeSelect.value }, true));
     statusSelect.addEventListener('change', () => applyFilters({ ...current, status: statusSelect.value as PublicationFilters['status'] }, true));
     roleSelect.addEventListener('change', () => applyFilters({ ...current, role: roleSelect.value as PublicationFilters['role'] }, true));
     clearButtons.forEach((button) => button.addEventListener('click', () => {
-      applyFilters({ topic: 'all', status: 'all', role: 'all' }, true);
-      controls[0]?.focus();
+      applyFilters({ ...defaultPublicationFilters }, true);
+      if (areaSelect.getClientRects().length > 0) areaSelect.focus();
+      else areaControls[0]?.focus();
     }));
     window.addEventListener('popstate', () => applyFilters(filtersFromUrl()));
     applyFilters(filtersFromUrl());

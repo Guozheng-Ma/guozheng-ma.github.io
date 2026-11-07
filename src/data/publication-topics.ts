@@ -1,18 +1,25 @@
-export const publicationTopicIds = ['offline-online', 'scaling-sparsity', 'plasticity', 'visual-rl', 'language-reasoning', 'agents-robotics', '3d-vision'] as const;
+// Areas cover the full catalogue; themes are a selective view of research interests.
+export const publicationAreaIds = ['core-ml', 'llms', 'embodied-ai', 'computer-vision'] as const;
+export const publicationThemeIds = ['rl-post-training', 'scalable-rl', 'plasticity-loss', 'exploration', 'efficiency', 'generalization'] as const;
 
-export type PublicationTopicId = typeof publicationTopicIds[number];
+export type PublicationAreaId = typeof publicationAreaIds[number];
+export type PublicationThemeId = typeof publicationThemeIds[number];
 
-export const publicationTopicLabels: Record<PublicationTopicId, string> = {
-  'offline-online': 'Offline–online RL',
-  'scaling-sparsity': 'Scaling & optimization',
-  plasticity: 'Plasticity',
-  'visual-rl': 'Visual RL',
-  'language-reasoning': 'Language & reasoning',
-  'agents-robotics': 'Agents & robotics',
-  '3d-vision': '3D vision',
+export const publicationAreaLabels: Record<PublicationAreaId, string> = {
+  'core-ml': 'Core ML',
+  llms: 'LLMs',
+  'embodied-ai': 'Embodied AI',
+  'computer-vision': 'Computer Vision',
 };
 
-export const publicationTopics = publicationTopicIds.map((id) => ({
-  id,
-  label: publicationTopicLabels[id],
-}));
+export const publicationThemeLabels: Record<PublicationThemeId, string> = {
+  'rl-post-training': 'RL Post-Training',
+  'scalable-rl': 'Scalable RL',
+  'plasticity-loss': 'Plasticity Loss',
+  exploration: 'Exploration',
+  efficiency: 'Efficiency',
+  generalization: 'Generalization',
+};
+
+export const publicationAreas = publicationAreaIds.map((id) => ({ id, label: publicationAreaLabels[id] }));
+export const publicationThemes = publicationThemeIds.map((id) => ({ id, label: publicationThemeLabels[id] }));

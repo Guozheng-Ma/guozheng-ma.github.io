@@ -19,11 +19,11 @@ Guozheng Ma 的个人思想与研究杂志。首页先呈现两段个人介绍�
 发布仓库：[Guozheng-Ma/guozheng-ma.github.io](https://github.com/Guozheng-Ma/guozheng-ma.github.io)
 
 
-## 2026-11-06 · 完整论文集与作者贡献
+## 2026-11-07 · 三维分类与六条研究主线
 
 Publications 已覆盖 Google Scholar 核对当日的 **22 篇独立研究**：15 篇已发表、3 篇已录用、4 篇预印本。预印本与正式版、改题版本合并收录，workshop 单独注明；核对说明及待确认贡献记录见 [论文集来源](docs/publication-catalogue.md)。
 
-七个主题为 **Offline–online RL、Scaling & optimization、Plasticity、Visual RL、Language & reasoning、Agents & robotics、3D vision**。主题标签、发表状态、First & co-first 贡献条件可组合筛选，显示匹配数量，支持分享链接、刷新、前进后退、清空及无结果提示；无脚本时显示全部论文。
+主分类分为 **Role、Area、Research Themes**。Area 覆盖 Core ML、LLMs、Embodied AI、Computer Vision；Research Themes 只展示六条个人研究主线：**RL Post-Training、Scalable RL、Plasticity Loss、Exploration、Efficiency、Generalization**，允许论文不属于任何一条主线。Role 提供 All、First & co-first、Co-author，Status 保留为辅助筛选。各维度取交集，显示匹配数量，支持分享链接、刷新、前进后退、清空及无结果提示；无脚本时显示全部 22 篇论文。
 
 已核实的 **5 篇第一作者与 4 篇共同第一作者**使用低饱和蓝色背景、侧边细线及明确文字标签；本人姓名始终加粗。完整作者顺序和等贡献标记保留，真实荣誉仍单独使用琥珀色。首页保持原三篇精选与机制示意图。
 
@@ -31,13 +31,13 @@ Publications 已覆盖 Google Scholar 核对当日的 **22 篇独立研究**：1
 
 Blog / Post 命名沿用上一轮：导航、首页栏目和文章列表使用 **Blog**，入口为 **All Posts / Read Post**；既有 `/notes/` 路径与正文保持有效。每篇文章的分享图对应自己的主题。
 
-主题定义在 `src/data/publication-topics.ts`；论文在 Markdown frontmatter 中维护 `status`、`authorship`、`equalContributionIndices`、`topics` 和 `thumbnail`。这是一份经核对的静态论文集，不实时抓取 Scholar；新增或发表时更新原条目及来源记录，避免重复收录。
+领域与主题定义在 `src/data/publication-topics.ts`；论文在 Markdown frontmatter 中维护 `status`、`authorship`、`equalContributionIndices`、`areas`、`themes` 和 `thumbnail`。这是一份经核对的静态论文集，不实时抓取 Scholar；新增或发表时更新原条目及来源记录，避免重复收录。
 
 ## 维护与上传
 
 主要工作目录：`/Users/mgz/Workspace/Homepage-old/homepage-repo`。日常修改使用这份 Git 仓库；`/Users/mgz/Workspace/Homepage/guozheng-site` 是参考源码副本。
 
-当前规范见 [AGENTS.md](AGENTS.md)，本轮完整论文集、贡献标记与真实论文图的验证状态见 [交付记录](docs/DELIVERY.md)。本轮先在本地完成与预览，不自动提交或推送。需要发布时按 [上传说明](docs/UPLOAD.md)操作，现有 GitHub Actions 会构建并发布 `main` 分支。
+当前规范见 [AGENTS.md](AGENTS.md)，本轮分类、筛选与内容保留的验证状态见 [交付记录](docs/DELIVERY.md)。本轮先在本地完成与预览，不自动提交或推送。需要发布时按 [上传说明](docs/UPLOAD.md)操作，现有 GitHub Actions 会构建并发布 `main` 分支。
 
 ## 内容位置
 

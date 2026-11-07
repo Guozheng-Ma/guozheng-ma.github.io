@@ -11,7 +11,8 @@ year: 2026
 award: "Spotlight · Top 2.2%"
 tldr: "Helping residual RL critics learn from a pretrained policy and recognize small action corrections."
 figure: "/art/plasticity.webp"
-topics: ["offline-online"]
+areas: ["embodied-ai","core-ml"]
+themes: ["rl-post-training","efficiency"]
 thumbnail:
   src: "/research/icml-2026-residual.webp"
   width: 1200

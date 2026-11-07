@@ -19,8 +19,8 @@ venueFull: "International Joint Conference on Artificial Intelligence"
 year: 2022
 tldr: "Task-aware augmentation protects important pixels while diversifying observations to improve both sample efficiency and visual RL generalization."
 figure: "/research/ijcai-2022-tlda.webp"
-topics:
-  - "visual-rl"
+areas: ["core-ml","embodied-ai"]
+themes: ["efficiency","generalization"]
 themeColor: "blue"
 links:
   pdf: "https://www.ijcai.org/proceedings/2022/0514.pdf"

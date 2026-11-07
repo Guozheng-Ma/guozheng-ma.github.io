@@ -4,7 +4,7 @@ import ResearchThumbnail from './ResearchThumbnail.astro';
 import PublicationMeta from './PublicationMeta.astro';
 import PublicationResourceIcon from './PublicationResourceIcon.astro';
 import PublicationFigure from './PublicationFigure.astro';
-import { publicationTopicLabels } from '../data/publication-topics';
+import { publicationAreaLabels, publicationThemeLabels } from '../data/publication-topics';
 import { publicationAuthors } from '../lib/publication-presentation';
 interface Props { pub: CollectionEntry<'publications'>; compact?: boolean; headingLevel?: 'h2' | 'h3'; }
 const { pub, compact = false, headingLevel: Heading = 'h3' } = Astro.props;
@@ -17,7 +17,8 @@ const hasThumbnail = compact && ['neurips-2026-offline-priors', 'icml-2026-resid
 <article
   class:list={['publication-card', { 'publication-compact': compact, 'publication-illustrated': hasThumbnail, 'publication-index-card': !compact, 'publication-without-figure': !compact && !d.thumbnail, 'publication-lead': !compact && d.authorship !== 'coauthor' }]}
   data-publication-card={!compact ? '' : undefined}
-  data-topics={!compact ? d.topics.join(' ') : undefined}
+  data-areas={!compact ? d.areas.join(' ') : undefined}
+  data-themes={!compact ? d.themes.join(' ') : undefined}
   data-status={!compact ? d.status : undefined}
   data-authorship={!compact ? d.authorship : undefined}
 >
@@ -31,7 +32,16 @@ const hasThumbnail = compact && ['neurips-2026-offline-priors', 'icml-2026-resid
     </p>
     {!compact && d.thumbnail && <div class="publication-figure-column"><PublicationFigure thumbnail={d.thumbnail} title={d.title} /></div>}
     {!compact && <p class="publication-summary">{d.tldr}</p>}
-    {!compact && <ul class="publication-topics" aria-label="Research topics">{d.topics.map((topic) => <li>{publicationTopicLabels[topic]}</li>)}</ul>}
+    {!compact && <dl class="publication-classification">
+      <div class="publication-classification-group">
+        <dt>Area</dt>
+        <dd><ul>{d.areas.map((area) => <li>{publicationAreaLabels[area]}</li>)}</ul></dd>
+      </div>
+      {d.themes.length > 0 && <div class="publication-classification-group">
+        <dt>Themes</dt>
+        <dd><ul>{d.themes.map((theme) => <li>{publicationThemeLabels[theme]}</li>)}</ul></dd>
+      </div>}
+    </dl>}
     <div class="publication-links">
       {d.links.pdf && <a href={d.links.pdf}><PublicationResourceIcon name="paper" />Paper</a>}
       {d.links.code && <a href={d.links.code}><PublicationResourceIcon name="code" />Code</a>}
@@ -54,14 +64,18 @@ const hasThumbnail = compact && ['neurips-2026-offline-priors', 'icml-2026-resid
   .publication-index-card .publication-authors { grid-row: 3; }
   .publication-index-card .publication-figure-column { grid-column: 1; grid-row: 1 / span 6; align-self: center; }
   .publication-index-card .publication-summary { grid-row: 4; }
-  .publication-index-card .publication-topics { grid-row: 5; }
+  .publication-index-card .publication-classification { grid-row: 5; }
   .publication-index-card .publication-links { grid-row: 6; }
   .publication-index-card.publication-without-figure { grid-template-columns: minmax(0, 1fr); }
   .publication-index-card.publication-without-figure .publication-copy > :global(*) { grid-column: 1; }
   .publication-figure-column { min-width: 0; }
   .publication-equal-contribution { display: block; margin-top: 3px; font-size: 14px; line-height: 1.5; color: var(--color-text-tertiary); }
-  .publication-topics { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 14px; padding: 0; list-style: none; color: var(--color-text-tertiary); font-size: 14px; line-height: 1.5; }
-  .publication-topics li + li::before { content: '·'; margin-right: 14px; }
+  .publication-classification { display: grid; gap: 3px; margin-top: 14px; color: var(--color-text-tertiary); font-size: 14px; line-height: 1.5; }
+  .publication-classification-group { display: flex; align-items: baseline; gap: 10px; }
+  .publication-classification dt { flex: 0 0 46px; font-weight: 500; }
+  .publication-classification dd { min-width: 0; margin: 0; }
+  .publication-classification ul { display: flex; flex-wrap: wrap; gap: 3px 12px; padding: 0; list-style: none; }
+  .publication-classification li + li::before { content: '·'; margin-right: 12px; }
   @media (max-width: 960px) {
     .publication-index-card { grid-template-columns: 220px minmax(0, 1fr); column-gap: 24px; padding: 24px; }
   }
@@ -73,7 +87,7 @@ const hasThumbnail = compact && ['neurips-2026-offline-priors', 'icml-2026-resid
     .publication-index-card .publication-authors { grid-row: 3; margin-top: 12px; }
     .publication-index-card .publication-figure-column { grid-row: 4; margin-top: 20px; }
     .publication-index-card .publication-summary { grid-row: 5; margin-top: 12px; }
-    .publication-index-card .publication-topics { grid-row: 6; margin-top: 12px; }
+    .publication-index-card .publication-classification { grid-row: 6; margin-top: 12px; }
     .publication-index-card .publication-links { grid-row: 7; margin-top: 8px; }
   }
   @media (max-width: 380px) {

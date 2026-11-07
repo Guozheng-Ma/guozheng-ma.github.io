@@ -27,8 +27,25 @@
 
 ## 后续更新方法
 
-论文保存在 `src/content/publications/`。新增一篇时填写完整作者、`status`、`authorship`、`equalContributionIndices`、`topics`、资源地址与真实论文配图；同步添加 `public/bibtex/` 的引用。状态变化时更新现有条目，不新建一个重复版本。已有详情 URL 中即使包含 `preprint`，发表后也可继续保留，以免外部链接失效。
+论文保存在 `src/content/publications/`。新增一篇时填写完整作者、`status`、`authorship`、`equalContributionIndices`、`areas`、`themes`、资源地址与真实论文配图；同步添加 `public/bibtex/` 的引用。状态变化时更新现有条目，不新建一个重复版本。已有详情 URL 中即使包含 `preprint`，发表后也可继续保留，以免外部链接失效。
 
-主题定义在 `src/data/publication-topics.ts`，共有七类。`scaling-sparsity` 参数保持不变，显示为 Scaling & optimization。筛选采用主题 × 状态 × 贡献的交集；`?topic=plasticity&status=preprint&role=lead` 是一个可分享的组合例子。每个筛选项的数字根据另外两项条件更新，因此其含义是当前条件下可选的匹配数。
+分类更新于 **2026-11-07**，领域与研究主线定义在 `src/data/publication-topics.ts`。Area 为 Core ML、LLMs、Embodied AI、Computer Vision，每篇至少一个。Research Themes 只保留用户指定的六条重点：RL Post-Training、Scalable RL、Plasticity Loss、Exploration、Efficiency、Generalization；`themes: []` 是正常情况，不增设兜底分类，不为了覆盖全部论文强行贴标签。逐篇归类理由在结构化记录的 `classificationRationale` 中，属于主页内容组织判断，独立于原有书目核对日期。
+
+六条主线的边界与当前数量：
+
+| Research Theme | 数量 | 归类依据 |
+| --- | ---: | --- |
+| RL Post-Training | 7 | 已有模型、策略或离线先验支持的强化适配；包含 LLM/VLA 与控制策略，不局限于语言模型权重更新 |
+| Scalable RL | 3 | 直接研究 RL 网络、容量或任务数量扩展 |
+| Plasticity Loss | 4 | 可塑性损失、机制、缓解或诊断 |
+| Exploration | 4 | 探索与经验获取是核心研究对象，可跨 RL、LLM 智能体和 CV |
+| Efficiency | 9 | 明确针对样本、计算或交互成本效率，不将所有性能改进视为效率贡献 |
+| Generalization | 3 | 直接研究泛化；不自动将词级扰动鲁棒性或所有数据增强归入此类 |
+
+SOFT 与 TREvaL 当前不标 Theme。ExToken、SCOUT 的后训练、探索与效率均为直接贡献，保留三个标签；其余有主题论文最多两个。Area 数量为 Core ML 13、LLMs 6、Embodied AI 7、Computer Vision 2；存在交叉归属，分项数量不应相加为论文总数。
+
+筛选采用 Area × Theme × Role × Status 的交集；例如 `?area=core-ml&theme=scalable-rl&role=lead`。每个筛选项的数量基于另外三项条件更新。Theme 的 All 包括没有 Theme 的研究。无脚本时保留完整清单。
+
+旧 `topic` 链接继续兼容：offline-online → RL Post-Training，scaling-sparsity → Scalable RL，plasticity → Plasticity Loss，visual-rl / agents-robotics → Embodied AI，language-reasoning → LLMs，3d-vision → Computer Vision。这是到最相关新分类的迁移，结果数量可能随新语义变化；显式新参数优先，交互后使用新的 area/theme 参数。
 
 列表中的真实科学图、尺寸、出处和裁切依据见 [论文配图记录](publication-figures.md)。首页三篇精选和机制示意图独立维护，不会随新合作论文自动替换。

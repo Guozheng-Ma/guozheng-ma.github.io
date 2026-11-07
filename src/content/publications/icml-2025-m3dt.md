@@ -18,9 +18,8 @@ venueFull: "International Conference on Machine Learning"
 year: 2025
 tldr: "Mixture-of-expert decision transformers combine architectural and training changes to scale offline reinforcement learning across many distinct tasks."
 figure: "/research/icml-2025-m3dt.webp"
-topics:
-  - "scaling-sparsity"
-  - "offline-online"
+areas: ["core-ml"]
+themes: ["scalable-rl"]
 themeColor: "purple"
 links:
   pdf: "https://raw.githubusercontent.com/mlresearch/v267/main/assets/kong25a/kong25a.pdf"

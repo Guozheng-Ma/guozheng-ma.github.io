@@ -10,7 +10,8 @@ venueFull: "Neural Information Processing Systems · Position track"
 year: 2026
 tldr: "Let deployment evidence guide how online learners use and adapt their offline priors."
 figure: "/art/plasticity.webp"
-topics: ["offline-online"]
+areas: ["core-ml"]
+themes: ["rl-post-training"]
 thumbnail:
   src: "/research/neurips-2026-offline-priors.webp"
   width: 1200

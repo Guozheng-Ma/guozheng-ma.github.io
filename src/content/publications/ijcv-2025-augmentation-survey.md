@@ -10,7 +10,8 @@ venueFull: "International Journal of Computer Vision"
 year: 2025
 tldr: "A framework for understanding how augmented data supports visual reinforcement learning."
 figure: "/art/generalization.webp"
-topics: ["visual-rl"]
+areas: ["core-ml","embodied-ai"]
+themes: ["efficiency","generalization"]
 thumbnail:
   src: "/research/ijcv-2025-augmentation-survey.webp"
   width: 1200

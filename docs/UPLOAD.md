@@ -1,6 +1,6 @@
 # 上传个人研究杂志新版
 
-本轮更新为 2026-11-06 的完整 22 篇论文集、主题／状态／作者贡献组合筛选，以及一作／共同一作强调。每篇均有真实论文图；Blog / Post 命名、旧 URL、首页三篇精选及个人资料保留。已完成的验证与归档状态见 [交付记录](DELIVERY.md)。本轮由你自行上传，不自动提交或推送。
+本轮更新为 2026-11-07 的 Role / Area / Research Themes 分类。六条研究主线按本人关注重点设置，允许论文不带 Theme；完整 22 篇、作者贡献标记、发表状态、真实图、Blog / Post 命名与首页三篇精选保留。验证与归档状态见 [交付记录](DELIVERY.md)。本轮由你自行上传，不自动提交或推送。
 
 网站继续使用 [guozheng-ma.github.io](https://guozheng-ma.github.io)，仓库为 [Guozheng-Ma/guozheng-ma.github.io](https://github.com/Guozheng-Ma/guozheng-ma.github.io)。发布目录是 `/Users/mgz/Workspace/Homepage-old/homepage-repo`，既有 Git 历史和 Actions 工作流继续使用。
 
@@ -10,11 +10,11 @@
 
 1. 打开 [GitHub Desktop](https://desktop.github.com/)，登录有该仓库权限的账号。若尚未添加本地仓库，选择 **File → Add Local Repository…**，添加 `/Users/mgz/Workspace/Homepage-old/homepage-repo`。已有仓库无需重新克隆，参见 [GitHub 官方说明](https://docs.github.com/en/desktop/adding-and-cloning-repositories/adding-a-repository-from-your-local-computer-to-github-desktop)。
 2. 确认 **Current Branch** 为 `main`。在 **Changes** 中查看并勾选本次页面、组件、样式和文档改动。`node_modules`、`dist`、`.astro`、备份与交付 ZIP 无需上传；已有字体与许可证继续保留在仓库中。
-3. 在 **Summary** 填写 `Complete publication catalogue and highlight author contributions`，点击 **Commit to main**。
+3. 在 **Summary** 填写 `Separate publication areas and research themes`，点击 **Commit to main**。
 4. 在仓库 [Settings → Pages](https://github.com/Guozheng-Ma/guozheng-ma.github.io/settings/pages)确认 **Build and deployment → Source** 为 **GitHub Actions**。已有工作流无需再选模板或添加新的发布流程。此项目使用 Astro 构建，参见 [Astro 官方部署说明](https://docs.astro.build/en/guides/deploy/github/)。
 5. 回到 GitHub Desktop 点击 **Push origin**，上传提交并触发发布。
 6. 打开仓库 [Actions](https://github.com/Guozheng-Ma/guozheng-ma.github.io/actions)，查看 **Deploy personal homepage**，等待 **Build website** 和 **Publish website** 都显示绿色勾选。
-7. 打开 [正式首页](https://guozheng-ma.github.io)，确认导航与首页栏目显示 **Blog**、入口显示 **All Posts / Read Post**。进入 **Publications**，确认默认显示 22 篇，状态为 Published 15／Accepted 3／Preprint 4，First & co-first 共 9 篇；组合选择主题、状态和贡献，确认数量与列表切换正常；刷新筛选链接并检查前进后退。每篇论文应有真实图，**View figure** 可打开大图。再检查手机布局、浅暗主题、论文与下载入口。若仍显示旧版，使用 `⌘⇧R` 强制刷新或打开无痕窗口。
+7. 打开 [正式首页](https://guozheng-ma.github.io)，确认导航与首页栏目显示 **Blog**、入口显示 **All Posts / Read Post**。进入 **Publications**，确认默认显示 22 篇，状态为 Published 15／Accepted 3／Preprint 4，First & co-first 共 9 篇；检查 Area 四类、Research Themes 六条，组合选择领域、研究主线、状态和作者角色，确认数量与列表切换正常；刷新筛选链接并检查前进后退。每篇论文应有真实图，**View figure** 可打开大图。再检查手机布局、浅暗主题、论文与下载入口。若仍显示旧版，使用 `⌘⇧R` 强制刷新或打开无痕窗口。
 
 以后继续在发布目录修改，重复“检查 Changes → Commit to main → Push origin → 等待 Actions”即可。GitHub 自动构建 `dist/`，不需要手动向仓库上传生成后的网页。
 
@@ -26,7 +26,7 @@
 cd /Users/mgz/Workspace/Homepage-old/homepage-repo
 git status
 git add .
-git commit -m "Complete publication catalogue and highlight author contributions"
+git commit -m "Separate publication areas and research themes"
 git push origin main
 ```
 

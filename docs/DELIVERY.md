@@ -1,5 +1,39 @@
 # 改版交付记录
 
+## 2026-11-07 · Role、Area 与六条研究主线
+
+按照用户最终指定的六个关注点完成分类调整。Research Themes 是选择性的研究主线，允许论文不属于任何主题；完整论文集仍为 22 篇。Git 起点为 `c2fba9b`，仅本地交付，未 commit、push 或发布。
+
+### 本轮内容
+
+- Area 独立为 **Core ML、LLMs、Embodied AI、Computer Vision**，分别匹配 13、6、7、2 篇，支持有依据的交叉领域。
+- Research Themes 按用户原名与顺序展示：**RL Post-Training 7、Scalable RL 3、Plasticity Loss 4、Exploration 4、Efficiency 9、Generalization 3**。一篇可属于多条主线，分项数字不能相加作为论文总数。
+- **SOFT 与 TREvaL 不标 Theme**，仍在 All、LLMs 及其作者角色和状态下完整显示。没有增加 Uncategorized、Evaluation 等兜底主题。
+- Role 提供 All / First & co-first / Co-author，仍准确区分卡片上的一作与共一；Status 为辅助筛选。四条件交集、分面数量、空结果、清空、链接分享与历史记录均保留。
+- 桌面与平板采用两排清楚标注的 Area / Research Themes 标签；手机宽度 ≤680px 使用 Area / Theme / Role / Status 四行原生下拉框，保持 44px 点击高度。390px 视口的首张论文卡片由初版 y≈805 提前至 y≈542。
+- 数据由旧 `topics` 拆为必填 `areas` 与允许空数组的 `themes`。卡片分清领域与主线；空主题不显示标签或占位。归类理由记在 [论文核对记录](publication-catalogue.json)，原则见 [维护说明](publication-catalogue.md)。
+- 新参数为 `area/theme/role/status`；七种旧 `topic` 参数迁移到最相关的新领域／主线，显式新参数优先，交互后使用新链接。现有详情 URL 与 Blog URL 保持不变。
+
+### 已执行验证
+
+- 使用 Node.js **24.22.1** 和已有 Astro 6.3.8 依赖成功构建 **30 页**；未新增依赖，既有 Actions 配置不变。`git diff --check` 通过。
+- 对实际筛选函数检查 **420 种组合、9,240 次逐论文判断**以及 **33 个 URL 兼容／边界案例**，全部通过；补充边界 fixture 的 UI 检查也通过。
+- 22 篇论文的所有非分类字段及 Markdown 正文与本轮 Git 基线一致；**160 个既有 public 文件**逐字节不变，含 22 张真实图、22 份 BibTeX。完整作者、状态、荣誉、首页三篇精选、Blog 与个人资料保留。
+- 静态审查覆盖 **30 个 HTML、535 处本地链接／资源、30 处 HTML 锚点、64 处 CSS 资源**，全部有效；无重复 ID、悬空 ARIA 或失效标签目标。
+- 浏览器实测四领域、六主题、Co-author 与 First & co-first、四条件交集及分面数字，空 Theme 论文正确显示。刷新、清空、前进后退、旧链接迁移、显式新参数优先及非法值回退通过。
+- Enter / Space 标签操作与原生 Role 下拉键盘选择通过。手机新 Area/Theme 下拉选择、桌面与手机切换同步、清空后聚焦可见 Area 控件、手机前进后退通过。
+- **1280、768、390、320px** 布局检查无横向溢出，明暗主题已查看；控制台未出现 error / warn。使用视口模拟，没有声称实体手机或 Lighthouse 测试。无脚本回退按静态 HTML 检查。
+
+截图、浏览器结果、逐篇分类方案和可复跑检查在仓库外 `preview/research-dimensions-2026-11-07/`；独立静态报告为其下 `qa/integrity.json`，问题列表为空。
+
+### 同步与归档
+
+发布目录仍为 `/Users/mgz/Workspace/Homepage-old/homepage-repo`。同步前确认参考源码与静态镜像相对本轮基线没有新增改动；参考副本与两份 ZIP 已更新，并逐文件校验。旧 ZIP 保留在 `backups/2026-11-07-before-research-dimensions/`。同步与归档记录位于本轮预览目录的 `archive-checks.json`。
+
+上传使用既有 GitHub 仓库与 Actions，步骤见 [上传说明](UPLOAD.md)。依赖链接、缓存、Git 历史和预览资料均不进入源码包。
+
+---
+
 ## 2026-11-06 · 完整论文集与作者贡献
 
 从 [本人 Google Scholar](https://scholar.google.com/citations?user=jDvVglUAAAAJ&hl=en&cstart=0&pagesize=100) 读取全部 22 条记录并逐篇核对。已完成本地实现与正式构建，由用户自行上传；未 commit、push 或部署。Git 起点为 `ff1eeca`。
