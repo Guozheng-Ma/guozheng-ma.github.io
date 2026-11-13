@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Agentic Robot Learning</title>
+  <desc id="desc">Agents acquire experience, refine robot policies, and retain reusable physical skills for further learning.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+      <path d="m3 2 6 4-6 4" fill="none" stroke="#a8ccdf" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="800" fill="#191919"/>
+  <g fill="none" stroke="#a8ccdf" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)">
+    <path d="M416 225C536 144 664 144 784 225"/>
+    <path d="M984 333C1050 478 920 610 724 615"/>
+    <path d="M476 615C280 610 150 478 216 333"/>
+  </g>
+  <g fill="#223038" stroke="#a8ccdf" stroke-width="3">
+    <circle cx="310" cy="250" r="94"/>
+    <circle cx="890" cy="250" r="94"/>
+    <circle cx="600" cy="600" r="94"/>
+  </g>
+  <g fill="none" stroke="#a8ccdf" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m274 272 36-48 36 48m-72 0h72m-36-48v67"/>
+    <g fill="#191919">
+      <circle cx="310" cy="218" r="10"/>
+      <circle cx="269" cy="278" r="10"/>
+      <circle cx="351" cy="278" r="10"/>
+      <circle cx="310" cy="291" r="7"/>
+    </g>
+    <path d="m866 224-26 26 26 26m48-52 26 26-26 26m-14-60-20 68"/>
+    <path d="M562 568h76v68h-76z"/>
+    <path d="M570 557h76v68" opacity=".45"/>
+    <path d="m580 602 13 13 28-30"/>
+  </g>
+  <g fill="#a8ccdf" font-family="'Source Sans 3', Arial, sans-serif" font-size="34" font-weight="500" text-anchor="middle">
+    <text x="310" y="399">Experience</text>
+    <text x="890" y="399">Policy</text>
+    <text x="600" y="749">Skills</text>
+  </g>
+</svg>

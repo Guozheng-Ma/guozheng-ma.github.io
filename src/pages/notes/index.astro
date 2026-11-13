@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import NoteCard from '../../components/NoteCard.astro';
 const notes = (await getCollection('notes', ({ data }) => !data.draft)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
-<Layout title="Blog — Guozheng Ma" description="Posts on sparsity, plasticity, and data augmentation in deep reinforcement learning.">
+<Layout title="Blog — Guozheng Ma" description="Posts on agentic robot learning, sparsity, plasticity, and data augmentation in deep reinforcement learning.">
   <main id="main-content" class="site-width">
     <div class="page-intro">
       <h1>Blog</h1>

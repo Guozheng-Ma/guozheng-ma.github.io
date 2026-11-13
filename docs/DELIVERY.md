@@ -1,5 +1,50 @@
 # 改版交付记录
 
+## 2026-11-13 · Agentic Robot Learning 与 ACE-CaP
+
+用户最终确认方向名为 **Agentic Robot Learning**，并明确要求在线更新。首页 Blog 第一项与默认预览采用此名称，摘要为 “How agents acquire experience and turn it into reliable, reusable robot skills.”；后两项仍是稀疏与可塑性文章。原数据增强文章保留在完整 Blog。
+
+- 方向介绍沿用 `/notes/agentic-policy/`，说明自主经验获取、策略改进与可复用技能积累，包含用户批准的英文研究定义。
+- 以 [ACE-CaP-0](https://acerobotics2025.github.io/ACE-CaP/) 为代表工作，注明本人为 core contributor，并提供项目和论文链接。准确区分开发阶段的编码智能体与执行阶段的感知／控制，不宣称编码智能体参与策略运行。
+- 蓝色浅暗封面更新为 **Experience → Policy → Skills**，与最终方向定义一致。既有三篇文章、22 篇论文、个人资料与旧资源保持。
+
+### 已执行验证
+
+- 正式构建成功，生成 **31 页**。检查 **559 处本地引用、31 个锚点、64 处 CSS 资源**，均有效；189 个原有内容与资源文件逐字节保留，`git diff --check` 通过。
+- 浏览器检查 **1280px 桌面、390px 手机**及浅暗主题，首页首项和默认预览正确，无横向溢出。Enter 选择与 Read Post 跳转、手机列表和文章阅读布局正常。使用视口模拟，没有声称实体手机测试。
+- 静态报告和截图保存在仓库外 `preview/agentic-robot-learning-2026-11-13/`。
+
+### 发布与归档
+
+本轮按用户授权通过现有 `Guozheng-Ma/guozheng-ma.github.io` 的 `main` 分支与 GitHub Pages 工作流发布，不更换托管。Git 起点为 `9097461`，工作流与依赖不变；发布运行结果记录在上述预览目录。
+
+参考源码、静态镜像与两份 ZIP 按当前工作区同步，先确认副本无新增用户改动。上一版 ZIP 保存在 `backups/2026-11-13-before-agentic-robot-learning/`；依赖、缓存、Git 历史与预览资料不进入源码包。下方 Agentic Policy 记录保留为本轮定名前的历史。
+
+---
+
+## 2026-11-13 · Agentic Policy 首页展示
+
+按用户确认，首页 Blog 用 **Agentic Policy** 替换数据增强文章 **Learning from a different view**，并放在第一项。后两项为 **Why sparsify RL networks?**、**Keeping visual RL able to learn**；桌面默认预览、Read Post 与手机静态列表保持同样顺序。
+
+- 新增 `/notes/agentic-policy/` 简短方向介绍，表述未来研究兴趣，不宣称已有成果。配图是品牌蓝的 reasoning → action → feedback 概念示意，提供浅暗两版。
+- 原三篇文章正文与 URL 保留，完整 Blog 共四篇；数据增强文章仍可从 All Posts 和其他文章的 More posts 访问。
+- 已有 22 篇论文、首页三篇精选、个人资料及 160 个原 public 文件保持不变。Git 起点为 `9097461`，未 commit、push 或发布。
+
+### 已执行验证
+
+- Node.js 24.22.1 与现有依赖成功构建 **31 页**，`git diff --check` 通过。
+- 静态检查覆盖 **559 处本地引用、31 个页面锚点、64 处 CSS 资源**，链接与资源均有效；首页两种布局的顺序、默认选中与 Read Post 地址正确。
+- 浏览器验证 **1280px 桌面**与 **390px 手机**布局，无横向溢出。桌面浅暗封面显示正常，Read Post 实际打开新介绍页；Enter 选择首项与手机 Tab 焦点正常。控制台未见 warn/error。测试使用视口模拟，未声称实体手机测试。
+- 189 个原有内容、个人数据与 public 文件逐字节保留。报告和截图位于仓库外 `preview/agentic-policy-2026-11-13/`。
+
+### 同步与归档
+
+同步前确认参考源码与静态镜像和本轮基线一致，无新增用户差异。参考源码、静态镜像与源码／静态 ZIP 同步为本轮版本；逐文件和 ZIP 内容校验见本轮预览目录中的 `archive-checks.json`。上一版 ZIP 保存在 `backups/2026-11-13-before-agentic-policy/`。
+
+上传仍使用现有 GitHub Pages 仓库和 Actions，操作见 [上传说明](UPLOAD.md)，由用户自行上传。
+
+---
+
 ## 2026-11-07 · Role、Area 与六条研究主线
 
 按照用户最终指定的六个关注点完成分类调整。Research Themes 是选择性的研究主线，允许论文不属于任何主题；完整论文集仍为 22 篇。Git 起点为 `c2fba9b`，仅本地交付，未 commit、push 或发布。

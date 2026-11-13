@@ -1,5 +1,12 @@
 # Guozheng Ma · Personal research journal
 
+## 2026-11-13 · Agentic Robot Learning 与线上发布
+
+- 用户最终确认方向名为 **Agentic Robot Learning**。首页 Blog 顺序为 **Agentic Robot Learning、Why sparsify RL networks?、Keeping visual RL able to learn**，桌面默认选中第一项，手机同序。
+- 替换原首页的 **Learning from a different view**（数据增强文章）；原文章正文和 URL 保留在完整 Blog 中。新介绍沿用 `/notes/agentic-policy/` URL。
+- 方向围绕自主经验获取、策略改进与可复用技能积累。以 ACE-CaP-0 为代表作，按项目公开信息注明 Guozheng Ma 为 core contributor；不擅自改称共同一作，不归因具体模块。
+- 用户已明确授权“也在线更新”：本轮允许提交并发布到现有 GitHub Pages 网站，覆盖下文历史轮次仅本地交付、不提交不推送的限制。继续保留副本、归档和既有内容。
+
 ## 2026-11-07 · Role、Area 与选择性的研究主线
 
 - 主分类拆为作者 Role、Area、Research Themes，保留发表 Status 辅助筛选。Area 为 Core ML、LLMs、Embodied AI、Computer Vision；每篇至少一个领域，必要时允许有依据的交叉领域。

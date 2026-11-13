@@ -5,7 +5,7 @@ import ContinuationArrow from './ContinuationArrow.astro';
 
 const allNotes = (await getCollection('notes', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-const preferredOrder = ['why-sparsify-rl-networks', 'plasticity-is-not-regularization', 'data-augmentation-in-visual-rl'];
+const preferredOrder = ['agentic-policy', 'why-sparsify-rl-networks', 'plasticity-is-not-regularization'];
 const notes = [...allNotes].sort((a, b) => {
   const rank = (id: string) => preferredOrder.includes(id) ? preferredOrder.indexOf(id) : preferredOrder.length;
   return rank(a.id) - rank(b.id);
