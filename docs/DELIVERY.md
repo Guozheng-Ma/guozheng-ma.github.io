@@ -1,5 +1,17 @@
 # 改版交付记录
 
+## 2026-11-13 · Agentic 配图重画与发布
+
+按用户反馈，原带标签的三节点流程图重画为与既有 Blog 配图一致的抽象墨线插画：细构造线、低饱和蓝色、半透明几何面、轻微纸纹和留白。尝试轨迹汇入关节状连接，再形成重复组合的结构，表现经验获取、策略改进与技能积累。深色版保持同一构图，使用炭黑背景与柔和蓝灰线条。
+
+- 内置图像生成工具以既有 sparsity / plasticity 插画为风格参考生成浅色图，再生成同构图的暗色版。PNG 源图保存在 `public/art/agentic-policy.png` 与 `agentic-policy-dark.png`；页面使用 1200×800 WebP，大小分别约 28 KB 和 34 KB。完整提示词记录在仓库外预览目录的 `generation.json`。
+- 首页、Blog 列表、文章正文配图和分享图统一更新；旧 SVG 路径保留兼容。标题、方向定义、顺序、所有文章与论文内容不变。
+- 正式构建 **31 页**成功；192 个原有内容、个人数据与 public 资源逐字节保留。检查新图的首页／列表／详情引用及分享图地址，`git diff --check` 通过。
+- 浏览器核对 **1280px 桌面、390px 手机**及浅暗主题，新图正常加载，手机无横向溢出。截图、检查和最终发布记录在 `preview/agentic-art-redraw-2026-11-13/`，属于视口模拟检查。
+- 用户明确授权“然后直接推上去”，本轮通过现有 GitHub Pages 工作流发布。参考源码、静态镜像及两份 ZIP 同步前检查基线，旧版 ZIP 保存于 `backups/2026-11-13-before-agentic-art-redraw/`。
+
+---
+
 ## 2026-11-13 · Agentic Robot Learning 与 ACE-CaP
 
 用户最终确认方向名为 **Agentic Robot Learning**，并明确要求在线更新。首页 Blog 第一项与默认预览采用此名称，摘要为 “How agents acquire experience and turn it into reliable, reusable robot skills.”；后两项仍是稀疏与可塑性文章。原数据增强文章保留在完整 Blog。

@@ -21,6 +21,8 @@ Guozheng Ma 的个人思想与研究杂志。首页先呈现两段个人介绍�
 
 ## 2026-11-13 · Agentic Robot Learning
 
+配图已按用户反馈重画为与既有 Blog 一致的抽象墨线插画，提供同构图的浅暗两版。首页、列表、文章及分享图统一使用新 WebP，保留 PNG 源图；用户已授权直接推送上线。
+
 首页 Blog 首项与默认预览更新为 **Agentic Robot Learning**，围绕自主经验获取、策略改进与可复用技能积累，并介绍本人作为核心贡献者参与的 [ACE-CaP-0](https://acerobotics2025.github.io/ACE-CaP/)。后两项为 **Why sparsify RL networks?** 与 **Keeping visual RL able to learn**。原数据增强文章 **Learning from a different view** 移出首页精选，仍保留在 Blog 列表和原 URL；完整 Blog 共四篇。新方向入口沿用 `/notes/agentic-policy/`。本轮用户已授权更新线上网站。
 
 ## 2026-11-07 · 三维分类与六条研究主线

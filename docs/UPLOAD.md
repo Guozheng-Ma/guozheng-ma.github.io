@@ -1,6 +1,6 @@
 # 上传个人研究杂志新版
 
-本轮更新为 2026-11-13 的 Agentic Robot Learning：首页 Blog 以该方向为首项和默认预览，并链接 ACE-CaP-0 代表作。原数据增强文章仍保留在完整 Blog 中。用户已明确授权本轮在线更新，通过现有 GitHub Pages 工作流发布；验证与归档状态见 [交付记录](DELIVERY.md)。下文保留后续自行维护的操作方法。
+本轮更新为 2026-11-13 的 Agentic Robot Learning 配图重画：以蓝色抽象墨线插画替换原流程图，浅暗两版与既有 Blog 配图风格一致。方向名称、首项位置及 ACE-CaP-0 介绍保持。用户已明确要求直接推送上线，通过现有 GitHub Pages 工作流发布；验证与归档状态见 [交付记录](DELIVERY.md)。下文保留后续自行维护的操作方法。
 
 网站继续使用 [guozheng-ma.github.io](https://guozheng-ma.github.io)，仓库为 [Guozheng-Ma/guozheng-ma.github.io](https://github.com/Guozheng-Ma/guozheng-ma.github.io)。发布目录是 `/Users/mgz/Workspace/Homepage-old/homepage-repo`，既有 Git 历史和 Actions 工作流继续使用。
 

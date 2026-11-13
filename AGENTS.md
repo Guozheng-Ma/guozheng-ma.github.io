@@ -1,5 +1,10 @@
 # Guozheng Ma · Personal research journal
 
+## 2026-11-13 · Agentic 配图重画
+
+- 用户要求 Agentic Robot Learning 配图与既有 Blog 插画协调，并明确要求直接推送上线。使用无文字的抽象墨线插画：低饱和蓝色、细构造线、淡色几何面、纸纹与充分留白，表现探索轨迹逐渐形成可复用结构。
+- 浅暗主题采用同构图的 `agentic-policy.webp` / `agentic-policy-dark.webp`，PNG 源图一同保存。旧 SVG 仅为保留既有资源 URL，不再用于页面或分享图。
+
 ## 2026-11-13 · Agentic Robot Learning 与线上发布
 
 - 用户最终确认方向名为 **Agentic Robot Learning**。首页 Blog 顺序为 **Agentic Robot Learning、Why sparsify RL networks?、Keeping visual RL able to learn**，桌面默认选中第一项，手机同序。
