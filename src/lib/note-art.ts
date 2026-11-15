@@ -12,12 +12,12 @@ const directionArt: Record<DirectionArtId, NoteArt> = {
     alt: 'Blue ink illustration of a robot choosing learning routes and developing a physical skill',
   },
   'online-experience': {
-    src: '/art/online-experience.webp',
-    alt: 'Teal ink illustration of experience and feedback refining behavior across successive attempts',
+    src: '/art/online-experience-v2.webp',
+    alt: 'Teal ink illustration of failed construction attempts, recorded feedback, and an improved solution reused in a new task',
   },
   'learning-dynamics': {
-    src: '/art/learning-dynamics.webp',
-    alt: 'Purple ink illustration of learning pathways encountering bottlenecks and recovering their ability to adapt',
+    src: '/art/learning-dynamics-v2.webp',
+    alt: 'Purple ink illustration of learning stagnation, declining capability, and recovery alongside changing responses in the same model',
   },
 };
 

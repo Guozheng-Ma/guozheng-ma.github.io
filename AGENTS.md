@@ -1,5 +1,12 @@
 # Guozheng Ma · Personal research journal
 
+## 2026-11-15 · 经验与学习动力学配图修订
+
+- 用户认为 Agentic Robot Learning 图的风格和主题表达准确，要求保留；另两张原图语义不清。用户确认：Experience 表达“尝试 → 反馈 → 改进并积累”，Dynamics 表达“学习受阻、能力退化与恢复”。
+- Experience 改用失败构造、改进连接、跨任务复用和实验笔记，避免被误读为路径规划。Dynamics 采用概念学习轨迹与同一个模型的响应快照，避免被误读为网络生长或绕开物理障碍。
+- 第一张图、方向名称与全部文章内容保持不变。另两套插画继续采用细墨线、纸感、低饱和配色；新版采用 `-v2` 文件名，浅暗 PNG 与 WebP 一同保留，旧资产 URL 继续有效。
+- 继续沿用用户已授权的直接上线流程；维护目录中尚未确认的字体与配色试稿仍仅在本地保留。
+
 ## 2026-11-15 · 三项研究方向与主题插画
 
 - 用户确认首页三项依次为 **Agentic Robot Learning、Online Learning from Experience、Learning Dynamics and Pathologies**，授权更新标题、简介、配图并直接推送上线。继续使用现有 Blog 区域和交互，不改变整体布局。
