@@ -1,5 +1,25 @@
 # Original research editorial illustrations
 
+## 2026-11-15 — Concrete Selected Research illustrations
+
+The homepage paper thumbnails use new editorial illustrations generated with the built-in `image_gen` tool, matching the Blog's fine ink, warm paper, restrained colour and tangible objects. These replace only the homepage's mechanism SVGs. The actual figures in the publication index and paper pages remain unchanged.
+
+The user explicitly requested more concrete imagery after reviewing abstract candidates. Those earlier candidates are retained only in the external QA directory; the selected scenes are:
+
+| Asset | Concrete scene | Mechanism and limits |
+| --- | --- | --- |
+| `research-priors` | A wheeled robot encounters an obstruction that invalidates part of its earlier guidance; the revised route retains the useful part. | Diagnose the fit between prior and deployment using new evidence, then adjust reliance. This is an illustrative scenario for a position paper, not a proposed navigation algorithm or a claimed experiment. |
+| `research-residual` | A robot gripper makes a small alignment correction for horizontal peg insertion; nearby actions have visibly different contact outcomes. | Base-policy experience anchors subsequent value learning, and the critic must distinguish small residual actions. DAWN's warmup collects base-policy transitions without updates; normalization is inside the critic and does not amplify physical corrections. |
+| `research-sparsity` | Two physical teaching models compare a compact densely connected network with a wider, sparsely connected network. | More neurons with selective interlayer connections illustrate scaling at a restrained parameter budget. The random weight mask is fixed from initialization; this is neither dynamic rewiring nor neuron deletion, and the physical model is not experimental hardware. |
+
+Primary sources: [offline priors position paper](https://arxiv.org/html/2606.25527v1), [DAWN paper, especially §3.2 and Appendix B.1](https://arxiv.org/html/2602.10539v1), [DAWN implementation](https://github.com/Guozheng-Ma/DAWN), [static sparsity paper](https://arxiv.org/html/2506.17204v1), and [ICML proceedings](https://proceedings.mlr.press/v267/ma25l.html).
+
+Each asset has a light and a matching dark PNG source plus a 1200×800 WebP delivery version (Sharp, quality 88). Recolouring uses the built-in image tool; Sharp only resizes and encodes. The light palette uses ivory paper with coral, teal and lavender accents respectively; the dark palette uses matte charcoal with corresponding muted ink. No numerical performance, empirical plots, new algorithms or universal superiority claims are depicted.
+
+Full prompts, original tool paths, source research, rejected drafts and 240px checks are recorded under `/Users/mgz/Workspace/Homepage-old/preview/selected-research-art-2026-11-15/`, in the three `*-concrete-generation.json` files and the combined `generation.json`. The final website assets are the twelve `public/art/research-{priors,residual,sparsity}{,-dark}.{png,webp}` files.
+
+---
+
 Created on 2026-10-29 using the built-in image_gen tool (default built-in mode). These are conceptual editorial illustrations, not empirical figures or representations of measured research results.
 
 Full generated PNG originals are retained in public/art and at the original tool output locations. Site delivery versions are 1200×800 WebP files, quality 86, produced with Sharp. No image content was otherwise edited.

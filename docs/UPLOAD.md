@@ -1,5 +1,7 @@
 # 上传个人研究杂志新版
 
+最新更新为首页 **Selected Research** 的三张具体场景插画，浅暗两版分别对应先验诊断、残差价值学习、静态稀疏网络；上方 Blog 和论文真实配图保持。用户已授权直接推送到现有 GitHub Pages。上线后同时检查三张缩略图的浅暗切换、论文入口与移动布局。
+
 本轮更新为 2026-11-15 的三项研究方向：**Agentic Robot Learning、Online Learning from Experience、Learning Dynamics and Pathologies**。标题、简介、方向介绍与六张浅暗插画同步更新，用户明确授权直接推送上线。另一个待确认的蓝白配色／字体试稿保留在维护目录，本轮发布不包含该试稿。随后按用户反馈保留机器人图，重画经验学习与学习动力学配图，使用 `-v2` 浅暗版本。最新一轮按用户选定的立体学习地形附图微调，使用 `learning-dynamics-v3` 浅暗配图；机器人图与经验学习图保留。验证与归档状态见 [交付记录](DELIVERY.md)。下文保留后续自行维护的操作方法。
 
 网站继续使用 [guozheng-ma.github.io](https://guozheng-ma.github.io)，仓库为 [Guozheng-Ma/guozheng-ma.github.io](https://github.com/Guozheng-Ma/guozheng-ma.github.io)。发布目录是 `/Users/mgz/Workspace/Homepage-old/homepage-repo`，既有 Git 历史和 Actions 工作流继续使用。
