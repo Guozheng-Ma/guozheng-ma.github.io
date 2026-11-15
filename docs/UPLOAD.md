@@ -1,6 +1,6 @@
 # 上传个人研究杂志新版
 
-本轮更新为 2026-11-15 的三项研究方向：**Agentic Robot Learning、Online Learning from Experience、Learning Dynamics and Pathologies**。标题、简介、方向介绍与六张浅暗插画同步更新，用户明确授权直接推送上线。另一个待确认的蓝白配色／字体试稿保留在维护目录，本轮发布不包含该试稿。随后按用户反馈保留机器人图，重画经验学习与学习动力学配图，使用 `-v2` 浅暗版本。验证与归档状态见 [交付记录](DELIVERY.md)。下文保留后续自行维护的操作方法。
+本轮更新为 2026-11-15 的三项研究方向：**Agentic Robot Learning、Online Learning from Experience、Learning Dynamics and Pathologies**。标题、简介、方向介绍与六张浅暗插画同步更新，用户明确授权直接推送上线。另一个待确认的蓝白配色／字体试稿保留在维护目录，本轮发布不包含该试稿。随后按用户反馈保留机器人图，重画经验学习与学习动力学配图，使用 `-v2` 浅暗版本。最新一轮按用户选定的立体学习地形附图微调，使用 `learning-dynamics-v3` 浅暗配图；机器人图与经验学习图保留。验证与归档状态见 [交付记录](DELIVERY.md)。下文保留后续自行维护的操作方法。
 
 网站继续使用 [guozheng-ma.github.io](https://guozheng-ma.github.io)，仓库为 [Guozheng-Ma/guozheng-ma.github.io](https://github.com/Guozheng-Ma/guozheng-ma.github.io)。发布目录是 `/Users/mgz/Workspace/Homepage-old/homepage-repo`，既有 Git 历史和 Actions 工作流继续使用。
 
@@ -10,7 +10,7 @@
 
 1. 打开 [GitHub Desktop](https://desktop.github.com/)，登录有该仓库权限的账号。若尚未添加本地仓库，选择 **File → Add Local Repository…**，添加 `/Users/mgz/Workspace/Homepage-old/homepage-repo`。已有仓库无需重新克隆，参见 [GitHub 官方说明](https://docs.github.com/en/desktop/adding-and-cloning-repositories/adding-a-repository-from-your-local-computer-to-github-desktop)。
 2. 确认 **Current Branch** 为 `main`。在 **Changes** 中查看并勾选本次页面、组件、样式和文档改动。`node_modules`、`dist`、`.astro`、备份与交付 ZIP 无需上传；已有字体与许可证继续保留在仓库中。
-3. 在 **Summary** 填写 `Clarify experience and learning dynamics illustrations`，点击 **Commit to main**。
+3. 在 **Summary** 填写 `Refine selected learning landscape illustration`，点击 **Commit to main**。
 4. 在仓库 [Settings → Pages](https://github.com/Guozheng-Ma/guozheng-ma.github.io/settings/pages)确认 **Build and deployment → Source** 为 **GitHub Actions**。已有工作流无需再选模板或添加新的发布流程。此项目使用 Astro 构建，参见 [Astro 官方部署说明](https://docs.astro.build/en/guides/deploy/github/)。
 5. 回到 GitHub Desktop 点击 **Push origin**，上传提交并触发发布。
 6. 打开仓库 [Actions](https://github.com/Guozheng-Ma/guozheng-ma.github.io/actions)，查看 **Deploy personal homepage**，等待 **Build website** 和 **Publish website** 都显示绿色勾选。
@@ -26,7 +26,7 @@
 cd /Users/mgz/Workspace/Homepage-old/homepage-repo
 git status
 git add -i
-git commit -m "Clarify experience and learning dynamics illustrations"
+git commit -m "Refine selected learning landscape illustration"
 git push origin main
 ```
 

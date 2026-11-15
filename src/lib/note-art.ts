@@ -16,8 +16,8 @@ const directionArt: Record<DirectionArtId, NoteArt> = {
     alt: 'Teal ink illustration of failed construction attempts, recorded feedback, and an improved solution reused in a new task',
   },
   'learning-dynamics': {
-    src: '/art/learning-dynamics-v2.webp',
-    alt: 'Purple ink illustration of learning stagnation, declining capability, and recovery alongside changing responses in the same model',
+    src: '/art/learning-dynamics-v3.webp',
+    alt: 'Purple ink illustration of a learning landscape with stalled updates on a plateau and oscillating then progressing updates in a narrow valley',
   },
 };
 
