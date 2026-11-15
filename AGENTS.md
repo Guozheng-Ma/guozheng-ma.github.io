@@ -1,5 +1,13 @@
 # Guozheng Ma · Personal research journal
 
+## 2026-11-15 · 三项研究方向与主题插画
+
+- 用户确认首页三项依次为 **Agentic Robot Learning、Online Learning from Experience、Learning Dynamics and Pathologies**，授权更新标题、简介、配图并直接推送上线。继续使用现有 Blog 区域和交互，不改变整体布局。
+- Agentic 强调智能体主动组织机器人技能获取，选择示范、仿真或真实尝试；Online 强调新经验参与后续改进，不限定 RL 或每步参数更新；Dynamics 强调可塑性、优化、干扰、学习瓶颈与扩展性，不擅自宣称普遍理论结论。
+- 三套新插画保留细墨线、淡色几何和纸感，分别表现物理技能获取、经验反馈与路线修订、学习瓶颈与恢复。PNG 源图和 1200×800 WebP 浅暗版一同保留。
+- 新增两篇方向介绍，Agentic 沿用 `/notes/agentic-policy/`；原三篇论文笔记及配图、全部论文和 URL 保留。`cover.art` 只为方向介绍指定新图，原颜色映射不改变。
+- 本轮基于已发布版本隔离实施。维护目录中另有未确认的蓝白配色／字体试稿，应保留在本地，不能随这次内容发布一并上线。
+
 ## 2026-11-13 · Agentic 配图重画
 
 - 用户要求 Agentic Robot Learning 配图与既有 Blog 插画协调，并明确要求直接推送上线。使用无文字的抽象墨线插画：低饱和蓝色、细构造线、淡色几何面、纸纹与充分留白，表现探索轨迹逐渐形成可复用结构。

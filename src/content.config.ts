@@ -2,6 +2,7 @@ import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { publicationAreaIds, publicationThemeIds } from './data/publication-topics';
 import { publicationStatuses, publicationAuthorships } from './lib/publication-presentation';
+import { directionArtIds } from './lib/note-art';
 
 const themeColor = z.enum(['purple', 'teal', 'coral', 'amber', 'blue']);
 
@@ -14,6 +15,7 @@ const notes = defineCollection({
     cover: z.object({
       motif: z.enum(['network', 'curve', 'matrix', 'flow', 'scatter']),
       color: themeColor,
+      art: z.enum(directionArtIds).optional(),
     }),
     tldr: z.string(),
     relatedPub: z.string().optional(),

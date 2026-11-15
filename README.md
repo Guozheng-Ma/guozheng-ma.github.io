@@ -19,6 +19,14 @@ Guozheng Ma 的个人思想与研究杂志。首页先呈现两段个人介绍�
 发布仓库：[Guozheng-Ma/guozheng-ma.github.io](https://github.com/Guozheng-Ma/guozheng-ma.github.io)
 
 
+## 2026-11-15 · 三项研究方向
+
+首页 Blog 依次展示 **Agentic Robot Learning、Online Learning from Experience、Learning Dynamics and Pathologies**，各自配有简短定义、独立介绍与新的浅暗主题插画。Agentic 入口沿用 `/notes/agentic-policy/`，另两项为 `/notes/online-learning-from-experience/` 与 `/notes/learning-dynamics-and-pathologies/`。原三篇论文笔记保留，Blog 共六篇。
+
+配图分别以机械臂与示范／仿真、交互轨迹与反馈修订、学习瓶颈与恢复表达主题，保留原有细墨线、淡色几何和纸感。`src/lib/note-art.ts` 统一解析页面与分享图，`cover.art` 可为方向指定插画，原笔记仍使用原图。
+
+本轮用户已授权直接发布。发布版本沿用既有线上字体、色板和布局；维护目录内另一个待确认的视觉试稿仍保留在本地。验证、同步与归档见 [交付记录](docs/DELIVERY.md)。
+
 ## 2026-11-13 · Agentic Robot Learning
 
 配图已按用户反馈重画为与既有 Blog 一致的抽象墨线插画，提供同构图的浅暗两版。首页、列表、文章及分享图统一使用新 WebP，保留 PNG 源图；用户已授权直接推送上线。

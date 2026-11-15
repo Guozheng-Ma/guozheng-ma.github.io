@@ -6,6 +6,7 @@ import Aside from '../../components/mdx/Aside.astro';
 import MathBlock from '../../components/mdx/MathBlock.astro';
 import PaperCard from '../../components/mdx/PaperCard.astro';
 import Figure from '../../components/mdx/Figure.astro';
+import { resolveNoteArt } from '../../lib/note-art';
 
 export async function getStaticPaths() {
   const allNotes = (await getCollection('notes', ({ data }) => !data.draft))
@@ -22,13 +23,7 @@ export async function getStaticPaths() {
 const { note, moreNotes } = Astro.props;
 const { Content } = await render(note);
 const relatedPub = note.data.relatedPub ? await getEntry('publications', note.data.relatedPub) : null;
-const coverImages: Record<string, string> = {
-  purple: '/art/sparsity.webp',
-  teal: '/art/plasticity.webp',
-  coral: '/art/generalization.webp',
-  blue: '/art/agentic-policy.webp',
-};
-const shareImage = coverImages[note.data.cover.color] ?? coverImages.purple;
+const shareImage = resolveNoteArt(note.data.cover).src;
 const dateStr = note.data.date.toLocaleDateString('en-US', {
   timeZone: 'UTC',
   month: 'long',
@@ -49,7 +44,7 @@ const dateStr = note.data.date.toLocaleDateString('en-US', {
     </article>
 
     <div class="note-illustration">
-      <CoverArt motif={note.data.cover.motif} color={note.data.cover.color} aspectRatio="3 / 2" />
+      <CoverArt motif={note.data.cover.motif} color={note.data.cover.color} art={note.data.cover.art} aspectRatio="3 / 2" />
     </div>
 
     {relatedPub && (

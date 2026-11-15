@@ -5,7 +5,7 @@ import ContinuationArrow from './ContinuationArrow.astro';
 
 const allNotes = (await getCollection('notes', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-const preferredOrder = ['agentic-policy', 'why-sparsify-rl-networks', 'plasticity-is-not-regularization'];
+const preferredOrder = ['agentic-policy', 'online-learning-from-experience', 'learning-dynamics-and-pathologies'];
 const notes = [...allNotes].sort((a, b) => {
   const rank = (id: string) => preferredOrder.includes(id) ? preferredOrder.indexOf(id) : preferredOrder.length;
   return rank(a.id) - rank(b.id);
@@ -22,7 +22,7 @@ const firstNote = notes[0];
   <div class="notes-static" data-notes-static>
     {notes.map((note, index) => <article>
       <a class="notes-static-entry" href={`/notes/${note.id}/`} aria-labelledby={`note-static-title-${index}`} data-note-static-link>
-        <div class="notes-static-art" aria-hidden="true"><CoverArt color={note.data.cover.color} /></div>
+        <div class="notes-static-art" aria-hidden="true"><CoverArt color={note.data.cover.color} art={note.data.cover.art} /></div>
         <div class="notes-static-copy">
           <h3 id={`note-static-title-${index}`}>{note.data.title}</h3>
           <p>{note.data.tldr}</p>
@@ -34,7 +34,7 @@ const firstNote = notes[0];
   <div class="notes-feature-view" data-notes-interactive hidden>
     <div class="notes-preview" id="notes-preview">
       {notes.map((note, index) => <div class:list={['notes-preview-layer', { 'is-selected': index === 0 }]} data-note-layer aria-hidden={index === 0 ? 'false' : 'true'}>
-        <CoverArt color={note.data.cover.color} />
+        <CoverArt color={note.data.cover.color} art={note.data.cover.art} />
       </div>)}
     </div>
     <div class="notes-feature-copy">
