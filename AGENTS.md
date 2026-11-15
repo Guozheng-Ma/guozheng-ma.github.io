@@ -1,5 +1,12 @@
 # Guozheng Ma · Personal research journal
 
+## 2026-11-15 · 稀疏论文配图与首页状态精简
+
+- 用户认可 Selected Research 前两张具体插画，要求重绘第三张，不删除论文条目。第三图改用平放的权重矩阵技术纸卡，以小型密集矩阵和更宽的稀疏矩阵表达容量扩展与固定非零权重，移除原立式框架／圆球连线构图。
+- 采用 `research-sparsity-v2` 浅暗 PNG／WebP；前两张、Blog、论文内容和真实论文图保持。旧第三图资源继续保留。
+- 用户明确：首页只去掉 Accepted、Published 等发表状态；作者角色、Spotlight／Oral、Position paper 与会议年份保留。完整论文列表和详情继续显示发表状态。
+- 沿用已授权的直接发布流程，保持未发布的字体／配色试稿。
+
 ## 2026-11-15 · Selected Research 具体场景插画
 
 - 用户要求重画首页 Selected Research 的三张图，与上方 Blog 的细墨线、纸感和低饱和配色协调，并明确强调“更加具体一点，不要这么抽象”。使用能辨认的物件与场景，不再沿用粗线框图或抽象曲面。

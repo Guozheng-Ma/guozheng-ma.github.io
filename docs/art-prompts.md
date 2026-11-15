@@ -1,5 +1,11 @@
 # Original research editorial illustrations
 
+## 2026-11-15 — Revised sparsity thumbnail
+
+The user approved the first two concrete Selected Research illustrations and requested a new third illustration. `research-sparsity-v2` replaces the upright frames and spherical nodes with two tangible stacks of technical weight-matrix cards on warm paper: a small dense matrix and a larger sparse matrix with a similar visual budget of nonzero purple cells. All matrix positions remain present. The image illustrates a fixed weight mask and wider architecture; it does not depict neuron deletion, ongoing pruning, experimental hardware or measured results. Primary grounding remains [§2.2 and §3 of the paper](https://arxiv.org/html/2506.17204v1).
+
+The built-in `image_gen` tool produces both the light illustration and a same-composition dark companion. PNG originals and 1200×800 quality-88 WebP variants are saved as `public/art/research-sparsity-v2{,-dark}.{png,webp}`; old assets remain available. Complete prompts and generation records are stored in `/Users/mgz/Workspace/Homepage-old/preview/sparsity-status-refinement-2026-11-15/generation.json`. The two earlier Selected Research illustrations and every Blog illustration are preserved.
+
 ## 2026-11-15 — Concrete Selected Research illustrations
 
 The homepage paper thumbnails use new editorial illustrations generated with the built-in `image_gen` tool, matching the Blog's fine ink, warm paper, restrained colour and tangible objects. These replace only the homepage's mechanism SVGs. The actual figures in the publication index and paper pages remain unchanged.

@@ -19,6 +19,10 @@ Guozheng Ma 的个人思想与研究杂志。首页先呈现两段个人介绍�
 发布仓库：[Guozheng-Ma/guozheng-ma.github.io](https://github.com/Guozheng-Ma/guozheng-ma.github.io)
 
 
+## 2026-11-15 · 第三张配图与首页状态精简
+
+Selected Research 第三张改为权重矩阵技术纸卡插画，表达更宽矩阵中的固定稀疏权重，使用 `research-sparsity-v2` 浅暗版；前两图保留。首页移除 Accepted／Published 状态标签，保留会议、作者角色和荣誉；论文列表与详情仍显示完整状态。
+
 ## 2026-11-15 · Selected Research 配图
 
 首页三篇精选论文改用具体场景插画：先验与新经验的失配、精细操作中的残差价值判断，以及紧凑密集网络与宽大固定稀疏网络的对比。细墨线、纸感和珊瑚／青／紫配色与 Blog 协调，提供浅暗两套。论文原文图和全部内容保留；机制依据与表达边界见 [插画记录](docs/art-prompts.md)。
