@@ -52,4 +52,4 @@ SOFT 与 TREvaL 当前不标 Theme。ExToken、SCOUT 的后训练、探索与效
 
 旧 `topic` 链接继续兼容：offline-online → RL Post-Training，scaling-sparsity → Scalable RL，plasticity → Plasticity Loss，visual-rl / agents-robotics → Embodied AI，language-reasoning → LLMs，3d-vision → Computer Vision。这是到最相关新分类的迁移，结果数量可能随新语义变化；显式新参数优先，交互后使用新的 area/theme 参数。
 
-列表中的真实科学图、尺寸、出处和裁切依据见 [论文配图记录](publication-figures.md)。首页四篇精选独立维护：REAP 按用户要求置首并使用原论文机制面板，原三篇及其插画保留；不会随新合作论文自动替换。
+列表中的真实科学图、尺寸、出处和裁切依据见 [论文配图记录](publication-figures.md)。首页四篇精选独立维护：REAP 按用户要求置首，并按最新反馈沿用首页的细墨线、纸感与低饱和插画风格；原论文 Figure 1 继续用于列表和详情，原三篇及其插画保留；不会随新合作论文自动替换。

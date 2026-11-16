@@ -1,5 +1,11 @@
 # Guozheng Ma · Personal research journal
 
+## 2026-11-16 · REAP 首页插画统一
+
+- 用户补充：首页展示仍须与既有 Selected Research 保持相同风格的插画。REAP 首页改用 `research-reap` 浅暗 PNG／WebP，通过现有 ThemeImage 切换。
+- 插画以纸质经验档案、固定槽位的回放托盘和小型机械夹爪表现高回报经验获得更多回放；沿用细墨线、纸感、低饱和颜色。卡片数量仅作示意，不宣称固定成功配额、整轨迹采样或真实硬件实验。
+- 列表与详情保留真实 Figure 1，旧裁切资源仍保留。论文标题、作者、First author／Preprint 和空 Paper 入口保持；原三篇插画不改。
+
 ## 2026-11-16 · REAP Preprint 首页置首
 
 - 用户提供 From Discovery to Mastery 稿件，明确按 Preprint 展示、放在首页，Paper 链接先留空；本人确认第一作者，并用截图确认六人作者顺序。

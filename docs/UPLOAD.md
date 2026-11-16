@@ -1,5 +1,9 @@
 # 上传个人研究杂志新版
 
+## 最新：REAP 首页插画
+
+首页 REAP 卡片已改用与原三篇协调的纸感、细墨线、低饱和插画，并提供浅暗两版。论文列表与详情继续使用原文 Figure 1；First author、Preprint 2026、作者顺序和空 Paper 入口保持。资源位于 `public/art/research-reap{,-dark}.{png,webp}`。
+
 ## 2026-11-16 · REAP 首页条目
 
 最新修订将 **From Discovery to Mastery** 放在首页 Selected Research 第一项，标为 **Preprint 2026 / First author**，作者顺序来自用户截图。原三篇精选保留，完整论文列表为 23 篇。Paper 显示禁用占位；拿到真实地址后，只需在 `src/content/publications/preprint-2026-reap.md` 中填写 `links.pdf`，首页、列表和详情会同步变成可用链接。

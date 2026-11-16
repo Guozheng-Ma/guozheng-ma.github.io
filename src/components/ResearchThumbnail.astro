@@ -4,6 +4,10 @@ import ThemeImage from './ThemeImage.astro';
 interface Props { id: string; }
 const { id } = Astro.props;
 const illustrations: Record<string, { src: string; alt: string }> = {
+  'preprint-2026-reap': {
+    src: '/art/research-reap.webp',
+    alt: 'An archive of experience cards and a fixed-size replay tray illustrate giving rare high-return experience more opportunities to influence learning',
+  },
   'neurips-2026-offline-priors': {
     src: '/art/research-priors.webp',
     alt: 'A wheeled robot encounters an obstruction, retaining useful prior guidance while adjusting its route using new evidence',
@@ -20,11 +24,7 @@ const illustrations: Record<string, { src: string; alt: string }> = {
 const illustration = illustrations[id];
 ---
 
-{id === 'preprint-2026-reap' ? (
-  <div class="research-thumbnail" data-research-figure={id} aria-hidden="true">
-    <img src="/research/preprint-2026-reap-mechanism.webp" alt="REAP gives rare favorable experience more replay within a fixed budget" width="1200" height="800" loading="lazy" decoding="async" />
-  </div>
-) : illustration && (
+{illustration && (
   <div class="research-thumbnail" data-research-illustration={id} aria-hidden="true">
     <ThemeImage src={illustration.src} alt={illustration.alt} width={1200} height={800} />
   </div>

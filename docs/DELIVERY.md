@@ -1,5 +1,13 @@
 # 改版交付记录
 
+## 2026-11-16 · REAP 首页插画跟进
+
+- 用户要求新论文的首页展示沿用既有插画风格。新增 `public/art/research-reap{,-dark}.{png,webp}`，用细墨线、纸张质感、低饱和蓝灰表现回放分配；WebP 为 1200×800，沿用现有 240×160 桌面、200×133 平板与手机隐藏缩略图的布局。
+- 场景包含经验卡片档案、固定六格托盘中重复出现的高回报卡片，以及机械夹爪／方块；属于方法的编辑插画，格数与颜色不对应实测比例，不表示整轨迹采样、固定成功配额或真实硬件结果。
+- 首页通过 ThemeImage 使用浅暗图；论文列表、详情与分享图继续使用完整 Figure 1。原机制裁切保留为历史资源，原三篇精选插画保持。
+- 使用内置图像生成工具，浅色为新图，暗色以浅色图作编辑目标并参考既有暗色插画；完整提示词保存于 `preview/reap-preprint-2026-11-16/image-prompt-{light,dark}.txt`。本次沿用用户明确授权的线上发布。
+- 插画更新后的 34 页构建通过；23 篇论文数据与原论文图逐字节保持。浏览器核对 1280px 浅暗切换与资源加载，禁用 Paper 正确跳过键盘焦点；先前的 390px 手机与 768px 平板检查继续适用，布局样式未改。
+
 ## 2026-11-16 · 首页新增 REAP Preprint
 
 - 将 **From Discovery to Mastery: Reallocating the Replay Budget in Massively Parallel Reinforcement Learning** 加入首页 Selected Research 首位；原三篇精选保持，完整论文集增至 23 篇。
