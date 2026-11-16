@@ -1,5 +1,12 @@
 # Guozheng Ma · Personal research journal
 
+## 2026-11-16 · Position 配图明确 Online with Offline
+
+- 用户认为 position paper 的导航场景与文章不搭，进一步明确“体现 online with offline”并要求“不要出现文字的情况下清晰展示”。最终以离线知识输入与持续在线交互闭环为主体。
+- 首页改用无文字 `research-priors-v2` 浅暗 PNG／WebP：左侧历史数据卡片和预训练模型向学习者提供先验；右侧学习者通过动作与反馈两条箭头同环境持续交互。配色、细墨线与纸感沿用既有插画。
+- 依据原文 Figure 1 与先验分类。这是范式的编辑插画，不宣称特定硬件实验、统一最优算法或精确诊断机制。不画成离线训练后直接部署的单向流水线。
+- 原 priors 资源保留，其他三篇精选配图、所有文章内容和真实论文图保持。沿用本次会话已明确授权的现有网站发布流程，继续保留未发布字体／配色试稿。
+
 ## 2026-11-16 · REAP 首页插画统一
 
 - 用户补充：首页展示仍须与既有 Selected Research 保持相同风格的插画。REAP 首页改用 `research-reap` 浅暗 PNG／WebP，通过现有 ThemeImage 切换。

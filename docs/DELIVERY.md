@@ -1,5 +1,13 @@
 # 改版交付记录
 
+## 2026-11-16 · Position 插画改为无文字 Online with Offline
+
+- 根据用户最终要求，将 position paper 的首页配图从机器人导航场景改为“离线先验支持持续在线学习”。左侧数据卡片与预训练模型输入学习者，右侧动作／反馈组成学习者与环境的交互闭环；完全不依赖文字标签。
+- 新资源为 `public/art/research-priors-v2{,-dark}.{png,webp}`，WebP 为 1200×800；由现有 ThemeImage 使用浅暗版本。旧资源保留，其他三篇精选、论文内容与实际论文图保持。
+- 原文依据是 `priors.pdf` 第 3 页 Figure 1、第 4 页先验分类。图是范式示意，不表示作者提出了通用控制器或进行了画面中的硬件实验。
+- 使用内置图像生成工具；完整提示词、未采用的探索图、校验截图与最终部署记录保存在 `preview/position-diagnosis-art-2026-11-16/`。用户澄清后的有效提示词为 `online-offline-light-prompt.txt`、`online-offline-no-text-prompt.txt`、`online-offline-dark-prompt.txt`。
+- 34 页构建、574 个 HTML 本地资源引用检查通过；所有文章内容与原有插画逐字节保持。浏览器确认浅暗主题正确显示、桌面 240×160 和平板 200px 缩略图；390px 手机继续隐藏缩略图，无横向溢出。
+
 ## 2026-11-16 · REAP 首页插画跟进
 
 - 用户要求新论文的首页展示沿用既有插画风格。新增 `public/art/research-reap{,-dark}.{png,webp}`，用细墨线、纸张质感、低饱和蓝灰表现回放分配；WebP 为 1200×800，沿用现有 240×160 桌面、200×133 平板与手机隐藏缩略图的布局。
