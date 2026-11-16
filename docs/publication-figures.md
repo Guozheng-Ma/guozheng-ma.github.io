@@ -1,10 +1,20 @@
 # Publications 论文缩略图来源
 
-更新：2026-11-06。
+更新：2026-11-16（新增 REAP；原 22 篇来源与核对记录保留）。
 
-当前 22 张图片用于 Publications 列表，涵盖全部 22 篇独立研究。每幅均来自论文原图或作者旧主页已保存的论文 teaser；不使用生成式图像，不重绘曲线或改动实验数值。浅色、暗色均保留原始白底和图例颜色，使用 `object-fit: contain` 完整显示，并可打开 1200–1600px 宽版本阅读。
+当前 23 张主图用于 Publications 列表，涵盖全部 23 篇独立研究。REAP 另有首页用的独立机制面板裁切。每幅均来自论文原图或作者旧主页已保存的论文 teaser；不使用生成式图像，不重绘曲线或改动实验数值。浅色、暗色均保留原始白底和图例颜色，使用 `object-fit: contain` 完整显示，并可打开 1200–1600px 宽版本阅读。
 
 选择原则：结果图优先保留坐标、误差区间与完整图例；综述和 position paper 使用能解释论文主题的方法或框架图。只裁剪空白、独立完整面板或图外装饰照片，不裁掉面板内信息。旧 `public/assets/` 原始文件保持不变。
+
+## 2026-11-16 · REAP / From Discovery to Mastery
+
+- 来源：用户提供的 `11147_From_Discovery_to_Master.pdf`，PDF 第 2 页 Figure 1；没有使用外部论文链接，也没有生成插画或重绘实验数值。
+- 列表与详情：`public/research/preprint-2026-reap.webp`，**1600 × 384**，85,772 bytes。保留完整 Figure 1，包括左侧机制、右侧两组学习结果、坐标与图例。
+- 首页：`public/research/preprint-2026-reap-mechanism.webp`，**1200 × 800**，66,226 bytes。仅选 Figure 1 左侧完整机制面板，等比缩放并加白色留边，不把右侧实验结果改画进机制图。
+- 处理：整页渲染为 3710 × 4800；在 1237 × 1600 预览上确定完整图裁切 `(214, 143, 1020, 338)`、机制面板裁切 `(215, 150, 658, 337)`，再按比例映射到高分辨率整页。坐标按左、上、右、下记录。保留原配色，浅暗主题均使用原白底。
+- 列表 Alt：`REAP reallocates a fixed replay budget toward rare high-return experience; learning curves show faster learning and enabled task success on two groups of sparse-reward ManiSkill tasks.`
+- 首页 Alt：`REAP gives rare favorable experience more replay within a fixed budget`。
+- 首页按用户要求将该工作置首，保留原三篇精选和原配图；没有覆盖旧图或旧资源路径。
 
 ## 2026-11-05 · 首批 6 篇图像清单
 

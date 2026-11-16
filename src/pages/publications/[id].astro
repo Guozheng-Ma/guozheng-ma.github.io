@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import PublicationMeta from '../../components/PublicationMeta.astro';
 import PublicationResourceIcon from '../../components/PublicationResourceIcon.astro';
+import PublicationPaperLink from '../../components/PublicationPaperLink.astro';
 import { publicationAuthors } from '../../lib/publication-presentation';
 
 export async function getStaticPaths() {
@@ -36,7 +37,7 @@ const hasEqualContributors = authors.some((author) => author.equalContribution);
         {hasEqualContributors && <span class="detail-equal-contribution">* Equal contribution</span>}
       </p>
       <div class="article-actions" aria-label="Publication resources">
-        {d.links.pdf && <a href={d.links.pdf}><PublicationResourceIcon name="paper" />Paper</a>}
+        <PublicationPaperLink href={d.links.pdf} detail />
         {d.links.code && <a href={d.links.code}><PublicationResourceIcon name="code" />Code</a>}
         {d.links.bibtex && <a download href={d.links.bibtex}><PublicationResourceIcon name="bibtex" />BibTeX</a>}
         {d.links.project && <a href={d.links.project}><PublicationResourceIcon name="project" />Project</a>}

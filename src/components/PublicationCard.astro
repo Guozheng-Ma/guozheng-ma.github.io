@@ -3,6 +3,7 @@ import { type CollectionEntry } from 'astro:content';
 import ResearchThumbnail from './ResearchThumbnail.astro';
 import PublicationMeta from './PublicationMeta.astro';
 import PublicationResourceIcon from './PublicationResourceIcon.astro';
+import PublicationPaperLink from './PublicationPaperLink.astro';
 import PublicationFigure from './PublicationFigure.astro';
 import { publicationAreaLabels, publicationThemeLabels } from '../data/publication-topics';
 import { publicationAuthors } from '../lib/publication-presentation';
@@ -12,7 +13,7 @@ const d = pub.data;
 const authors = publicationAuthors(d);
 const hasEqualContributors = authors.some((author) => author.equalContribution);
 const displayTitle = compact ? d.title.replaceAll('Reinforcement Learning', 'RL') : d.title;
-const hasThumbnail = compact && ['neurips-2026-offline-priors', 'icml-2026-residual', 'icml-2025-sparsity'].includes(pub.id);
+const hasThumbnail = compact && ['preprint-2026-reap', 'neurips-2026-offline-priors', 'icml-2026-residual', 'icml-2025-sparsity'].includes(pub.id);
 ---
 <article
   class:list={['publication-card', { 'publication-compact': compact, 'publication-illustrated': hasThumbnail, 'publication-index-card': !compact, 'publication-without-figure': !compact && !d.thumbnail, 'publication-lead': !compact && d.authorship !== 'coauthor' }]}
@@ -43,7 +44,7 @@ const hasThumbnail = compact && ['neurips-2026-offline-priors', 'icml-2026-resid
       </div>}
     </dl>}
     <div class="publication-links">
-      {d.links.pdf && <a href={d.links.pdf}><PublicationResourceIcon name="paper" />Paper</a>}
+      <PublicationPaperLink href={d.links.pdf} />
       {d.links.code && <a href={d.links.code}><PublicationResourceIcon name="code" />Code</a>}
       {!compact && d.links.bibtex && <a download href={d.links.bibtex}><PublicationResourceIcon name="bibtex" />BibTeX</a>}
       {d.links.project && <a href={d.links.project}><PublicationResourceIcon name="project" />Project</a>}

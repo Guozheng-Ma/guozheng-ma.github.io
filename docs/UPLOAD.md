@@ -1,5 +1,11 @@
 # 上传个人研究杂志新版
 
+## 2026-11-16 · REAP 首页条目
+
+最新修订将 **From Discovery to Mastery** 放在首页 Selected Research 第一项，标为 **Preprint 2026 / First author**，作者顺序来自用户截图。原三篇精选保留，完整论文列表为 23 篇。Paper 显示禁用占位；拿到真实地址后，只需在 `src/content/publications/preprint-2026-reap.md` 中填写 `links.pdf`，首页、列表和详情会同步变成可用链接。
+
+本次使用原论文 Figure 1 的机制面板和完整图；本地更新已完成，用户已明确授权本次提交并发布到现有首页。本地未确认字体／配色试稿不纳入发布候选。源码、静态副本和 ZIP 的最终状态见交付记录与 `preview/reap-preprint-2026-11-16/`。
+
 最新修订保留 Selected Research 前两张插画，第三张使用 `research-sparsity-v2` 权重矩阵纸卡。首页隐藏 Accepted／Published 等发表状态，会议、角色和荣誉保持；论文列表和详情仍显示状态。沿用现有 GitHub Pages 直接发布流程。
 
 最新更新为首页 **Selected Research** 的三张具体场景插画，浅暗两版分别对应先验诊断、残差价值学习、静态稀疏网络；上方 Blog 和论文真实配图保持。用户已授权直接推送到现有 GitHub Pages。上线后同时检查三张缩略图的浅暗切换、论文入口与移动布局。

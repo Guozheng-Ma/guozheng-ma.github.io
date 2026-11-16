@@ -1,5 +1,12 @@
 # Guozheng Ma · Personal research journal
 
+## 2026-11-16 · REAP Preprint 首页置首
+
+- 用户提供 From Discovery to Mastery 稿件，明确按 Preprint 展示、放在首页，Paper 链接先留空；本人确认第一作者，并用截图确认六人作者顺序。
+- 新条目 `preprint-2026-reap` 排在 Selected Research 第一项，原三篇保留，共四篇。作者为 Guozheng Ma、Qi Zhao、Lu Li、Zilin Wang、Pierre-Luc Bacon、Dacheng Tao，不加共一标记。
+- 首页使用原文 Figure 1 左侧完整机制面板，列表／详情使用完整 Figure 1；不宣称会议录用或已公开 arXiv。`links.pdf: ""` 显示不可点击的 Paper 占位，未来填 URL 即恢复链接。
+- 按既有直接发布流程实施；维护目录尚未确认的字体／配色试稿继续保留，不随此次更新发布。
+
 ## 2026-11-15 · 稀疏论文配图与首页状态精简
 
 - 用户认可 Selected Research 前两张具体插画，要求重绘第三张，不删除论文条目。第三图改用平放的权重矩阵技术纸卡，以小型密集矩阵和更宽的稀疏矩阵表达容量扩展与固定非零权重，移除原立式框架／圆球连线构图。

@@ -1,7 +1,7 @@
 {
   "verifiedOn": "2026-11-06",
   "profile": "https://scholar.google.com/citations?user=jDvVglUAAAAJ&hl=en",
-  "total": 22,
+  "total": 23,
   "records": [
     {
       "id": "ijcv-2025-augmentation-survey",
@@ -1008,6 +1008,49 @@
       ],
       "classificationRationale": "研究预训练Transformer策略在meta-RL上的RFT；不是语言模型论文，Transformer架构不自动归LLMs。少样本实验不自动意味着Generalization/Efficiency为独立核心主题。",
       "classificationUpdatedOn": "2026-11-07"
+    },
+    {
+      "id": "preprint-2026-reap",
+      "title": "From Discovery to Mastery: Reallocating the Replay Budget in Massively Parallel Reinforcement Learning",
+      "year": 2026,
+      "venue": "Preprint",
+      "status": "preprint",
+      "authorship": "first",
+      "equalContributionIndices": [],
+      "authors": [
+        "Guozheng Ma",
+        "Qi Zhao",
+        "Lu Li",
+        "Zilin Wang",
+        "Pierre-Luc Bacon",
+        "Dacheng Tao"
+      ],
+      "sourceRecord": "11147_From_Discovery_to_Master.pdf (author-provided manuscript)",
+      "authorshipSource": "Author-provided author-list screenshot and first-author confirmation, 2026-11-16",
+      "authorshipEvidence": "The author-provided screenshot lists Guozheng Ma, Qi Zhao, Lu Li, Zilin Wang, Pierre-Luc Bacon, and Dacheng Tao in that order. Guozheng Ma explicitly confirmed first authorship; no equal-contribution label was supplied.",
+      "aliases": [],
+      "notes": [
+        "Added at the author’s request on 2026-11-16, separately from the 2026-11-06 Google Scholar inventory; not externally verified.",
+        "Display as Preprint 2026. Do not infer acceptance or a published venue from the anonymous submission manuscript.",
+        "Paper URL is intentionally empty. Do not add code, project, or BibTeX resources until actual resources are supplied.",
+        "The author requested first position in homepage Selected Research; all three previous selections remain, for four featured papers."
+      ],
+      "sources": [
+        "11147_From_Discovery_to_Master.pdf (author-provided manuscript)",
+        "Author-provided author-list screenshot and explicit instructions, 2026-11-16"
+      ],
+      "verifiedOn": "2026-11-16",
+      "verificationBasis": "Author-provided materials and explicit confirmation; no external record checked.",
+      "areas": [
+        "core-ml",
+        "embodied-ai"
+      ],
+      "themes": [
+        "scalable-rl",
+        "efficiency"
+      ],
+      "classificationRationale": "核心研究大规模并行强化学习中从成功发现到稳定掌握的回放瓶颈，并在固定交互与更新预算下改善学习效率；48项控制任务涵盖操作与运动，支持具身交叉。探索是问题背景，未将REAP归为新的探索机制。",
+      "classificationUpdatedOn": "2026-11-16"
     }
   ],
   "excludedCandidates": [
@@ -1024,5 +1067,6 @@
       "reason": "Same-name candidate predates confirmed research trajectory and absent from owner Scholar; not imported."
     }
   ],
-  "classificationUpdatedOn": "2026-11-07"
+  "classificationUpdatedOn": "2026-11-16",
+  "updatedOn": "2026-11-16"
 }

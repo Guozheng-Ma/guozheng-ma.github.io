@@ -1,0 +1,22 @@
+---
+import PublicationResourceIcon from './PublicationResourceIcon.astro';
+
+interface Props { href?: string; detail?: boolean; }
+const { href, detail = false } = Astro.props;
+---
+{href ? (
+  <a href={href}><PublicationResourceIcon name="paper" />Paper</a>
+) : href === '' ? (
+  <span
+    class:list={['publication-paper-placeholder', { 'publication-paper-detail': detail }]}
+    role="link"
+    aria-disabled="true"
+    aria-label="Paper link coming soon"
+    title="Paper link coming soon"
+  ><PublicationResourceIcon name="paper" />Paper</span>
+) : null}
+
+<style>
+  .publication-paper-placeholder { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding-block: 5px; color: var(--color-text-secondary); font-size: 17px; font-weight: 500; cursor: default; }
+  .publication-paper-detail { gap: 8px; padding: 9px 16px; background: var(--color-bg-primary); border-radius: var(--radius-md); }
+</style>
