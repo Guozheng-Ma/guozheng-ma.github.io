@@ -1,0 +1,98 @@
+/* Wider research shelf; the rest of the journal retains its original width. */
+.publication-showcase { --card-w: 390px; --card-h: 510px; }
+.publication-showcase .section-top { margin-bottom: 16px; }
+.ring-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 6px; }
+.ring-collection-label, .ring-help { color: var(--color-text-tertiary); font-size: 15px; }
+.ring-view-actions { display: none; align-items: center; gap: 24px; }
+.is-enhanced .ring-view-actions { display: flex; }
+.ring-text-button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 44px; padding: 0; border: 0; color: var(--color-text-secondary); background: none; font-size: 15px; }
+.ring-text-button:hover { color: var(--color-brand); }
+.is-list .ring-random { display: none; }
+.research-ring-stage { width: min(calc(100% - 48px), 1280px); margin-inline: auto; }
+.research-ring-track { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; padding-block: 22px; }
+.research-ring-card { --paper-accent: var(--color-brand); min-width: 0; position: relative; }
+.research-ring-card[data-color="purple"] { --paper-accent: var(--color-purple-600); }
+.research-ring-card[data-color="teal"] { --paper-accent: var(--color-teal-600); }
+.research-ring-card[data-color="coral"] { --paper-accent: var(--color-coral-600); }
+.ring-card-content { position: relative; display: flex; flex-direction: column; gap: 14px; height: 100%; min-height: 470px; padding: 25px 27px 26px 29px; border: 1px solid var(--color-border-tertiary); border-left: 3px solid color-mix(in srgb, var(--paper-accent) 45%, var(--color-bg-primary)); border-radius: 4px 18px 18px 4px; background: var(--color-bg-primary); }
+.ring-publication-header { flex: 0 0 auto; min-height: 55px; }
+.ring-card-topline { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.ring-venue { color: var(--color-text-primary); font-size: 18px; line-height: 1.3; font-weight: 700; letter-spacing: .015em; }
+.ring-year { flex-shrink: 0; color: var(--color-text-secondary); font-size: 15px; line-height: 1.3; font-variant-numeric: tabular-nums; }
+.ring-publication-distinction { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 8px; margin-top: 7px; font-size: 13px; line-height: 1.4; }
+.ring-role { margin-bottom: 5px; color: var(--color-brand); font-size: 13px; line-height: 1.45; font-weight: 600; }
+.ring-type { color: var(--color-text-secondary); font-weight: 500; }
+.ring-honor { padding: 2px 7px; border-radius: 5px; color: var(--color-amber-800); background: color-mix(in srgb, var(--color-amber-200) 55%, var(--color-bg-primary)); font-weight: 600; }
+.ring-paper-title { font: 400 23px/1.3 var(--font-serif); letter-spacing: -.02em; text-wrap: pretty; }
+.ring-paper-title a:hover { text-decoration-color: var(--paper-accent); }
+.ring-authors-block { min-height: 0; flex: 0 1 auto; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.ring-paper-authors, .ring-team { color: var(--color-text-secondary); font-size: 15px; line-height: 1.5; }
+.ring-team { margin-bottom: 5px; color: var(--color-text-primary); }
+.ring-equal-note { margin-top: 4px; color: var(--color-text-tertiary); font-size: 12px; }
+.ring-paper-links { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 17px; margin-top: -5px; }
+.ring-paper-links a, .ring-paper-links .publication-paper-placeholder { display: inline-flex; align-items: center; gap: 6px; min-height: 38px; padding: 2px 0; font: 500 15px/1.4 var(--font-sans); }
+.ring-paper-links a { color: var(--color-brand); }
+.ring-paper-links .publication-resource-icon { width: 16px; height: 16px; flex-basis: 16px; }
+.ring-card-body { flex: 1 1 auto; min-height: 82px; margin-top: auto; padding: 13px 15px; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--color-border-secondary) transparent; background: color-mix(in srgb, var(--color-bg-tertiary) 80%, var(--color-bg-primary)); border-radius: 10px; }
+.ring-card-body p { color: var(--color-text-secondary); font-size: 15px; line-height: 1.55; }
+.ring-card-body:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 3px; }
+.ring-navigation { display: none; align-items: center; justify-content: space-between; gap: 20px; margin-top: 0; }
+.ring-step-controls { display: flex; align-items: center; gap: 16px; }
+.ring-counter { min-width: 55px; color: var(--color-text-secondary); text-align: center; font-size: 14px; letter-spacing: .1em; font-variant-numeric: tabular-nums; }
+.ring-arrow { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--color-border-tertiary); border-radius: 50%; background: var(--color-bg-tertiary); color: var(--color-text-secondary); transition: background .16s, color .16s; }
+.ring-arrow:hover { background: var(--color-bg-primary); color: var(--color-brand); }
+.ring-help span { padding-inline: 7px; }
+
+/* Clipping belongs on the stage; the track must preserve its 3D context. */
+.is-ring .research-ring-stage { position: relative; height: calc(var(--card-h) + 74px); perspective: var(--ring-perspective, 1800px); perspective-origin: 50% 50%; overflow: hidden; touch-action: pan-y; cursor: grab; user-select: none; }
+.is-ring .research-ring-stage:focus-visible { outline: 2px solid var(--color-border-secondary); outline-offset: 2px; border-radius: 18px; }
+.is-ring.is-dragging .research-ring-stage { cursor: grabbing; }
+.is-ring .research-ring-track { display: block; padding: 0; position: absolute; inset: 0; transform-style: preserve-3d; transform: translateZ(calc(-1 * var(--ring-radius))); }
+.is-ring .research-ring-card { position: absolute; top: 50%; left: 50%; width: var(--card-w); height: var(--card-h); transform: translate(-50%, -50%) rotateY(var(--card-angle, 0deg)) translateZ(var(--ring-radius)); backface-visibility: hidden; }
+.is-ring .ring-card-content { min-height: 0; box-shadow: 0 3px 12px rgb(0 0 0 / .04); }
+.is-ring .research-ring-card.is-active .ring-card-content { border-left-color: var(--paper-accent); box-shadow: 0 16px 32px -16px rgb(0 0 0 / .22), 0 3px 10px rgb(0 0 0 / .035); }
+.is-ring .ring-authors-block { max-height: 122px; }
+.is-ring .ring-card-body { max-height: 150px; }
+.is-ring .ring-navigation { display: flex; }
+.is-ring .research-ring-stage::before, .is-ring .research-ring-stage::after { content: ''; position: absolute; z-index: 3; inset-block: 0; width: 95px; pointer-events: none; }
+.is-ring .research-ring-stage::before { left: 0; background: linear-gradient(to right, var(--color-bg-tertiary), transparent); }
+.is-ring .research-ring-stage::after { right: 0; background: linear-gradient(to left, var(--color-bg-tertiary), transparent); }
+.is-list .research-ring-stage { width: min(calc(100% - var(--page-gutter) * 2), 1100px); }
+.is-list .ring-card-content { min-height: 430px; }
+.is-list .ring-card-body { flex-grow: 0; }
+.dark .research-ring-card { --paper-accent: var(--color-brand); }
+.dark .research-ring-card[data-color="purple"] { --paper-accent: var(--color-purple-400); }
+.dark .research-ring-card[data-color="teal"] { --paper-accent: var(--color-teal-400); }
+.dark .research-ring-card[data-color="coral"] { --paper-accent: var(--color-coral-400); }
+@media (max-width: 960px) {
+  .publication-showcase { --card-w: 360px; --card-h: 525px; }
+  .research-ring-stage { width: calc(100% - 24px); }
+  .is-ring .research-ring-stage::before, .is-ring .research-ring-stage::after { width: 45px; }
+}
+@media (max-width: 680px) {
+  .publication-showcase { --card-w: min(340px, calc(100vw - 48px)); --card-h: 535px; }
+  .publication-showcase .section-top { gap: 12px; align-items: baseline; }
+  .publication-showcase .section-heading { font-size: 29px; }
+  .publication-showcase .section-link { font-size: 14px; gap: 5px; }
+  .publication-showcase .section-link svg { width: 14px; }
+  .ring-toolbar { gap: 8px; }
+  .ring-collection-label { font-size: 13px; }
+  .ring-view-actions { gap: 14px; }
+  .ring-text-button { font-size: 13px; }
+  .ring-random svg { display: none; }
+  .research-ring-stage { width: 100%; }
+  .is-ring .research-ring-stage { height: calc(var(--card-h) + 48px); }
+  .is-ring .research-ring-stage::before, .is-ring .research-ring-stage::after { width: 16px; }
+  .ring-card-content { gap: 12px; padding: 22px 21px 23px 23px; }
+  .ring-paper-title { font-size: 20px; }
+  .ring-publication-header { min-height: 52px; }
+  .ring-venue { font-size: 17px; }
+  .ring-year { font-size: 14px; }
+  .ring-paper-authors, .ring-team, .ring-card-body p { font-size: 14px; }
+  .ring-navigation { flex-direction: column-reverse; gap: 10px; }
+  .ring-help { font-size: 13px; }
+  .research-ring-track { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .is-list .ring-card-content { min-height: 0; }
+  .is-list .ring-card-body { margin-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .ring-arrow { transition: none; } }

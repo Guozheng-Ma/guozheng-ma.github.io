@@ -1,5 +1,14 @@
 # Guozheng Ma · Personal research journal
 
+## 2026-11-17 · 首页论文立体卡片
+
+- 用户已确认本地预览并要求“提交一版本”。本次创建本地 Git 提交；参考副本、静态镜像与 ZIP 继续保留已发布版，未执行 push 或部署。维护目录另有待确认字体／蓝白配色试稿，不能混入本次提交。
+- 首页精选为 6 篇第一作者、2 篇共一且署名第一的论文，以及 ACE-CaP-0 技术报告；ACE 明确展示团队及 Core contributors，不改称共同第一作者。完整论文集、正式题名、作者顺序和链接保留，REAP Paper 继续为空地址占位。
+- 立体舞台最大 1280px，正文保持 1100px；默认居中 ICML 2026 Spotlight 工作，支持拖动、横向滑动、按钮、方向键、随机选择和列表视图。无脚本保留列表，减少动态效果时默认列表。
+- 首页题名仅将 Reinforcement Learning 缩写为 RL，桌面 23px、手机 20px，保留完整题名的悬停提示与可访问名称；已验证桌面与 390px 手机九张标题均不超过三行。
+- 会议／期刊名称桌面 18px、手机 17px，加粗使用主文字色，年份右对齐；荣誉与类型位于发表来源下方，Spotlight／Oral 为金色，Position paper 为中性色；作者角色移至作者名单上方。
+- 这次用户要求覆盖下方历史首页横向图文卡片、限制动画与舞台宽度的规定；其他页面和视觉试稿保持原范围。核心文件为 SelectedPublications.astro、publication-ring.css 与 scripts/publication-ring.ts。
+
 ## 2026-11-16 · Position 配图明确 Online with Offline
 
 - 用户认为 position paper 的导航场景与文章不搭，进一步明确“体现 online with offline”并要求“不要出现文字的情况下清晰展示”。最终以离线知识输入与持续在线交互闭环为主体。

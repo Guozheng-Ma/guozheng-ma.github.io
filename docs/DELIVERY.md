@@ -1,5 +1,19 @@
 # 改版交付记录
 
+## 2026-11-17 · 论文立体卡片本地提交
+
+- 基于已发布版本 `ded3567` 完成本地预览，用户随后要求“提交一版本”。本次将确认的卡片组件、样式、交互与维护说明整合到主页仓库并创建本地 Git 提交，未 push 或部署。主维护目录中未确认的字体／蓝白配色试稿仍保留为原有未提交改动；参考副本、静态镜像与 ZIP 保留已发布版本。预览源码位于 `preview/publication-ring-2026-11-17/site/`，入口为 [Selected Research](http://127.0.0.1:4327/#publications)。
+- 首页展示 9 项：6 篇第一作者、2 篇共一且署名第一的论文，以及 ACE-CaP-0 技术报告。TMLR Word-Level Perturbations 与 Plasticine 分别为共一第 2、第 3 位，不进入本轮首页精选，仍保留在完整论文集。完整题名保留于数据、详情、悬停提示和可访问名称，首页可见标题将 Reinforcement Learning 缩写为 RL；完整作者顺序、等贡献标记与资源链接保持，REAP Paper 继续为空地址的禁用占位。
+- ACE-CaP-0 使用独立首页数据：团队署名为 ACE-CaP Team · ACE Robotics，明确列出 Core contributors: Changxu Wei、Yunpeng Qing、Guozheng Ma；本人角色为 Core contributor，不改称共同第一作者，不变更完整论文集。
+- 正文保持 1100px，展示舞台最大 1280px；使用 30° 虚拟圆环和动态半径，在原站字体、配色与留白基础上呈现立体层次。支持原生拖动、横向滚动、左右按钮、方向键、随机切换与 List view。
+- 核心改动为 `src/components/SelectedPublications.astro`、`src/styles/publication-ring.css`、`src/scripts/publication-ring.ts`。本地构建 34 页通过；29 份内容文件与基线逐字节相同，首页 40 个站内链接／资源引用均有对应文件。
+- 浏览器已验证首尾循环、拖动、横向滚动及列表视图，390px 手机布局没有横向溢出。
+- 用户跟进：初始居中为 `icml-2026-residual`（ICML 2026 Spotlight），保持原论文顺序；标题采用桌面 23px、手机 20px，并将首页标题中的 Reinforcement Learning 缩写为 RL，尽量控制在三行。桌面实测九张标题均不超过三行：残差 Spotlight 与 sparsity 为两行，其余为三行。重新构建 34 页通过；浏览器确认默认条目、实际字号、浅暗主题及 390px 下所有卡片无内容外溢。预览以构建产物运行，避免编辑热刷新干扰查看。
+
+手机卡片最大宽度微调为 340px；390px 视口下实测九张可见题名均为两至三行，页面无横向溢出。桌面仍为 23px，九张均不超过三行。
+
+发表信息层级跟进：会议／期刊名改为顶部主文字色粗体（桌面 18px／手机 17px），年份右对齐，移除卡片内重复序号；Spotlight／Oral 和百分比归到发表来源下方，Position paper 保持中性色；作者角色移至作者名单上方。预印本主行统一为 Preprint，Module Scaling 保留 arXiv 次级来源，ACE 保留 Technical report。底层出版数据与完整论文页未改。34 页构建通过，390px 全部卡片无内容外溢且标题不超过三行。
+
 ## 2026-11-16 · Position 插画改为无文字 Online with Offline
 
 - 根据用户最终要求，将 position paper 的首页配图从机器人导航场景改为“离线先验支持持续在线学习”。左侧数据卡片与预训练模型输入学习者，右侧动作／反馈组成学习者与环境的交互闭环；完全不依赖文字标签。
