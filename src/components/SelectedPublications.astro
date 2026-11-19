@@ -38,8 +38,8 @@ const cards = selected.map(({ id, data: d }) => ({
         <article class="research-ring-card" data-ring-card data-title={card.title} data-id={card.id} data-color={card.color} aria-label={`${i + 1} of ${cards.length}: ${card.title}`}>
           <div class="ring-card-content">
             <header class="ring-publication-header">
-              <div class="ring-card-topline"><p class="ring-venue">{card.venue}</p><p class="ring-year">{card.year}</p></div>
-              <div class="ring-publication-distinction">{card.note && <span class="ring-type">{card.note}</span>}{card.honor && <span class="ring-honor">{card.honor}</span>}</div>
+              <p class="ring-publication-source"><span class="ring-venue">{card.venue}</span> <span class="ring-year">{card.year}</span></p>
+              {(card.note || card.honor) && <div class="ring-publication-distinction">{card.note && <span class="ring-type">{card.note}</span>}{card.honor && <span class="ring-honor">{card.honor}</span>}</div>}
             </header>
             <h3 class="ring-paper-title"><a href={card.href} title={card.title} aria-label={card.title}>{card.title.replaceAll('Reinforcement Learning', 'RL')}</a></h3>
             <div class="ring-authors-block">
