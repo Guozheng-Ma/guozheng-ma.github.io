@@ -1,5 +1,12 @@
 # 改版交付记录
 
+## 2026-11-19 · Selected Publications 仅展示中稿论文
+
+- 首页栏目及辅助技术标签改为 Selected Publications，计数文案为 6 publications。保留原第一作者／共一且署名第一的条件，并仅纳入 accepted 或 published 的论文。
+- 六篇为 NeurIPS 2026 Offline Priors、ICML 2026 Residual、ICML 2025 Sparsity、IJCV 2025 Survey、ICLR 2024 Plasticity、NeurIPS 2023 Augmentation。首页移除 REAP、Module Scaling 预印本及 ACE 技术报告卡片；原内容、完整论文集和 Agentic 介绍保留。
+- 默认仍为 ICML 2026 Spotlight，位置为 02 / 06；六张卡片维持 30° 展开角度。论文标题按后续要求再减小 1px：桌面 22px、手机 19px，其他版式和会议信息层级保持。
+- 34 页构建通过；浏览器验证默认条目、第六篇到第一篇循环及 390px 手机标题两至三行、无横向溢出。沿用用户已授权的现有 GitHub Pages 提交与发布流程，原字体／配色草稿不纳入本次版本。预览、截图及最终发布记录位于 `preview/selected-publications-2026-11-19/`。
+
 ## 2026-11-17 · 论文立体卡片本地提交
 
 - 基于已发布版本 `ded3567` 完成本地预览，用户随后要求“提交一版本”。本次将确认的卡片组件、样式、交互与维护说明整合到主页仓库并创建本地 Git 提交，未 push 或部署。主维护目录中未确认的字体／蓝白配色试稿仍保留为原有未提交改动；参考副本、静态镜像与 ZIP 保留已发布版本。预览源码位于 `preview/publication-ring-2026-11-17/site/`，入口为 [Selected Research](http://127.0.0.1:4327/#publications)。

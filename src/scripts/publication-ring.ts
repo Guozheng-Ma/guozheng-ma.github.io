@@ -24,7 +24,7 @@ export function initPublicationRings() {
     const controller = new AbortController();
     const { signal } = controller;
     const count = cards.length;
-    const step = count >= 7 ? Math.min(360 / count, 30) : 360 / count;
+    const step = count >= 6 ? Math.min(360 / count, 30) : 360 / count;
     const span = count * step;
     let ringMode = !media.matches;
     let rotation = 0;

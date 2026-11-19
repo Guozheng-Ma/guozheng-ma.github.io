@@ -1,5 +1,12 @@
 # Guozheng Ma · Personal research journal
 
+## 2026-11-19 · Selected Publications 仅展示中稿论文
+
+- 首页栏目及辅助技术标签改为 Selected Publications，计数文案为 6 publications。保留原第一作者／共一且署名第一的条件，并仅纳入 accepted 或 published 的论文。
+- 六篇为 NeurIPS 2026 Offline Priors、ICML 2026 Residual、ICML 2025 Sparsity、IJCV 2025 Survey、ICLR 2024 Plasticity、NeurIPS 2023 Augmentation。首页移除 REAP、Module Scaling 预印本及 ACE 技术报告卡片；原内容、完整论文集和 Agentic 介绍保留。
+- 默认仍为 ICML 2026 Spotlight，位置为 02 / 06；六张卡片维持 30° 展开角度。论文标题按后续要求再减小 1px：桌面 22px、手机 19px，其他版式和会议信息层级保持。
+- 34 页构建通过；浏览器验证默认条目、第六篇到第一篇循环及 390px 手机标题两至三行、无横向溢出。沿用用户已授权的现有 GitHub Pages 提交与发布流程，原字体／配色草稿不纳入本次版本。预览、截图及最终发布记录位于 `preview/selected-publications-2026-11-19/`。
+
 ## 2026-11-17 · 首页论文立体卡片
 
 - 用户已确认本地预览并要求“提交一版本”。本次创建本地 Git 提交；参考副本、静态镜像与 ZIP 继续保留已发布版，未执行 push 或部署。维护目录另有待确认字体／蓝白配色试稿，不能混入本次提交。
