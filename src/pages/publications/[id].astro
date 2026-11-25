@@ -24,13 +24,12 @@ const d = pub.data;
 const authors = publicationAuthors(d);
 const hasEqualContributors = authors.some((author) => author.equalContribution);
 ---
-<Layout title={d.title} description={d.tldr} image={d.thumbnail?.src ?? d.figure} type="article">
+<Layout title={d.title} description={d.tldr} image={d.figure} type="article">
   <main id="main-content" class="reading-page publication-detail">
     <header class="article-header">
-      <a href="/publications/" class="back-link">Publications</a>
+      <a href="/publications/" class="back-link">← Publications</a>
       <PublicationMeta publication={d} fullVenue />
       <h1 class="page-title">{d.title}</h1>
-      <p class="publication-detail-lead">{d.tldr}</p>
       <p class="article-authors">
         {authors.map((author, index) => (
           <span class={author.emphasized ? 'self-author' : undefined}>{author.displayName}{index < authors.length - 1 ? ', ' : ''}</span>
@@ -46,19 +45,9 @@ const hasEqualContributors = authors.some((author) => author.equalContribution);
       </div>
     </header>
 
-    <article class="prose article-body" aria-labelledby="publication-overview">
-      <h2 id="publication-overview">Overview</h2>
+    <article class="prose article-body">
       <Content />
     </article>
-
-    {d.thumbnail && (
-      <figure class="publication-detail-figure">
-        <a href={d.thumbnail.src} target="_blank" rel="noopener" aria-label={`View full-size figure for ${d.title} (opens in a new tab)`}>
-          <img src={d.thumbnail.src} alt={d.thumbnail.alt} width={d.thumbnail.width} height={d.thumbnail.height} loading="lazy" decoding="async" />
-        </a>
-        <figcaption><span>{d.thumbnail.alt}</span><a href={d.thumbnail.src} target="_blank" rel="noopener">View full-size figure</a></figcaption>
-      </figure>
-    )}
 
     {relatedNote && (
       <section class="related-section" aria-labelledby="related-note-title">
@@ -71,33 +60,5 @@ const hasEqualContributors = authors.some((author) => author.equalContribution);
 </Layout>
 
 <style>
-  .publication-detail { width: min(calc(100% - var(--page-gutter) * 2), var(--width-content, 1040px)); }
-  .publication-detail .article-header { max-width: 900px; margin: 0 auto 36px; padding-bottom: 32px; border-bottom: 1px solid var(--color-border-tertiary); }
-  .publication-detail .page-title { font: 750 clamp(30px, 3.7vw, 43px)/1.14 var(--font-sans); color: var(--color-text-primary); letter-spacing: -.035em; text-wrap: balance; }
-  .publication-detail .back-link { margin-bottom: 30px; }
-  .publication-detail-lead { max-width: 760px; margin-top: 22px; font: 400 clamp(19px, 2.1vw, 22px)/1.55 var(--font-serif); color: var(--color-text-secondary); }
-  .publication-detail .article-authors { max-width: 800px; font-size: 15px; margin-top: 24px; }
-  .publication-detail .article-actions { margin-top: 22px; gap: 6px 24px; }
-  .publication-detail .article-actions :global(a) { padding: 6px 0; background: none; border-radius: 0; font-size: 15px; }
-  .publication-detail .article-body, .publication-detail .related-section { max-width: var(--width-reading, 720px); margin-inline: auto; }
-  .publication-detail .article-body { margin-top: 0; }
-  .publication-detail .article-body :global(h2:first-child) { margin-top: 0; font-size: 23px; }
-  .publication-detail .related-section { padding: 28px 0 0; border-radius: 0; border-top: 1px solid var(--color-border-tertiary); background: none; margin-top: 40px; }
-  .publication-detail .related-link { font: 650 21px/1.4 var(--font-sans); }
-  .publication-detail-figure { margin: 38px auto; }
-  .publication-detail-figure > a { display: block; background: #fff; padding: 20px; border: 1px solid var(--color-border-tertiary); border-radius: 6px; }
-  .publication-detail-figure img { width: 100%; height: auto; display: block; }
-  .publication-detail-figure figcaption { display: flex; align-items: baseline; justify-content: space-between; gap: 14px 28px; margin: 12px auto 0; font: 400 14px/1.6 var(--font-sans); color: var(--color-text-secondary); }
-  .publication-detail-figure figcaption a { flex-shrink: 0; color: var(--color-brand); text-decoration: underline; }
-  @media (max-width: 680px) {
-    .publication-detail-figure > a { padding: 8px; }
-    .publication-detail-figure figcaption { flex-direction: column; gap: 6px; }
-    .publication-detail .article-header { padding-bottom: 26px; margin-bottom: 28px; }
-  }
-  @media print {
-    .publication-detail { width: 100%; margin-block: 0; }
-    .publication-detail .back-link, .publication-detail .related-section { display: none; }
-    .publication-detail-figure { break-inside: avoid; }
-  }
   .detail-equal-contribution { display: block; margin-top: 6px; font-size: 14px; line-height: 1.5; color: var(--color-text-secondary); }
 </style>

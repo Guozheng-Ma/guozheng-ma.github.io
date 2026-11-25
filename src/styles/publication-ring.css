@@ -20,15 +20,15 @@
 .ring-venue { color: var(--color-text-primary); font-size: 18px; line-height: 1.3; font-weight: 700; letter-spacing: .015em; }
 .ring-year { flex-shrink: 0; color: var(--color-text-secondary); font-size: 15px; line-height: 1.3; font-variant-numeric: tabular-nums; }
 .ring-publication-distinction { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; white-space: nowrap; font-size: 13px; line-height: 1.4; }
-.ring-role { margin-bottom: 5px; color: var(--color-brand); font-size: 14px; line-height: 1.45; font-weight: 600; }
+.ring-role { margin-bottom: 5px; color: var(--color-brand); font-size: 13px; line-height: 1.45; font-weight: 600; }
 .ring-type { color: var(--color-text-secondary); font-weight: 500; }
 .ring-honor { padding: 2px 7px; border-radius: 5px; color: var(--color-amber-800); background: color-mix(in srgb, var(--color-amber-200) 55%, var(--color-bg-primary)); font-weight: 600; }
-.ring-paper-title { font: 650 21px/1.35 var(--font-sans); letter-spacing: -.02em; text-wrap: pretty; }
+.ring-paper-title { font: 400 22px/1.3 var(--font-serif); letter-spacing: -.02em; text-wrap: pretty; }
 .ring-paper-title a:hover { text-decoration-color: var(--paper-accent); }
 .ring-authors-block { min-height: 0; flex: 0 1 auto; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
 .ring-paper-authors, .ring-team { color: var(--color-text-secondary); font-size: 15px; line-height: 1.5; }
 .ring-team { margin-bottom: 5px; color: var(--color-text-primary); }
-.ring-equal-note { margin-top: 4px; color: var(--color-text-tertiary); font-size: 14px; }
+.ring-equal-note { margin-top: 4px; color: var(--color-text-tertiary); font-size: 12px; }
 .ring-paper-links { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 17px; margin-top: -5px; }
 .ring-paper-links a, .ring-paper-links .publication-paper-placeholder { display: inline-flex; align-items: center; gap: 6px; min-height: 38px; padding: 2px 0; font: 500 15px/1.4 var(--font-sans); }
 .ring-paper-links a { color: var(--color-brand); }
@@ -71,14 +71,14 @@
 }
 @media (max-width: 680px) {
   .publication-showcase { --card-w: min(340px, calc(100vw - 48px)); --card-h: 535px; }
-  .publication-showcase .section-top { flex-wrap: wrap; gap: 4px 12px; align-items: baseline; }
+  .publication-showcase .section-top { gap: 12px; align-items: baseline; }
   .publication-showcase .section-heading { font-size: 29px; }
   .publication-showcase .section-link { font-size: 14px; gap: 5px; }
   .publication-showcase .section-link svg { width: 14px; }
   .ring-toolbar { gap: 8px; }
-  .ring-collection-label { font-size: 14px; }
+  .ring-collection-label { font-size: 13px; }
   .ring-view-actions { gap: 14px; }
-  .ring-text-button { font-size: 14px; }
+  .ring-text-button { font-size: 13px; }
   .ring-random svg { display: none; }
   .research-ring-stage { width: 100%; }
   .is-ring .research-ring-stage { height: calc(var(--card-h) + 48px); }
@@ -96,46 +96,3 @@
   .is-list .ring-card-body { margin-top: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .ring-arrow { transition: none; } }
-
-
-/* The list is the reading view. The original ring remains an optional exploration. */
-.ring-title-short { display: none; }
-.is-ring .ring-title-full { display: none; }
-.is-ring .ring-title-short { display: inline; }
-.publication-showcase .ring-mode { text-decoration: underline; text-underline-offset: .25em; }
-.publication-showcase.is-list .research-ring-stage { width: min(calc(100% - var(--page-gutter) * 2), var(--width-content, 1040px)); }
-.is-list .research-ring-track { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; padding-block: 0; }
-.is-list .research-ring-card { border-top: 1px solid var(--color-border-tertiary); }
-.is-list .ring-card-content { display: grid; grid-template-columns: 158px minmax(0, 1fr); gap: 9px 34px; min-height: 0; height: auto; padding: 30px 0 27px; border: 0; border-radius: 0; background: none; }
-.is-list .ring-publication-header { grid-column: 1; grid-row: 1 / span 4; align-self: start; display: flex; flex-direction: column; align-items: flex-start; gap: 11px; min-height: 0; padding-top: 3px; }
-.is-list .ring-publication-distinction { margin: 0; white-space: normal; flex-wrap: wrap; font-size: 14px; }
-.is-list .ring-venue { font-size: 15px; letter-spacing: 0; }
-.is-list .ring-year { font-size: 14px; }
-.is-list .ring-paper-title { grid-column: 2; grid-row: 1; max-width: 780px; font: 650 clamp(20px, 2vw, 23px)/1.35 var(--font-sans); letter-spacing: -.025em; }
-.is-list .ring-authors-block { grid-column: 2; grid-row: 2; display: flex; flex-wrap: wrap; align-items: baseline; gap: 3px 13px; overflow: visible; }
-.is-list .ring-role { margin: 0; font-size: 14px; }
-.is-list .ring-paper-authors { font-size: 14px; line-height: 1.65; }
-.is-list .ring-equal-note { width: 100%; margin: 0; }
-.is-list .ring-card-body { grid-column: 2; grid-row: 3; margin: 3px 0 0; padding: 0; min-height: 0; max-height: none; overflow: visible; background: none; border-radius: 0; }
-.is-list .ring-card-body p { max-width: 710px; font: 400 17px/1.6 var(--font-serif); color: var(--color-text-secondary); }
-.is-list .ring-paper-links { grid-column: 2; grid-row: 4; margin: 1px 0 0; gap: 2px 22px; }
-.is-list .ring-paper-links a { min-height: 40px; font-size: 14px; }
-@media (max-width: 760px) {
-  .is-list .ring-card-content { grid-template-columns: minmax(0, 1fr); gap: 10px; padding-block: 25px; }
-  .is-list .ring-publication-header { grid-column: 1; grid-row: 1; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding-top: 0; }
-  .is-list .ring-paper-title { grid-column: 1; grid-row: 2; }
-  .is-list .ring-authors-block { grid-column: 1; grid-row: 3; }
-  .is-list .ring-card-body { grid-column: 1; grid-row: 4; }
-  .is-list .ring-paper-links { grid-column: 1; grid-row: 5; }
-  .is-list .ring-paper-authors { font-size: 14px; }
-  .is-list .ring-card-body p { font-size: 17px; }
-  .publication-showcase .section-heading { font-size: 26px; }
-}
-@media print {
-  .ring-toolbar, .ring-navigation { display: none !important; }
-  .research-ring-stage { width: 100% !important; height: auto !important; overflow: visible !important; perspective: none !important; }
-  .research-ring-track { display: block !important; position: static !important; transform: none !important; }
-  .research-ring-card { position: static !important; width: auto !important; height: auto !important; transform: none !important; opacity: 1 !important; break-inside: avoid; }
-  .ring-card-content { min-height: 0 !important; height: auto !important; background: none !important; border: 0 !important; box-shadow: none !important; }
-  .ring-authors-block, .ring-card-body { max-height: none !important; overflow: visible !important; }
-}

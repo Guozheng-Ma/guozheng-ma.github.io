@@ -1,5 +1,13 @@
 # Guozheng Ma · Personal research journal
 
+## 2026-11-25 · Scope correction: Blog only
+
+- 用户明确纠正：借鉴仅限 Blog 的阅读形式，首页及其他页面恢复原结构；颜色与字体方案可独立保留。本条覆盖上一次整站改版说明，历史条目不代表继续扩大范围的授权。
+- 恢复 `5fd2dc4` 的首页图文选择、默认 Spotlight 立体论文卡片、导航、头像形状、间距、Publications 与 About 布局；全站宽度与圆角恢复原值。
+- 保留 Inter／Source Serif 4 字体和暖白／蓝色配色；主页简介恢复原无衬线角色。Blog 列表与文章阅读样式分别限制在 `.blog-index` 和 `.journal-article`，正文栏独立为 720px。
+- 所有正文、作者、原风格插画与 URL 保留。更新及验证结果见交付记录；后续 Blog 请求不应改变其他页面架构。
+
+
 ## 2026-11-25 · Research editorial redesign
 
 - 用户授权根据参考研究博客重新组织整站。当前规范见 [editorial-system.md](docs/editorial-system.md)，本条覆盖历史字体、首页切换预览、默认立体卡片及旧阅读版式规定。

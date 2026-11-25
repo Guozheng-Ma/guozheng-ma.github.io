@@ -23,16 +23,16 @@ const cards = selected.map(({ id, data: d }) => ({
   honor: d.award ?? '', tldr: d.tldr, links: d.links, color: d.themeColor,
 }));
 ---
-<section id="publications" class="home-section publication-showcase is-list" aria-labelledby="publications-title" data-publication-ring data-initial-publication="icml-2026-residual">
+<section id="publications" class="home-section publication-showcase" aria-labelledby="publications-title" data-publication-ring data-initial-publication="icml-2026-residual">
   <div class="section-top site-width"><h2 id="publications-title" class="section-heading">Selected Publications</h2><a href="/publications/" class="section-link continuation-link"><span>All Publications</span><ContinuationArrow /></a></div>
   <div class="ring-toolbar site-width">
     <p class="ring-collection-label">{cards.length} publications</p>
     <div class="ring-view-actions">
       <button type="button" class="ring-text-button ring-random" data-ring-random><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m16 3 4 4-4 4M16 13l4 4-4 4M4 7h3c5 0 5 10 10 10h3M4 17h3c2 0 3-2 4-4M13 9c1-1 2-2 4-2h3" /></svg><span>Surprise me</span></button>
-      <button type="button" class="ring-text-button ring-mode" data-ring-mode aria-pressed="false">Explore in 3D</button>
+      <button type="button" class="ring-text-button ring-mode" data-ring-mode>List view</button>
     </div>
   </div>
-  <div class="research-ring-stage" data-ring-stage tabindex="-1" role="region" aria-label="Selected publications">
+  <div class="research-ring-stage" data-ring-stage tabindex="0" role="region" aria-roledescription="carousel" aria-label="Selected publications" aria-describedby="research-ring-help">
     <div class="research-ring-track" data-ring-track>
       {cards.map((card, i) => (
         <article class="research-ring-card" data-ring-card data-title={card.title} data-id={card.id} data-color={card.color} aria-label={`${i + 1} of ${cards.length}: ${card.title}`}>
@@ -41,14 +41,14 @@ const cards = selected.map(({ id, data: d }) => ({
               <p class="ring-publication-source"><span class="ring-venue">{card.venue}</span> <span class="ring-year">{card.year}</span></p>
               {(card.note || card.honor) && <div class="ring-publication-distinction">{card.note && <span class="ring-type">{card.note}</span>}{card.honor && <span class="ring-honor">{card.honor}</span>}</div>}
             </header>
-            <h3 class="ring-paper-title"><a href={card.href} title={card.title} aria-label={card.title}><span class="ring-title-full">{card.title}</span><span class="ring-title-short">{card.title.replaceAll('Reinforcement Learning', 'RL')}</span></a></h3>
+            <h3 class="ring-paper-title"><a href={card.href} title={card.title} aria-label={card.title}>{card.title.replaceAll('Reinforcement Learning', 'RL')}</a></h3>
             <div class="ring-authors-block">
               <p class="ring-role">{card.role}</p>
               <p class="ring-paper-authors">{card.authors.map((author, index) => <Fragment><span class:list={{ 'self-author': author.emphasized }}>{author.displayName}</span>{index < card.authors.length - 1 ? ', ' : ''}</Fragment>)}</p>
               {card.authors.some((author) => author.equalContribution) && <p class="ring-equal-note">* Equal contribution</p>}
             </div>
             <div class="ring-paper-links"><PublicationPaperLink href={card.links.pdf} />{card.links.code && <a href={card.links.code}><PublicationResourceIcon name="code" />Code</a>}{card.links.project && <a href={card.links.project}><PublicationResourceIcon name="project" />Project</a>}{card.links.video && <a href={card.links.video}><PublicationResourceIcon name="video" />Video</a>}</div>
-            <div class="ring-card-body" tabindex="-1" aria-label={`Summary: ${card.title}`}><p>{card.tldr}</p></div>
+            <div class="ring-card-body" tabindex="0" aria-label={`Summary: ${card.title}`}><p>{card.tldr}</p></div>
           </div>
         </article>
       ))}

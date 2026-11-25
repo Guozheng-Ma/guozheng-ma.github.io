@@ -26,7 +26,7 @@ export function initPublicationRings() {
     const count = cards.length;
     const step = count >= 6 ? Math.min(360 / count, 30) : 360 / count;
     const span = count * step;
-    let ringMode = false;
+    let ringMode = !media.matches;
     let rotation = 0;
     let current = Math.max(0, cards.findIndex((card) => card.dataset.id === root.dataset.initialPublication));
     let requested = current;
@@ -145,19 +145,11 @@ export function initPublicationRings() {
       root.classList.toggle('is-ring', useRing);
       root.classList.toggle('is-list', !useRing);
       stage!.tabIndex = useRing ? 0 : -1;
-      if (useRing) {
-        stage!.setAttribute('aria-roledescription', 'carousel');
-        stage!.setAttribute('aria-describedby', 'research-ring-help');
-      } else {
-        stage!.removeAttribute('aria-roledescription');
-        stage!.removeAttribute('aria-describedby');
-      }
-      root.querySelectorAll<HTMLElement>('.ring-card-body').forEach((body) => { body.tabIndex = useRing ? 0 : -1; });
+      stage!.setAttribute('aria-roledescription', useRing ? 'carousel' : 'publication list');
       [previous, next, random].forEach((button) => { if (button) button.disabled = !useRing; });
       if (mode) {
         mode.hidden = false;
-        mode.textContent = useRing ? 'List view' : 'Explore in 3D';
-        mode.setAttribute('aria-pressed', String(useRing));
+        mode.textContent = useRing ? 'List view' : '3D view';
         mode.setAttribute('aria-label', useRing ? 'Show publications as a list' : 'Show publications as 3D cards');
       }
       if (useRing) {
@@ -274,10 +266,7 @@ export function initPublicationRings() {
     next?.addEventListener('click', () => moveTo((animation ? requested : current) + 1), { signal });
     random?.addEventListener('click', () => moveTo(current + 1 + Math.floor(Math.random() * (count - 1)), true), { signal });
     mode?.addEventListener('click', () => changeMode(!ringMode), { signal });
-    media.addEventListener('change', () => { if (media.matches) changeMode(false); }, { signal });
-    let viewBeforePrint = false;
-    window.addEventListener('beforeprint', () => { viewBeforePrint = ringMode; changeMode(false, false); }, { signal });
-    window.addEventListener('afterprint', () => { if (viewBeforePrint) changeMode(true, false); }, { signal });
+    media.addEventListener('change', () => changeMode(!media.matches), { signal });
 
     const resize = new ResizeObserver(measure);
     resize.observe(stage);

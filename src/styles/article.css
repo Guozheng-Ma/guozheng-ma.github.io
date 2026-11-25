@@ -46,9 +46,20 @@
 .journal-meta a { font-weight: 500; color: var(--color-text-primary); }
 .journal-illustration { min-width: 0; }
 .journal-illustration .cover-art { background: transparent; border-radius: 8px; }
-.journal-reading, .journal-end { max-width: var(--width-reading, 720px); margin-inline: auto; }
-.journal-prose { margin: 0; }
-.journal-prose :is(h2, h3, h4) { scroll-margin-top: 2rem; }
+.journal-reading, .journal-end { max-width: 720px; margin-inline: auto; }
+/* Keep the article system independent of the non-Blog reading styles. */
+.journal-article .journal-prose { margin: 0; font: 400 19px/1.72 var(--font-serif); font-optical-sizing: auto; overflow-wrap: break-word; }
+.journal-article .journal-prose > * + * { margin-top: 1.15em; }
+.journal-article .journal-prose :is(h2, h3, h4) { font-family: var(--font-sans); font-weight: 650; scroll-margin-top: 2rem; }
+.journal-article .journal-prose h2 { margin-top: 2.3em; margin-bottom: .6em; font-size: 25px; line-height: 1.28; }
+.journal-article .journal-prose h3 { margin-top: 1.8em; margin-bottom: .5em; font-size: 21px; line-height: 1.35; }
+.journal-article .journal-prose strong { font-weight: 700; }
+.journal-article .journal-prose code { font-family: var(--font-mono); font-size: .8em; }
+.journal-article .journal-prose pre { font: 400 14px/1.65 var(--font-mono); border: 1px solid var(--color-border-tertiary); border-radius: 8px; }
+.journal-article .journal-prose table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; font: 400 14px/1.5 var(--font-sans); }
+.journal-article .journal-prose :is(th, td) { padding: .55rem .7rem; border-bottom: 1px solid var(--color-border-tertiary); text-align: left; }
+.journal-article .journal-prose th { font-weight: 600; }
+.journal-article .journal-prose .figure-caption { font: 400 14px/1.6 var(--font-sans); }
 .journal-contents {
   padding: 1.25rem 0;
   margin-bottom: 2.25rem;
@@ -77,6 +88,10 @@
 @media (max-width: 800px) {
   .journal-header { grid-template-columns: minmax(0, 1fr) 170px; gap: 1.5rem; }
 }
+@media (max-width: 680px) {
+  .journal-article .journal-prose { font-size: 18px; line-height: 1.72; }
+  .journal-article .journal-prose h2 { font-size: 23px; }
+}
 @media (max-width: 600px) {
   .journal-article { margin-block: 2rem 4rem; }
   .journal-header { display: block; padding-bottom: 1.75rem; margin-bottom: 1.75rem; }
@@ -88,7 +103,33 @@
   .journal-end { margin-top: 2.5rem; }
 }
 @media print {
-  .journal-article { width: 100%; max-width: none; margin: 0; }
+  /* These root overrides apply only when printing a Blog article, including system dark mode. */
+  :root:has(body .journal-article) {
+    color-scheme: light;
+    --color-bg-tertiary: #fff;
+    --color-bg-primary: #fff;
+    --color-bg-secondary: #f2f2f2;
+    --color-surface-active: #fff;
+    --color-art-bg: #fff;
+    --color-text-primary: #111;
+    --color-text-secondary: #444;
+    --color-text-tertiary: #444;
+    --color-border-tertiary: rgba(0, 0, 0, .2);
+    --color-border-secondary: rgba(0, 0, 0, .3);
+    --color-border-primary: rgba(0, 0, 0, .5);
+    --color-brand: #245a70;
+    --theme-image-light: block;
+    --theme-image-dark: none;
+  }
+  body:has(.journal-article) { background: #fff; color: #111; }
+  body:has(.journal-article) :is(#site-header, .site-footer, .skip-link, .theme-toggle) { display: none; }
+  .journal-article :is(h1, h2, h3) { break-after: avoid; }
+  .journal-article :is(figure, blockquote) { break-inside: avoid; }
+  .journal-article a { text-decoration: underline; }
+  .journal-article details > :not(summary) { display: block; }
+  .journal-article details::details-content { content-visibility: visible; }
+  .journal-article { width: 100%; max-width: none; margin: 0; background: white; color: #111; --color-text-primary: #111; --color-text-secondary: #444; --color-bg-primary: #fff; --color-brand: #245a70; }
+  .journal-article .journal-prose { font-size: 11pt; line-height: 1.55; }
   .journal-header { display: block; padding-bottom: 1rem; margin-bottom: 1.5rem; }
   .journal-illustration, .journal-category, .journal-more { display: none; }
   .journal-title { font-size: 25pt; }

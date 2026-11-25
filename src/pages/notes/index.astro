@@ -24,9 +24,48 @@ const essays = notes.filter((note) => !directionOrder.includes(note.id));
     </section>
   </main>
 </Layout>
-<style>
-  .blog-sections { display: flex; flex-wrap: wrap; gap: 12px 28px; border-bottom: 1px solid var(--color-border-tertiary); padding-bottom: 20px; margin-bottom: 30px; }
-  .blog-sections a { color: var(--color-brand); font-size: 14px; font-weight: 500; min-height: 44px; display: inline-flex; align-items: center; }
-  .archive-heading { font-size: 20px; letter-spacing: -.02em; scroll-margin-top: 30px; }
+<style is:global>
+  /* Blog archive styling stays local to this page, independent of the homepage. */
+  .blog-index { width: min(calc(100% - var(--page-gutter) * 2), 1040px); }
+  .blog-index .page-intro { padding-block: 56px 44px; }
+  .blog-index .page-intro h1 { font: 750 clamp(32px, 4vw, 44px)/1.16 var(--font-sans); letter-spacing: -.035em; color: var(--color-text-primary); }
+  .blog-index .page-intro p { max-width: 680px; margin-top: 18px; font: 400 20px/1.6 var(--font-serif); color: var(--color-text-secondary); }
+  .blog-index .blog-sections { display: flex; flex-wrap: wrap; gap: 12px 28px; border-bottom: 1px solid var(--color-border-tertiary); padding-bottom: 20px; margin-bottom: 30px; }
+  .blog-index .blog-sections a { color: var(--color-brand); font: 500 14px/1.5 var(--font-sans); min-height: 44px; display: inline-flex; align-items: center; }
+  .blog-index .archive-heading { font: 650 20px/1.35 var(--font-sans); letter-spacing: -.02em; scroll-margin-top: 30px; }
   .blog-index > section + section { margin-top: 50px; }
+  .blog-index .notes-index { display: grid; gap: 0; }
+  .blog-index .notes-index .note-card { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 36px; align-items: center; padding: 30px 0; border-bottom: 1px solid var(--color-border-tertiary); border-radius: 0; background: transparent; }
+  .blog-index .notes-index .note-copy { display: block; min-width: 0; }
+  .blog-index .notes-index .note-art { display: block; grid-column: auto; grid-row: auto; }
+  .blog-index .notes-index .cover-art { border-radius: 8px; }
+  .blog-index .notes-index .note-copy :is(h2, h3) { font: 650 23px/1.3 var(--font-sans); letter-spacing: -.025em; }
+  .blog-index .notes-index .note-summary { max-width: 630px; margin-top: 12px; font: 400 18px/1.6 var(--font-serif); color: var(--color-text-secondary); }
+  .blog-index .notes-index .note-meta { margin-bottom: 9px; font: 400 14px/1.5 var(--font-sans); color: var(--color-text-secondary); }
+  @media (max-width: 800px) {
+    .blog-index .notes-index .note-card { grid-template-columns: 190px minmax(0, 1fr); gap: 28px; }
+  }
+  @media (max-width: 600px) {
+    .blog-index .page-intro { padding-block: 36px 32px; }
+    .blog-index .page-intro p { font-size: 18px; }
+    .blog-index .notes-index .note-card { grid-template-columns: 100px minmax(0, 1fr); gap: 14px 20px; padding-block: 24px; }
+    .blog-index .notes-index .note-copy { display: contents; }
+    .blog-index .notes-index .note-art { grid-column: 1; grid-row: 1 / 3; align-self: center; }
+    .blog-index .notes-index .note-meta { grid-column: 2; grid-row: 1; margin: 0; }
+    .blog-index .notes-index .note-copy :is(h2, h3) { grid-column: 2; grid-row: 2; font-size: 20px; }
+    .blog-index .notes-index .note-summary { grid-column: 1 / -1; margin: 0; font-size: 17px; }
+  }
+  @media (max-width: 380px) {
+    .blog-index .notes-index .note-card { grid-template-columns: 1fr; }
+    .blog-index .notes-index .note-art { grid-column: 1; grid-row: auto; width: 150px; }
+    .blog-index .notes-index .note-meta { grid-column: 1; grid-row: auto; }
+    .blog-index .notes-index .note-copy :is(h2, h3) { grid-column: 1; grid-row: auto; }
+  }
+  @media print {
+    .blog-index { width: 100%; max-width: none; }
+    .blog-index .blog-sections { display: none; }
+    .blog-index .notes-index .note-card { break-inside: avoid; grid-template-columns: 150px minmax(0, 1fr); }
+    .blog-index .notes-index .note-copy { display: block; }
+    .blog-index .notes-index .note-art { grid-column: auto; grid-row: auto; }
+  }
 </style>
