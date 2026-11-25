@@ -8,8 +8,8 @@ interface NoteArt {
 
 const directionArt: Record<DirectionArtId, NoteArt> = {
   'agentic-robot-learning': {
-    src: '/art/agentic-robot-learning-v3.webp',
-    alt: 'Editorial illustration of a robot exploring layered terrain and assembling experience into a growing structure of reusable skills',
+    src: '/art/agentic-robot-learning-v4.webp',
+    alt: 'Fine blue ink illustration of a robot arm learning through demonstrations, simulation and repeated trials',
   },
   'online-experience': {
     src: '/art/online-experience-v2.webp',
