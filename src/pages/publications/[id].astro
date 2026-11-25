@@ -5,6 +5,7 @@ import PublicationMeta from '../../components/PublicationMeta.astro';
 import PublicationResourceIcon from '../../components/PublicationResourceIcon.astro';
 import PublicationPaperLink from '../../components/PublicationPaperLink.astro';
 import { publicationAuthors } from '../../lib/publication-presentation';
+import '../../styles/article.css';
 
 export async function getStaticPaths() {
   const pubs = await getCollection('publications');
@@ -23,42 +24,76 @@ const { Content } = await render(pub);
 const d = pub.data;
 const authors = publicationAuthors(d);
 const hasEqualContributors = authors.some((author) => author.equalContribution);
+// Keep a figure already included in the paper's Markdown in its original position.
+const showEvidence = d.thumbnail && !pub.body?.includes(d.thumbnail.src);
 ---
 <Layout title={d.title} description={d.tldr} image={d.figure} type="article">
-  <main id="main-content" class="reading-page publication-detail">
-    <header class="article-header">
-      <a href="/publications/" class="back-link">← Publications</a>
-      <PublicationMeta publication={d} fullVenue />
-      <h1 class="page-title">{d.title}</h1>
-      <p class="article-authors">
-        {authors.map((author, index) => (
-          <span class={author.emphasized ? 'self-author' : undefined}>{author.displayName}{index < authors.length - 1 ? ', ' : ''}</span>
-        ))}
-        {hasEqualContributors && <span class="detail-equal-contribution">* Equal contribution</span>}
-      </p>
-      <div class="article-actions" aria-label="Publication resources">
-        <PublicationPaperLink href={d.links.pdf} detail />
-        {d.links.code && <a href={d.links.code}><PublicationResourceIcon name="code" />Code</a>}
-        {d.links.bibtex && <a download href={d.links.bibtex}><PublicationResourceIcon name="bibtex" />BibTeX</a>}
-        {d.links.project && <a href={d.links.project}><PublicationResourceIcon name="project" />Project</a>}
-        {d.links.video && <a href={d.links.video}><PublicationResourceIcon name="video" />Video</a>}
-      </div>
-    </header>
+  <main id="main-content" class="journal-article research-paper">
+    <article aria-labelledby="paper-title">
+      <header class="journal-header">
+        <p class="journal-category"><a href="/publications/">Publications</a></p>
+        <h1 id="paper-title" class="journal-title">{d.title}</h1>
+        <p class="journal-byline paper-authors">
+          {authors.map((author, index) => (
+            <span class={author.emphasized ? 'self-author' : undefined}>{author.displayName}{index < authors.length - 1 ? ', ' : ''}</span>
+          ))}
+          {hasEqualContributors && <span class="detail-equal-contribution">* Equal contribution</span>}
+        </p>
+        <div class="paper-metadata"><PublicationMeta publication={d} fullVenue /></div>
+        <nav class="paper-resources" aria-label="Publication resources">
+          <PublicationPaperLink href={d.links.pdf} />
+          {d.links.code && <a href={d.links.code}><PublicationResourceIcon name="code" />Code</a>}
+          {d.links.bibtex && <a download href={d.links.bibtex}><PublicationResourceIcon name="bibtex" />BibTeX</a>}
+          {d.links.project && <a href={d.links.project}><PublicationResourceIcon name="project" />Project</a>}
+          {d.links.video && <a href={d.links.video}><PublicationResourceIcon name="video" />Video</a>}
+        </nav>
+      </header>
 
-    <article class="prose article-body">
-      <Content />
+      <section class="journal-summary" aria-labelledby="paper-summary-title">
+        <h2 id="paper-summary-title">TL;DR</h2>
+        <p>{d.tldr}</p>
+      </section>
+
+      {showEvidence && d.thumbnail && (
+        <figure class="journal-evidence">
+          <a href={d.thumbnail.src} target="_blank" rel="noopener" aria-label={`View figure for ${d.title} (opens in a new tab)`}>
+            <img src={d.thumbnail.src} alt={d.thumbnail.alt} width={d.thumbnail.width} height={d.thumbnail.height} loading="lazy" decoding="async" />
+          </a>
+          <figcaption>{d.thumbnail.alt}{d.links.pdf && <a href={d.links.pdf}>Source paper</a>}</figcaption>
+        </figure>
+      )}
+
+      <div class="journal-reading">
+        <div class="prose journal-prose"><Content /></div>
+      </div>
     </article>
 
     {relatedNote && (
-      <section class="related-section" aria-labelledby="related-note-title">
-        <h2 id="related-note-title" class="related-title">Related post</h2>
-        <a href={`/notes/${relatedNote.id}/`} class="related-link">{relatedNote.data.title}</a>
-        <p class="related-summary">{relatedNote.data.tldr}</p>
-      </section>
+      <footer class="journal-end">
+        <section class="journal-paper" aria-labelledby="related-note-title">
+          <h2 id="related-note-title">Related post</h2>
+          <a href={`/notes/${relatedNote.id}/`} class="journal-paper-title">{relatedNote.data.title}</a>
+          <p class="journal-paper-summary">{relatedNote.data.tldr}</p>
+        </section>
+      </footer>
     )}
   </main>
 </Layout>
 
 <style>
-  .detail-equal-contribution { display: block; margin-top: 6px; font-size: 14px; line-height: 1.5; color: var(--color-text-secondary); }
+  .journal-article.research-paper .paper-authors { color: var(--color-text-secondary); }
+  .journal-article.research-paper .detail-equal-contribution { display: block; margin-top: .35rem; font: 400 .875rem/1.5 var(--font-sans); color: var(--color-text-secondary); }
+  .journal-article.research-paper .paper-metadata { margin-top: 1.25rem; }
+  .journal-article.research-paper .paper-metadata :global(.publication-meta) { flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: .45rem .8rem; padding: 0; }
+  .journal-article.research-paper .paper-metadata :global(.publication-venue) { flex-basis: 100%; font-size: 1rem; }
+  .journal-article.research-paper .paper-resources { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: .25rem 1.6rem; margin-top: 1.25rem; font: 500 1rem/1.5 var(--font-sans); }
+  .journal-article.research-paper .paper-resources :global(a),
+  .journal-article.research-paper .paper-resources :global(.publication-paper-placeholder) { display: inline-flex; align-items: center; gap: .45rem; min-height: 44px; padding: .35rem 0; border: 0; border-radius: 0; background: transparent; font-size: 1rem; }
+  .journal-article.research-paper .paper-resources :global(a:hover) { color: var(--color-brand); text-decoration: underline; }
+  .journal-article.research-paper .journal-paper-title { margin-top: .85rem; }
+  .journal-article.research-paper .journal-prose :global(img) { display: block; width: 100%; height: auto; padding: 12px; border: 1px solid var(--color-border-tertiary); border-radius: 10px; background: #fff; }
+  @media (max-width: 680px) {
+    .journal-article.research-paper .paper-resources { gap: .2rem 1.2rem; }
+    .journal-article.research-paper .journal-prose :global(img) { padding: 6px; }
+  }
 </style>

@@ -1,71 +1,87 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import NoteCard from '../../components/NoteCard.astro';
-const notes = (await getCollection('notes', ({ data }) => !data.draft)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+import CoverArt from '../../components/CoverArt.astro';
+
+const notes = (await getCollection('notes', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime() || a.data.title.localeCompare(b.data.title));
 const directionOrder = ['agentic-policy', 'online-learning-from-experience', 'learning-dynamics-and-pathologies'];
 const directions = directionOrder.flatMap((id) => notes.filter((note) => note.id === id));
-const essays = notes.filter((note) => !directionOrder.includes(note.id));
+const essays = notes.filter((note) => !note.data.tags.includes('research-direction'));
+const dateLabel = (date: Date) => date.toLocaleDateString('en-US', {
+  month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC',
+});
 ---
-<Layout title="Blog — Guozheng Ma" description="Research directions and posts on agentic robot learning, online learning from experience, and learning dynamics and pathologies.">
-  <main id="main-content" class="site-width blog-index">
-    <header class="page-intro">
+<Layout title="Blog — Guozheng Ma" description="Research notes and perspectives on how agents learn, adapt, and scale.">
+  <main id="main-content" class="blog-index">
+    <header class="blog-intro">
       <h1>Blog</h1>
       <p>Questions, mechanisms, and perspectives on how agents learn.</p>
     </header>
-    <nav class="blog-sections" aria-label="Blog sections"><a href="#directions">Research directions</a><a href="#research-notes">Research notes</a></nav>
-    <section aria-labelledby="directions">
-      <h2 id="directions" class="archive-heading">Research directions</h2>
-      <div class="notes-index">{directions.map((note) => <NoteCard note={note} headingLevel="h3" />)}</div>
+
+    <section class="blog-essays" aria-label="Research notes" id="research-notes">
+      {essays.map((note) => (
+        <article class="blog-entry" aria-labelledby={`post-${note.id}`}>
+          <div class="blog-entry-copy">
+            <p class="blog-entry-date"><time datetime={note.data.date.toISOString().slice(0, 10)}>{dateLabel(note.data.date)}</time></p>
+            <h2 id={`post-${note.id}`}><a href={`/notes/${note.id}/`}>{note.data.title}</a></h2>
+            <p class="blog-entry-summary">{note.data.tldr}</p>
+          </div>
+          <div class="blog-entry-art" aria-hidden="true">
+            <CoverArt color={note.data.cover.color} art={note.data.cover.art} />
+          </div>
+        </article>
+      ))}
     </section>
-    <section aria-labelledby="research-notes">
-      <h2 id="research-notes" class="archive-heading">Research notes</h2>
-      <div class="notes-index">{essays.map((note) => <NoteCard note={note} headingLevel="h3" />)}</div>
+
+    <section class="blog-directions" aria-labelledby="directions">
+      <div class="blog-directions-heading">
+        <h2 id="directions">Research directions</h2>
+        <a href="/#research">Research overview</a>
+      </div>
+      <ul>
+        {directions.map((note) => <li><a href={`/notes/${note.id}/`}>{note.data.title}</a></li>)}
+      </ul>
     </section>
   </main>
 </Layout>
 <style is:global>
-  /* Blog archive styling stays local to this page, independent of the homepage. */
-  .blog-index { width: min(calc(100% - var(--page-gutter) * 2), 1040px); }
-  .blog-index .page-intro { padding-block: 56px 44px; }
-  .blog-index .page-intro h1 { font: 750 clamp(32px, 4vw, 44px)/1.16 var(--font-sans); letter-spacing: -.035em; color: var(--color-text-primary); }
-  .blog-index .page-intro p { max-width: 680px; margin-top: 18px; font: 400 20px/1.6 var(--font-serif); color: var(--color-text-secondary); }
-  .blog-index .blog-sections { display: flex; flex-wrap: wrap; gap: 12px 28px; border-bottom: 1px solid var(--color-border-tertiary); padding-bottom: 20px; margin-bottom: 30px; }
-  .blog-index .blog-sections a { color: var(--color-brand); font: 500 14px/1.5 var(--font-sans); min-height: 44px; display: inline-flex; align-items: center; }
-  .blog-index .archive-heading { font: 650 20px/1.35 var(--font-sans); letter-spacing: -.02em; scroll-margin-top: 30px; }
-  .blog-index > section + section { margin-top: 50px; }
-  .blog-index .notes-index { display: grid; gap: 0; }
-  .blog-index .notes-index .note-card { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 36px; align-items: center; padding: 30px 0; border-bottom: 1px solid var(--color-border-tertiary); border-radius: 0; background: transparent; }
-  .blog-index .notes-index .note-copy { display: block; min-width: 0; }
-  .blog-index .notes-index .note-art { display: block; grid-column: auto; grid-row: auto; }
-  .blog-index .notes-index .cover-art { border-radius: 8px; }
-  .blog-index .notes-index .note-copy :is(h2, h3) { font: 650 23px/1.3 var(--font-sans); letter-spacing: -.025em; }
-  .blog-index .notes-index .note-summary { max-width: 630px; margin-top: 12px; font: 400 18px/1.6 var(--font-serif); color: var(--color-text-secondary); }
-  .blog-index .notes-index .note-meta { margin-bottom: 9px; font: 400 14px/1.5 var(--font-sans); color: var(--color-text-secondary); }
+  /* This archive has its own reading layout; the homepage keeps its existing structure. */
+  .blog-index { width: min(calc(100% - var(--page-gutter) * 2), 992px); margin: 3.5rem auto 6rem; }
+  .blog-index .blog-intro { max-width: 720px; margin: 0 auto 3.5rem; text-align: center; }
+  .blog-index .blog-intro h1 { font: 700 clamp(2rem, 3.5vw, 2.75rem)/1.15 var(--font-sans); letter-spacing: -.035em; color: var(--color-text-primary); }
+  .blog-index .blog-intro p { max-width: 560px; margin: 1.1rem auto 0; color: var(--color-text-secondary); font: 400 1.125rem/1.68 var(--font-serif); }
+  .blog-index .blog-essays { border-top: 1px solid var(--color-border-tertiary); }
+  .blog-index .blog-entry { display: grid; grid-template-columns: minmax(0, 1fr) 208px; gap: 3rem; align-items: center; padding: 2.4rem 0; border-bottom: 1px solid var(--color-border-tertiary); }
+  .blog-index .blog-entry-copy { min-width: 0; }
+  .blog-index .blog-entry-date { margin-bottom: .55rem; color: var(--color-text-secondary); font: 400 .875rem/1.6 var(--font-sans); }
+  .blog-index .blog-entry h2 { margin: 0; font: 700 1.5rem/1.3 var(--font-sans); letter-spacing: -.025em; text-wrap: pretty; }
+  .blog-index .blog-entry h2 a { display: inline-block; padding-block: .35rem; }
+  .blog-index .blog-entry-summary { max-width: 620px; margin-top: .6rem; color: var(--color-text-secondary); font: 400 1.125rem/1.68 var(--font-serif); font-optical-sizing: auto; }
+  .blog-index .blog-entry-art { min-width: 0; }
+  .blog-index .blog-entry-art .cover-art { overflow: hidden; border-radius: 6px; background: transparent; }
+  .blog-index .blog-directions { margin-top: 3.5rem; }
+  .blog-index .blog-directions-heading { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; align-items: baseline; justify-content: space-between; }
+  .blog-index .blog-directions h2 { font: 600 1.125rem/1.4 var(--font-sans); letter-spacing: -.01em; }
+  .blog-index .blog-directions-heading > a { display: inline-flex; align-items: center; min-height: 44px; color: var(--color-brand); font: 400 .9375rem/1.5 var(--font-sans); }
+  .blog-index .blog-directions ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem 1.5rem; padding: 0; margin: .75rem 0 0; list-style: none; }
+  .blog-index .blog-directions li { min-width: 0; }
+  .blog-index .blog-directions li a { display: block; padding-block: .6rem; color: var(--color-text-secondary); font: 400 1rem/1.55 var(--font-sans); }
   @media (max-width: 800px) {
-    .blog-index .notes-index .note-card { grid-template-columns: 190px minmax(0, 1fr); gap: 28px; }
+    .blog-index .blog-entry { grid-template-columns: minmax(0, 1fr) 170px; gap: 2rem; }
+    .blog-index .blog-directions ul { grid-template-columns: 1fr; gap: .1rem; }
   }
   @media (max-width: 600px) {
-    .blog-index .page-intro { padding-block: 36px 32px; }
-    .blog-index .page-intro p { font-size: 18px; }
-    .blog-index .notes-index .note-card { grid-template-columns: 100px minmax(0, 1fr); gap: 14px 20px; padding-block: 24px; }
-    .blog-index .notes-index .note-copy { display: contents; }
-    .blog-index .notes-index .note-art { grid-column: 1; grid-row: 1 / 3; align-self: center; }
-    .blog-index .notes-index .note-meta { grid-column: 2; grid-row: 1; margin: 0; }
-    .blog-index .notes-index .note-copy :is(h2, h3) { grid-column: 2; grid-row: 2; font-size: 20px; }
-    .blog-index .notes-index .note-summary { grid-column: 1 / -1; margin: 0; font-size: 17px; }
-  }
-  @media (max-width: 380px) {
-    .blog-index .notes-index .note-card { grid-template-columns: 1fr; }
-    .blog-index .notes-index .note-art { grid-column: 1; grid-row: auto; width: 150px; }
-    .blog-index .notes-index .note-meta { grid-column: 1; grid-row: auto; }
-    .blog-index .notes-index .note-copy :is(h2, h3) { grid-column: 1; grid-row: auto; }
+    .blog-index { margin-block: 2.5rem 4rem; }
+    .blog-index .blog-intro { margin-bottom: 2.5rem; }
+    .blog-index .blog-entry { grid-template-columns: 1fr; gap: 1.4rem; padding-block: 2rem; }
+    .blog-index .blog-entry h2 { font-size: 1.375rem; }
+    .blog-index .blog-entry-art { width: min(100%, 208px); }
+    .blog-index .blog-directions { margin-top: 2.5rem; }
   }
   @media print {
-    .blog-index { width: 100%; max-width: none; }
-    .blog-index .blog-sections { display: none; }
-    .blog-index .notes-index .note-card { break-inside: avoid; grid-template-columns: 150px minmax(0, 1fr); }
-    .blog-index .notes-index .note-copy { display: block; }
-    .blog-index .notes-index .note-art { grid-column: auto; grid-row: auto; }
+    .blog-index { width: 100%; max-width: none; margin: 0; }
+    .blog-index .blog-entry { break-inside: avoid; grid-template-columns: minmax(0, 1fr) 150px; }
+    .blog-index .blog-directions ul { grid-template-columns: 1fr; }
   }
 </style>

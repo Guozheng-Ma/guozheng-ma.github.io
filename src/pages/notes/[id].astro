@@ -18,20 +18,18 @@ export async function getStaticPaths() {
     props: {
       note,
       moreNotes: allNotes
-        .filter((other) => other.id !== note.id)
+        .filter((other) => other.id !== note.id && other.data.tags.includes('research-direction') === note.data.tags.includes('research-direction'))
         .sort((a, b) => {
           const shared = (tags: string[]) => tags.filter((tag) => note.data.tags.includes(tag)).length;
           return shared(b.data.tags) - shared(a.data.tags);
         })
-        .slice(0, 3),
+        .slice(0, 2),
     },
   }));
 }
 
 const { note, moreNotes } = Astro.props;
-const { Content, headings } = await render(note);
-const sections = headings.filter((heading) => heading.depth === 2);
-const showContents = sections.length >= 3;
+const { Content } = await render(note);
 const relatedPub = note.data.relatedPub ? await getEntry('publications', note.data.relatedPub) : null;
 const shareImage = resolveNoteArt(note.data.cover).src;
 const dateStr = note.data.date.toLocaleDateString('en-US', {
@@ -46,30 +44,29 @@ const isDirection = note.data.tags.includes('research-direction');
   <main id="main-content" class="journal-article">
     <article aria-labelledby="note-title">
       <header class="journal-header">
-        <div class="journal-header-copy">
-          <p class="journal-category"><a href="/notes/">Blog</a><span aria-hidden="true">/</span><span>{isDirection ? 'Research direction' : 'Research note'}</span></p>
-          <h1 id="note-title" class="journal-title">{note.data.title}</h1>
-          <p class="journal-lead">{note.data.tldr}</p>
-          <p class="journal-meta">
-            <a href="/about/">Guozheng Ma</a>
-            <time datetime={note.data.date.toISOString().slice(0, 10)}>{dateStr}</time>
-            <span>{note.data.readingTime} min read</span>
-          </p>
-        </div>
-        <div class="journal-illustration">
-          <CoverArt motif={note.data.cover.motif} color={note.data.cover.color} art={note.data.cover.art} aspectRatio="3 / 2" />
-        </div>
+        <p class="journal-category"><a href={isDirection ? '/#research' : '/notes/'}>{isDirection ? 'Research direction' : 'Research blog'}</a><span aria-hidden="true">·</span><time datetime={note.data.date.toISOString().slice(0, 10)}>{dateStr}</time></p>
+        <h1 id="note-title" class="journal-title">{note.data.title}</h1>
+        <p class="journal-byline"><a href="/about/">Guozheng Ma</a></p>
       </header>
 
+      <section class="journal-summary" aria-labelledby="summary-title">
+        <h2 id="summary-title">TL;DR</h2>
+        <p>{note.data.tldr}</p>
+      </section>
+      {relatedPub?.data.thumbnail ? (
+        <figure class="journal-evidence">
+          <a href={relatedPub.data.thumbnail.src} target="_blank" rel="noopener" aria-label={`View full-size figure: ${relatedPub.data.thumbnail.alt}`}>
+            <img src={relatedPub.data.thumbnail.src} alt={relatedPub.data.thumbnail.alt} width={relatedPub.data.thumbnail.width} height={relatedPub.data.thumbnail.height} loading="eager" decoding="async" />
+          </a>
+          <figcaption>{relatedPub.data.thumbnail.alt} <a href={relatedPub.data.links.pdf || `/publications/${relatedPub.id}/`}>Source: {relatedPub.data.venue} {relatedPub.data.year}</a></figcaption>
+        </figure>
+      ) : (
+        <figure class="journal-visual">
+          <CoverArt motif={note.data.cover.motif} color={note.data.cover.color} art={note.data.cover.art} />
+          <figcaption>Concept illustration</figcaption>
+        </figure>
+      )}
       <div class="journal-reading">
-        {showContents && (
-          <nav class="journal-contents" aria-labelledby="contents-title">
-            <p id="contents-title">In this article</p>
-            <ol>
-              {sections.map((heading) => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}
-            </ol>
-          </nav>
-        )}
         <div class="prose journal-prose">
           <Content components={{ Aside, MathBlock, PaperCard, Figure, Details }} />
         </div>
@@ -88,14 +85,13 @@ const isDirection = note.data.tags.includes('research-direction');
       {moreNotes.length > 0 && (
         <nav class="journal-more" aria-labelledby="more-notes-title">
           <div class="journal-more-heading">
-            <h2 id="more-notes-title">Continue reading</h2>
-            <a href="/notes/">All posts</a>
+            <h2 id="more-notes-title">{isDirection ? 'Other research directions' : 'Continue reading'}</h2>
+            <a href={isDirection ? '/#research' : '/notes/'}>{isDirection ? 'Research overview' : 'All posts'}</a>
           </div>
           <ul>
             {moreNotes.map((other) => (
               <li>
                 <a href={`/notes/${other.id}/`}>{other.data.title}</a>
-                <p>{other.data.tldr}</p>
               </li>
             ))}
           </ul>
