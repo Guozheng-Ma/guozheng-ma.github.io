@@ -13,10 +13,9 @@ const notes = [...allNotes].sort((a, b) => {
 const firstNote = notes[0];
 ---
 
-{firstNote && <section class="home-section site-width notes-feature" aria-labelledby="notes-title" data-notes-feature>
+{firstNote && <section id="research" class="home-section site-width notes-feature" aria-labelledby="notes-title" data-notes-feature>
   <div class="section-top">
-    <h2 id="notes-title" class="section-heading">Blog</h2>
-    <a href="/notes/" class="section-link continuation-link"><span>All Posts</span><ContinuationArrow /></a>
+    <h2 id="notes-title" class="section-heading">Research</h2>
   </div>
 
   <div class="notes-static" data-notes-static>
@@ -38,7 +37,7 @@ const firstNote = notes[0];
       </div>)}
     </div>
     <div class="notes-feature-copy">
-      <div class="notes-choices" role="group" aria-label="Choose a post to preview">
+      <div class="notes-choices" role="group" aria-label="Choose a research direction to preview">
         {notes.map((note, index) => <button
           type="button"
           class="notes-choice"
@@ -54,8 +53,8 @@ const firstNote = notes[0];
           <span class="notes-choice-summary" id={`note-choice-summary-${index}`}>{note.data.tldr}</span>
         </button>)}
       </div>
-      <a class="notes-read-link continuation-link" href={`/notes/${firstNote.id}/`} aria-label={`Read Post: ${firstNote.data.title}`} data-note-read>
-        <span>Read Post</span><ContinuationArrow />
+      <a class="notes-read-link continuation-link" href={`/notes/${firstNote.id}/`} aria-label={`Explore this direction: ${firstNote.data.title}`} data-note-read>
+        <span>Explore this direction</span><ContinuationArrow />
       </a>
     </div>
   </div>
@@ -86,7 +85,7 @@ const firstNote = notes[0];
   .notes-static-art { overflow: hidden; border-radius: var(--notes-inner-radius); }
   .notes-static-art :global(.cover-art) { background: var(--notes-art); }
   .notes-static-copy h3, .notes-choice-title {
-    font: 400 24px / 1.25 var(--font-serif);
+    font: 400 22px / 1.25 var(--font-serif);
     letter-spacing: -.01em;
     font-optical-sizing: auto;
     text-wrap: pretty;
@@ -116,7 +115,7 @@ const firstNote = notes[0];
   .notes-preview-layer { position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity 160ms ease; }
   .notes-preview-layer.is-selected { opacity: 1; }
   .notes-preview-layer :global(.cover-art) { width: 100%; height: 100%; background: var(--notes-art); }
-  .notes-feature-copy { min-width: 0; }
+  .notes-feature-copy { min-width: 0; container-type: inline-size; }
   .notes-choices { display: grid; gap: 8px; }
   .notes-choice {
     display: block;
@@ -130,7 +129,7 @@ const firstNote = notes[0];
   }
   .notes-choice:hover { background: var(--notes-hover); }
   .notes-choice[aria-pressed="true"] { background: var(--notes-selected); }
-  .notes-choice[aria-pressed="true"] .notes-choice-title { font-weight: 500; }
+  .notes-choice-title { font-size: clamp(20px, 5cqi, 22px); }
   .notes-choice-title, .notes-choice-summary { display: block; }
   .notes-choice:focus-visible { outline-offset: 3px; }
   .notes-read-link {
@@ -140,7 +139,7 @@ const firstNote = notes[0];
     .notes-static-entry { grid-template-columns: clamp(72px, 17vw, 88px) minmax(0, 1fr); gap: 14px 16px; padding: 18px; }
     .notes-static-art { grid-column: 1; grid-row: 1; }
     .notes-static-copy { display: contents; }
-    .notes-static-copy h3 { grid-column: 2; grid-row: 1; font-size: 23px; }
+    .notes-static-copy h3 { grid-column: 2; grid-row: 1; font-size: 21px; }
     .notes-static-copy p { grid-column: 1 / -1; grid-row: 2; margin: 0; font-size: 16px; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -180,7 +179,7 @@ const firstNote = notes[0];
         layer.setAttribute('aria-hidden', String(position !== index));
       });
       readLink.href = choices[index].dataset.noteHref!;
-      readLink.setAttribute('aria-label', `Read Post: ${choices[index].dataset.noteTitle}`);
+      readLink.setAttribute('aria-label', `Explore this direction: ${choices[index].dataset.noteTitle}`);
     };
     const updateMode = () => {
       cancelHover();
