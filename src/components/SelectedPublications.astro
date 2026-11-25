@@ -27,10 +27,6 @@ const cards = selected.map(({ id, data: d }) => ({
   <div class="section-top site-width"><h2 id="publications-title" class="section-heading">Selected Publications</h2><a href="/publications/" class="section-link continuation-link"><span>All Publications</span><ContinuationArrow /></a></div>
   <div class="ring-toolbar site-width">
     <p class="ring-collection-label">{cards.length} publications</p>
-    <div class="ring-view-actions">
-      <button type="button" class="ring-text-button ring-random" data-ring-random><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m16 3 4 4-4 4M16 13l4 4-4 4M4 7h3c5 0 5 10 10 10h3M4 17h3c2 0 3-2 4-4M13 9c1-1 2-2 4-2h3" /></svg><span>Surprise me</span></button>
-      <button type="button" class="ring-text-button ring-mode" data-ring-mode>List view</button>
-    </div>
   </div>
   <div class="research-ring-stage" data-ring-stage tabindex="0" role="region" aria-roledescription="carousel" aria-label="Selected publications" aria-describedby="research-ring-help">
     <div class="research-ring-track" data-ring-track>
@@ -55,7 +51,7 @@ const cards = selected.map(({ id, data: d }) => ({
     </div>
   </div>
   <div class="ring-navigation site-width">
-    <p id="research-ring-help" class="ring-help">Drag to explore <span aria-hidden="true">·</span> or use the arrow keys</p>
+    <p id="research-ring-help" class="sr-only">Use the left and right arrow keys to browse publications.</p>
     <div class="ring-step-controls">
       <button type="button" class="ring-arrow" data-ring-prev aria-label="Previous publication"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m14 6-6 6 6 6" /></svg></button>
       <span class="ring-counter" data-ring-counter>01 / {String(cards.length).padStart(2, '0')}</span>

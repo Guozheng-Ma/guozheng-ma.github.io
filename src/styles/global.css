@@ -349,7 +349,6 @@ h1, h2, h3, .wordmark, .section-heading, .page-title,
 .wordmark, .section-heading, .page-title,
 .note-copy :is(h2,h3), .publication-copy :is(h2,h3),
 .cv-section h2, .related-link { font-weight: 500; }
-.notes-feature .notes-choice .notes-choice-title, .home-section.notes-feature .notes-static .notes-static-copy h3,
 .publication-showcase .ring-paper-title { font-family: var(--font-sans); font-weight: 500; }
 
 /* Inter has wider title metrics; preserve the original heading and link on narrow screens. */

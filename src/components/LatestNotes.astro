@@ -87,13 +87,13 @@ const firstNote = notes[0];
   .notes-static-art :global(.cover-art) { background: var(--notes-art); }
   .notes-static-copy h3, .notes-choice-title {
     font: 400 24px / 1.25 var(--font-serif);
-    letter-spacing: -.02em;
+    letter-spacing: -.01em;
+    font-optical-sizing: auto;
     text-wrap: pretty;
   }
   .notes-static-copy p, .notes-choice-summary {
     margin-top: 10px;
-    font-size: 16.5px;
-    line-height: 1.55;
+    font: 400 16px / 1.6 var(--font-sans);
     color: var(--color-text-secondary);
   }
   .notes-static-entry:hover h3 { text-decoration: underline; text-underline-offset: 4px; }
