@@ -7,6 +7,7 @@ const { note, compact = false, headingLevel: Heading = 'h3' } = Astro.props;
 <article class:list={['note-card', { 'note-compact': compact }]}>
   {!compact && <a href={`/notes/${note.id}/`} class="note-art" tabindex="-1" aria-hidden="true"><CoverArt color={note.data.cover.color} art={note.data.cover.art} /></a>}
   <div class="note-copy">
+    <p class="note-meta"><time datetime={note.data.date.toISOString().slice(0,10)}>{note.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</time> · {note.data.readingTime} min read</p>
     <Heading><a href={`/notes/${note.id}/`}>{note.data.title}</a></Heading>
     <p class="note-summary">{note.data.tldr}</p>
   </div>

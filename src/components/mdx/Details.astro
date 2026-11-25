@@ -1,0 +1,32 @@
+---
+/** Optional supporting material; essential conclusions should remain in the main text. */
+interface Props { title: string; open?: boolean; }
+const { title, open = false } = Astro.props;
+---
+<details class="article-details" {open}>
+  <summary>{title}</summary>
+  <div class="article-details-body"><slot /></div>
+</details>
+<style>
+  .article-details { margin-block: 1.75rem; padding: 0 1.2rem; border: 1px solid var(--color-border-tertiary); border-radius: 8px; background: var(--color-bg-primary); }
+  summary { padding-block: .9rem; font: 600 .9375rem/1.5 var(--font-sans); cursor: pointer; color: var(--color-text-primary); }
+  summary::marker { color: var(--color-brand); }
+  .article-details-body { padding-bottom: 1rem; }
+  .article-details-body :global(> * + *) { margin-top: 1em; }
+  @media print { .article-details { break-inside: avoid; background: none; } .article-details::details-content { content-visibility: visible; } .article-details:not([open]) > .article-details-body { display: block; } }
+</style>
+<script>
+  // The print edition includes evidence even when a reader has left it collapsed.
+  window.addEventListener('beforeprint', () => {
+    document.querySelectorAll<HTMLDetailsElement>('.article-details:not([open])').forEach((details) => {
+      details.dataset.openedForPrint = 'true';
+      details.open = true;
+    });
+  });
+  window.addEventListener('afterprint', () => {
+    document.querySelectorAll<HTMLDetailsElement>('.article-details[data-opened-for-print]').forEach((details) => {
+      details.open = false;
+      delete details.dataset.openedForPrint;
+    });
+  });
+</script>

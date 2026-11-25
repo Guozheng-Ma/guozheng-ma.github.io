@@ -6,3 +6,10 @@ const { color = 'purple' } = Astro.props;
 <aside class="article-aside" style={`--aside-accent: var(--color-${color}-600);`}>
   <slot />
 </aside>
+<style>
+  .article-aside { margin-block: 2rem; padding: 1.1rem 1.35rem; border-radius: 0 6px 6px 0; border-left: 2px solid var(--aside-accent); background: color-mix(in srgb, var(--aside-accent) 5%, var(--color-bg-primary)); }
+  .article-aside :global(> :first-child) { margin-top: 0; }
+  .article-aside :global(> :last-child) { margin-bottom: 0; }
+  @media (max-width: 600px) { .article-aside { padding: 1rem; } }
+  @media print { .article-aside { background: none; break-inside: avoid; } }
+</style>

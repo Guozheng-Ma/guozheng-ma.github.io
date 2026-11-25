@@ -3,12 +3,30 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import NoteCard from '../../components/NoteCard.astro';
 const notes = (await getCollection('notes', ({ data }) => !data.draft)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const directionOrder = ['agentic-policy', 'online-learning-from-experience', 'learning-dynamics-and-pathologies'];
+const directions = directionOrder.flatMap((id) => notes.filter((note) => note.id === id));
+const essays = notes.filter((note) => !directionOrder.includes(note.id));
 ---
 <Layout title="Blog — Guozheng Ma" description="Research directions and posts on agentic robot learning, online learning from experience, and learning dynamics and pathologies.">
-  <main id="main-content" class="site-width">
-    <div class="page-intro">
+  <main id="main-content" class="site-width blog-index">
+    <header class="page-intro">
       <h1>Blog</h1>
-    </div>
-    <div class="notes-index">{notes.map((note) => <NoteCard note={note} headingLevel="h2" />)}</div>
+      <p>Questions, mechanisms, and perspectives on how agents learn.</p>
+    </header>
+    <nav class="blog-sections" aria-label="Blog sections"><a href="#directions">Research directions</a><a href="#research-notes">Research notes</a></nav>
+    <section aria-labelledby="directions">
+      <h2 id="directions" class="archive-heading">Research directions</h2>
+      <div class="notes-index">{directions.map((note) => <NoteCard note={note} headingLevel="h3" />)}</div>
+    </section>
+    <section aria-labelledby="research-notes">
+      <h2 id="research-notes" class="archive-heading">Research notes</h2>
+      <div class="notes-index">{essays.map((note) => <NoteCard note={note} headingLevel="h3" />)}</div>
+    </section>
   </main>
 </Layout>
+<style>
+  .blog-sections { display: flex; flex-wrap: wrap; gap: 12px 28px; border-bottom: 1px solid var(--color-border-tertiary); padding-bottom: 20px; margin-bottom: 30px; }
+  .blog-sections a { color: var(--color-brand); font-size: 14px; font-weight: 500; min-height: 44px; display: inline-flex; align-items: center; }
+  .archive-heading { font-size: 20px; letter-spacing: -.02em; scroll-margin-top: 30px; }
+  .blog-index > section + section { margin-top: 50px; }
+</style>

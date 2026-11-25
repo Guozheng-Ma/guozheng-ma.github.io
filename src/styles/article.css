@@ -1,0 +1,99 @@
+/* Research writing: a compact introduction, a quiet reading column, and room for evidence. */
+.journal-article {
+  width: min(calc(100% - var(--page-gutter) * 2), 1000px);
+  margin: 3.5rem auto 6rem;
+}
+.journal-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  align-items: center;
+  gap: 3rem;
+  padding-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--color-border-tertiary);
+}
+.journal-header-copy { min-width: 0; }
+.journal-category {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  margin: 0 0 1.25rem;
+  color: var(--color-text-secondary);
+  font: 500 .875rem/1.5 var(--font-sans);
+}
+.journal-category a { color: var(--color-brand); text-decoration: underline; text-underline-offset: .2em; }
+.journal-title {
+  font: 750 clamp(2rem, 3.7vw, 2.75rem)/1.14 var(--font-sans);
+  letter-spacing: -.035em;
+  color: var(--color-text-primary);
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+.journal-lead {
+  margin-top: 1.25rem;
+  font: 400 1.125rem/1.6 var(--font-sans);
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
+}
+.journal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem 1.25rem;
+  margin-top: 1.5rem;
+  color: var(--color-text-secondary);
+  font: 400 .875rem/1.65 var(--font-sans);
+}
+.journal-meta a { font-weight: 500; color: var(--color-text-primary); }
+.journal-illustration { min-width: 0; }
+.journal-illustration .cover-art { background: transparent; border-radius: 8px; }
+.journal-reading, .journal-end { max-width: var(--width-reading, 720px); margin-inline: auto; }
+.journal-prose { margin: 0; }
+.journal-prose :is(h2, h3, h4) { scroll-margin-top: 2rem; }
+.journal-contents {
+  padding: 1.25rem 0;
+  margin-bottom: 2.25rem;
+  border-block: 1px solid var(--color-border-tertiary);
+  font: 400 .9375rem/1.6 var(--font-sans);
+}
+.journal-contents > p { margin-bottom: .75rem; font-weight: 650; }
+.journal-contents ol { margin: 0; padding: 0; list-style: none; display: grid; gap: .4rem; }
+.journal-contents a { color: var(--color-text-secondary); display: inline-block; padding-block: .15rem; }
+.journal-contents a:hover { color: var(--color-brand); }
+.journal-end { margin-top: 3.5rem; }
+.journal-paper, .journal-more {
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--color-border-tertiary);
+}
+.journal-paper { margin-bottom: 2.5rem; }
+.journal-paper h2, .journal-more h2 { font: 650 1rem/1.4 var(--font-sans); letter-spacing: -.01em; }
+.journal-paper-meta { margin: 1rem 0 .35rem; font: 400 .875rem/1.5 var(--font-sans); color: var(--color-text-secondary); }
+.journal-paper-title { display: block; font: 650 1.125rem/1.4 var(--font-sans); letter-spacing: -.015em; }
+.journal-paper-summary { margin-top: .6rem; color: var(--color-text-secondary); font: 400 1rem/1.65 var(--font-serif); }
+.journal-more-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.journal-more-heading > a { color: var(--color-brand); font: 500 .875rem/1.5 var(--font-sans); padding-block: .4rem; }
+.journal-more ul { display: grid; gap: 1.35rem; list-style: none; padding: 0; margin: 1.5rem 0 0; }
+.journal-more li > a { font: 600 1rem/1.5 var(--font-sans); }
+.journal-more li > p { margin-top: .3rem; color: var(--color-text-secondary); font: 400 1rem/1.55 var(--font-serif); }
+@media (max-width: 800px) {
+  .journal-header { grid-template-columns: minmax(0, 1fr) 170px; gap: 1.5rem; }
+}
+@media (max-width: 600px) {
+  .journal-article { margin-block: 2rem 4rem; }
+  .journal-header { display: block; padding-bottom: 1.75rem; margin-bottom: 1.75rem; }
+  .journal-category { margin-bottom: 1rem; }
+  .journal-title { font-size: clamp(1.85rem, 7.4vw, 2.4rem); }
+  .journal-lead { font-size: 1.0625rem; }
+  .journal-illustration { width: min(100%, 280px); margin: 1.75rem auto 0; }
+  .journal-meta { gap: .2rem 1rem; }
+  .journal-end { margin-top: 2.5rem; }
+}
+@media print {
+  .journal-article { width: 100%; max-width: none; margin: 0; }
+  .journal-header { display: block; padding-bottom: 1rem; margin-bottom: 1.5rem; }
+  .journal-illustration, .journal-category, .journal-more { display: none; }
+  .journal-title { font-size: 25pt; }
+  .journal-reading, .journal-end { max-width: none; }
+  .journal-meta, .journal-paper-meta { color: #333; }
+  .journal-contents { break-inside: avoid; }
+  .journal-paper { break-inside: avoid; }
+}

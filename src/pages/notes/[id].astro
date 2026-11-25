@@ -6,7 +6,9 @@ import Aside from '../../components/mdx/Aside.astro';
 import MathBlock from '../../components/mdx/MathBlock.astro';
 import PaperCard from '../../components/mdx/PaperCard.astro';
 import Figure from '../../components/mdx/Figure.astro';
+import Details from '../../components/mdx/Details.astro';
 import { resolveNoteArt } from '../../lib/note-art';
+import '../../styles/article.css';
 
 export async function getStaticPaths() {
   const allNotes = (await getCollection('notes', ({ data }) => !data.draft))
@@ -15,13 +17,21 @@ export async function getStaticPaths() {
     params: { id: note.id },
     props: {
       note,
-      moreNotes: allNotes.filter((other) => other.id !== note.id),
+      moreNotes: allNotes
+        .filter((other) => other.id !== note.id)
+        .sort((a, b) => {
+          const shared = (tags: string[]) => tags.filter((tag) => note.data.tags.includes(tag)).length;
+          return shared(b.data.tags) - shared(a.data.tags);
+        })
+        .slice(0, 3),
     },
   }));
 }
 
 const { note, moreNotes } = Astro.props;
-const { Content } = await render(note);
+const { Content, headings } = await render(note);
+const sections = headings.filter((heading) => heading.depth === 2);
+const showContents = sections.length >= 3;
 const relatedPub = note.data.relatedPub ? await getEntry('publications', note.data.relatedPub) : null;
 const shareImage = resolveNoteArt(note.data.cover).src;
 const dateStr = note.data.date.toLocaleDateString('en-US', {
@@ -30,39 +40,67 @@ const dateStr = note.data.date.toLocaleDateString('en-US', {
   day: 'numeric',
   year: 'numeric',
 });
+const isDirection = note.data.tags.includes('research-direction');
 ---
 <Layout title={note.data.title} description={note.data.tldr} image={shareImage} type="article">
-  <main id="main-content" class="reading-page">
-    <header class="article-header">
-      <a href="/notes/" class="back-link">← Blog</a>
-      <h1 class="page-title">{note.data.title}</h1>
-      <p class="article-meta"><time datetime={note.data.date.toISOString().slice(0, 10)}>{dateStr}</time></p>
-    </header>
+  <main id="main-content" class="journal-article">
+    <article aria-labelledby="note-title">
+      <header class="journal-header">
+        <div class="journal-header-copy">
+          <p class="journal-category"><a href="/notes/">Blog</a><span aria-hidden="true">/</span><span>{isDirection ? 'Research direction' : 'Research note'}</span></p>
+          <h1 id="note-title" class="journal-title">{note.data.title}</h1>
+          <p class="journal-lead">{note.data.tldr}</p>
+          <p class="journal-meta">
+            <a href="/about/">Guozheng Ma</a>
+            <time datetime={note.data.date.toISOString().slice(0, 10)}>{dateStr}</time>
+            <span>{note.data.readingTime} min read</span>
+          </p>
+        </div>
+        <div class="journal-illustration">
+          <CoverArt motif={note.data.cover.motif} color={note.data.cover.color} art={note.data.cover.art} aspectRatio="3 / 2" />
+        </div>
+      </header>
 
-    <article class="prose article-body">
-      <Content components={{ Aside, MathBlock, PaperCard, Figure }} />
+      <div class="journal-reading">
+        {showContents && (
+          <nav class="journal-contents" aria-labelledby="contents-title">
+            <p id="contents-title">In this article</p>
+            <ol>
+              {sections.map((heading) => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}
+            </ol>
+          </nav>
+        )}
+        <div class="prose journal-prose">
+          <Content components={{ Aside, MathBlock, PaperCard, Figure, Details }} />
+        </div>
+      </div>
     </article>
 
-    <div class="note-illustration">
-      <CoverArt motif={note.data.cover.motif} color={note.data.cover.color} art={note.data.cover.art} aspectRatio="3 / 2" />
-    </div>
-
-    {relatedPub && (
-      <section class="related-section" aria-labelledby="related-paper-title">
-        <h2 id="related-paper-title" class="related-title">Related paper</h2>
-        <a href={`/publications/${relatedPub.id}/`} class="related-link">{relatedPub.data.title}</a>
-      </section>
-    )}
-
-    {moreNotes.length > 0 && (
-      <nav class="related-section" aria-labelledby="more-notes-title">
-        <h2 id="more-notes-title" class="related-title">More posts</h2>
-        <ul class="more-notes-list">
-          {moreNotes.map((other) => (
-            <li><a href={`/notes/${other.id}/`} class="related-link">{other.data.title}</a></li>
-          ))}
-        </ul>
-      </nav>
-    )}
+    <footer class="journal-end">
+      {relatedPub && (
+        <section class="journal-paper" aria-labelledby="related-paper-title">
+          <h2 id="related-paper-title">Related paper</h2>
+          <p class="journal-paper-meta">{relatedPub.data.venue} · {relatedPub.data.year}</p>
+          <a href={`/publications/${relatedPub.id}/`} class="journal-paper-title">{relatedPub.data.title}</a>
+          <p class="journal-paper-summary">{relatedPub.data.tldr}</p>
+        </section>
+      )}
+      {moreNotes.length > 0 && (
+        <nav class="journal-more" aria-labelledby="more-notes-title">
+          <div class="journal-more-heading">
+            <h2 id="more-notes-title">Continue reading</h2>
+            <a href="/notes/">All posts</a>
+          </div>
+          <ul>
+            {moreNotes.map((other) => (
+              <li>
+                <a href={`/notes/${other.id}/`}>{other.data.title}</a>
+                <p>{other.data.tldr}</p>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+    </footer>
   </main>
 </Layout>

@@ -2,11 +2,26 @@
 interface Props {
   src: string;
   caption: string;
+  alt?: string;
   width?: string;
+  wide?: boolean;
+  sourceHref?: string;
+  sourceLabel?: string;
 }
-const { src, caption, width } = Astro.props;
+const { src, caption, alt = caption, width, wide = false, sourceHref, sourceLabel = 'Source' } = Astro.props;
 ---
-<figure class="prose-figure" style={width ? `--figure-width: ${width};` : undefined}>
-  <img src={src} alt={caption} loading="lazy" />
-  <figcaption class="figure-caption">{caption}</figcaption>
+<figure class:list={['prose-figure', { 'prose-figure-wide': wide }]} style={width ? `--figure-width: ${width};` : undefined}>
+  <img src={src} {alt} loading="lazy" decoding="async" />
+  <figcaption class="figure-caption">
+    {caption}
+    {sourceHref && <a href={sourceHref} class="figure-source">{sourceLabel}</a>}
+  </figcaption>
 </figure>
+<style>
+  .prose-figure { margin-block: 2.25rem; }
+  .prose-figure img { display: block; max-width: min(var(--figure-width, 100%), 100%); height: auto; margin-inline: auto; border-radius: 8px; }
+  .prose-figure-wide { position: relative; left: 50%; transform: translateX(-50%); width: min(960px, calc(100vw - var(--page-gutter, 24px) * 2)); max-width: none; }
+  .figure-caption { max-width: 720px; margin: .75rem auto 0; font: 400 .875rem/1.6 var(--font-sans); color: var(--color-text-secondary); }
+  .figure-source { display: inline-block; margin-left: .5em; color: var(--color-brand); text-decoration: underline; }
+  @media print { .prose-figure-wide { left: auto; transform: none; width: 100%; } .prose-figure { break-inside: avoid; } }
+</style>
